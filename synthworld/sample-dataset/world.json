@@ -1,0 +1,6490 @@
+{
+  "seed": 1234,
+  "horizon": 360,
+  "types": [
+    "Customer",
+    "Product",
+    "Sector",
+    "Jurisdiction",
+    "Partner",
+    "Asset"
+  ],
+  "entities": [
+    {
+      "id": "customer_00",
+      "type": "Customer"
+    },
+    {
+      "id": "customer_01",
+      "type": "Customer"
+    },
+    {
+      "id": "customer_02",
+      "type": "Customer"
+    },
+    {
+      "id": "customer_03",
+      "type": "Customer"
+    },
+    {
+      "id": "customer_04",
+      "type": "Customer"
+    },
+    {
+      "id": "customer_05",
+      "type": "Customer"
+    },
+    {
+      "id": "customer_06",
+      "type": "Customer"
+    },
+    {
+      "id": "customer_07",
+      "type": "Customer"
+    },
+    {
+      "id": "customer_08",
+      "type": "Customer"
+    },
+    {
+      "id": "customer_09",
+      "type": "Customer"
+    },
+    {
+      "id": "product_00",
+      "type": "Product"
+    },
+    {
+      "id": "product_01",
+      "type": "Product"
+    },
+    {
+      "id": "product_02",
+      "type": "Product"
+    },
+    {
+      "id": "product_03",
+      "type": "Product"
+    },
+    {
+      "id": "product_04",
+      "type": "Product"
+    },
+    {
+      "id": "product_05",
+      "type": "Product"
+    },
+    {
+      "id": "product_06",
+      "type": "Product"
+    },
+    {
+      "id": "product_07",
+      "type": "Product"
+    },
+    {
+      "id": "product_08",
+      "type": "Product"
+    },
+    {
+      "id": "product_09",
+      "type": "Product"
+    },
+    {
+      "id": "sector_00",
+      "type": "Sector"
+    },
+    {
+      "id": "sector_01",
+      "type": "Sector"
+    },
+    {
+      "id": "sector_02",
+      "type": "Sector"
+    },
+    {
+      "id": "sector_03",
+      "type": "Sector"
+    },
+    {
+      "id": "sector_04",
+      "type": "Sector"
+    },
+    {
+      "id": "sector_05",
+      "type": "Sector"
+    },
+    {
+      "id": "sector_06",
+      "type": "Sector"
+    },
+    {
+      "id": "sector_07",
+      "type": "Sector"
+    },
+    {
+      "id": "sector_08",
+      "type": "Sector"
+    },
+    {
+      "id": "sector_09",
+      "type": "Sector"
+    },
+    {
+      "id": "sector_10",
+      "type": "Sector"
+    },
+    {
+      "id": "sector_11",
+      "type": "Sector"
+    },
+    {
+      "id": "sector_12",
+      "type": "Sector"
+    },
+    {
+      "id": "sector_13",
+      "type": "Sector"
+    },
+    {
+      "id": "sector_14",
+      "type": "Sector"
+    },
+    {
+      "id": "sector_15",
+      "type": "Sector"
+    },
+    {
+      "id": "jurisdiction_00",
+      "type": "Jurisdiction"
+    },
+    {
+      "id": "jurisdiction_01",
+      "type": "Jurisdiction"
+    },
+    {
+      "id": "jurisdiction_02",
+      "type": "Jurisdiction"
+    },
+    {
+      "id": "jurisdiction_03",
+      "type": "Jurisdiction"
+    },
+    {
+      "id": "jurisdiction_04",
+      "type": "Jurisdiction"
+    },
+    {
+      "id": "jurisdiction_05",
+      "type": "Jurisdiction"
+    },
+    {
+      "id": "jurisdiction_06",
+      "type": "Jurisdiction"
+    },
+    {
+      "id": "jurisdiction_07",
+      "type": "Jurisdiction"
+    },
+    {
+      "id": "partner_00",
+      "type": "Partner"
+    },
+    {
+      "id": "partner_01",
+      "type": "Partner"
+    },
+    {
+      "id": "partner_02",
+      "type": "Partner"
+    },
+    {
+      "id": "partner_03",
+      "type": "Partner"
+    },
+    {
+      "id": "partner_04",
+      "type": "Partner"
+    },
+    {
+      "id": "partner_05",
+      "type": "Partner"
+    },
+    {
+      "id": "partner_06",
+      "type": "Partner"
+    },
+    {
+      "id": "partner_07",
+      "type": "Partner"
+    },
+    {
+      "id": "partner_08",
+      "type": "Partner"
+    },
+    {
+      "id": "partner_09",
+      "type": "Partner"
+    },
+    {
+      "id": "partner_10",
+      "type": "Partner"
+    },
+    {
+      "id": "partner_11",
+      "type": "Partner"
+    },
+    {
+      "id": "asset_00",
+      "type": "Asset"
+    },
+    {
+      "id": "asset_01",
+      "type": "Asset"
+    },
+    {
+      "id": "asset_02",
+      "type": "Asset"
+    },
+    {
+      "id": "asset_03",
+      "type": "Asset"
+    },
+    {
+      "id": "asset_04",
+      "type": "Asset"
+    },
+    {
+      "id": "asset_05",
+      "type": "Asset"
+    },
+    {
+      "id": "asset_06",
+      "type": "Asset"
+    },
+    {
+      "id": "asset_07",
+      "type": "Asset"
+    },
+    {
+      "id": "asset_08",
+      "type": "Asset"
+    },
+    {
+      "id": "asset_09",
+      "type": "Asset"
+    },
+    {
+      "id": "asset_10",
+      "type": "Asset"
+    },
+    {
+      "id": "asset_11",
+      "type": "Asset"
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel_b00_registered_in",
+      "name": "registered_in",
+      "slots": [
+        {
+          "name": "asset",
+          "type": "Asset"
+        },
+        {
+          "name": "customer",
+          "type": "Customer"
+        }
+      ],
+      "stratum": 0
+    },
+    {
+      "id": "rel_b01_operates_in",
+      "name": "operates_in",
+      "slots": [
+        {
+          "name": "asset",
+          "type": "Asset"
+        },
+        {
+          "name": "product",
+          "type": "Product"
+        },
+        {
+          "name": "customer",
+          "type": "Customer"
+        }
+      ],
+      "stratum": 0
+    },
+    {
+      "id": "rel_b02_classified_as",
+      "name": "classified_as",
+      "slots": [
+        {
+          "name": "product",
+          "type": "Product"
+        },
+        {
+          "name": "partner",
+          "type": "Partner"
+        }
+      ],
+      "stratum": 0
+    },
+    {
+      "id": "rel_b03_offered_in",
+      "name": "offered_in",
+      "slots": [
+        {
+          "name": "product",
+          "type": "Product"
+        },
+        {
+          "name": "product2",
+          "type": "Product"
+        }
+      ],
+      "stratum": 0
+    },
+    {
+      "id": "rel_b04_supplies",
+      "name": "supplies",
+      "slots": [
+        {
+          "name": "customer",
+          "type": "Customer"
+        },
+        {
+          "name": "product",
+          "type": "Product"
+        }
+      ],
+      "stratum": 0
+    },
+    {
+      "id": "rel_b05_holds",
+      "name": "holds",
+      "slots": [
+        {
+          "name": "customer",
+          "type": "Customer"
+        },
+        {
+          "name": "partner",
+          "type": "Partner"
+        }
+      ],
+      "stratum": 0
+    },
+    {
+      "id": "rel_b06_partnered_with",
+      "name": "partnered_with",
+      "slots": [
+        {
+          "name": "partner",
+          "type": "Partner"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "Jurisdiction"
+        }
+      ],
+      "stratum": 0
+    },
+    {
+      "id": "rel_b07_located_in",
+      "name": "located_in",
+      "slots": [
+        {
+          "name": "product",
+          "type": "Product"
+        },
+        {
+          "name": "product2",
+          "type": "Product"
+        }
+      ],
+      "stratum": 0
+    },
+    {
+      "id": "rel_d100_eligible_for",
+      "name": "eligible_for",
+      "slots": [
+        {
+          "name": "product",
+          "type": "Product"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "Jurisdiction"
+        },
+        {
+          "name": "partner",
+          "type": "Partner"
+        }
+      ],
+      "stratum": 1
+    },
+    {
+      "id": "rel_d101_restricted_in",
+      "name": "restricted_in",
+      "slots": [
+        {
+          "name": "customer",
+          "type": "Customer"
+        },
+        {
+          "name": "customer2",
+          "type": "Customer"
+        }
+      ],
+      "stratum": 1
+    },
+    {
+      "id": "rel_d200_requires_review",
+      "name": "requires_review",
+      "slots": [
+        {
+          "name": "customer",
+          "type": "Customer"
+        },
+        {
+          "name": "customer2",
+          "type": "Customer"
+        }
+      ],
+      "stratum": 2
+    },
+    {
+      "id": "rel_d201_approved_for",
+      "name": "approved_for",
+      "slots": [
+        {
+          "name": "asset",
+          "type": "Asset"
+        },
+        {
+          "name": "product",
+          "type": "Product"
+        }
+      ],
+      "stratum": 2
+    },
+    {
+      "id": "rel_d300_exempt_from",
+      "name": "exempt_from",
+      "slots": [
+        {
+          "name": "partner",
+          "type": "Partner"
+        },
+        {
+          "name": "product",
+          "type": "Product"
+        }
+      ],
+      "stratum": 3
+    },
+    {
+      "id": "rel_d301_flagged_for",
+      "name": "flagged_for",
+      "slots": [
+        {
+          "name": "customer",
+          "type": "Customer"
+        },
+        {
+          "name": "partner",
+          "type": "Partner"
+        }
+      ],
+      "stratum": 3
+    }
+  ],
+  "facts": [
+    {
+      "id": "fct_0001",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_01",
+          "product2": "product_01"
+        }
+      },
+      "from": 91,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_074"
+    },
+    {
+      "id": "fct_0002",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_04",
+          "partner": "partner_03"
+        }
+      },
+      "from": 63,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_061"
+    },
+    {
+      "id": "fct_0003",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_08",
+          "product2": "product_08"
+        }
+      },
+      "from": 65,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_063"
+    },
+    {
+      "id": "fct_0004",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_03",
+          "partner": "partner_10"
+        }
+      },
+      "from": 58,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_060"
+    },
+    {
+      "id": "fct_0005",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_03",
+          "product2": "product_03"
+        }
+      },
+      "from": 77,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_068"
+    },
+    {
+      "id": "fct_0006",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_04",
+          "partner": "partner_08"
+        }
+      },
+      "from": 69,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_064"
+    },
+    {
+      "id": "fct_0007",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_04",
+          "partner": "partner_10"
+        }
+      },
+      "from": 36,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_047"
+    },
+    {
+      "id": "fct_0008",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_07",
+          "product2": "product_07"
+        }
+      },
+      "from": 6,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_011"
+    },
+    {
+      "id": "fct_0009",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_02",
+          "partner": "partner_09"
+        }
+      },
+      "from": 12,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_018"
+    },
+    {
+      "id": "fct_0010",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_06",
+          "product2": "product_06"
+        }
+      },
+      "from": 6,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_011"
+    },
+    {
+      "id": "fct_0011",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_03",
+          "partner": "partner_03"
+        }
+      },
+      "from": 99,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_078"
+    },
+    {
+      "id": "fct_0012",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_06",
+          "partner": "partner_00"
+        }
+      },
+      "from": 77,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_068"
+    },
+    {
+      "id": "fct_0013",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_05",
+          "partner": "partner_00"
+        }
+      },
+      "from": 31,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_043"
+    },
+    {
+      "id": "fct_0014",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_08",
+          "product2": "product_08"
+        }
+      },
+      "from": 83,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_071"
+    },
+    {
+      "id": "fct_0015",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_06",
+          "partner": "partner_05"
+        }
+      },
+      "from": 45,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_052"
+    },
+    {
+      "id": "fct_0016",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_05",
+          "partner": "partner_05"
+        }
+      },
+      "from": 63,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_062"
+    },
+    {
+      "id": "fct_0017",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_00",
+          "partner": "partner_08"
+        }
+      },
+      "from": 69,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_065"
+    },
+    {
+      "id": "fct_0018",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_06",
+          "partner": "partner_08"
+        }
+      },
+      "from": 39,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_048"
+    },
+    {
+      "id": "fct_0019",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_02",
+          "product2": "product_02"
+        }
+      },
+      "from": 22,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_036"
+    },
+    {
+      "id": "fct_0020",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_05",
+          "partner": "partner_10"
+        }
+      },
+      "from": 30,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_041"
+    },
+    {
+      "id": "fct_0021",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_02",
+          "partner": "partner_10"
+        }
+      },
+      "from": 10,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_015"
+    },
+    {
+      "id": "fct_0022",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_00",
+          "product2": "product_00"
+        }
+      },
+      "from": 1,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_003"
+    },
+    {
+      "id": "fct_0023",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_07",
+          "partner": "partner_09"
+        }
+      },
+      "from": 0,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_001"
+    },
+    {
+      "id": "fct_0024",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_00",
+          "partner": "partner_09"
+        }
+      },
+      "from": 62,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_061"
+    },
+    {
+      "id": "fct_0025",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_03",
+          "partner": "partner_06"
+        }
+      },
+      "from": 24,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_038"
+    },
+    {
+      "id": "fct_0026",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_04",
+          "partner": "partner_06"
+        }
+      },
+      "from": 34,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_045"
+    },
+    {
+      "id": "fct_0027",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_09",
+          "product2": "product_09"
+        }
+      },
+      "from": 40,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_049"
+    },
+    {
+      "id": "fct_0028",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_05",
+          "partner": "partner_08"
+        }
+      },
+      "from": 77,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_069"
+    },
+    {
+      "id": "fct_0029",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_06",
+          "product2": "product_06"
+        }
+      },
+      "from": 0,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_001"
+    },
+    {
+      "id": "fct_0030",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_09",
+          "partner": "partner_00"
+        }
+      },
+      "from": 19,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_030"
+    },
+    {
+      "id": "fct_0031",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_00",
+          "partner": "partner_00"
+        }
+      },
+      "from": 95,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_075"
+    },
+    {
+      "id": "fct_0032",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_06",
+          "partner": "partner_11"
+        }
+      },
+      "from": 82,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_071"
+    },
+    {
+      "id": "fct_0033",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_01",
+          "partner": "partner_11"
+        }
+      },
+      "from": 7,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_013"
+    },
+    {
+      "id": "fct_0034",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_08",
+          "partner": "partner_06"
+        }
+      },
+      "from": 74,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_067"
+    },
+    {
+      "id": "fct_0035",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_02",
+          "partner": "partner_06"
+        }
+      },
+      "from": 90,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_073"
+    },
+    {
+      "id": "fct_0036",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_09",
+          "partner": "partner_03"
+        }
+      },
+      "from": 115,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_083"
+    },
+    {
+      "id": "fct_0037",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_04",
+          "partner": "partner_03"
+        }
+      },
+      "from": 49,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_055"
+    },
+    {
+      "id": "fct_0038",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_00",
+          "partner": "partner_01"
+        }
+      },
+      "from": 104,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_079"
+    },
+    {
+      "id": "fct_0039",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_08",
+          "partner": "partner_01"
+        }
+      },
+      "from": 105,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_079"
+    },
+    {
+      "id": "fct_0040",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_05",
+          "partner": "partner_06"
+        }
+      },
+      "from": 114,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_083"
+    },
+    {
+      "id": "fct_0041",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_09",
+          "partner": "partner_06"
+        }
+      },
+      "from": 7,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_013"
+    },
+    {
+      "id": "fct_0042",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_00",
+          "partner": "partner_05"
+        }
+      },
+      "from": 73,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_066"
+    },
+    {
+      "id": "fct_0043",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_02",
+          "partner": "partner_05"
+        }
+      },
+      "from": 97,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_077"
+    },
+    {
+      "id": "fct_0044",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_05",
+          "partner": "partner_01"
+        }
+      },
+      "from": 33,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_044"
+    },
+    {
+      "id": "fct_0045",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_02",
+          "partner": "partner_01"
+        }
+      },
+      "from": 53,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_057"
+    },
+    {
+      "id": "fct_0046",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_05",
+          "partner": "partner_10"
+        }
+      },
+      "from": 69,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_065"
+    },
+    {
+      "id": "fct_0047",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_06",
+          "customer": "customer_02"
+        }
+      },
+      "from": 109,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_080"
+    },
+    {
+      "id": "fct_0048",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_03",
+          "product2": "product_03"
+        }
+      },
+      "from": 1,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_003"
+    },
+    {
+      "id": "fct_0049",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_06",
+          "partner": "partner_10"
+        }
+      },
+      "from": 33,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_044"
+    },
+    {
+      "id": "fct_0050",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_04",
+          "customer": "customer_02"
+        }
+      },
+      "from": 74,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_067"
+    },
+    {
+      "id": "fct_0051",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_06",
+          "partner": "partner_06"
+        }
+      },
+      "from": 34,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_045"
+    },
+    {
+      "id": "fct_0052",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_01",
+          "partner": "partner_10"
+        }
+      },
+      "from": 43,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_051"
+    },
+    {
+      "id": "fct_0053",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_09",
+          "customer": "customer_06"
+        }
+      },
+      "from": 50,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_056"
+    },
+    {
+      "id": "fct_0054",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_01",
+          "partner": "partner_03"
+        }
+      },
+      "from": 74,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_067"
+    },
+    {
+      "id": "fct_0055",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_07",
+          "customer": "customer_04"
+        }
+      },
+      "from": 96,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_076"
+    },
+    {
+      "id": "fct_0056",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_08",
+          "partner": "partner_00"
+        }
+      },
+      "from": 81,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_071"
+    },
+    {
+      "id": "fct_0057",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_07",
+          "partner": "partner_10"
+        }
+      },
+      "from": 13,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_020"
+    },
+    {
+      "id": "fct_0058",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_04",
+          "customer": "customer_05"
+        }
+      },
+      "from": 116,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_083"
+    },
+    {
+      "id": "fct_0059",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_02",
+          "partner": "partner_02"
+        }
+      },
+      "from": 98,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_077"
+    },
+    {
+      "id": "fct_0060",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_06",
+          "partner": "partner_02"
+        }
+      },
+      "from": 28,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_040"
+    },
+    {
+      "id": "fct_0061",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_00",
+          "customer": "customer_06"
+        }
+      },
+      "from": 53,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_057"
+    },
+    {
+      "id": "fct_0062",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_04",
+          "partner": "partner_02"
+        }
+      },
+      "from": 22,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_037"
+    },
+    {
+      "id": "fct_0063",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_03",
+          "partner": "partner_02"
+        }
+      },
+      "from": 11,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_016"
+    },
+    {
+      "id": "fct_0064",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_10",
+          "customer": "customer_03"
+        }
+      },
+      "from": 90,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_073"
+    },
+    {
+      "id": "fct_0065",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_09",
+          "partner": "partner_01"
+        }
+      },
+      "from": 35,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_046"
+    },
+    {
+      "id": "fct_0066",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_01",
+          "partner": "partner_01"
+        }
+      },
+      "from": 47,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_053"
+    },
+    {
+      "id": "fct_0067",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_02",
+          "customer": "customer_01"
+        }
+      },
+      "from": 6,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_012"
+    },
+    {
+      "id": "fct_0068",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_08",
+          "partner": "partner_04"
+        }
+      },
+      "from": 92,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_075"
+    },
+    {
+      "id": "fct_0069",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_07",
+          "partner": "partner_11"
+        }
+      },
+      "from": 46,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_052"
+    },
+    {
+      "id": "fct_0070",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_02",
+          "partner": "partner_08"
+        }
+      },
+      "from": 3,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_006"
+    },
+    {
+      "id": "fct_0071",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_04",
+          "partner": "partner_08"
+        }
+      },
+      "from": 95,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_076"
+    },
+    {
+      "id": "fct_0072",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_04",
+          "partner": "partner_11"
+        }
+      },
+      "from": 67,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_063"
+    },
+    {
+      "id": "fct_0073",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_09",
+          "partner": "partner_07"
+        }
+      },
+      "from": 78,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_070"
+    },
+    {
+      "id": "fct_0074",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_03",
+          "partner": "partner_07"
+        }
+      },
+      "from": 59,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_060"
+    },
+    {
+      "id": "fct_0075",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_03",
+          "partner": "partner_00"
+        }
+      },
+      "from": 107,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_080"
+    },
+    {
+      "id": "fct_0076",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_05",
+          "partner": "partner_03"
+        }
+      },
+      "from": 53,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_058"
+    },
+    {
+      "id": "fct_0077",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_07",
+          "partner": "partner_03"
+        }
+      },
+      "from": 45,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_052"
+    },
+    {
+      "id": "fct_0078",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_07",
+          "partner": "partner_07"
+        }
+      },
+      "from": 1,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_003"
+    },
+    {
+      "id": "fct_0079",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_05",
+          "product2": "product_05"
+        }
+      },
+      "from": 39,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_048"
+    },
+    {
+      "id": "fct_0080",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_01",
+          "partner": "partner_00"
+        }
+      },
+      "from": 30,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_042"
+    },
+    {
+      "id": "fct_0081",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_02",
+          "customer": "customer_08"
+        }
+      },
+      "from": 72,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_066"
+    },
+    {
+      "id": "fct_0082",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_01",
+          "product2": "product_07"
+        }
+      },
+      "from": 18,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_028"
+    },
+    {
+      "id": "fct_0083",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_06",
+          "customer": "customer_09"
+        }
+      },
+      "from": 15,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_023"
+    },
+    {
+      "id": "fct_0084",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_06",
+          "product2": "product_08"
+        }
+      },
+      "from": 43,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_051"
+    },
+    {
+      "id": "fct_0085",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_07",
+          "product2": "product_03"
+        }
+      },
+      "from": 63,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_062"
+    },
+    {
+      "id": "fct_0086",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_05",
+          "customer": "customer_02"
+        }
+      },
+      "from": 47,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_053"
+    },
+    {
+      "id": "fct_0087",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_03",
+          "product2": "product_09"
+        }
+      },
+      "from": 48,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_054"
+    },
+    {
+      "id": "fct_0088",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_01",
+          "customer": "customer_07"
+        }
+      },
+      "from": 1,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_003"
+    },
+    {
+      "id": "fct_0089",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_08",
+          "product2": "product_00"
+        }
+      },
+      "from": 31,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_043"
+    },
+    {
+      "id": "fct_0090",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_08",
+          "customer": "customer_03"
+        }
+      },
+      "from": 68,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_064"
+    },
+    {
+      "id": "fct_0091",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_02",
+          "product2": "product_05"
+        }
+      },
+      "from": 66,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_063"
+    },
+    {
+      "id": "fct_0092",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_05",
+          "customer": "customer_09"
+        }
+      },
+      "from": 8,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_015"
+    },
+    {
+      "id": "fct_0093",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_07",
+          "product2": "product_07"
+        }
+      },
+      "from": 56,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_059"
+    },
+    {
+      "id": "fct_0094",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_02",
+          "customer": "customer_06"
+        }
+      },
+      "from": 47,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_054"
+    },
+    {
+      "id": "fct_0095",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_03",
+          "product2": "product_06"
+        }
+      },
+      "from": 22,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_037"
+    },
+    {
+      "id": "fct_0096",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_10",
+          "customer": "customer_08",
+          "product": "product_03"
+        }
+      },
+      "from": 16,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_026"
+    },
+    {
+      "id": "fct_0097",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_04",
+          "partner": "partner_02"
+        }
+      },
+      "from": 90,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_073"
+    },
+    {
+      "id": "fct_0098",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_07",
+          "customer": "customer_04",
+          "product": "product_00"
+        }
+      },
+      "from": 21,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_035"
+    },
+    {
+      "id": "fct_0099",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_02",
+          "customer": "customer_03",
+          "product": "product_01"
+        }
+      },
+      "from": 16,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_026"
+    },
+    {
+      "id": "fct_0100",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_05",
+          "partner": "partner_07"
+        }
+      },
+      "from": 79,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_070"
+    },
+    {
+      "id": "fct_0101",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_01",
+          "customer": "customer_05",
+          "product": "product_02"
+        }
+      },
+      "from": 18,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_028"
+    },
+    {
+      "id": "fct_0102",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_01",
+          "partner": "partner_08"
+        }
+      },
+      "from": 48,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_055"
+    },
+    {
+      "id": "fct_0103",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_06",
+          "customer": "customer_03",
+          "product": "product_02"
+        }
+      },
+      "from": 19,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_031"
+    },
+    {
+      "id": "fct_0104",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_06",
+          "partner": "partner_03"
+        }
+      },
+      "from": 6,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_012"
+    },
+    {
+      "id": "fct_0105",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_06",
+          "customer": "customer_06",
+          "product": "product_03"
+        }
+      },
+      "from": 15,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_023"
+    },
+    {
+      "id": "fct_0106",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_06",
+          "partner": "partner_08"
+        }
+      },
+      "from": 53,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_058"
+    },
+    {
+      "id": "fct_0107",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_03",
+          "customer": "customer_02",
+          "product": "product_00"
+        }
+      },
+      "from": 15,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_023"
+    },
+    {
+      "id": "fct_0108",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_09",
+          "product2": "product_09"
+        }
+      },
+      "from": 20,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_033"
+    },
+    {
+      "id": "fct_0109",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_00",
+          "partner": "partner_05"
+        }
+      },
+      "from": 45,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_052"
+    },
+    {
+      "id": "fct_0110",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_04",
+          "customer": "customer_06",
+          "product": "product_00"
+        }
+      },
+      "from": 17,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_027"
+    },
+    {
+      "id": "fct_0111",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_04",
+          "product2": "product_04"
+        }
+      },
+      "from": 3,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_006"
+    },
+    {
+      "id": "fct_0112",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_06",
+          "partner": "partner_01"
+        }
+      },
+      "from": 71,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_066"
+    },
+    {
+      "id": "fct_0113",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_11",
+          "customer": "customer_04",
+          "product": "product_06"
+        }
+      },
+      "from": 7,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_013"
+    },
+    {
+      "id": "fct_0114",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_02",
+          "product2": "product_02"
+        }
+      },
+      "from": 96,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_076"
+    },
+    {
+      "id": "fct_0115",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_04",
+          "partner": "partner_05"
+        }
+      },
+      "from": 64,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_062"
+    },
+    {
+      "id": "fct_0116",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_06",
+          "customer": "customer_00",
+          "product": "product_08"
+        }
+      },
+      "from": 0,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_001"
+    },
+    {
+      "id": "fct_0117",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_06",
+          "partner": "partner_11"
+        }
+      },
+      "from": 78,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_070"
+    },
+    {
+      "id": "fct_0118",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_08",
+          "customer": "customer_09",
+          "product": "product_07"
+        }
+      },
+      "from": 3,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_007"
+    },
+    {
+      "id": "fct_0119",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_00",
+          "partner": "partner_11"
+        }
+      },
+      "from": 0,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_002"
+    },
+    {
+      "id": "fct_0120",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_10",
+          "customer": "customer_03",
+          "product": "product_07"
+        }
+      },
+      "from": 18,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_029"
+    },
+    {
+      "id": "fct_0121",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_07",
+          "partner": "partner_03"
+        }
+      },
+      "from": 16,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_026"
+    },
+    {
+      "id": "fct_0122",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_00",
+          "partner": "partner_03"
+        }
+      },
+      "from": 37,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_047"
+    },
+    {
+      "id": "fct_0123",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_01",
+          "customer": "customer_08",
+          "product": "product_00"
+        }
+      },
+      "from": 3,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_007"
+    },
+    {
+      "id": "fct_0124",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_02",
+          "partner": "partner_00"
+        }
+      },
+      "from": 7,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_014"
+    },
+    {
+      "id": "fct_0125",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_11",
+          "customer": "customer_01",
+          "product": "product_09"
+        }
+      },
+      "from": 9,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_015"
+    },
+    {
+      "id": "fct_0126",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_05",
+          "partner": "partner_00"
+        }
+      },
+      "from": 14,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_021"
+    },
+    {
+      "id": "fct_0127",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_02",
+          "customer": "customer_06",
+          "product": "product_06"
+        }
+      },
+      "from": 33,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_044"
+    },
+    {
+      "id": "fct_0128",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_03",
+          "partner": "partner_07"
+        }
+      },
+      "from": 11,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_016"
+    },
+    {
+      "id": "fct_0129",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_01",
+          "partner": "partner_07"
+        }
+      },
+      "from": 15,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_024"
+    },
+    {
+      "id": "fct_0130",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_06",
+          "customer": "customer_09",
+          "product": "product_04"
+        }
+      },
+      "from": 17,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_027"
+    },
+    {
+      "id": "fct_0131",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_03",
+          "partner": "partner_02"
+        }
+      },
+      "from": 27,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_039"
+    },
+    {
+      "id": "fct_0132",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_01",
+          "partner": "partner_02"
+        }
+      },
+      "from": 28,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_040"
+    },
+    {
+      "id": "fct_0133",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_04",
+          "customer": "customer_00",
+          "product": "product_09"
+        }
+      },
+      "from": 15,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_024"
+    },
+    {
+      "id": "fct_0134",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_00",
+          "partner": "partner_07"
+        }
+      },
+      "from": 31,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_043"
+    },
+    {
+      "id": "fct_0135",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_01",
+          "customer": "customer_01",
+          "product": "product_08"
+        }
+      },
+      "from": 13,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_021"
+    },
+    {
+      "id": "fct_0136",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_02",
+          "partner": "partner_05"
+        }
+      },
+      "from": 3,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_007"
+    },
+    {
+      "id": "fct_0137",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_07",
+          "partner": "partner_11"
+        }
+      },
+      "from": 81,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_071"
+    },
+    {
+      "id": "fct_0138",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_07",
+          "product": "product_09"
+        }
+      },
+      "from": 35,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_046"
+    },
+    {
+      "id": "fct_0139",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_04",
+          "partner": "partner_11"
+        }
+      },
+      "from": 19,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_031"
+    },
+    {
+      "id": "fct_0140",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_01",
+          "product": "product_02"
+        }
+      },
+      "from": 16,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_026"
+    },
+    {
+      "id": "fct_0141",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_06",
+          "partner": "partner_05"
+        }
+      },
+      "from": 25,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_039"
+    },
+    {
+      "id": "fct_0142",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_00",
+          "product": "product_04"
+        }
+      },
+      "from": 40,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_050"
+    },
+    {
+      "id": "fct_0143",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_04",
+          "partner": "partner_09"
+        }
+      },
+      "from": 7,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_014"
+    },
+    {
+      "id": "fct_0144",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_06",
+          "product": "product_09"
+        }
+      },
+      "from": 23,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_038"
+    },
+    {
+      "id": "fct_0145",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_02",
+          "product": "product_08"
+        }
+      },
+      "from": 48,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_055"
+    },
+    {
+      "id": "fct_0146",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_00",
+          "product2": "product_00"
+        }
+      },
+      "from": 36,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_047"
+    },
+    {
+      "id": "fct_0147",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_04",
+          "partner": "partner_01"
+        }
+      },
+      "from": 76,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_068"
+    },
+    {
+      "id": "fct_0148",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_03",
+          "product": "product_00"
+        }
+      },
+      "from": 24,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_038"
+    },
+    {
+      "id": "fct_0149",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_08",
+          "product": "product_09"
+        }
+      },
+      "from": 38,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_048"
+    },
+    {
+      "id": "fct_0150",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_07",
+          "partner": "partner_04"
+        }
+      },
+      "from": 69,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_066"
+    },
+    {
+      "id": "fct_0151",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_01",
+          "product": "product_03"
+        }
+      },
+      "from": 19,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_032"
+    },
+    {
+      "id": "fct_0152",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_06",
+          "product": "product_08"
+        }
+      },
+      "from": 5,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_010"
+    },
+    {
+      "id": "fct_0153",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_02",
+          "product": "product_00"
+        }
+      },
+      "from": 4,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_008"
+    },
+    {
+      "id": "fct_0154",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_09",
+          "product2": "product_00"
+        }
+      },
+      "from": 11,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_017"
+    },
+    {
+      "id": "fct_0155",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_03",
+          "partner": "partner_11"
+        }
+      },
+      "from": 11,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_017"
+    },
+    {
+      "id": "fct_0156",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_03",
+          "product": "product_05"
+        }
+      },
+      "from": 7,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_014"
+    },
+    {
+      "id": "fct_0157",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_09",
+          "partner": "partner_05"
+        }
+      },
+      "from": 13,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_021"
+    },
+    {
+      "id": "fct_0158",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_09",
+          "product": "product_07"
+        }
+      },
+      "from": 5,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_010"
+    },
+    {
+      "id": "fct_0159",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_03",
+          "product2": "product_07"
+        }
+      },
+      "from": 10,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_016"
+    },
+    {
+      "id": "fct_0160",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_00",
+          "product": "product_05"
+        }
+      },
+      "from": 4,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_008"
+    },
+    {
+      "id": "fct_0161",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_08",
+          "product2": "product_05"
+        }
+      },
+      "from": 4,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_008"
+    },
+    {
+      "id": "fct_0162",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_01",
+          "product": "product_08"
+        }
+      },
+      "from": 5,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_010"
+    },
+    {
+      "id": "fct_0163",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_00",
+          "product2": "product_08"
+        }
+      },
+      "from": 0,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_002"
+    },
+    {
+      "id": "fct_0164",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_07",
+          "product": "product_01"
+        }
+      },
+      "from": 1,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_004"
+    },
+    {
+      "id": "fct_0165",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_02",
+          "product2": "product_01"
+        }
+      },
+      "from": 15,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_024"
+    },
+    {
+      "id": "fct_0166",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_02",
+          "partner": "partner_09"
+        }
+      },
+      "from": 12,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_018"
+    },
+    {
+      "id": "fct_0167",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_02",
+          "product": "product_05"
+        }
+      },
+      "from": 7,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_014"
+    },
+    {
+      "id": "fct_0168",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_06",
+          "product2": "product_05"
+        }
+      },
+      "from": 11,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_017"
+    },
+    {
+      "id": "fct_0169",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_05",
+          "product": "product_07"
+        }
+      },
+      "from": 17,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_027"
+    },
+    {
+      "id": "fct_0170",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_03",
+          "partner": "partner_08"
+        }
+      },
+      "from": 12,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_019"
+    },
+    {
+      "id": "fct_0171",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_03",
+          "partner": "partner_09"
+        }
+      },
+      "from": 19,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_032"
+    },
+    {
+      "id": "fct_0172",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_09",
+          "product": "product_09"
+        }
+      },
+      "from": 7,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_014"
+    },
+    {
+      "id": "fct_0173",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_09",
+          "customer": "customer_09",
+          "product": "product_09"
+        }
+      },
+      "from": 11,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_017"
+    },
+    {
+      "id": "fct_0174",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_03",
+          "product": "product_08"
+        }
+      },
+      "from": 30,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_042"
+    },
+    {
+      "id": "fct_0175",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_04",
+          "customer": "customer_02",
+          "product": "product_08"
+        }
+      },
+      "from": 0,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_002"
+    },
+    {
+      "id": "fct_0176",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_07",
+          "partner": "partner_05"
+        }
+      },
+      "from": 4,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_008"
+    },
+    {
+      "id": "fct_0177",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_05",
+          "product": "product_07"
+        }
+      },
+      "from": 4,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_009"
+    },
+    {
+      "id": "fct_0178",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_06",
+          "customer": "customer_06",
+          "product": "product_07"
+        }
+      },
+      "from": 24,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_039"
+    },
+    {
+      "id": "fct_0179",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_04",
+          "product": "product_09"
+        }
+      },
+      "from": 1,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_004"
+    },
+    {
+      "id": "fct_0180",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_00",
+          "customer": "customer_03",
+          "product": "product_09"
+        }
+      },
+      "from": 18,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_029"
+    },
+    {
+      "id": "fct_0181",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_03",
+          "partner": "partner_11"
+        }
+      },
+      "from": 11,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_018"
+    },
+    {
+      "id": "fct_0182",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_11",
+          "product": "product_02"
+        }
+      },
+      "from": 21,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_035"
+    },
+    {
+      "id": "fct_0183",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_02",
+          "customer": "customer_01",
+          "product": "product_02"
+        }
+      },
+      "from": 20,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_034"
+    },
+    {
+      "id": "fct_0184",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_10",
+          "product": "product_05"
+        }
+      },
+      "from": 15,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_024"
+    },
+    {
+      "id": "fct_0185",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_01",
+          "customer": "customer_05",
+          "product": "product_05"
+        }
+      },
+      "from": 15,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_024"
+    },
+    {
+      "id": "fct_0186",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_07",
+          "partner": "partner_09"
+        }
+      },
+      "from": 12,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_019"
+    },
+    {
+      "id": "fct_0187",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_10",
+          "customer": "customer_08",
+          "product": "product_09"
+        }
+      },
+      "from": 22,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_038"
+    },
+    {
+      "id": "fct_0188",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_08",
+          "partner": "partner_10"
+        }
+      },
+      "from": 79,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_070"
+    },
+    {
+      "id": "fct_0189",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_06",
+          "product": "product_06"
+        }
+      },
+      "from": 21,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_035"
+    },
+    {
+      "id": "fct_0190",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_09",
+          "partner": "partner_11"
+        }
+      },
+      "from": 83,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_072"
+    },
+    {
+      "id": "fct_0191",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_09",
+          "partner": "partner_09"
+        }
+      },
+      "from": 119,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_085"
+    },
+    {
+      "id": "fct_0192",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_04",
+          "partner": "partner_10"
+        }
+      },
+      "from": 14,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_022"
+    },
+    {
+      "id": "fct_0193",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_11",
+          "product": "product_09"
+        }
+      },
+      "from": 4,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_009"
+    },
+    {
+      "id": "fct_0194",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_03",
+          "partner": "partner_04"
+        }
+      },
+      "from": 47,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_054"
+    },
+    {
+      "id": "fct_0195",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_00",
+          "partner": "partner_04"
+        }
+      },
+      "from": 80,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_070"
+    },
+    {
+      "id": "fct_0196",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_10",
+          "product": "product_08"
+        }
+      },
+      "from": 14,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_022"
+    },
+    {
+      "id": "fct_0197",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_00",
+          "partner": "partner_10"
+        }
+      },
+      "from": 6,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_012"
+    },
+    {
+      "id": "fct_0198",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_01",
+          "partner": "partner_10"
+        }
+      },
+      "from": 18,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_029"
+    },
+    {
+      "id": "fct_0199",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_09",
+          "partner": "partner_10"
+        }
+      },
+      "from": 85,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_072"
+    },
+    {
+      "id": "fct_0200",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_07",
+          "product": "product_02"
+        }
+      },
+      "from": 21,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_035"
+    },
+    {
+      "id": "fct_0201",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_02",
+          "partner": "partner_11"
+        }
+      },
+      "from": 113,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_083"
+    },
+    {
+      "id": "fct_0202",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_06",
+          "product": "product_01"
+        }
+      },
+      "from": 27,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_039"
+    },
+    {
+      "id": "fct_0203",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_03",
+          "partner": "partner_05"
+        }
+      },
+      "from": 99,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_078"
+    },
+    {
+      "id": "fct_0204",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_02",
+          "product": "product_02"
+        }
+      },
+      "from": 14,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_022"
+    },
+    {
+      "id": "fct_0205",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_03",
+          "partner": "partner_10"
+        }
+      },
+      "from": 37,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_047"
+    },
+    {
+      "id": "fct_0206",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_04",
+          "product2": "product_04"
+        }
+      },
+      "from": 28,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_040"
+    },
+    {
+      "id": "fct_0207",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_01",
+          "product": "product_08"
+        }
+      },
+      "from": 12,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_020"
+    },
+    {
+      "id": "fct_0208",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_03",
+          "partner": "partner_01"
+        }
+      },
+      "from": 14,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_023"
+    },
+    {
+      "id": "fct_0209",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_08",
+          "partner": "partner_09"
+        }
+      },
+      "from": 19,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_033"
+    },
+    {
+      "id": "fct_0210",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_03",
+          "partner": "partner_09"
+        }
+      },
+      "from": 15,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_025"
+    },
+    {
+      "id": "fct_0211",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_00",
+          "product": "product_03"
+        }
+      },
+      "from": 2,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_005"
+    },
+    {
+      "id": "fct_0212",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_09",
+          "partner": "partner_02"
+        }
+      },
+      "from": 108,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_080"
+    },
+    {
+      "id": "fct_0213",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_02",
+          "partner": "partner_00"
+        }
+      },
+      "from": 77,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_069"
+    },
+    {
+      "id": "fct_0214",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_09",
+          "product": "product_05"
+        }
+      },
+      "from": 6,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_012"
+    },
+    {
+      "id": "fct_0215",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_08",
+          "partner": "partner_02"
+        }
+      },
+      "from": 13,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_021"
+    },
+    {
+      "id": "fct_0216",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_00",
+          "partner": "partner_06"
+        }
+      },
+      "from": 90,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_074"
+    },
+    {
+      "id": "fct_0217",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_01",
+          "partner": "partner_09"
+        }
+      },
+      "from": 52,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_057"
+    },
+    {
+      "id": "fct_0218",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_04",
+          "partner": "partner_09"
+        }
+      },
+      "from": 25,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_039"
+    },
+    {
+      "id": "fct_0219",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_03",
+          "partner": "partner_00"
+        }
+      },
+      "from": 56,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_060"
+    },
+    {
+      "id": "fct_0220",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_03",
+          "partner": "partner_03"
+        }
+      },
+      "from": 49,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_056"
+    },
+    {
+      "id": "fct_0221",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_01",
+          "partner": "partner_06"
+        }
+      },
+      "from": 63,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_062"
+    },
+    {
+      "id": "fct_0222",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_06",
+          "partner": "partner_01"
+        }
+      },
+      "from": 41,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_050"
+    },
+    {
+      "id": "fct_0223",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_01",
+          "partner": "partner_03"
+        }
+      },
+      "from": 64,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_062"
+    },
+    {
+      "id": "fct_0224",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_08",
+          "partner": "partner_03"
+        }
+      },
+      "from": 20,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_034"
+    },
+    {
+      "id": "fct_0225",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_08",
+          "partner": "partner_05"
+        }
+      },
+      "from": 71,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_066"
+    },
+    {
+      "id": "fct_0226",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_07",
+          "partner": "partner_08"
+        }
+      },
+      "from": 54,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_059"
+    },
+    {
+      "id": "fct_0227",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_05",
+          "partner": "partner_11"
+        }
+      },
+      "from": 62,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_061"
+    },
+    {
+      "id": "fct_0228",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_05",
+          "partner": "partner_08"
+        }
+      },
+      "from": 13,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_021"
+    },
+    {
+      "id": "fct_0229",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_02",
+          "partner": "partner_03"
+        }
+      },
+      "from": 33,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_044"
+    },
+    {
+      "id": "fct_0230",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_02",
+          "partner": "partner_07"
+        }
+      },
+      "from": 97,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_077"
+    },
+    {
+      "id": "fct_0231",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_01",
+          "partner": "partner_05"
+        }
+      },
+      "from": 108,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_080"
+    },
+    {
+      "id": "fct_0232",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_04",
+          "partner": "partner_05"
+        }
+      },
+      "from": 109,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_081"
+    },
+    {
+      "id": "fct_0233",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_02",
+          "partner": "partner_01"
+        }
+      },
+      "from": 75,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_068"
+    },
+    {
+      "id": "fct_0234",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_06",
+          "partner": "partner_10"
+        }
+      },
+      "from": 33,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_045"
+    },
+    {
+      "id": "fct_0235",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_10",
+          "customer": "customer_08"
+        }
+      },
+      "from": 203,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_092"
+    },
+    {
+      "id": "fct_0236",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_01",
+          "customer": "customer_02"
+        }
+      },
+      "from": 224,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_093"
+    },
+    {
+      "id": "fct_0237",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_00",
+          "customer": "customer_07"
+        }
+      },
+      "from": 181,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_088"
+    },
+    {
+      "id": "fct_0238",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_01",
+          "customer": "customer_04"
+        }
+      },
+      "from": 95,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_076"
+    },
+    {
+      "id": "fct_0239",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_00",
+          "customer": "customer_04"
+        }
+      },
+      "from": 85,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_072"
+    },
+    {
+      "id": "fct_0240",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_06",
+          "customer": "customer_03"
+        }
+      },
+      "from": 344,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_102"
+    },
+    {
+      "id": "fct_0241",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_05",
+          "customer": "customer_06"
+        }
+      },
+      "from": 53,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_059"
+    },
+    {
+      "id": "fct_0242",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_11",
+          "customer": "customer_04"
+        }
+      },
+      "from": 136,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_085"
+    },
+    {
+      "id": "fct_0243",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_09",
+          "customer": "customer_00"
+        }
+      },
+      "from": 319,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_100"
+    },
+    {
+      "id": "fct_0244",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_04",
+          "customer": "customer_00"
+        }
+      },
+      "from": 336,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_101"
+    },
+    {
+      "id": "fct_0245",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_09",
+          "customer": "customer_03"
+        }
+      },
+      "from": 109,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_081"
+    },
+    {
+      "id": "fct_0246",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_02",
+          "customer": "customer_00",
+          "product": "product_09"
+        }
+      },
+      "from": 62,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_061"
+    },
+    {
+      "id": "fct_0247",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_02",
+          "customer": "customer_06",
+          "product": "product_00"
+        }
+      },
+      "from": 328,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_101"
+    },
+    {
+      "id": "fct_0248",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_10",
+          "customer": "customer_06",
+          "product": "product_05"
+        }
+      },
+      "from": 231,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_094"
+    },
+    {
+      "id": "fct_0249",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_01",
+          "customer": "customer_09",
+          "product": "product_01"
+        }
+      },
+      "from": 210,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_092"
+    },
+    {
+      "id": "fct_0250",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_00",
+          "customer": "customer_05",
+          "product": "product_05"
+        }
+      },
+      "from": 147,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_086"
+    },
+    {
+      "id": "fct_0251",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_03",
+          "customer": "customer_01",
+          "product": "product_00"
+        }
+      },
+      "from": 152,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_086"
+    },
+    {
+      "id": "fct_0252",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_07",
+          "customer": "customer_05",
+          "product": "product_08"
+        }
+      },
+      "from": 47,
+      "to": 229,
+      "source": "partner_feed",
+      "episode_id": "ep_054"
+    },
+    {
+      "id": "fct_0253",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_00",
+          "product": "product_05"
+        }
+      },
+      "from": 21,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_035"
+    },
+    {
+      "id": "fct_0254",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_04",
+          "product": "product_07"
+        }
+      },
+      "from": 148,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_086"
+    },
+    {
+      "id": "fct_0255",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_04",
+          "product": "product_00"
+        }
+      },
+      "from": 42,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_050"
+    },
+    {
+      "id": "fct_0256",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_07",
+          "product": "product_03"
+        }
+      },
+      "from": 193,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_090"
+    },
+    {
+      "id": "fct_0257",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_09",
+          "product": "product_00"
+        }
+      },
+      "from": 116,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_084"
+    },
+    {
+      "id": "fct_0258",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_00",
+          "product": "product_04"
+        }
+      },
+      "from": 148,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_086"
+    },
+    {
+      "id": "fct_0259",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_02",
+          "product": "product_03"
+        }
+      },
+      "from": 30,
+      "to": 65,
+      "source": "registry_A",
+      "episode_id": "ep_043"
+    },
+    {
+      "id": "fct_0260",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_05",
+          "product": "product_04"
+        }
+      },
+      "from": 243,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_095"
+    },
+    {
+      "id": "fct_0261",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_08",
+          "product": "product_02"
+        }
+      },
+      "from": 271,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_098"
+    },
+    {
+      "id": "fct_0262",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_01",
+          "product": "product_01"
+        }
+      },
+      "from": 96,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_076"
+    },
+    {
+      "id": "fct_0263",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_01",
+          "product2": "product_07"
+        }
+      },
+      "from": 109,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_082"
+    },
+    {
+      "id": "fct_0264",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_03",
+          "product2": "product_01"
+        }
+      },
+      "from": 320,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_101"
+    },
+    {
+      "id": "fct_0265",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_03",
+          "product2": "product_06"
+        }
+      },
+      "from": 284,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_098"
+    },
+    {
+      "id": "fct_0266",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_01",
+          "product2": "product_06"
+        }
+      },
+      "from": 270,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_098"
+    },
+    {
+      "id": "fct_0267",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_09",
+          "product2": "product_02"
+        }
+      },
+      "from": 42,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_050"
+    },
+    {
+      "id": "fct_0268",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_08",
+          "product2": "product_01"
+        }
+      },
+      "from": 165,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_087"
+    },
+    {
+      "id": "fct_0269",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_02",
+          "product2": "product_09"
+        }
+      },
+      "from": 349,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_102"
+    },
+    {
+      "id": "fct_0270",
+      "atom": {
+        "relation": "rel_b03_offered_in",
+        "args": {
+          "product": "product_07",
+          "product2": "product_03"
+        }
+      },
+      "from": 227,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_093"
+    },
+    {
+      "id": "fct_0271",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_02",
+          "product": "product_06"
+        }
+      },
+      "from": 228,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_093"
+    },
+    {
+      "id": "fct_0272",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_04",
+          "product": "product_05"
+        }
+      },
+      "from": 294,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_100"
+    },
+    {
+      "id": "fct_0273",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_03",
+          "product": "product_07"
+        }
+      },
+      "from": 300,
+      "to": 336,
+      "source": "partner_feed",
+      "episode_id": "ep_100"
+    },
+    {
+      "id": "fct_0274",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_09",
+          "product": "product_08"
+        }
+      },
+      "from": 165,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_087"
+    },
+    {
+      "id": "fct_0275",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_03",
+          "product": "product_04"
+        }
+      },
+      "from": 124,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_085"
+    },
+    {
+      "id": "fct_0276",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_01",
+          "product": "product_01"
+        }
+      },
+      "from": 258,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_096"
+    },
+    {
+      "id": "fct_0277",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_07",
+          "product": "product_02"
+        }
+      },
+      "from": 248,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_095"
+    },
+    {
+      "id": "fct_0278",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_01",
+          "product": "product_04"
+        }
+      },
+      "from": 313,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_100"
+    },
+    {
+      "id": "fct_0279",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_06",
+          "product": "product_06"
+        }
+      },
+      "from": 171,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_088"
+    },
+    {
+      "id": "fct_0280",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_06",
+          "partner": "partner_03"
+        }
+      },
+      "from": 130,
+      "to": 317,
+      "source": "audit_note",
+      "episode_id": "ep_085"
+    },
+    {
+      "id": "fct_0281",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_07",
+          "partner": "partner_02"
+        }
+      },
+      "from": 39,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_048"
+    },
+    {
+      "id": "fct_0282",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_08",
+          "partner": "partner_07"
+        }
+      },
+      "from": 183,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_090"
+    },
+    {
+      "id": "fct_0283",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_06",
+          "partner": "partner_07"
+        }
+      },
+      "from": 108,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_080"
+    },
+    {
+      "id": "fct_0284",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_02",
+          "partner": "partner_02"
+        }
+      },
+      "from": 322,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_101"
+    },
+    {
+      "id": "fct_0285",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_04",
+          "partner": "partner_00"
+        }
+      },
+      "from": 110,
+      "to": 203,
+      "source": "registry_A",
+      "episode_id": "ep_082"
+    },
+    {
+      "id": "fct_0286",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_00",
+          "partner": "partner_04"
+        }
+      },
+      "from": 62,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_061"
+    },
+    {
+      "id": "fct_0287",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_03",
+          "partner": "partner_06"
+        }
+      },
+      "from": 276,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_098"
+    },
+    {
+      "id": "fct_0288",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_07",
+          "product2": "product_00"
+        }
+      },
+      "from": 295,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_100"
+    },
+    {
+      "id": "fct_0289",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_03",
+          "product2": "product_01"
+        }
+      },
+      "from": 105,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_079"
+    },
+    {
+      "id": "fct_0290",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_07",
+          "product2": "product_09"
+        }
+      },
+      "from": 233,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_094"
+    },
+    {
+      "id": "fct_0291",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_01",
+          "product2": "product_03"
+        }
+      },
+      "from": 338,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_102"
+    },
+    {
+      "id": "fct_0292",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_04",
+          "product2": "product_02"
+        }
+      },
+      "from": 229,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_093"
+    },
+    {
+      "id": "fct_0293",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_05",
+          "product2": "product_08"
+        }
+      },
+      "from": 197,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_090"
+    },
+    {
+      "id": "fct_0294",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_01",
+          "product2": "product_06"
+        }
+      },
+      "from": 291,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_099"
+    },
+    {
+      "id": "fct_0295",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_01",
+          "product2": "product_08"
+        }
+      },
+      "from": 200,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_091"
+    },
+    {
+      "id": "fct_0296",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_05",
+          "partner": "partner_02"
+        }
+      },
+      "from": 51,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_057"
+    },
+    {
+      "id": "fct_0297",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_03",
+          "customer": "customer_06"
+        }
+      },
+      "from": 74,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_067"
+    },
+    {
+      "id": "fct_0298",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_01",
+          "customer": "customer_01"
+        }
+      },
+      "from": 7,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_015"
+    },
+    {
+      "id": "fct_0299",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_08",
+          "product2": "product_03"
+        }
+      },
+      "from": 65,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_063"
+    },
+    {
+      "id": "fct_0300",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_06",
+          "customer": "customer_09",
+          "product": "product_01"
+        }
+      },
+      "from": 15,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_025"
+    },
+    {
+      "id": "fct_0301",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_11",
+          "customer": "customer_04",
+          "product": "product_01"
+        }
+      },
+      "from": 15,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_025"
+    },
+    {
+      "id": "fct_0302",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_01",
+          "partner": "partner_11"
+        }
+      },
+      "from": 49,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_056"
+    },
+    {
+      "id": "fct_0303",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_00",
+          "product": "product_00"
+        }
+      },
+      "from": 57,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_060"
+    },
+    {
+      "id": "fct_0304",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_05",
+          "product": "product_05"
+        }
+      },
+      "from": 2,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_005"
+    },
+    {
+      "id": "fct_0305",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_07",
+          "product2": "product_05"
+        }
+      },
+      "from": 6,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_013"
+    },
+    {
+      "id": "fct_0306",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_08",
+          "product": "product_07"
+        }
+      },
+      "from": 4,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_009"
+    },
+    {
+      "id": "fct_0307",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_03",
+          "customer": "customer_00",
+          "product": "product_07"
+        }
+      },
+      "from": 21,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_036"
+    },
+    {
+      "id": "fct_0308",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_07",
+          "partner": "partner_00"
+        }
+      },
+      "from": 50,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_057"
+    },
+    {
+      "id": "fct_0309",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_11",
+          "product": "product_06"
+        }
+      },
+      "from": 17,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_028"
+    },
+    {
+      "id": "fct_0310",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_08",
+          "partner": "partner_11"
+        }
+      },
+      "from": 15,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_025"
+    },
+    {
+      "id": "fct_0311",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_01",
+          "partner": "partner_05"
+        }
+      },
+      "from": 112,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_082"
+    },
+    {
+      "id": "fct_0312",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_11",
+          "customer": "customer_05"
+        }
+      },
+      "from": 33,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_045"
+    },
+    {
+      "id": "fct_0313",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_04",
+          "partner": "partner_00"
+        }
+      },
+      "from": 36,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_047"
+    },
+    {
+      "id": "fct_0314",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_10",
+          "customer": "customer_04"
+        }
+      },
+      "from": 39,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_049"
+    },
+    {
+      "id": "fct_0315",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_11",
+          "customer": "customer_08"
+        }
+      },
+      "from": 37,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_048"
+    },
+    {
+      "id": "fct_0316",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_08",
+          "customer": "customer_08"
+        }
+      },
+      "from": 74,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_068"
+    },
+    {
+      "id": "fct_0317",
+      "atom": {
+        "relation": "rel_b05_holds",
+        "args": {
+          "customer": "customer_05",
+          "partner": "partner_04"
+        }
+      },
+      "from": 14,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_023"
+    },
+    {
+      "id": "fct_0318",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_05",
+          "product": "product_09"
+        }
+      },
+      "from": 15,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_026"
+    },
+    {
+      "id": "fct_0319",
+      "atom": {
+        "relation": "rel_b07_located_in",
+        "args": {
+          "product": "product_06",
+          "product2": "product_09"
+        }
+      },
+      "from": 16,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_027"
+    },
+    {
+      "id": "fct_0320",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_01",
+          "partner": "partner_00"
+        }
+      },
+      "from": 16,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_027"
+    },
+    {
+      "id": "fct_0321",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_00",
+          "product": "product_08"
+        }
+      },
+      "from": 3,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_007"
+    },
+    {
+      "id": "fct_0322",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_03",
+          "customer": "customer_03",
+          "product": "product_08"
+        }
+      },
+      "from": 12,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_020"
+    },
+    {
+      "id": "fct_0323",
+      "atom": {
+        "relation": "rel_b02_classified_as",
+        "args": {
+          "partner": "partner_04",
+          "product": "product_08"
+        }
+      },
+      "from": 28,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_041"
+    },
+    {
+      "id": "fct_0324",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_06",
+          "customer": "customer_06"
+        }
+      },
+      "from": 2,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_005"
+    },
+    {
+      "id": "fct_0325",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_04",
+          "partner": "partner_06"
+        }
+      },
+      "from": 85,
+      "to": 0,
+      "source": "field_report",
+      "episode_id": "ep_073"
+    },
+    {
+      "id": "fct_0326",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_04",
+          "customer": "customer_08"
+        }
+      },
+      "from": 269,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_097"
+    },
+    {
+      "id": "fct_0327",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_11",
+          "customer": "customer_09"
+        }
+      },
+      "from": 34,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_046"
+    },
+    {
+      "id": "fct_0328",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_07",
+          "product": "product_05"
+        }
+      },
+      "from": 285,
+      "to": 0,
+      "source": "registry_A",
+      "episode_id": "ep_099"
+    },
+    {
+      "id": "fct_0329",
+      "atom": {
+        "relation": "rel_b04_supplies",
+        "args": {
+          "customer": "customer_00",
+          "product": "product_09"
+        }
+      },
+      "from": 65,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_063"
+    },
+    {
+      "id": "fct_0330",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_03",
+          "customer": "customer_05",
+          "product": "product_08"
+        }
+      },
+      "from": 5,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_011"
+    },
+    {
+      "id": "fct_0331",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_10",
+          "customer": "customer_05",
+          "product": "product_01"
+        }
+      },
+      "from": 254,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_095"
+    },
+    {
+      "id": "fct_0332",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_05",
+          "customer": "customer_00",
+          "product": "product_04"
+        }
+      },
+      "from": 1,
+      "to": 0,
+      "source": "registry_B",
+      "episode_id": "ep_005"
+    },
+    {
+      "id": "fct_0333",
+      "atom": {
+        "relation": "rel_b06_partnered_with",
+        "args": {
+          "jurisdiction": "jurisdiction_02",
+          "partner": "partner_04"
+        }
+      },
+      "from": 3,
+      "to": 0,
+      "source": "partner_feed",
+      "episode_id": "ep_007"
+    },
+    {
+      "id": "fct_0334",
+      "atom": {
+        "relation": "rel_b00_registered_in",
+        "args": {
+          "asset": "asset_08",
+          "customer": "customer_02"
+        }
+      },
+      "from": 2,
+      "to": 0,
+      "source": "customer_disclosure",
+      "episode_id": "ep_005"
+    },
+    {
+      "id": "fct_0335",
+      "atom": {
+        "relation": "rel_b01_operates_in",
+        "args": {
+          "asset": "asset_06",
+          "customer": "customer_02",
+          "product": "product_07"
+        }
+      },
+      "from": 189,
+      "to": 0,
+      "source": "audit_note",
+      "episode_id": "ep_090"
+    }
+  ],
+  "rules": [
+    {
+      "id": "rul_001",
+      "name": "eligible_for policy 1",
+      "conditions": [
+        {
+          "relation": "rel_b03_offered_in",
+          "args": {
+            "product": {
+              "var": "A"
+            },
+            "product2": {
+              "var": "A"
+            }
+          }
+        },
+        {
+          "relation": "rel_b06_partnered_with",
+          "args": {
+            "jurisdiction": {
+              "var": "B"
+            },
+            "partner": {
+              "var": "C"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d100_eligible_for",
+        "args": {
+          "jurisdiction": {
+            "var": "B"
+          },
+          "partner": {
+            "var": "C"
+          },
+          "product": {
+            "var": "A"
+          }
+        }
+      },
+      "assert": true,
+      "authority": 5,
+      "issued_at": 103,
+      "effective_from": 103,
+      "effective_to": 0,
+      "episode_id": "ep_078"
+    },
+    {
+      "id": "rul_002",
+      "name": "restricted_in policy 1",
+      "conditions": [
+        {
+          "relation": "rel_b05_holds",
+          "args": {
+            "customer": {
+              "var": "A"
+            },
+            "partner": {
+              "const": "partner_00"
+            }
+          }
+        },
+        {
+          "relation": "rel_b05_holds",
+          "args": {
+            "customer": {
+              "var": "B"
+            },
+            "partner": {
+              "const": "partner_00"
+            }
+          }
+        },
+        {
+          "relation": "rel_b07_located_in",
+          "args": {
+            "product": {
+              "const": "product_07"
+            },
+            "product2": {
+              "const": "product_07"
+            }
+          }
+        },
+        {
+          "relation": "rel_b00_registered_in",
+          "args": {
+            "asset": {
+              "const": "asset_06"
+            },
+            "customer": {
+              "var": "A"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d101_restricted_in",
+        "args": {
+          "customer": {
+            "var": "A"
+          },
+          "customer2": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "exceptions": [
+        {
+          "relation": "rel_b01_operates_in",
+          "args": {
+            "asset": {
+              "const": "asset_09"
+            },
+            "customer": {
+              "var": "A"
+            },
+            "product": {
+              "const": "product_00"
+            }
+          }
+        }
+      ],
+      "authority": 5,
+      "issued_at": 90,
+      "effective_from": 90,
+      "effective_to": 0,
+      "episode_id": "ep_074"
+    },
+    {
+      "id": "rul_003",
+      "name": "restricted_in policy 2",
+      "conditions": [
+        {
+          "relation": "rel_b05_holds",
+          "args": {
+            "customer": {
+              "var": "A"
+            },
+            "partner": {
+              "const": "partner_02"
+            }
+          }
+        },
+        {
+          "relation": "rel_b05_holds",
+          "args": {
+            "customer": {
+              "var": "B"
+            },
+            "partner": {
+              "const": "partner_02"
+            }
+          }
+        },
+        {
+          "relation": "rel_b00_registered_in",
+          "args": {
+            "asset": {
+              "const": "asset_11"
+            },
+            "customer": {
+              "var": "A"
+            }
+          }
+        },
+        {
+          "relation": "rel_b00_registered_in",
+          "args": {
+            "asset": {
+              "const": "asset_11"
+            },
+            "customer": {
+              "var": "A"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d101_restricted_in",
+        "args": {
+          "customer": {
+            "var": "A"
+          },
+          "customer2": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "exceptions": [
+        {
+          "relation": "rel_b01_operates_in",
+          "args": {
+            "asset": {
+              "const": "asset_10"
+            },
+            "customer": {
+              "var": "B"
+            },
+            "product": {
+              "const": "product_08"
+            }
+          }
+        }
+      ],
+      "authority": 5,
+      "issued_at": 118,
+      "effective_from": 118,
+      "effective_to": 0,
+      "episode_id": "ep_084"
+    },
+    {
+      "id": "rul_004",
+      "name": "requires_review policy 1",
+      "conditions": [
+        {
+          "relation": "rel_d101_restricted_in",
+          "args": {
+            "customer": {
+              "var": "A"
+            },
+            "customer2": {
+              "var": "B"
+            }
+          }
+        },
+        {
+          "relation": "rel_b06_partnered_with",
+          "args": {
+            "jurisdiction": {
+              "const": "jurisdiction_01"
+            },
+            "partner": {
+              "const": "partner_10"
+            }
+          }
+        },
+        {
+          "relation": "rel_b00_registered_in",
+          "args": {
+            "asset": {
+              "const": "asset_10"
+            },
+            "customer": {
+              "var": "B"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d200_requires_review",
+        "args": {
+          "customer": {
+            "var": "A"
+          },
+          "customer2": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "exceptions": [
+        {
+          "relation": "rel_b00_registered_in",
+          "args": {
+            "asset": {
+              "const": "asset_06"
+            },
+            "customer": {
+              "var": "B"
+            }
+          }
+        }
+      ],
+      "authority": 3,
+      "issued_at": 118,
+      "effective_from": 118,
+      "effective_to": 244,
+      "episode_id": "ep_085"
+    },
+    {
+      "id": "rul_005",
+      "name": "requires_review policy 2",
+      "conditions": [
+        {
+          "relation": "rel_d101_restricted_in",
+          "args": {
+            "customer": {
+              "var": "A"
+            },
+            "customer2": {
+              "var": "B"
+            }
+          }
+        },
+        {
+          "relation": "rel_b05_holds",
+          "args": {
+            "customer": {
+              "var": "B"
+            },
+            "partner": {
+              "const": "partner_10"
+            }
+          }
+        },
+        {
+          "relation": "rel_b00_registered_in",
+          "args": {
+            "asset": {
+              "const": "asset_08"
+            },
+            "customer": {
+              "var": "A"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d200_requires_review",
+        "args": {
+          "customer": {
+            "var": "A"
+          },
+          "customer2": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "authority": 5,
+      "issued_at": 136,
+      "effective_from": 136,
+      "effective_to": 0,
+      "episode_id": "ep_086"
+    },
+    {
+      "id": "rul_006",
+      "name": "approved_for policy 1",
+      "conditions": [
+        {
+          "relation": "rel_b00_registered_in",
+          "args": {
+            "asset": {
+              "var": "A"
+            },
+            "customer": {
+              "const": "customer_01"
+            }
+          }
+        },
+        {
+          "relation": "rel_b07_located_in",
+          "args": {
+            "product": {
+              "var": "B"
+            },
+            "product2": {
+              "var": "D"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d201_approved_for",
+        "args": {
+          "asset": {
+            "var": "A"
+          },
+          "product": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "authority": 4,
+      "issued_at": 77,
+      "effective_from": 77,
+      "effective_to": 193,
+      "episode_id": "ep_069"
+    },
+    {
+      "id": "rul_007",
+      "name": "approved_for policy 2",
+      "conditions": [
+        {
+          "relation": "rel_b01_operates_in",
+          "args": {
+            "asset": {
+              "var": "A"
+            },
+            "customer": {
+              "var": "D"
+            },
+            "product": {
+              "const": "product_01"
+            }
+          }
+        },
+        {
+          "relation": "rel_d100_eligible_for",
+          "args": {
+            "jurisdiction": {
+              "var": "E"
+            },
+            "partner": {
+              "var": "F"
+            },
+            "product": {
+              "var": "B"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d201_approved_for",
+        "args": {
+          "asset": {
+            "var": "A"
+          },
+          "product": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "authority": 5,
+      "issued_at": 22,
+      "effective_from": 22,
+      "effective_to": 0,
+      "episode_id": "ep_038"
+    },
+    {
+      "id": "rul_008",
+      "name": "approved_for policy 3",
+      "conditions": [
+        {
+          "relation": "rel_b01_operates_in",
+          "args": {
+            "asset": {
+              "var": "A"
+            },
+            "customer": {
+              "var": "C"
+            },
+            "product": {
+              "var": "B"
+            }
+          }
+        },
+        {
+          "relation": "rel_b06_partnered_with",
+          "args": {
+            "jurisdiction": {
+              "var": "E"
+            },
+            "partner": {
+              "const": "partner_04"
+            }
+          }
+        },
+        {
+          "relation": "rel_b05_holds",
+          "args": {
+            "customer": {
+              "var": "F"
+            },
+            "partner": {
+              "const": "partner_04"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d201_approved_for",
+        "args": {
+          "asset": {
+            "var": "A"
+          },
+          "product": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "authority": 5,
+      "issued_at": 40,
+      "effective_from": 40,
+      "effective_to": 0,
+      "episode_id": "ep_050"
+    },
+    {
+      "id": "rul_009",
+      "name": "exempt_from policy 1",
+      "conditions": [
+        {
+          "relation": "rel_d100_eligible_for",
+          "args": {
+            "jurisdiction": {
+              "const": "jurisdiction_01"
+            },
+            "partner": {
+              "var": "A"
+            },
+            "product": {
+              "var": "B"
+            }
+          }
+        },
+        {
+          "relation": "rel_b04_supplies",
+          "args": {
+            "customer": {
+              "const": "customer_00"
+            },
+            "product": {
+              "var": "B"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d300_exempt_from",
+        "args": {
+          "partner": {
+            "var": "A"
+          },
+          "product": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "authority": 2,
+      "issued_at": 68,
+      "effective_from": 68,
+      "effective_to": 0,
+      "episode_id": "ep_064"
+    },
+    {
+      "id": "rul_010",
+      "name": "exempt_from policy 2",
+      "conditions": [
+        {
+          "relation": "rel_b05_holds",
+          "args": {
+            "customer": {
+              "const": "customer_05"
+            },
+            "partner": {
+              "var": "A"
+            }
+          }
+        },
+        {
+          "relation": "rel_b04_supplies",
+          "args": {
+            "customer": {
+              "const": "customer_05"
+            },
+            "product": {
+              "var": "B"
+            }
+          }
+        },
+        {
+          "relation": "rel_b07_located_in",
+          "args": {
+            "product": {
+              "const": "product_06"
+            },
+            "product2": {
+              "var": "B"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d300_exempt_from",
+        "args": {
+          "partner": {
+            "var": "A"
+          },
+          "product": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "authority": 4,
+      "issued_at": 18,
+      "effective_from": 18,
+      "effective_to": 0,
+      "episode_id": "ep_030"
+    },
+    {
+      "id": "rul_011",
+      "name": "exempt_from policy 3",
+      "conditions": [
+        {
+          "relation": "rel_b06_partnered_with",
+          "args": {
+            "jurisdiction": {
+              "const": "jurisdiction_01"
+            },
+            "partner": {
+              "var": "A"
+            }
+          }
+        },
+        {
+          "relation": "rel_b02_classified_as",
+          "args": {
+            "partner": {
+              "var": "A"
+            },
+            "product": {
+              "var": "B"
+            }
+          }
+        },
+        {
+          "relation": "rel_b01_operates_in",
+          "args": {
+            "asset": {
+              "const": "asset_03"
+            },
+            "customer": {
+              "var": "F"
+            },
+            "product": {
+              "var": "B"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d300_exempt_from",
+        "args": {
+          "partner": {
+            "var": "A"
+          },
+          "product": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "authority": 5,
+      "issued_at": 33,
+      "effective_from": 33,
+      "effective_to": 0,
+      "episode_id": "ep_045"
+    },
+    {
+      "id": "rul_012",
+      "name": "flagged_for policy 1",
+      "conditions": [
+        {
+          "relation": "rel_d200_requires_review",
+          "args": {
+            "customer": {
+              "var": "A"
+            },
+            "customer2": {
+              "const": "customer_08"
+            }
+          }
+        },
+        {
+          "relation": "rel_b02_classified_as",
+          "args": {
+            "partner": {
+              "var": "B"
+            },
+            "product": {
+              "const": "product_08"
+            }
+          }
+        },
+        {
+          "relation": "rel_b05_holds",
+          "args": {
+            "customer": {
+              "const": "customer_08"
+            },
+            "partner": {
+              "var": "B"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d301_flagged_for",
+        "args": {
+          "customer": {
+            "var": "A"
+          },
+          "partner": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "exceptions": [
+        {
+          "relation": "rel_b02_classified_as",
+          "args": {
+            "partner": {
+              "var": "B"
+            },
+            "product": {
+              "const": "product_08"
+            }
+          }
+        }
+      ],
+      "authority": 4,
+      "issued_at": 31,
+      "effective_from": 31,
+      "effective_to": 0,
+      "episode_id": "ep_043"
+    },
+    {
+      "id": "rul_013",
+      "name": "flagged_for policy 2",
+      "conditions": [
+        {
+          "relation": "rel_d200_requires_review",
+          "args": {
+            "customer": {
+              "var": "A"
+            },
+            "customer2": {
+              "const": "customer_06"
+            }
+          }
+        },
+        {
+          "relation": "rel_b06_partnered_with",
+          "args": {
+            "jurisdiction": {
+              "const": "jurisdiction_04"
+            },
+            "partner": {
+              "var": "B"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d301_flagged_for",
+        "args": {
+          "customer": {
+            "var": "A"
+          },
+          "partner": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "authority": 2,
+      "issued_at": 117,
+      "effective_from": 117,
+      "effective_to": 0,
+      "episode_id": "ep_084"
+    },
+    {
+      "id": "rul_014",
+      "name": "flagged_for policy 2 (revised)",
+      "conditions": [
+        {
+          "relation": "rel_d200_requires_review",
+          "args": {
+            "customer": {
+              "var": "A"
+            },
+            "customer2": {
+              "const": "customer_06"
+            }
+          }
+        },
+        {
+          "relation": "rel_b06_partnered_with",
+          "args": {
+            "jurisdiction": {
+              "const": "jurisdiction_04"
+            },
+            "partner": {
+              "var": "B"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d301_flagged_for",
+        "args": {
+          "customer": {
+            "var": "A"
+          },
+          "partner": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "exceptions": [
+        {
+          "relation": "rel_b00_registered_in",
+          "args": {
+            "asset": {
+              "const": "asset_04"
+            },
+            "customer": {
+              "var": "A"
+            }
+          }
+        }
+      ],
+      "authority": 2,
+      "issued_at": 265,
+      "effective_from": 265,
+      "effective_to": 0,
+      "episode_id": "ep_097"
+    },
+    {
+      "id": "rul_015",
+      "name": "restricted_in policy 2 (revised)",
+      "conditions": [
+        {
+          "relation": "rel_b05_holds",
+          "args": {
+            "customer": {
+              "var": "A"
+            },
+            "partner": {
+              "const": "partner_02"
+            }
+          }
+        },
+        {
+          "relation": "rel_b05_holds",
+          "args": {
+            "customer": {
+              "var": "B"
+            },
+            "partner": {
+              "const": "partner_02"
+            }
+          }
+        },
+        {
+          "relation": "rel_b00_registered_in",
+          "args": {
+            "asset": {
+              "const": "asset_11"
+            },
+            "customer": {
+              "var": "A"
+            }
+          }
+        },
+        {
+          "relation": "rel_b00_registered_in",
+          "args": {
+            "asset": {
+              "const": "asset_11"
+            },
+            "customer": {
+              "var": "A"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d101_restricted_in",
+        "args": {
+          "customer": {
+            "var": "A"
+          },
+          "customer2": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "exceptions": [
+        {
+          "relation": "rel_b01_operates_in",
+          "args": {
+            "asset": {
+              "const": "asset_10"
+            },
+            "customer": {
+              "var": "B"
+            },
+            "product": {
+              "const": "product_08"
+            }
+          }
+        },
+        {
+          "relation": "rel_b04_supplies",
+          "args": {
+            "customer": {
+              "var": "B"
+            },
+            "product": {
+              "const": "product_05"
+            }
+          }
+        }
+      ],
+      "authority": 5,
+      "issued_at": 292,
+      "effective_from": 292,
+      "effective_to": 0,
+      "episode_id": "ep_099"
+    },
+    {
+      "id": "rul_016",
+      "name": "exempt_from policy 1 (revised)",
+      "conditions": [
+        {
+          "relation": "rel_d100_eligible_for",
+          "args": {
+            "jurisdiction": {
+              "const": "jurisdiction_01"
+            },
+            "partner": {
+              "var": "A"
+            },
+            "product": {
+              "var": "B"
+            }
+          }
+        },
+        {
+          "relation": "rel_b04_supplies",
+          "args": {
+            "customer": {
+              "const": "customer_00"
+            },
+            "product": {
+              "var": "B"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d300_exempt_from",
+        "args": {
+          "partner": {
+            "var": "A"
+          },
+          "product": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "exceptions": [
+        {
+          "relation": "rel_b01_operates_in",
+          "args": {
+            "asset": {
+              "const": "asset_10"
+            },
+            "customer": {
+              "const": "customer_08"
+            },
+            "product": {
+              "var": "B"
+            }
+          }
+        }
+      ],
+      "authority": 2,
+      "issued_at": 182,
+      "effective_from": 182,
+      "effective_to": 0,
+      "episode_id": "ep_089"
+    },
+    {
+      "id": "rul_017",
+      "name": "exempt_from policy 3 (revised)",
+      "conditions": [
+        {
+          "relation": "rel_b06_partnered_with",
+          "args": {
+            "jurisdiction": {
+              "const": "jurisdiction_01"
+            },
+            "partner": {
+              "var": "A"
+            }
+          }
+        },
+        {
+          "relation": "rel_b02_classified_as",
+          "args": {
+            "partner": {
+              "var": "A"
+            },
+            "product": {
+              "var": "B"
+            }
+          }
+        },
+        {
+          "relation": "rel_b01_operates_in",
+          "args": {
+            "asset": {
+              "const": "asset_03"
+            },
+            "customer": {
+              "var": "F"
+            },
+            "product": {
+              "var": "B"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d300_exempt_from",
+        "args": {
+          "partner": {
+            "var": "A"
+          },
+          "product": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "exceptions": [
+        {
+          "relation": "rel_b01_operates_in",
+          "args": {
+            "asset": {
+              "const": "asset_10"
+            },
+            "customer": {
+              "var": "F"
+            },
+            "product": {
+              "const": "product_01"
+            }
+          }
+        }
+      ],
+      "authority": 5,
+      "issued_at": 258,
+      "effective_from": 258,
+      "effective_to": 0,
+      "episode_id": "ep_096"
+    },
+    {
+      "id": "rul_018",
+      "name": "approved_for policy 3 (revised)",
+      "conditions": [
+        {
+          "relation": "rel_b01_operates_in",
+          "args": {
+            "asset": {
+              "var": "A"
+            },
+            "customer": {
+              "var": "C"
+            },
+            "product": {
+              "var": "B"
+            }
+          }
+        },
+        {
+          "relation": "rel_b06_partnered_with",
+          "args": {
+            "jurisdiction": {
+              "var": "E"
+            },
+            "partner": {
+              "const": "partner_04"
+            }
+          }
+        },
+        {
+          "relation": "rel_b05_holds",
+          "args": {
+            "customer": {
+              "var": "F"
+            },
+            "partner": {
+              "const": "partner_04"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d201_approved_for",
+        "args": {
+          "asset": {
+            "var": "A"
+          },
+          "product": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "exceptions": [
+        {
+          "relation": "rel_b00_registered_in",
+          "args": {
+            "asset": {
+              "const": "asset_04"
+            },
+            "customer": {
+              "var": "F"
+            }
+          }
+        }
+      ],
+      "authority": 5,
+      "issued_at": 223,
+      "effective_from": 223,
+      "effective_to": 0,
+      "episode_id": "ep_092"
+    },
+    {
+      "id": "rul_019",
+      "name": "requires_review policy 2 (revised)",
+      "conditions": [
+        {
+          "relation": "rel_d101_restricted_in",
+          "args": {
+            "customer": {
+              "var": "A"
+            },
+            "customer2": {
+              "var": "B"
+            }
+          }
+        },
+        {
+          "relation": "rel_b05_holds",
+          "args": {
+            "customer": {
+              "var": "B"
+            },
+            "partner": {
+              "const": "partner_10"
+            }
+          }
+        },
+        {
+          "relation": "rel_b00_registered_in",
+          "args": {
+            "asset": {
+              "const": "asset_08"
+            },
+            "customer": {
+              "var": "A"
+            }
+          }
+        }
+      ],
+      "conclusion": {
+        "relation": "rel_d200_requires_review",
+        "args": {
+          "customer": {
+            "var": "A"
+          },
+          "customer2": {
+            "var": "B"
+          }
+        }
+      },
+      "assert": true,
+      "exceptions": [
+        {
+          "relation": "rel_b01_operates_in",
+          "args": {
+            "asset": {
+              "const": "asset_06"
+            },
+            "customer": {
+              "var": "A"
+            },
+            "product": {
+              "const": "product_07"
+            }
+          }
+        }
+      ],
+      "authority": 5,
+      "issued_at": 200,
+      "effective_from": 200,
+      "effective_to": 0,
+      "episode_id": "ep_091"
+    }
+  ],
+  "supersessions": [
+    {
+      "id": "sup_001",
+      "new_rule": "rul_014",
+      "old_rule": "rul_013",
+      "from": 265,
+      "episode_id": "ep_097"
+    },
+    {
+      "id": "sup_002",
+      "new_rule": "rul_015",
+      "old_rule": "rul_003",
+      "from": 292,
+      "episode_id": "ep_099"
+    },
+    {
+      "id": "sup_003",
+      "new_rule": "rul_016",
+      "old_rule": "rul_009",
+      "from": 182,
+      "episode_id": "ep_089"
+    },
+    {
+      "id": "sup_004",
+      "new_rule": "rul_017",
+      "old_rule": "rul_011",
+      "from": 258,
+      "episode_id": "ep_097"
+    },
+    {
+      "id": "sup_005",
+      "new_rule": "rul_018",
+      "old_rule": "rul_008",
+      "from": 223,
+      "episode_id": "ep_092"
+    },
+    {
+      "id": "sup_006",
+      "new_rule": "rul_019",
+      "old_rule": "rul_005",
+      "from": 200,
+      "episode_id": "ep_091"
+    }
+  ]
+}

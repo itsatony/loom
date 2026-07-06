@@ -1,0 +1,68 @@
+{
+  "config": {
+    "seed": 1234,
+    "horizon": 360,
+    "num_entity_types": 6,
+    "entities_per_type": {
+      "Min": 8,
+      "Max": 16
+    },
+    "num_base_relations": 8,
+    "num_strata": 3,
+    "relations_per_stratum": 2,
+    "rules_per_derived_relation": {
+      "Min": 1,
+      "Max": 3
+    },
+    "conditions_per_rule": {
+      "Min": 2,
+      "Max": 3
+    },
+    "exception_prob": 0.35,
+    "seed_chains_per_rule": {
+      "Min": 4,
+      "Max": 7
+    },
+    "background_facts_per_base_relation": {
+      "Min": 6,
+      "Max": 14
+    },
+    "num_revision_pairs": 6,
+    "episode_events": {
+      "Min": 2,
+      "Max": 5
+    },
+    "num_repetition_queries": 30,
+    "num_composition_queries": 40,
+    "num_find_queries": 10,
+    "num_revision_queries": 12
+  },
+  "eval_day": 360,
+  "generator": "synthworld v0.1",
+  "note": "Systems under test may read episodes.jsonl ONLY. world.json and query answers/traces are for scoring. Episode events carry structured payloads (easy mode) and text (hard mode).",
+  "num_entities": 68,
+  "num_episodes": 102,
+  "num_facts": 335,
+  "num_queries": 153,
+  "num_rules": 19,
+  "num_supersessions": 6,
+  "quality": {
+    "firing_ratios": {
+      "rel_d100_eligible_for": 0.478125,
+      "rel_d101_restricted_in": 0.67,
+      "rel_d200_requires_review": 0.17,
+      "rel_d201_approved_for": 0.49166666666666664,
+      "rel_d300_exempt_from": 0.325,
+      "rel_d301_flagged_for": 0.075
+    },
+    "closure_depth_counts": {
+      "d0": 330,
+      "d1": 587,
+      "d2": 54,
+      "d3": 9
+    },
+    "over_firing_relations": [
+      "rel_d101_restricted_in"
+    ]
+  }
+}
