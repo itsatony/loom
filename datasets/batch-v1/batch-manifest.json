@@ -1,0 +1,580 @@
+{
+  "protocol": {
+    "preset": "batch",
+    "start": 1,
+    "candidates": 40,
+    "keep": 20,
+    "gates": {
+      "min_composition_positives": 30,
+      "min_revision_flips": 20,
+      "min_revision_retained": 20,
+      "min_depth2_plus_atoms": 1,
+      "max_over_firing_fraction": 0.5
+    }
+  },
+  "candidates": [
+    {
+      "seed": 1,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 688,
+        "over_firing_relations": 1,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 2,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 629,
+        "over_firing_relations": 1,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 3,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 1297,
+        "over_firing_relations": 1,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 4,
+      "verdict": "rejected",
+      "reasons": [
+        "build world: repair round 0 closure: rule rul_002: unbound var C"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 5,
+      "verdict": "rejected",
+      "reasons": [
+        "composition positives 0 \u003c 30",
+        "over-firing relations 8/9 exceed fraction 0.50"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 11587,
+        "over_firing_relations": 8,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 6,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 1898,
+        "over_firing_relations": 3,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 7,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 11104,
+        "over_firing_relations": 0,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 8,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 2471,
+        "over_firing_relations": 1,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 9,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 3273,
+        "over_firing_relations": 1,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 10,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 11573,
+        "over_firing_relations": 4,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 11,
+      "verdict": "rejected",
+      "reasons": [
+        "over-firing relations 6/9 exceed fraction 0.50"
+      ],
+      "stats": {
+        "composition_positives": 67,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 8452,
+        "over_firing_relations": 6,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 12,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 5840,
+        "over_firing_relations": 0,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 13,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 2477,
+        "over_firing_relations": 0,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 14,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 663,
+        "over_firing_relations": 1,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 15,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 1788,
+        "over_firing_relations": 2,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 16,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 3135,
+        "over_firing_relations": 1,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 17,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 2015,
+        "over_firing_relations": 1,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 18,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 437,
+        "over_firing_relations": 0,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 19,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 675,
+        "over_firing_relations": 0,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 20,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 566,
+        "over_firing_relations": 0,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 21,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 4063,
+        "over_firing_relations": 1,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 22,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 3137,
+        "over_firing_relations": 1,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 23,
+      "verdict": "kept",
+      "stats": {
+        "composition_positives": 80,
+        "revision_flips": 24,
+        "revision_retained": 24,
+        "depth2_plus_atoms": 4233,
+        "over_firing_relations": 2,
+        "derived_relations": 9
+      }
+    },
+    {
+      "seed": 24,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 25,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 26,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 27,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 28,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 29,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 30,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 31,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 32,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 33,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 34,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 35,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 36,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 37,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 38,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 39,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    },
+    {
+      "seed": 40,
+      "verdict": "skipped",
+      "reasons": [
+        "quota already met"
+      ],
+      "stats": {
+        "composition_positives": 0,
+        "revision_flips": 0,
+        "revision_retained": 0,
+        "depth2_plus_atoms": 0,
+        "over_firing_relations": 0,
+        "derived_relations": 0
+      }
+    }
+  ],
+  "kept_seeds": [
+    1,
+    2,
+    3,
+    6,
+    7,
+    8,
+    9,
+    10,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ]
+}

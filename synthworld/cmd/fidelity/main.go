@@ -73,12 +73,14 @@ func main() {
 	extractor := flag.String("extractor", "det", "det | llm")
 	jsonOut := flag.String("json", "", "optional JSON report path")
 	traceOut := flag.String("trace", "", "optional compilation trace JSON path")
+	episodesFile := flag.String("episodes", "episodes.jsonl",
+		"episodes file relative to -dir (e.g. episodes_paraphrased.jsonl)")
 	flag.Parse()
 
 	var w world.World
 	mustReadJSON(filepath.Join(*dir, "world.json"), &w)
 	var episodes []gen.Episode
-	readJSONL(filepath.Join(*dir, "episodes.jsonl"), func(raw []byte) {
+	readJSONL(filepath.Join(*dir, *episodesFile), func(raw []byte) {
 		var ep gen.Episode
 		must(json.Unmarshal(raw, &ep))
 		episodes = append(episodes, ep)

@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 	"time"
 
@@ -23,13 +24,17 @@ import (
 func main() {
 	dir := flag.String("dir", "dataset", "dataset directory")
 	jsonOut := flag.String("json", "", "optional path for JSON report")
+	episodesFile := flag.String("episodes", "episodes.jsonl",
+		"episodes file relative to -dir (e.g. episodes_paraphrased.jsonl for the hard-mode paraphrase tier)")
+	condFilter := flag.String("conditions", "",
+		"comma-separated condition names to run (default: all registered); lets one driver run C1 and C2 passes under different LLM request shapes")
 	flag.Parse()
 
 	var w world.World
 	mustReadJSON(filepath.Join(*dir, "world.json"), &w)
 
 	var episodes []gen.Episode
-	readJSONL(filepath.Join(*dir, "episodes.jsonl"), func(raw []byte) {
+	readJSONL(filepath.Join(*dir, *episodesFile), func(raw []byte) {
 		var ep gen.Episode
 		must(json.Unmarshal(raw, &ep))
 		episodes = append(episodes, ep)
@@ -227,6 +232,30 @@ func main() {
 		c2b := &harness.LoomC2bCondition{Label: "loom-c2b", Vocab: vocab,
 			Extractor: loom.NewLLMExtractor(metered("loom-c2b"), vocab), Workers: pipelineWorkers}
 		conditions = append(conditions, c0, rag, c1c, d6, c2b)
+	}
+
+	if *condFilter != "" {
+		want := map[string]bool{}
+		for _, n := range strings.Split(*condFilter, ",") {
+			want[strings.TrimSpace(n)] = true
+		}
+		var kept []harness.Condition
+		for _, c := range conditions {
+			if want[c.Name()] {
+				kept = append(kept, c)
+				delete(want, c.Name())
+			}
+		}
+		if len(want) > 0 {
+			var missing []string
+			for n := range want {
+				missing = append(missing, n)
+			}
+			sort.Strings(missing)
+			fmt.Fprintf(os.Stderr, "error: -conditions names not registered (check env gating): %s\n", strings.Join(missing, ", "))
+			os.Exit(1)
+		}
+		conditions = kept
 	}
 
 	var reports []*harness.Report

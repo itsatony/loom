@@ -1,0 +1,532 @@
+{
+  "dataset": "sample-dataset",
+  "model": "claude-sonnet-5",
+  "episodes": 102,
+  "paraphrased": 99,
+  "fallbacks": 3,
+  "fallback_rate": 0.029411764705882353,
+  "usage": {
+    "calls": 145,
+    "errors": 0,
+    "cache_hits": 0,
+    "spent_prompt_tokens": 151288,
+    "spent_completion_tokens": 40809,
+    "replayed_prompt_tokens": 0,
+    "replayed_completion_tokens": 0
+  },
+  "per_episode": [
+    {
+      "id": "ep_001",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_002",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_003",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_004",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_005",
+      "attempts": 3,
+      "fallback": false
+    },
+    {
+      "id": "ep_006",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_007",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_008",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_009",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_010",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_011",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_012",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_013",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_014",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_015",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_016",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_017",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_018",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_019",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_020",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_021",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_022",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_023",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_024",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_025",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_026",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_027",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_028",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_029",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_030",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_031",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_032",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_033",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_034",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_035",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_036",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_037",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_038",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_039",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_040",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_041",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_042",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_043",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_044",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_045",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_046",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_047",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_048",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_049",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_050",
+      "attempts": 3,
+      "fallback": false
+    },
+    {
+      "id": "ep_051",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_052",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_053",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_054",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_055",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_056",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_057",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_058",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_059",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_060",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_061",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_062",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_063",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_064",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_065",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_066",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_067",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_068",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_069",
+      "attempts": 3,
+      "fallback": true,
+      "error": "line 3: numbers changed (write all numbers as digits): missing [77], unexpected []"
+    },
+    {
+      "id": "ep_070",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_071",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_072",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_073",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_074",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_075",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_076",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_077",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_078",
+      "attempts": 3,
+      "fallback": true,
+      "error": "line 3: numbers changed (write all numbers as digits): missing [103], unexpected []"
+    },
+    {
+      "id": "ep_079",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_080",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_081",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_082",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_083",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_084",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_085",
+      "attempts": 3,
+      "fallback": true,
+      "error": "line 1: numbers changed (write all numbers as digits): missing [118], unexpected []; line 4: numbers changed (write all numbers as digits): missing [130], unexpected []"
+    },
+    {
+      "id": "ep_086",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_087",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_088",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_089",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_090",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_091",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_092",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_093",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_094",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_095",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_096",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_097",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_098",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_099",
+      "attempts": 2,
+      "fallback": false
+    },
+    {
+      "id": "ep_100",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_101",
+      "attempts": 1,
+      "fallback": false
+    },
+    {
+      "id": "ep_102",
+      "attempts": 1,
+      "fallback": false
+    }
+  ]
+}

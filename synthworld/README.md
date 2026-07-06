@@ -91,6 +91,21 @@ Single evaluation checkpoint (schema supports `at_day`), assert-only rules
 (block polarity in schema+oracle, generation deferred), templated text only,
 Euclidean-crisp semantics (no graded truth). See DESIGN.md §6.
 
+## Paraphrase tier (cmd/paraphrase)
+
+Hard mode for hard mode: `go run ./cmd/paraphrase -dir <dataset>` rewrites
+every episode text line into varied natural business prose with an LLM
+(PARAPHRASE_LLM_* env; the paraphraser must be OUTSIDE the evaluated model
+matrix) while a mechanical validator guarantees ground truth survives —
+identifiers case-sensitively verbatim, numbers as digits with repetition
+counts, `name(slot=value, ...)` expressions untouched, conditional and
+exception structure preserved. Failing episodes keep their original text
+(counted; >10% fallbacks invalidates the tier). Evaluate any condition on
+the result via `cmd/harness -episodes episodes_paraphrased.jsonl` (same
+flag on cmd/fidelity). This is the robustness test behind the templated
+results: template-inverse parsing collapses on it by design; only genuine
+extraction survives.
+
 ## Harness (cmd/harness)
 
 Runs memory conditions against a dataset and scores per slice. Ships with

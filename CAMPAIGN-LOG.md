@@ -190,3 +190,43 @@ schema-conformant extraction. It does NOT yet prove compilation-in-the-
 wild; the paraphrase tier is the load-bearing H4 test and is now the
 campaign's critical path. Full verification gate over the integrated
 tree (all E0 workstreams + E3): green.
+
+## 2026-07-06 — H4 acid test PASSED: compilation survives natural-language paraphrase (seed 1234)
+
+Paraphrase tier built: cmd/paraphrase (LLM rewrite, retry-with-feedback,
+whole-episode fallback) + mechanical preservation validator (multiset
+equality of identifiers/numbers/atom expressions + policy structural
+guard; 8 corruption classes rejected in tests). Paraphraser =
+claude-sonnet-5 (outside the evaluated model matrix). Sample-dataset:
+99/102 episodes paraphrased, 2.9% fallbacks — tier valid.
+
+Acid test (seed 1234, qwen36 extractor, thinking off):
+- DeterministicExtractor (template-inverse CONTROL) on paraphrased text:
+  fact recall 0.024, rule recall 0.158 — the paraphrase REALLY destroyed
+  the templates. Its collapse is the tier's authenticity certificate.
+- LLMExtractor on paraphrased text: **P=R=1.000 on facts, rules, AND
+  supersessions; end-to-end oracle-equal on every slice including find
+  10/10.** Zero loss from full natural-language variation.
+
+H4 status: extraction fidelity ≥0.9 predicted; measured 1.0 on both
+templated and paraphrased text (one seed). Caveats: one seed, one
+domain, synthetic prose from one paraphraser. The E4 run on locked
+seeds (templated) plus a paraphrase spot-check on 3-5 locked seeds
+will finish H4. Repo committed at a899f60 before this entry.
+
+## 2026-07-06 — SEED LIST LOCKED (E0.6 protocol executed)
+
+cmd/batch, batch preset, candidates 1..40 in strict numeric order,
+first 20 gate-passers kept. **Locked list: {1,2,3,6,7,8,9,10,12,13,14,
+15,16,17,18,19,20,21,22,23}** (23 candidates consumed). Rejects, all
+recorded in batch-manifest.json with manifests archived: seed 4
+(generation error "rul_002: unbound var C" — under investigation,
+fail-loud so no silent corruption of passers pending the
+investigation's confirmation), seed 5 (0 composition positives —
+revision/composition rule competition, documented in gen/preset.go),
+seed 11 (over-firing 6/9 relations). Every kept seed passed the full
+DESIGN.md §5 verification in-process. Per-seed: 80 composition
+positives, 24 revision flips + 24 retained controls. E4 runs on these
+20 datasets and no others; the E4 driver (scripts/e4-run.sh) is already
+processing them with cassette-cached qwen36 (C1 thinking-on, C2b
+extraction thinking-off).
