@@ -345,6 +345,14 @@ func (b *Builder) buildRule(concl *world.RelationSchema, varNames []string, ordi
 	for _, v := range conclVars {
 		unbound[v] = true
 	}
+	// Persistent set (unbound shrinks as vars get placed): connectivity
+	// rewiring must never displace a conclusion var's sole condition
+	// occurrence, or the rule turns unsafe (conclusion var unbound) and
+	// generation fails loudly in the repair closure or Validate.
+	conclVarSet := map[string]bool{}
+	for _, v := range conclVars {
+		conclVarSet[v] = true
+	}
 	// vars that have appeared in already-built conditions (connectivity check)
 	seenCondVars := map[string]bool{}
 
@@ -474,6 +482,13 @@ func (b *Builder) buildRule(concl *world.RelationSchema, varNames []string, ordi
 				for _, sn := range slotNames {
 					if sn == hostedSlot {
 						continue // never displace the conclusion var being hosted
+					}
+					// A conclusion var placed here by the chaining branch
+					// (which already deleted it from `unbound`) may have no
+					// other condition occurrence; rewiring it away yields an
+					// unsafe rule (seed 4/49/51 batch-preset failures).
+					if t := args[sn]; t.Var != "" && conclVarSet[t.Var] && !seenCondVars[t.Var] {
+						continue
 					}
 					var st world.EntityType
 					for _, s := range rel.Slots {
