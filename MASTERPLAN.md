@@ -398,6 +398,85 @@ Ideas worth having on record, none of which may touch the H5 protocol:
   capability the symbolic store measurably lacks (graded truth?
   analogical retrieval?) — a new pre-registration, not a victory lap.
 
+## 9.5 Frames — registered draft (Stage 1.5; design sketch, not yet committed work)
+
+*Status: DRAFT concept, registered 2026-07-07 after E3/H4 results. Known
+to have unresolved breaking points (listed below). Becomes buildable work
+only after the E4/E5 verdicts close; nothing here touches H5.*
+
+**Problem.** v0 has one world: everything compiled is believed. Fiction,
+worked examples, scenario planning, wargames, unvetted web claims, and
+per-source perspectives are all non-factual-yet-must-be-remembered — and
+they are endless in real domains. Deleting them loses knowledge;
+believing them corrupts the closure.
+
+**Design sketch.** Add a `frame` dimension to every stored item; truth
+becomes frame-relative:
+- Frames are named worlds (`actual`, `fiction:<id>`, `scenario:<id>`,
+  `perspective:<agent>`, `source:<origin>`, `example:<id>`) forming a
+  DAG with visibility inheritance. Scenario frames inherit `actual` and
+  overlay deltas — override mechanics are literally supersession, which
+  the store already has. Fiction inherits nothing (or schema only).
+  Perspective frames model conflicting sources without forcing verdicts.
+- Evaluation: `holds(atom, t, frame)` — the same stratified evaluator
+  with one more visibility filter; `t` = when true, `frame` = where
+  true. Derivation traces unchanged.
+- The three separated decisions: STORAGE (always everything, with
+  provenance), ASSERTION (frame-relative), PROMOTION (claims enter
+  `actual` only via explicit, auditable policy — corroboration,
+  authority, sign-off — never as a silent side effect of ingestion).
+- Compilation grows one output: frame assignment per candidate, with
+  confidence; ambiguity lands provisional (the quarantine move), so the
+  failure mode is stored-but-not-yet-believed, never silently-believed.
+
+**Frames are for drawing FROM, not only for sealing OFF.** Speculation,
+fiction, prediction, and foreign perspectives are — often — the raw
+material of ideation and innovation. Star Trek is fictional; the ethical
+concepts it presents still matter, and its fictional technology is
+legitimate inspiration for real products. A memory that quarantines
+fiction into unreachable vaults would be safe and sterile. The design
+therefore treats cross-frame reasoning as a first-class *deliberate*
+operation: queries may open multiple frames at once (with the frame of
+every supporting item visible in the derivation trace), analogy/
+inspiration retrieval may roam all frames by default, and "derive an
+opinion / make a prediction / draft a plan" is precisely a controlled
+synthesis across frames whose provenance stays legible. The invariant
+is not isolation — it is that *crossing a frame boundary is always
+explicit in the trace*, so creativity draws on everything while the
+closure of `actual` stays clean.
+
+**Known breaking points (registered honestly, unresolved):**
+1. Frame detection at extraction time is an LLM judgment and will err;
+   metadata helps, but mislabeled irony/satire/embedded quotations are
+   hard. Measured mitigation: frame-assignment fidelity as a scored
+   compilation stage.
+2. Frame proliferation: thousands of micro-frames (every chat, every
+   draft) could fragment memory; needs merge/GC policy and frame
+   aliasing.
+3. Inheritance semantics under revision: a scenario built on `actual`
+   at day d — does it track later `actual` revisions or freeze? Both
+   are sometimes right (live wargame vs archived decision record);
+   likely needs per-frame pinning semantics (inherit-live vs
+   inherit-at-t), which complicates the evaluator's cache.
+4. Cross-frame rule firing: may a rule compiled in `actual` fire on
+   scenario facts? (Probably yes — that is what makes scenarios
+   useful — but blocking the reverse without crippling ideation
+   queries needs care.)
+5. Promotion policy is a governance surface — the substrate can
+   enforce and audit it but not decide it.
+
+**Measurement (pre-sketch for a future frame slice):** ground-truth
+world + fictional overlay + scenario deltas; frame-qualified queries
+with paired traps in BOTH directions — fiction leaking into `actual`
+(contamination) and `actual` failing to show through inheritance
+(isolation failure) — same pairing discipline as the revision slice;
+plus ideation-style queries that legitimately require multi-frame
+support, scored on whether traces attribute frames correctly.
+
+Lineage: McCarthy contexts / RDF named graphs / possible-world
+semantics; the Loom-specific parts are frame detection inside the
+compilation loop and the two-directional leakage benchmark.
+
 ## 10. Amendments log
 
 *(Append-only. Every change to endpoints, seed protocol, or kill-criterion
@@ -405,3 +484,19 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
 
 - 2026-07-06 — v1 registered. Endpoints §1.1, seed protocol E0.6,
   wargame responses §8 locked before any LLM-dependent measurement exists.
+- 2026-07-07 — E5 scope set BEFORE any swap measurement: C2b swap legs
+  (extraction with models B/C) run on all 20 locked seeds (cheap);
+  C1-family swap legs (rag/c1c/d6/c0 with models B/C) run on the first
+  5 locked seeds {1,2,3,6,7} only — c1c's full-corpus prompts on
+  commercial APIs are the cost driver. Transfer-retention ratios for C1
+  are therefore reported with 5-seed CIs; H6's primary claim concerns
+  C2b, which gets the full 20. Model modes registered: gpt-5-mini
+  reasoning_effort=medium for C1 answering (its thinking analog;
+  minimal for C2b extraction), claude-haiku-4-5 temp 0 + its default
+  reasoning for C1. No change to H5/§1.1.
+- 2026-07-07 — §9.5 registered: the FRAME concept (frame-relative truth,
+  visibility inheritance, explicit promotion, cross-frame ideation as a
+  first-class traced operation) as a Stage-1.5 DRAFT with named breaking
+  points. Design only; no scope or endpoint change to the running
+  campaign. Haiku c1c legs (5 seeds) approved and launched (≈$60,
+  user-authorized).
