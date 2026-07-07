@@ -494,6 +494,24 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   reasoning_effort=medium for C1 answering (its thinking analog;
   minimal for C2b extraction), claude-haiku-4-5 temp 0 + its default
   reasoning for C1. No change to H5/§1.1.
+- 2026-07-07 — DATA-INTEGRITY amendment (logged BECAUSE it was made after
+  a verdict computed). The first full E4 aggregate returned FAIL on
+  repetition non-inferiority. Root cause was NOT the substrate: the shared
+  qwen vLLM box was intermittently overloaded during the sweep, so many
+  LLM-condition queries errored; errored queries are excluded from tallies,
+  so affected conditions/seeds were scored on partial, biased subsets (two
+  C2b seeds fully errored → chance-level, dragging repetition negative).
+  Two fixes: (1) OpenAICompatClient now retries transient failures
+  (6 attempts, exp backoff) so blips don't drop queries; (2) cmd/aggregate
+  now treats any seed where a scored condition had errors>0 as UNDEFINED
+  (NaN, excluded) and prints a DATA QUALITY warning — a non-measurement
+  must never score as a result. This changes NO endpoint, threshold, or
+  the §1.1 arithmetic; it is a measurement-hygiene guard. The verdict is
+  being recomputed on a clean, error-free re-run (auto mode: cached
+  successes replay, only errored queries re-hit with retries). Composition
+  PASSED both before and after this change (+31.7pp, CI lower +24.2pp);
+  the guard governs whether repetition non-inferiority is judged on clean
+  data. Whatever the clean re-run says stands.
 - 2026-07-07 — §9.5 registered: the FRAME concept (frame-relative truth,
   visibility inheritance, explicit promotion, cross-frame ideation as a
   first-class traced operation) as a Stage-1.5 DRAFT with named breaking

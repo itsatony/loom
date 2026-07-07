@@ -4,7 +4,9 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
+	"io"
 	"net/http"
 	"strings"
 	"time"
@@ -90,6 +92,15 @@ func (c *OpenAICompatClient) Complete(ctx context.Context, system, user string) 
 	return resp.Text, err
 }
 
+// llmMaxAttempts bounds retries against transient endpoint failures
+// (shared vLLM boxes stall/overload; commercial APIs 429/5xx). Without
+// this, a single blip permanently drops a query from tallies and — at
+// scale — silently biases whole-condition results (measured: the E4
+// sweep suffered pervasive c1c timeouts on a struggling qwen box,
+// 2026-07-07). Retries are transparent; only a persistent failure
+// after all attempts surfaces as an error.
+const llmMaxAttempts = 6
+
 func (c *OpenAICompatClient) CompleteUsage(ctx context.Context, system, user string) (LLMResponse, error) {
 	if c.HTTP == nil {
 		c.HTTP = &http.Client{Timeout: max(c.Timeout, 60*time.Second)}
@@ -98,6 +109,48 @@ func (c *OpenAICompatClient) CompleteUsage(ctx context.Context, system, user str
 	if err != nil {
 		return LLMResponse{}, fmt.Errorf("llm request marshal (ExtraParams must be JSON-encodable): %w", err)
 	}
+	var lastErr error
+	for attempt := 0; attempt < llmMaxAttempts; attempt++ {
+		if attempt > 0 {
+			// exponential backoff with a deterministic-ish jitter derived
+			// from the attempt (no RNG: keeps behavior reproducible).
+			delay := time.Duration(1<<uint(attempt-1)) * 500 * time.Millisecond
+			if delay > 16*time.Second {
+				delay = 16 * time.Second
+			}
+			select {
+			case <-ctx.Done():
+				return LLMResponse{}, ctx.Err()
+			case <-time.After(delay):
+			}
+		}
+		resp, err := c.doOnce(ctx, raw)
+		if err == nil {
+			return resp, nil
+		}
+		lastErr = err
+		if !transientLLMErr(err) {
+			return LLMResponse{}, err
+		}
+	}
+	return LLMResponse{}, fmt.Errorf("llm: %d attempts exhausted: %w", llmMaxAttempts, lastErr)
+}
+
+// transientErr marks an error retriable. Wrapped with %w below so callers
+// can match; here we treat all network errors, timeouts, non-2xx, and
+// empty/undecodable bodies as transient (the failure modes a struggling
+// endpoint produces). Auth/marshal errors are returned non-transient.
+type transientErr struct{ err error }
+
+func (e transientErr) Error() string { return e.err.Error() }
+func (e transientErr) Unwrap() error { return e.err }
+
+func transientLLMErr(err error) bool {
+	var t transientErr
+	return errors.As(err, &t)
+}
+
+func (c *OpenAICompatClient) doOnce(ctx context.Context, raw []byte) (LLMResponse, error) {
 	req, err := http.NewRequestWithContext(ctx, http.MethodPost,
 		strings.TrimRight(c.BaseURL, "/")+"/chat/completions", bytes.NewReader(raw))
 	if err != nil {
@@ -109,9 +162,16 @@ func (c *OpenAICompatClient) CompleteUsage(ctx context.Context, system, user str
 	}
 	resp, err := c.HTTP.Do(req)
 	if err != nil {
-		return LLMResponse{}, err
+		return LLMResponse{}, transientErr{err} // network/timeout: retry
 	}
 	defer resp.Body.Close()
+	body, _ := io.ReadAll(resp.Body)
+	if resp.StatusCode == 401 || resp.StatusCode == 403 {
+		return LLMResponse{}, fmt.Errorf("llm auth error (status %d): %s", resp.StatusCode, firstN(string(body), 200))
+	}
+	if resp.StatusCode >= 400 {
+		return LLMResponse{}, transientErr{fmt.Errorf("llm http %d: %s", resp.StatusCode, firstN(string(body), 200))}
+	}
 	var out struct {
 		Choices []struct {
 			Message struct {
@@ -126,14 +186,14 @@ func (c *OpenAICompatClient) CompleteUsage(ctx context.Context, system, user str
 			Message string `json:"message"`
 		} `json:"error"`
 	}
-	if err := json.NewDecoder(resp.Body).Decode(&out); err != nil {
-		return LLMResponse{}, err
+	if err := json.Unmarshal(body, &out); err != nil {
+		return LLMResponse{}, transientErr{fmt.Errorf("llm decode (status %d): %w", resp.StatusCode, err)}
 	}
 	if out.Error != nil {
-		return LLMResponse{}, fmt.Errorf("llm error: %s", out.Error.Message)
+		return LLMResponse{}, transientErr{fmt.Errorf("llm error: %s", out.Error.Message)}
 	}
 	if len(out.Choices) == 0 {
-		return LLMResponse{}, fmt.Errorf("llm: empty choices (status %d)", resp.StatusCode)
+		return LLMResponse{}, transientErr{fmt.Errorf("llm: empty choices (status %d)", resp.StatusCode)}
 	}
 	return LLMResponse{
 		Text:  out.Choices[0].Message.Content,

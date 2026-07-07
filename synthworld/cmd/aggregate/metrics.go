@@ -62,6 +62,21 @@ type SeedMetrics struct {
 }
 
 func metricsFor(seed string, r *harness.Report) SeedMetrics {
+	// Data-integrity guard: a condition that had ANY API errors on this
+	// seed is not a clean measurement — errored queries are excluded from
+	// tallies, so the surviving score is computed over a partial, biased
+	// subset. Treat the whole seed's metrics as undefined (NaN) so the
+	// endpoints drop it, rather than scoring a spurious chance-level or
+	// partial result. (Caught live: a flaky vLLM box silently produced a
+	// FAIL verdict from two error-poisoned seeds, 2026-07-07.)
+	if r.Usage != nil && r.Usage.Errors > 0 {
+		nan := NFloat(math.NaN())
+		return SeedMetrics{
+			Seed: seed, RepBalancedAcc: math.NaN(), CompBalancedAcc: math.NaN(),
+			FlipRate: nan, RetainRate: nan, StaleShare: nan, FindExactRate: nan,
+			FindMicroF1: math.NaN(), Usage: r.Usage,
+		}
+	}
 	m := SeedMetrics{
 		Seed:            seed,
 		RepBalancedAcc:  balancedAcc(r.Repetition),
@@ -241,6 +256,28 @@ func Analyze(seeds []SeedReports, condA, condB string) (*Result, error) {
 	res.FindF1 = pairedEndpoint("find micro-F1 (A-B)", labels,
 		col(res.MetricsA, func(m SeedMetrics) float64 { return m.FindMicroF1 }),
 		col(res.MetricsB, func(m SeedMetrics) float64 { return m.FindMicroF1 }))
+
+	// Surface error-poisoned seeds prominently: metricsFor NaN'd them, so
+	// they silently vanish from endpoints otherwise.
+	var poisoned []string
+	for i, sr := range seeds {
+		ea := res.MetricsA[i].Usage != nil && res.MetricsA[i].Usage.Errors > 0
+		eb := res.MetricsB[i].Usage != nil && res.MetricsB[i].Usage.Errors > 0
+		if ea || eb {
+			which := condA
+			if eb && !ea {
+				which = condB
+			} else if ea && eb {
+				which = condA + "+" + condB
+			}
+			poisoned = append(poisoned, sr.Seed+"("+which+")")
+		}
+	}
+	if len(poisoned) > 0 {
+		res.Warnings = append(res.Warnings,
+			fmt.Sprintf("DATA QUALITY: %d seed(s) EXCLUDED for API errors (not clean measurements): %s — re-run these before trusting the verdict",
+				len(poisoned), strings.Join(poisoned, ", ")))
+	}
 
 	res.Verdict, res.VerdictWhy = verdict(res)
 	if n := len(res.Primary.Seeds); n >= minSeedsForVerdict && n < warnSeedsBelow {
