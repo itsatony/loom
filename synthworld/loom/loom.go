@@ -14,6 +14,7 @@ import (
 	"fmt"
 	"os"
 	"sort"
+	"sync"
 
 	"github.com/vaudience/synthworld/gen"
 	"github.com/vaudience/synthworld/oracle"
@@ -68,7 +69,13 @@ type Store struct {
 	ruleIDs  map[string]bool
 	supIDs   map[string]bool
 
-	// caches, invalidated on commit
+	// caches, invalidated on commit. mu guards them: reads (Holds/Find/
+	// Diff/StatsAt) may run concurrently under the harness worker pool
+	// (HARNESS_CONCURRENCY>1); commits happen strictly before reads in
+	// every condition, but cache FILLS race with each other without the
+	// lock (caught live: concurrent-map fatal in closureAt, seed-6
+	// paraphrase run, 2026-07-07).
+	mu       sync.Mutex
 	view     *world.World
 	closures map[closureKey]*oracle.Closure
 }
@@ -314,6 +321,8 @@ func (s *Store) worldView() (*world.World, error) {
 // ---------- Operations (spec §6, evaluator = synthworld oracle) ----------
 
 func (s *Store) closureAt(t int, stale bool) (*oracle.Closure, error) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
 	key := closureKey{t: t, stale: stale}
 	if c, ok := s.closures[key]; ok {
 		return c, nil
