@@ -1,0 +1,924 @@
+{
+ "condition_a": "loom-c2b",
+ "condition_b": "c1c-longcontext",
+ "seed_count": 20,
+ "metrics_a": [
+  {
+   "seed": "1",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "1": 1,
+    "3": 1
+   }
+  },
+  {
+   "seed": "10",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "1": 1
+   }
+  },
+  {
+   "seed": "12",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "3": 1
+   }
+  },
+  {
+   "seed": "13",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "2": 1,
+    "3": 1
+   }
+  },
+  {
+   "seed": "14",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "2": 1
+   }
+  },
+  {
+   "seed": "15",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "3": 1
+   }
+  },
+  {
+   "seed": "16",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "2": 1
+   }
+  },
+  {
+   "seed": "17",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "1": 1
+   }
+  },
+  {
+   "seed": "18",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "1": 1
+   }
+  },
+  {
+   "seed": "19",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "2": 1,
+    "3": 1
+   }
+  },
+  {
+   "seed": "2",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "1": 1
+   }
+  },
+  {
+   "seed": "20",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "2": 1,
+    "3": 1
+   }
+  },
+  {
+   "seed": "21",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "1": 1,
+    "2": 1
+   }
+  },
+  {
+   "seed": "22",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "2": 1
+   }
+  },
+  {
+   "seed": "23",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "1": 1
+   }
+  },
+  {
+   "seed": "3",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "1": 1,
+    "2": 1,
+    "3": 1
+   }
+  },
+  {
+   "seed": "6",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "2": 1
+   }
+  },
+  {
+   "seed": "7",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "2": 1,
+    "3": 1
+   }
+  },
+  {
+   "seed": "8",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "2": 1,
+    "3": 1
+   }
+  },
+  {
+   "seed": "9",
+   "rep_balanced_acc": 1,
+   "comp_balanced_acc": 1,
+   "flip_rate": 1,
+   "retain_rate": 1,
+   "stale_share": null,
+   "find_exact_rate": 1,
+   "find_micro_f1": 1,
+   "per_depth_acc": {
+    "1": 1
+   }
+  }
+ ],
+ "metrics_b": [
+  {
+   "seed": "1",
+   "rep_balanced_acc": 0.923728813559322,
+   "comp_balanced_acc": 0.5849056603773585,
+   "flip_rate": 0.8235294117647058,
+   "retain_rate": 0.47368421052631576,
+   "stale_share": 1,
+   "find_exact_rate": 0.16666666666666666,
+   "find_micro_f1": 0.13793103448275862,
+   "per_depth_acc": {
+    "1": 0.5875,
+    "3": 0.56
+   }
+  },
+  {
+   "seed": "10",
+   "rep_balanced_acc": 0.9333333333333333,
+   "comp_balanced_acc": 0.8298611111111112,
+   "flip_rate": 0.8333333333333334,
+   "retain_rate": 0.7083333333333334,
+   "stale_share": 1,
+   "find_exact_rate": 0.10526315789473684,
+   "find_micro_f1": 0.5686274509803922,
+   "per_depth_acc": {
+    "1": 0.8223684210526315
+   }
+  },
+  {
+   "seed": "12",
+   "rep_balanced_acc": 0.9347826086956521,
+   "comp_balanced_acc": 0.5,
+   "flip_rate": 1,
+   "retain_rate": 0,
+   "stale_share": null,
+   "find_exact_rate": null,
+   "find_micro_f1": 0,
+   "per_depth_acc": {
+    "3": 0.5
+   }
+  },
+  {
+   "seed": "13",
+   "rep_balanced_acc": 0.9166666666666667,
+   "comp_balanced_acc": 0.6,
+   "flip_rate": 0.9333333333333333,
+   "retain_rate": 0.6428571428571429,
+   "stale_share": 1,
+   "find_exact_rate": 0,
+   "find_micro_f1": 0,
+   "per_depth_acc": {
+    "2": 0,
+    "3": 0.603448275862069
+   }
+  },
+  {
+   "seed": "14",
+   "rep_balanced_acc": 0.9416666666666667,
+   "comp_balanced_acc": 0.55,
+   "flip_rate": 0.7916666666666666,
+   "retain_rate": 0.6666666666666666,
+   "stale_share": 1,
+   "find_exact_rate": 0,
+   "find_micro_f1": 0.3111111111111111,
+   "per_depth_acc": {
+    "2": 0.5443037974683544
+   }
+  },
+  {
+   "seed": "15",
+   "rep_balanced_acc": 0.9080508474576271,
+   "comp_balanced_acc": 0.607843137254902,
+   "flip_rate": 0.9,
+   "retain_rate": 0.47058823529411764,
+   "stale_share": 1,
+   "find_exact_rate": 0,
+   "find_micro_f1": 0,
+   "per_depth_acc": {
+    "3": 0.6774193548387096
+   }
+  },
+  {
+   "seed": "16",
+   "rep_balanced_acc": 0.925,
+   "comp_balanced_acc": 0.6325604838709677,
+   "flip_rate": 1,
+   "retain_rate": 0.2727272727272727,
+   "stale_share": null,
+   "find_exact_rate": 0,
+   "find_micro_f1": 0.12,
+   "per_depth_acc": {
+    "2": 0.626984126984127
+   }
+  },
+  {
+   "seed": "17",
+   "rep_balanced_acc": 0.95,
+   "comp_balanced_acc": 0.7368589743589744,
+   "flip_rate": 0.7916666666666666,
+   "retain_rate": 0.42857142857142855,
+   "stale_share": 1,
+   "find_exact_rate": 0,
+   "find_micro_f1": 0.04597701149425288,
+   "per_depth_acc": {
+    "1": 0.7341772151898734
+   }
+  },
+  {
+   "seed": "18",
+   "rep_balanced_acc": 0.9666666666666667,
+   "comp_balanced_acc": 0.6236842105263157,
+   "flip_rate": 0.7083333333333334,
+   "retain_rate": 0.391304347826087,
+   "stale_share": 1,
+   "find_exact_rate": 0,
+   "find_micro_f1": 0.0821917808219178,
+   "per_depth_acc": {
+    "1": 0.6153846153846154
+   }
+  },
+  {
+   "seed": "19",
+   "rep_balanced_acc": 0.9351851851851851,
+   "comp_balanced_acc": 0.5625,
+   "flip_rate": 1,
+   "retain_rate": 0.4375,
+   "stale_share": null,
+   "find_exact_rate": 0,
+   "find_micro_f1": 0,
+   "per_depth_acc": {
+    "2": 0.5894736842105263,
+    "3": 0.6
+   }
+  },
+  {
+   "seed": "2",
+   "rep_balanced_acc": 0.9083333333333333,
+   "comp_balanced_acc": 0.8179331306990881,
+   "flip_rate": 0.7619047619047619,
+   "retain_rate": 0.5909090909090909,
+   "stale_share": 1,
+   "find_exact_rate": 0,
+   "find_micro_f1": 0,
+   "per_depth_acc": {
+    "1": 0.7863247863247863
+   }
+  },
+  {
+   "seed": "20",
+   "rep_balanced_acc": 0.9571428571428571,
+   "comp_balanced_acc": 0,
+   "flip_rate": null,
+   "retain_rate": null,
+   "stale_share": null,
+   "find_exact_rate": null,
+   "find_micro_f1": 0,
+   "per_depth_acc": {
+    "2": 0
+   }
+  },
+  {
+   "seed": "21",
+   "rep_balanced_acc": 0.9224137931034483,
+   "comp_balanced_acc": 0.7401960784313726,
+   "flip_rate": 0.875,
+   "retain_rate": 0.058823529411764705,
+   "stale_share": 1,
+   "find_exact_rate": null,
+   "find_micro_f1": 0,
+   "per_depth_acc": {
+    "1": 0.75,
+    "2": 0.6470588235294118
+   }
+  },
+  {
+   "seed": "22",
+   "rep_balanced_acc": 0.9328947368421052,
+   "comp_balanced_acc": 0.5921052631578947,
+   "flip_rate": 0.7272727272727273,
+   "retain_rate": 0.125,
+   "stale_share": 1,
+   "find_exact_rate": 0,
+   "find_micro_f1": 0.0425531914893617,
+   "per_depth_acc": {
+    "2": 0.5947712418300654
+   }
+  },
+  {
+   "seed": "23",
+   "rep_balanced_acc": 0.9416666666666667,
+   "comp_balanced_acc": 0.7748417721518988,
+   "flip_rate": 0.9583333333333334,
+   "retain_rate": 0.5,
+   "stale_share": 1,
+   "find_exact_rate": 0.15789473684210525,
+   "find_micro_f1": 0.5147058823529411,
+   "per_depth_acc": {
+    "1": 0.7735849056603774
+   }
+  },
+  {
+   "seed": "3",
+   "rep_balanced_acc": 0.9833333333333334,
+   "comp_balanced_acc": 0.6,
+   "flip_rate": 0.875,
+   "retain_rate": 0.4166666666666667,
+   "stale_share": 1,
+   "find_exact_rate": 0,
+   "find_micro_f1": 0.24742268041237112,
+   "per_depth_acc": {
+    "1": 0.8125,
+    "2": 0.4666666666666667,
+    "3": 0.5208333333333334
+   }
+  },
+  {
+   "seed": "6",
+   "rep_balanced_acc": 0.9583333333333333,
+   "comp_balanced_acc": 0.5623397435897436,
+   "flip_rate": 0.625,
+   "retain_rate": 0.4782608695652174,
+   "stale_share": 1,
+   "find_exact_rate": 0.125,
+   "find_micro_f1": 0.32911392405063294,
+   "per_depth_acc": {
+    "2": 0.5569620253164557
+   }
+  },
+  {
+   "seed": "7",
+   "rep_balanced_acc": 0.8898305084745763,
+   "comp_balanced_acc": 0.5306122448979592,
+   "flip_rate": 0.2777777777777778,
+   "retain_rate": 0.42105263157894735,
+   "stale_share": 1,
+   "find_exact_rate": 0,
+   "find_micro_f1": 0,
+   "per_depth_acc": {
+    "2": 0.7,
+    "3": 0.5168539325842697
+   }
+  },
+  {
+   "seed": "8",
+   "rep_balanced_acc": 0.89,
+   "comp_balanced_acc": 0.56,
+   "flip_rate": 0.8888888888888888,
+   "retain_rate": 0.3,
+   "stale_share": 1,
+   "find_exact_rate": 0,
+   "find_micro_f1": 0,
+   "per_depth_acc": {
+    "2": 0.5922330097087378,
+    "3": 0.5
+   }
+  },
+  {
+   "seed": "9",
+   "rep_balanced_acc": 0.9666666666666667,
+   "comp_balanced_acc": 0.7948717948717949,
+   "flip_rate": 1,
+   "retain_rate": 0.7272727272727273,
+   "stale_share": null,
+   "find_exact_rate": 0,
+   "find_micro_f1": 0.17391304347826084,
+   "per_depth_acc": {
+    "1": 0.782312925170068
+   }
+  }
+ ],
+ "primary_composition": {
+  "name": "composition balanced accuracy (A-B)",
+  "seeds": [
+   "1",
+   "10",
+   "12",
+   "13",
+   "14",
+   "15",
+   "16",
+   "17",
+   "18",
+   "19",
+   "2",
+   "20",
+   "21",
+   "22",
+   "23",
+   "3",
+   "6",
+   "7",
+   "8",
+   "9"
+  ],
+  "values_a": [
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "values_b": [
+   0.5849056603773585,
+   0.8298611111111112,
+   0.5,
+   0.6,
+   0.55,
+   0.607843137254902,
+   0.6325604838709677,
+   0.7368589743589744,
+   0.6236842105263157,
+   0.5625,
+   0.8179331306990881,
+   0,
+   0.7401960784313726,
+   0.5921052631578947,
+   0.7748417721518988,
+   0.6,
+   0.5623397435897436,
+   0.5306122448979592,
+   0.56,
+   0.7948717948717949
+  ],
+  "diffs": [
+   0.41509433962264153,
+   0.17013888888888884,
+   0.5,
+   0.4,
+   0.44999999999999996,
+   0.392156862745098,
+   0.36743951612903225,
+   0.2631410256410256,
+   0.37631578947368427,
+   0.4375,
+   0.18206686930091187,
+   1,
+   0.2598039215686274,
+   0.4078947368421053,
+   0.22515822784810124,
+   0.4,
+   0.4376602564102564,
+   0.4693877551020408,
+   0.43999999999999995,
+   0.20512820512820507
+  ],
+  "mean_diff": 0.38994431973503096,
+  "ci_lower": 0.324191849645395,
+  "ci_upper": 0.4689041948006983,
+  "skipped_seeds": 0
+ },
+ "secondary_repetition": {
+  "name": "repetition balanced accuracy (A-B)",
+  "seeds": [
+   "1",
+   "10",
+   "12",
+   "13",
+   "14",
+   "15",
+   "16",
+   "17",
+   "18",
+   "19",
+   "2",
+   "20",
+   "21",
+   "22",
+   "23",
+   "3",
+   "6",
+   "7",
+   "8",
+   "9"
+  ],
+  "values_a": [
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "values_b": [
+   0.923728813559322,
+   0.9333333333333333,
+   0.9347826086956521,
+   0.9166666666666667,
+   0.9416666666666667,
+   0.9080508474576271,
+   0.925,
+   0.95,
+   0.9666666666666667,
+   0.9351851851851851,
+   0.9083333333333333,
+   0.9571428571428571,
+   0.9224137931034483,
+   0.9328947368421052,
+   0.9416666666666667,
+   0.9833333333333334,
+   0.9583333333333333,
+   0.8898305084745763,
+   0.89,
+   0.9666666666666667
+  ],
+  "diffs": [
+   0.07627118644067798,
+   0.06666666666666665,
+   0.0652173913043479,
+   0.08333333333333326,
+   0.05833333333333335,
+   0.0919491525423729,
+   0.07499999999999996,
+   0.050000000000000044,
+   0.033333333333333326,
+   0.06481481481481488,
+   0.09166666666666667,
+   0.04285714285714293,
+   0.07758620689655171,
+   0.06710526315789478,
+   0.05833333333333335,
+   0.016666666666666607,
+   0.04166666666666674,
+   0.11016949152542366,
+   0.10999999999999999,
+   0.033333333333333326
+  ],
+  "mean_diff": 0.065715199143628,
+  "ci_lower": 0.05525371940850867,
+  "ci_upper": 0.07652032128944944,
+  "skipped_seeds": 0
+ },
+ "secondary_flip_rate": {
+  "name": "revision flip rate (A-B)",
+  "seeds": [
+   "1",
+   "10",
+   "12",
+   "13",
+   "14",
+   "15",
+   "16",
+   "17",
+   "18",
+   "19",
+   "2",
+   "21",
+   "22",
+   "23",
+   "3",
+   "6",
+   "7",
+   "8",
+   "9"
+  ],
+  "values_a": [
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "values_b": [
+   0.8235294117647058,
+   0.8333333333333334,
+   1,
+   0.9333333333333333,
+   0.7916666666666666,
+   0.9,
+   1,
+   0.7916666666666666,
+   0.7083333333333334,
+   1,
+   0.7619047619047619,
+   0.875,
+   0.7272727272727273,
+   0.9583333333333334,
+   0.875,
+   0.625,
+   0.2777777777777778,
+   0.8888888888888888,
+   1
+  ],
+  "diffs": [
+   0.17647058823529416,
+   0.16666666666666663,
+   0,
+   0.06666666666666665,
+   0.20833333333333337,
+   0.09999999999999998,
+   0,
+   0.20833333333333337,
+   0.29166666666666663,
+   0,
+   0.23809523809523814,
+   0.125,
+   0.2727272727272727,
+   0.04166666666666663,
+   0.125,
+   0.375,
+   0.7222222222222222,
+   0.11111111111111116,
+   0
+  ],
+  "mean_diff": 0.16994525082760378,
+  "ci_lower": 0.10247923730895868,
+  "ci_upper": 0.254421593198683,
+  "skipped_seeds": 1
+ },
+ "secondary_find_f1": {
+  "name": "find micro-F1 (A-B)",
+  "seeds": [
+   "1",
+   "10",
+   "12",
+   "13",
+   "14",
+   "15",
+   "16",
+   "17",
+   "18",
+   "19",
+   "2",
+   "20",
+   "21",
+   "22",
+   "23",
+   "3",
+   "6",
+   "7",
+   "8",
+   "9"
+  ],
+  "values_a": [
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "values_b": [
+   0.13793103448275862,
+   0.5686274509803922,
+   0,
+   0,
+   0.3111111111111111,
+   0,
+   0.12,
+   0.04597701149425288,
+   0.0821917808219178,
+   0,
+   0,
+   0,
+   0,
+   0.0425531914893617,
+   0.5147058823529411,
+   0.24742268041237112,
+   0.32911392405063294,
+   0,
+   0,
+   0.17391304347826084
+  ],
+  "diffs": [
+   0.8620689655172413,
+   0.43137254901960775,
+   1,
+   1,
+   0.6888888888888889,
+   1,
+   0.88,
+   0.9540229885057471,
+   0.9178082191780822,
+   1,
+   1,
+   1,
+   1,
+   0.9574468085106383,
+   0.4852941176470589,
+   0.7525773195876289,
+   0.6708860759493671,
+   1,
+   1,
+   0.8260869565217391
+  ],
+  "mean_diff": 0.8713226444662998,
+  "ci_lower": 0.7895969037693087,
+  "ci_upper": 0.9419151640294527,
+  "skipped_seeds": 0
+ },
+ "verdict": "PASS",
+ "verdict_why": "composition CI lower bound 0.3242 \u003e= +0.15 AND repetition CI lower bound 0.0553 \u003e= -0.02"
+}

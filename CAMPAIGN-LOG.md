@@ -302,6 +302,99 @@ combined with the model-free store (transfer = copy + re-point), H6's
 extraction-loss surface measures ≈ 0. The C1 swap contrast (5 seeds,
 models B/C) remains, plus the economics table.
 
+## 2026-07-08 — E4 FINAL VERDICT (H5): PASS on 20 clean seeds. The compiled-substrate bet is confirmed in v0.
+
+All 20 locked seeds, zero API errors (cleanup convergence pass drove
+residual errors to 0), hardened aggregate, registered §1.1 arithmetic.
+
+Primary — **loom-c2b vs c1c-longcontext (strongest real C1)**:
+- composition balanced acc  mean **+0.3899**  CI **[+0.3242, +0.4689]**  (kill bar +0.15)
+- repetition balanced acc   mean **+0.0657**  CI **[+0.0553, +0.0765]**  (non-inf −0.02; C2b BETTER)
+- revision flip rate        mean +0.1699  CI [+0.1025, +0.2544]
+- find micro-F1             mean +0.8713  CI [+0.7896, +0.9419]
+- **VERDICT: PASS** — composition CI lower +0.3242 ≥ +0.15 AND repetition CI lower +0.0553 ≥ −0.02.
+
+Against every other condition (20 seeds):
+- vs rag-bm25: composition +0.4844 [+0.468,+0.496], find +1.000 — PASS.
+- vs c0-no-memory: composition +0.4966, repetition +0.4980 — PASS.
+- vs d6-perfect-retrieval (CHEATING ceiling, NOT a competitor): composition
+  only +0.0478 [+0.022,+0.083] — i.e. given perfect retrieval the LLM nearly
+  matches the substrate ON COMPOSITION (confirming composition is
+  retrieval-bound, not reasoning-bound) — BUT revision +0.5500 and find
+  +0.6163. The one-sentence result of the whole campaign: **even handed the
+  exact right episodes, the LLM fails belief revision and enumeration;
+  only the compiled substrate does all three.**
+
+Economics (pooled, 20 seeds): c1c-longcontext spent 118.3M prompt +
+15.3M completion tokens; loom-c2b spent 0.57M prompt + 0.28M completion
+(compile-once), then 0 per query. ~200× prompt-token ratio in the
+substrate's favor, and the gap widens with query volume (H7).
+
+What this establishes (honest scope, per CLAUDE.md §1): on the synthworld
+instrument, held-out compositional AND revision performance is delivered
+by a compiled symbolic substrate that (a) beats the strongest RAG by
+>30pp on composition at better repetition, (b) is compiled losslessly
+from natural-language text (H4) by three different LLM families (H6
+extraction leg), and (c) evaluates with zero model artifacts so a model
+swap is lossless by construction. The kill criterion is cleared with the
+lower CI bound at 2× the bar. Remaining: E5 C1-swap retention ratios
+(5 seeds, data in hand), E6 scaling curve (3× done, 10× generating),
+and the paraphrase spot-check already passed (H4). Geometry remains
+dormant — v0 succeeded, so Stage-2 must now earn its place against a
+winning symbolic baseline, exactly as pre-registered.
+
+## 2026-07-07 — E4 first verdict was FAIL — and it was a MEASUREMENT bug, caught by the discipline
+
+The first full-20 aggregate returned VERDICT: FAIL (repetition
+non-inferiority: CI lower −0.0365 < −0.02) while composition PASSED
+hugely (+31.7pp, CI lower +24.2pp). Standing order — suspect the harness
+first — applied. Cause found in minutes via the usage table: the shared
+qwen vLLM box was intermittently overloaded across the sweep, so
+LLM-condition queries errored en masse (c1c errored on ALL 20 seeds,
+37–347 each; seeds 13/14/15 fully errored on every condition; C2b fully
+errored on seeds 12,13,14,15,20). Errored queries are excluded from
+tallies, so every affected number was computed over a partial, biased
+subset — and two C2b seeds that fully errored scored chance-level,
+dragging repetition negative. NOT a substrate result.
+
+This is the diagnostic architecture working exactly as designed: the
+verdict tool consumed a poisoned dataset, but the usage/error columns
+made the cause obvious and fast. Fixes (commit 2314045): client retries
+transient failures (6× exp backoff); cmd/aggregate excludes any
+error-bearing seed as NaN with a loud DATA QUALITY warning. Amendment
+logged in MASTERPLAN §10 (change made after a verdict → declared).
+Endpoint is healthy now (200, ~0.2s); clean re-run in flight (auto mode:
+cached successes replay, only errored queries re-hit). Verdict pending
+clean data — composition passed regardless; repetition is what the
+clean run adjudicates.
+
+## 2026-07-07 — E5 C1 legs complete: every C1 failure mode replicates across all three model families
+
+5 registered seeds, gpt-5-mini (reasoning medium) and claude-haiku
+(temp 0), plus qwen36 from E4. Composition balanced accuracy:
+
+- **rag-bm25 ≈ 0.50 (chance) on every family** — with perfect
+  repetition (~1.0) and the flips-right-for-wrong-reason signature
+  (flips ~24/24, retained ~0/24). Retrieval-based RAG's composition
+  failure is model-independent, as the provenance probe predicted.
+- **c1c-longcontext**: gpt-5-mini is the strongest C1 measured anywhere
+  (mean ~0.75, range 0.59–0.97 — huge seed variance); haiku ~0.62;
+  qwen ~0.62. All far below C2b's 1.00; all still over-revise
+  (retained 11–22/24).
+- **d6-perfect-retrieval**: composition near-ceiling on every family
+  (0.97–1.00 gpt-5-mini) — composition is retrieval-bound, not
+  reasoning-bound, cross-family. And the revision stickiness finding
+  REPLICATES REMARKABLY: with the supersession notice IN CONTEXT,
+  flips scored 2–15/24 (gpt-5-mini), 3–18/24 (haiku), 2/6 (qwen smoke)
+  — while retained controls stay ~perfect. LLMs across three families
+  systematically fail to apply belief revision even when handed the
+  revising evidence; the substrate applies it exactly. This may be the
+  single most publication-worthy mechanistic finding in the campaign.
+
+Swap-relevant note: the strongest C1 anywhere (gpt5mini-c1c, ~0.75
+mean on 5 seeds) still sits ~25pp below C2b's 1.00 — the kill-criterion
+margin holds against every model family measured, not just model A.
+
 Generator rewiring bug fixed and committed (b357a33): connectivity
 rewiring could displace a conclusion var's sole condition occurrence
 (≈14% of batch-preset seeds rejected: 4, 49, 51 of 1..60 sampled).
