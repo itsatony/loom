@@ -343,6 +343,25 @@ and the paraphrase spot-check already passed (H4). Geometry remains
 dormant — v0 succeeded, so Stage-2 must now earn its place against a
 winning symbolic baseline, exactly as pre-registered.
 
+## 2026-07-08 — H6 portability CONFIRMED + campaign results consolidated (RESULTS.md)
+
+C2b compiled by three model families (qwen36 self-hosted, gpt-5-mini,
+claude-haiku-4-5) over all 20 locked seeds: **composition balanced acc
+1.0000 for every family; all-three-oracle-equal on 20/20 seeds; transfer
+retention exactly 1.000.** Contrast: the C1 long-context baseline is
+model-SENSITIVE (composition 0.619 / 0.750 / 0.623 for qwen / gpt5 /
+haiku on shared seeds {1,2,3,6,7}). The substrate is model-free, so the
+swap is lossless by construction — and the data confirms it end-to-end.
+This is the portability ("the improvement belongs to the customer, not
+the vendor") claim, measured.
+
+Full campaign results written to RESULTS.md (the MASTERPLAN §5 deliverable
+table): H1 (retrieval ceiling, structural), H2/H3 (RAG failure is
+retrieval; revision breaks all families even with the notice in context),
+H4 (lossless compilation incl. paraphrase), H5 (kill criterion PASS,
++39pp), H6 (portability, retention 1.0), H7 (200× token economics).
+E6 10× tier still generating (exceeds 65k context → c1c-impossible line).
+
 ## 2026-07-07 — E4 first verdict was FAIL — and it was a MEASUREMENT bug, caught by the discipline
 
 The first full-20 aggregate returned VERDICT: FAIL (repetition
