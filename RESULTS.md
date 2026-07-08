@@ -100,10 +100,15 @@ Pooled over 20 seeds (query-time cost, prompt tokens):
 | loom-c2b | 565,942 (compile-once) | 278,984 | **0 at query time** |
 
 ~**200×** fewer prompt tokens, and the ratio widens with query volume: the
-substrate pays once at ingest, RAG pays every question forever. Corpus
-scaling (E6, 3× tier): BM25 composition full-coverage → 0 as corpus grows
-while the instrument stays exact; the 10× tier (which exceeds the 65k
-context window, making c1c physically impossible) is generating.
+substrate pays once at ingest, RAG pays every question forever.
+
+Corpus scaling (E6): tiers at 1× (≈35k tokens), 3× (≈86k), 10× (≈260–284k,
+~2000 episodes). **3× and beyond exceed the 65k context window → c1c is
+physically impossible**, the honest endgame of read-everything. At 10×,
+oracle == C2a == c2b-det stay perfect (the substrate scales with zero
+degradation to 8× the corpus and 4× the window), while BM25 composition
+full-coverage falls to 0/100 and revision to 0/48 — retrieval coverage
+collapses as the corpus grows.
 
 ## Scope and honesty (per CLAUDE.md §1)
 

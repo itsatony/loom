@@ -1,0 +1,25 @@
+condition                 rep+      rep-     comp+     comp-  rev.flip   rev.ret   find=
+always-true              60/60      0/60     80/80      0/78      0/24     24/24    0/20
+always-false              0/60     60/60      0/80     78/78     24/24      0/24    0/20
+episode-grep             60/60     60/60      0/80     78/78     24/24      0/24    0/20
+stale-oracle             60/60     60/60     80/80     78/78      0/24     24/24   17/20
+oracle                   60/60     60/60     80/80     78/78     24/24     24/24   20/20
+loom-C2a                 60/60     60/60     80/80     78/78     24/24     24/24   20/20
+loom-c2b-det             60/60     60/60     80/80     78/78     24/24     24/24   20/20
+
+condition                  d1
+always-true              0.51
+always-false             0.49
+episode-grep             0.49
+stale-oracle             1.00
+oracle                   1.00
+loom-C2a                 1.00
+loom-c2b-det             1.00
+
+retrieval provenance probe (upper bound for RAG conditions):
+
+[bm25]
+retriever        k  slice         full-coverage   episode-recall
+bm25             4  composition           0/100          119/460
+bm25             4  repetition            60/60            60/60
+bm25             4  revision               0/48           22/382

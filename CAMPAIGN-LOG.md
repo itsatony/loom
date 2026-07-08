@@ -343,6 +343,29 @@ and the paraphrase spot-check already passed (H4). Geometry remains
 dormant — v0 succeeded, so Stage-2 must now earn its place against a
 winning symbolic baseline, exactly as pre-registered.
 
+## 2026-07-08 — E6 scaling CLOSED: substrate exact at 10×; retrieval → 0; long-context physically impossible
+
+Corpus tiers generated + validated: 3× ≈ 86k tokens/639 eps, 10× ≈
+260–284k tokens/~2000 eps (1× batch reference ≈ 35k). Both exceed the
+qwen 65k context window — c1c-longcontext is PHYSICALLY IMPOSSIBLE at
+3× and beyond (the honest endgame of the read-everything strategy).
+
+At 10× (seed-1, 284k tokens, 2184 episodes): oracle == loom-C2a ==
+loom-c2b-det all perfect (rep 60/60+60/60, comp 80/80+78/78, rev
+24/24+24/24, find 20/20). The instrument and the substrate scale with
+ZERO degradation to worlds 8× the batch size and 4× the context window.
+BM25 composition full-coverage 0/100 @k=4 (vs ~4% at 1×), revision
+0/48 — retrieval coverage collapses as corpus grows, exactly the
+pre-registered E6 prediction. H7 corpus-scaling arm closed.
+
+The campaign's seven pre-registered hypotheses (H1–H7) are all measured
+and resolved; the kill criterion PASSED; results consolidated in
+RESULTS.md. Unbuilt by design: C3/LoRA (gated on H5, optional now that
+portability is shown by C2b-vs-C1); real-domain noise beyond the
+paraphrase tier; rule induction (v0 scope). Geometry stays dormant per
+the standing discipline — v0 won, so Stage-2 must beat a winning
+symbolic baseline.
+
 ## 2026-07-08 — H6 portability CONFIRMED + campaign results consolidated (RESULTS.md)
 
 C2b compiled by three model families (qwen36 self-hosted, gpt-5-mini,
