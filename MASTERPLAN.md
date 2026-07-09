@@ -477,6 +477,198 @@ Lineage: McCarthy contexts / RDF named graphs / possible-world
 semantics; the Loom-specific parts are frame detection inside the
 compilation loop and the two-directional leakage benchmark.
 
+## 9.6 Frames v1 — committed spec + pre-registration (2026-07-09)
+
+*Resolves §9.5 (which stays above as the historical draft). Design input:
+`FRAMES-DESIGN-NOTES.md` (three-lens expert analysis, repo root). This
+section is the binding pre-registration for the frames-v1 campaign; it is
+locked BEFORE the first naturalizer token, the first frame-bearing seed
+lock, and any C2b-frames extraction run. Amendments go to §10.*
+
+### 9.6.1 Mechanism (minimal v1)
+
+- Frame types: `actual` + `perspective:<src>` (flat, non-nesting,
+  non-inheriting; source: and perspective: collapsed into one type) +
+  `scenario:<id>` (inherits actual; per-frame `basis: live | pinned(d)`
+  set at creation, immutable; re-pin = new frame). Fiction and first-class
+  examples DEFERRED (example = pinned no-promotion scenario when needed) —
+  but the *instrument* still generates fiction-frame content (§9.6.4) so
+  contamination is measured; the substrate stores it as a non-inheriting
+  frame via the same mechanism.
+- Speculation/prediction: NO new mechanism — confidence + lifecycle
+  (`proposed`) + validity intervals, per the FRAMES-DESIGN-NOTES §A.1
+  decision table. Sarcasm/humor: extraction-layer problem (assertion
+  type), never a storage category.
+- Promotion is the only door into `actual`: explicit Commit-path op with
+  append-only PromotionRecord (policy ID, evidence refs, approver
+  authority, optional sign-off). v1 promotes only ATTESTED items, never
+  frame-derived consequences.
+- Safety invariant: frame-assignment uncertainty routes to
+  `perspective:<origin>`/quarantine, never `actual` — misclassification
+  fails as stored-but-not-believed, never silently-believed.
+- Rule firing is visibility-monotone: R fires in frame F iff
+  home(R) ∈ cone(F); consequences land only in F's closure. Ideation
+  widens QUERY scope (per-frame closures, unioned with attribution),
+  never merges closures. Cross-frame import = scratch scenario +
+  explicit ImportRecord.
+- Frame-attributed derivation traces everywhere; perspective-frame
+  answers surface attested (depth 0) vs derived (depth ≥1).
+
+### 9.6.2 The five §9.5 open decisions — RESOLVED (registered here; also
+in the spec decisions log)
+
+1. **Frame-distance precedence: YES** — one new leading precedence key,
+   frame proximity (nearer frame in the cone wins), ABOVE
+   authority→recency→specificity→ID. A scenario delta overrides an
+   inherited actual fact regardless of authority.
+2. **Frame-local fact removal: frame-scoped supersession/block** —
+   scenario deltas reuse existing supersession + block polarity, scoped
+   to the frame; no new negation semantics.
+3. **Forecast admission default: `proposed` until observed** — admission
+   is a promotion-policy primitive, not a hardcode; conservative default.
+4. **F-E2 superiority bar: 15pp**, mirroring §7/§1.1 arithmetic
+   (seed-level bootstrap, CI lower bound).
+5. **Track 3 (geometry probe) runs AFTER the F-E1/F-E2 verdicts**, gated
+   small, per the design-notes sequencing; labeled contrastive pairs may
+   be prepared from tier-M artifacts, but no probe measurement gates or
+   precedes the frames verdicts.
+
+### 9.6.3 Honest null
+
+**C2b-prov**: frameless store, everything in one world with
+episode/source metadata, query-time metadata filtering. Registered
+prediction of where it fails: content-cued frames (sarcasm, unmarked
+narrative, mid-episode switches) and scenario composition (query-time
+filtering cannot apply delta-override overlays along a derivation
+chain). Frame-blind C2b is also measured to CONFIRM ≈100% fiction-trap
+contamination, not assume it.
+
+### 9.6.4 Instrument (synthworld-frames)
+
+Frame table in world.json (`{ID, Kind, Parents[], PinDay?, CreatedDay}`,
+DAG); FrameID on every BaseFact/Rule/Supersession (default actual);
+event payloads gain ground-truth FrameID + AssertionType ∈ {assert,
+quote, non-assertive}. One pinned + one live scenario per seed. Fiction/
+perspective frames REUSE actual's types, relation vocabulary, and
+(partially) entities; fiction facts in two tracked sub-populations —
+contradiction facts and **gap facts** (the sharp traps). Episode types
+1–7 and query slices (contamination, isolation, pinning, misattribution,
+promotion, cross-frame ideation — each with paired controls both
+directions) per FRAMES-DESIGN-NOTES §B.1–B.3. Oracle stays exact:
+`Closure(W,t,frame)` = visibility/pin set-filter before seeding + the
+frame-proximity precedence tier; termination/stratification/join guards
+untouched; traces carry the frame of every support.
+
+### 9.6.5 Diagnostic pattern table (LLM-free; pre-registered — if this
+pattern breaks after any harness change, fix the harness before
+measuring anything)
+
+| condition | contamination | isolation | pinning | misattribution | promotion | ideation | v0 slices |
+|---|---|---|---|---|---|---|---|
+| frame-oracle | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
+| mono-world oracle (all-in-actual) | **fails traps** | passes | passes | **fails** | fails premature-belief side | passes w/ wrong attribution | 100% |
+| isolationist oracle (no inheritance) | passes | **fails inherited** | **fails** | passes | passes | fails cross-frame | 100% |
+| literalist oracle (quoted/sarcastic literal asserted) | **fails speech-act sub-slice only** | passes | passes | passes | passes | passes | 100% |
+| always-true / always-false / episode-grep | registered fingerprints per slice, extended from the v0 table | | | | | | v0 pattern |
+
+Exact per-cell counts get frozen into the committed table on the first
+gated seed batch, before any LLM-condition run (same discipline as the
+v0 diagnostics table).
+
+### 9.6.6 Text hardness tiers + authenticity certificate
+
+- **Tier E** (templated, explicit markers): harness-debugging only;
+  pre-registered that a marker-regex detector scores ≈1.0 here; NEVER
+  headlined as evidence.
+- **Tier M** (LLM-naturalized, PRIMARY; naturalizer(s) outside the
+  evaluated matrix, ≥2 families): validators = H4 content-preservation
+  extended + frame-recoverability audit (3-judge panel outside matrix,
+  ≥2/3 agreement, retry-with-feedback) + **authenticity certificate:
+  a surface-cue baseline (lexical marker/regex + shallow-classifier)
+  must score ≤0.65 balanced accuracy on the pooled
+  contamination+isolation trap set** — else the tier is regenerated
+  harder and the failure logged; a tier failing certification is
+  non-evidence.
+- **Tier H** (adversarial, first 5 locked seeds): NOT judge-filtered;
+  ~100-event human spot-audit; human frame-recovery accuracy is the
+  honest ceiling; reported machine vs human, outside kill arithmetic.
+- Registered caveat (verbatim in any writeup): LLM-naturalized text
+  tests frame detection on LLM-generated pragmatics; naturalizer∉matrix,
+  family diversity, and the real-data tier mitigate but do not
+  eliminate this.
+
+### 9.6.7 Pre-registered endpoints
+
+- **F-E1 (co-primary, two-directional safety):** tier-M, frame-aware
+  C2b balanced-accuracy CI lower bound ≥85% on BOTH contamination AND
+  isolation slices (each pooled with paired controls; gap-traps a
+  mandatory reported sub-line). **Kill: either direction's lower bound
+  <70%.** Both gate jointly — no buying safety with sterility.
+- **F-E2 (co-primary, superiority over the null):** C2b(frames) beats
+  C2b-prov on the content-cued trap subset by ≥15pp balanced accuracy
+  (CI lower ≥ +15pp), at non-inferiority (2pp margin) on metadata-cued
+  traps AND on every v0 slice (frames must not damage frame-free
+  competence). **Kill: gap <15pp → query-time provenance filtering
+  suffices; the compile-time-frames bet is falsified. No geometry
+  rescue.**
+- **F-E3 (secondary, diagnostic):** frame-assignment macro-F1 ≥0.90 on
+  tier M; fiction→actual leakage <2% of fiction items; actual→non-actual
+  exile rate and abstention/quarantine rate reported alongside.
+- **F-E4 (secondary):** ideation cross-frame find: exact-set with
+  per-satisfier frame attribution ≥90% and correct trace boundary
+  marking.
+- CI arithmetic identical to §1.1 (seed-level bootstrap, 10k draws,
+  paired per-seed differences). Tier H + hybrid/real tiers are reported
+  against human/directional benchmarks, OUTSIDE the kill arithmetic.
+
+### 9.6.8 Seed protocol (frames edition of E0.6)
+
+Generate frame-preset candidates seed 1..40; apply manifest gates =
+all v0 gates PLUS: ≥15 gap-trap queries/seed, ≥10 scenario-composition
+chains mixing inherited facts + deltas/seed, ≥1 pinned + ≥1 live
+scenario/seed, per-frame firing-ratio hygiene (no frame where a
+majority of rules over-fire). **First 20 passers in numeric order are
+the locked set**; committed before any LLM run; tier H + human audit on
+the first 5 locked seeds. Dev iteration only on seeds {42, 7, 99}
+frame-preset equivalents, never on the locked list.
+
+### 9.6.9 Track 2 (external validity — parallel, never in kill arithmetic)
+
+Hybrid tier: real carrier text + naturalizer-woven synthetic injection
+of frame-bearing facts about synthetic entities (labels by
+construction); injection-detectability audited. Sarcasm datasets
+(iSarcasm/SemEval-2018 T3) as assertion-type-classifier external check
+only. Financial-analyst prediction/resolution slice = real-domain pilot
+(objective mechanical resolution; VR-Banken-relevant). Registered role:
+generalization evidence and caveat-gating only; directional
+non-reproduction on the hybrid tier is a reportable negative about
+distribution-dependence, not a kill input.
+
+### 9.6.10 Track 3 (geometry probe — gated, after F-E1/F-E2 verdicts)
+
+Scope: {quoted vs asserted}, {sincere vs lie} ONLY. Linear probes
+(logistic + mass-mean), residual stream at claim-final token, layer
+sweep with validation-only selection, ~1–2k minimal contrastive pairs
+per frame, in-domain + held-out-domain splits, negation stress subset.
+Baselines that must ALL be beaten: same-model prompted few-shot
+classifier (the real opponent), lexical/frozen-embedding logistic
+regression, majority floor. **Kill: probe must beat the same model's
+prompted classifier by ≥10pp balanced accuracy (or ≥0.05 AUROC) on BOTH
+frames on the held-out-domain style-controlled test at equal-or-lower
+FPR — else activation-informed frame detection is falsified for v0 and
+geometry stays shelved.** Portability: probes are per-model SENSORS,
+refit per model, never weight-transferred; only their symbolic output
+(frame label + confidence) enters the store; closure never touches
+activations. Only-in-domain / only-MLP / only-uncontrolled wins count
+as failure.
+
+### 9.6.11 Budget envelope (registered)
+
+Naturalization ~8–12M tokens ≈ $150–400; judge panel ≈ $100–300;
+extraction ~15–20M tokens self-hosted (cassettes from first call);
+human audit a few person-hours. Total new commercial spend ≈ $300–800.
+Naturalized text committed to the repo as the dataset artifact.
+
 ## 10. Amendments log
 
 *(Append-only. Every change to endpoints, seed protocol, or kill-criterion
@@ -518,3 +710,15 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   points. Design only; no scope or endpoint change to the running
   campaign. Haiku c1c legs (5 seeds) approved and launched (≈$60,
   user-authorized).
+- 2026-07-09 — §9.6 registered: frames v1 committed spec +
+  pre-registration, resolving §9.5. Design input consolidated in
+  FRAMES-DESIGN-NOTES.md (three-lens expert analysis). The five open
+  decisions taken as recommended (frame-distance precedence YES;
+  frame-local removal = frame-scoped supersession/block; forecast
+  default proposed-until-observed as a promotion-policy primitive;
+  F-E2 bar 15pp; Track 3 after F-E1/F-E2 verdicts). Endpoints
+  F-E1..F-E4, diagnostic pattern table, tier-M authenticity-certificate
+  threshold (surface-cue baseline ≤0.65 balanced acc on pooled traps),
+  and the frames seed protocol locked BEFORE any naturalizer token,
+  seed lock, or frames extraction run. v0 endpoints/verdicts untouched
+  (campaign closed: H5 PASS, H6 retention 1.0, C3 triangle complete).

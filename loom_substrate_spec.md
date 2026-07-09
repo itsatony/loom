@@ -216,3 +216,23 @@ falsified; geometry does not get to rescue it (§2).
   question. This is the mechanistic RAG failure prediction, quantified
   before any LLM run; semantic retrieval (tmr) must now show whether
   embeddings close the gap.
+- **2026-07-09 — frames v1 mechanism committed (MASTERPLAN §9.6 is the
+  binding pre-registration).** Minimal mechanism: `actual` +
+  `perspective:<src>` (flat, non-inheriting; source≡perspective) +
+  `scenario:<id>` (inherits actual; immutable per-frame
+  `basis: live|pinned(d)`; re-pin = new frame) + explicit promotion op
+  with append-only PromotionRecord (only ATTESTED items promotable in
+  v1) + frame-attributed traces. Fiction/example deferred as first-class
+  types (example = pinned no-promotion scenario). Speculation/prediction
+  use existing confidence/lifecycle/validity machinery — no new
+  mechanism. Precedence gains ONE leading key: frame proximity in the
+  visibility cone, above authority→recency→specificity→ID. Frame-local
+  fact removal = frame-scoped supersession/block (no new negation).
+  Rule firing is visibility-monotone (home(R) ∈ cone(F)); ideation
+  widens query scope with attribution, never merges closures;
+  cross-frame import = scratch scenario + ImportRecord. Safety
+  invariant: uncertain frame assignment routes to source-frame/
+  quarantine, never `actual`. Lineage discipline (Cyc's lesson):
+  exactly two audited crossings — inheritance down the DAG, explicit
+  promotion up; every proposed third crossing is a lifting rule and is
+  refused.
