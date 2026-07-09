@@ -445,3 +445,127 @@ Confirmed fail-loud-only — a passing dataset can never be corrupted
 seed-1234 small still byte-identical to the committed sample-dataset.
 Regression test generates the three known-bad seeds and asserts rule
 safety.
+
+## 2026-07-08 — C3 (LoRA / parametric memory): the portability triangle CLOSED — parametric memory does NOT accumulate queryable knowledge and does NOT port across a model swap
+
+The last pre-registered arm (MASTERPLAN §6). C3 is the CONTRAST condition:
+what does weight-based (LoRA) memory do on the SAME episode stream the
+substrate compiles, and does it survive a model swap? Scoped to 3 seeds
+{1,2,3}, on the babylon RTX 4090. All artifacts under
+`results/c3-lora/` (per-seed report.json arrays consumable by
+cmd/aggregate; adapters + train metadata + swap-probe record under
+`results/c3-lora/meta/`). Scoring is a faithful Python port of
+harness.RunWorkers (balanced-accuracy per slice, flip/retain/stale,
+find micro-F1, per-depth); the emitted Report objects match harness.go's
+struct tags and were merged with the canonical E4 loom-c2b / c1c rows for
+the aggregate.
+
+**Models (rationale).** A = Qwen2.5-3B-Instruct (open-weights, Apache-2.0,
+matches the campaign's Qwen/self-hosted product posture; LoRA-trains in
+~10 GB with gradient checkpointing on the shared 4090). B =
+microsoft/Phi-3.5-mini-instruct (MIT). B was chosen for a GENUINE
+cross-architecture swap, not a near-clone: Phi-3 fuses attention into
+`qkv_proj` and MLP into `gate_up_proj` (vs Qwen's separate
+q/k/v/gate/up_proj), hidden 3072 vs 2048, MLP 8192 vs 11008, vocab 32k vs
+151k. Constraint that forced both to be ungated: no HF token exists in
+~/code/.creds, so gated models (Llama-3.2, Gemma) were unavailable — noted
+for reproducibility.
+
+**Training (fair shot, two regimes).** Same information every other
+condition sees = the episode `text` stream; queries/answers/world.json are
+NEVER used for training (leakage guard). (1) CLM — continued-pretraining on
+raw episode text (98×512-tok blocks, 10 epochs). (2) QA-SFT — the fair
+"best shot" at accumulation: each STATED fact rendered as a true/false QA
+pair in the exact eval format, balanced with argument-perturbed negatives
+(1660 pairs/seed, 830/830), response-masked loss, 6 epochs. LoRA r=32 α=64
+dropout=0.05, lr 2e-4 cosine, bf16. Only depth-0 (stated-fact) truths can
+be synthesized fairly from episodes alone — composition/revision answers
+require the closure (the reasoning the substrate performs); synthesizing
+them from the oracle would be cheating. So QA-SFT tests whether fact-level
+parametric memory GENERALIZES to composition/revision. Convergence: QA loss
+0.36–0.37, CLM loss 0.42 — real training, non-degenerate.
+
+**Harness-first discipline paid off (bug caught, not shipped).** The first
+QA run scored c3-lora BYTE-IDENTICAL to c3-base across all 337 queries —
+impossible for a real loss-0 adapter. Root cause: maxlen=256 truncated the
+`true`/`false` response off examples whose ~350-token semantics system
+prompt already filled the window → ALL labels masked (-100) → loss 0.0 → a
+zero-effect adapter. Fixed (keep full response, left-truncate the prompt,
+assert unmasked-label count), retrained. The byte-identical result is
+exactly the kind of anomaly the standing order ("suspect the harness
+first") is meant to catch.
+
+**Result 1 — accumulation is surface, not queryable (balanced acc, mean 3 seeds):**
+
+| condition | repetition | composition |
+|---|---|---|
+| oracle / loom-c2b | 1.000 | 1.000 |
+| c1c-longcontext (strongest C1) | 0.938 | 0.668 |
+| rag-bm25 | 0.997 | 0.519 |
+| c0-no-memory | 0.510 | 0.487 |
+| **c3-lora (QA)** | **0.500** | **0.500** |
+| c3-lora-clm | 0.476 | 0.489 |
+| c3-base (floor) | 0.498 | 0.495 |
+
+Both LoRA regimes sit at CHANCE (0.50) on repetition AND composition, on
+every seed, indistinguishable from the untrained base. The floor test
+(cmd/aggregate c3-lora vs c3-base): composition +0.005 (CI [−0.038,
++0.049]), repetition +0.002 (CI [−0.008, +0.017]) — the adapter adds no
+balanced-accuracy over base. **But the adapter DID absorb the corpus**:
+repetition POSITIVE recall jumped from base's ~20–52% to 100% (60/60 every
+seed), composition positive recall to 100% — it memorized "these facts →
+true". Negative accuracy collapsed to ~0 (the QA adapter answers a near-
+constant "true", the classic always-true diagnostic signature). So
+parametric memory MEMORIZES (recall↑) but does not compile into
+DISCRIMINATIVE knowledge: it cannot separate a stated tuple from a minimally
+-perturbed false one, which is exactly what an exact symbolic store gives
+for free. Revision (summed 3 seeds): c3-lora flip 0/72 + retain 72/72 (can
+never un-believe a superseded fact — the always-true tell); loom-c2b
+72/72 + 72/72. Find: c3-lora 0/20 (emits "true", not a JSON list — 20
+format errors); loom-c2b 60/60.
+
+**Result 2 — substrate vs parametric (cmd/aggregate, loom-c2b vs c3-lora, 3 seeds):**
+composition +0.5000, repetition +0.5000 (both exactly, all seeds; CI is a
+point mass), revision flip +1.000, find micro-F1 +1.000. (The registered
+kill-criterion CI machinery prints NOT-EVALUABLE below its 5-seed minimum;
+C3 was scoped to 3 per plan — the point estimates are the result, and C3 is
+a contrast, not the H5 test.) For reference on the same 3 seeds, loom-c2b −
+c1c (strongest C1) composition = +0.332.
+
+**Result 3 — THE SWAP (H6 contrast): parametric memory does NOT port.**
+Loading model-A's adapter onto model B (`PeftModel.from_pretrained(Phi, QwenAdapter)`)
+raises RuntimeError. Two independent, structural failures: (a) 5 of the 7
+adapter target modules (q/k/v/gate/up_proj) DO NOT EXIST in Phi-3.5 (fused
+into qkv_proj/gate_up_proj); (b) the 2 name-matched modules (o_proj,
+down_proj) mismatch on dimension (2048 vs 3072 hidden; 11008 vs 8192 MLP),
+and the tokenizer/embedding vocab differs (151k vs 32k) so even memorized
+token associations would not map. **Transfer retention = 0 — the adapter is
+architecturally INAPPLICABLE, not merely degraded.** This is the pre-
+registered near-definitional result, now measured and documented precisely
+(swap-probe record saved).
+
+**Result 4 — the portability price (retrain cost).** Because transfer is
+impossible, a swap requires a full retrain. A fresh QA adapter on Phi-3.5
+trained fine (target modules qkv_proj/o_proj/gate_up_proj/down_proj, loss
+0.538) and is functional but still ~chance where it matters:
+c3-lora-B-retrain (seed-1) repetition balanced 0.583, composition balanced
+0.504 (vs Phi base 0.508 / 0.501) — it did not even collapse to constant-
+true like the Qwen QA adapter, yet composition is still chance and nowhere
+near the substrate's 1.0. Retrain wall-clock, single RTX 4090: Qwen-A QA
+adapter ~932–1117 s (~17.5 min mean) per seed; Phi-B QA adapter 1463 s
+(~24 min) per seed. This cost must be paid AGAIN for every model swap AND
+every corpus update. Contrast the compiled substrate (H6, 2026-07-08):
+a model swap = copy the model-free store + re-point the evaluator = 0 GPU,
+0 loss, retention 1.000.
+
+**Verdict (C3, honest).** The pre-registered prediction — parametric memory
+accumulates somewhat, composes weakly, and FAILS transfer — holds, with
+the composition result stronger than predicted (it does not compose at all:
+balanced accuracy = chance). The portability triangle is complete: episodic
+RAG finds-but-cannot-compose (C1), LoRA memorizes-but-cannot-discriminate-
+and-cannot-port (C3), the compiled substrate does all three and ports for
+free (C2b). Caveats: 3 seeds, one 3B/3.8B model pair, one 4090; a larger
+model or a bespoke discrimination-focused training curriculum might lift
+LoRA off chance — but no amount of retraining changes the structural swap
+result, which is the load-bearing contrast for the "improvement belongs to
+the customer, not the model vendor" claim.
