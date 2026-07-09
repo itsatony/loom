@@ -90,6 +90,42 @@ for qwen / gpt-5-mini / haiku on the shared seeds). The substrate stores no
 model artifacts, so a model swap is lossless by construction; the data
 confirms it end-to-end.
 
+### The portability triangle (C3 / LoRA, the parametric-memory contrast, 3 seeds)
+
+C3 fine-tunes a LoRA adapter on the same episode stream (Qwen2.5-3B base;
+episode text only, never queries/answers) — parametric weight-based memory.
+
+| condition | repetition | composition | revision flips | find | swaps across models? |
+|---|---|---|---|---|---|
+| loom-c2b (substrate) | 1.000 | 1.000 | 72/72 | 60/60 | **yes, retention 1.000** |
+| c3-lora (fair QA-SFT) | 0.500 | 0.500 | 0/72 | 0/20 | **no — RuntimeError** |
+| c3-base (floor) | 0.498 | 0.495 | — | 0/20 | n/a |
+
+Two findings, both pre-registered and both clean:
+1. **Parametric memory memorizes but does not compile into queryable
+   knowledge.** The adapter *did* absorb the corpus — positive recall on
+   repetition/composition rose from base's ~20–52% to 100% — but negative
+   accuracy collapsed to ~0 (near-constant "true"), so balanced accuracy
+   sits at chance on every seed (composition A−B = +0.500, exact, all 3
+   seeds). It never un-believes a superseded fact (0/72 flips) and cannot
+   enumerate (find 0/20). Recall ≠ discriminative, revisable, queryable
+   knowledge — which is exactly what the substrate provides.
+2. **Parametric memory does not port.** Loading model A's adapter on a
+   different-architecture model B (Phi-3.5-mini) is a hard RuntimeError —
+   5 of 7 target modules absent (fused), dimension + vocab mismatch on the
+   rest. **Transfer retention = 0, architecturally inapplicable, not merely
+   degraded.** A swap requires a full retrain (~17–24 min/GPU per seed per
+   model, and the retrained adapter is still at chance). Contrast the
+   substrate swap: copy the model-free store, re-point the evaluator —
+   0 GPU, 0 loss.
+
+This closes the C1/C2/C3 comparison from CLAUDE.md §1: episodic RAG has
+portability but cannot compose or revise; LoRA cannot compile queryable
+knowledge and cannot port; only the compiled substrate does all three.
+Caveat: 3 seeds, one 3B/3.8B model pair, one GPU — a larger model or a
+bespoke discrimination curriculum might lift LoRA off chance, but no
+retraining changes the structural swap result.
+
 ## H7 — economics
 
 Pooled over 20 seeds (query-time cost, prompt tokens):
@@ -113,10 +149,12 @@ collapses as the corpus grows.
 ## Scope and honesty (per CLAUDE.md §1)
 
 "Transfer of understanding" here means exactly: held-out compositional and
-revision performance survives a model swap. That is demonstrated. What is
-NOT claimed: rule *induction* (v0 compiles only stated rules), real-domain
-noise robustness beyond the paraphrase tier, or that geometry is
-unnecessary — geometry is a pre-registered Stage-2 question that must now
+revision performance survives a model swap. That is demonstrated. The full
+C1/C2/C3 triangle is now measured: episodic RAG ports but cannot
+compose/revise; LoRA cannot compile queryable knowledge and cannot port;
+only the compiled substrate does all three. What is NOT claimed: rule
+*induction* (v0 compiles only stated rules), real-domain noise robustness
+beyond the paraphrase tier, or that geometry is unnecessary — geometry is a pre-registered Stage-2 question that must now
 beat a *winning* symbolic baseline (the frame concept, §9.5, is the first
 registered Stage-1.5 extension). Negative-result discipline held throughout:
 the one FAIL verdict during the campaign was a flaky-endpoint measurement
