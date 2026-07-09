@@ -14,6 +14,8 @@ import (
 )
 
 // Derivation is a proof tree node for a derived atom, or a base-fact leaf.
+// Frame is the home frame of the supporting fact/rule (frame-attributed
+// traces, MASTERPLAN §9.6.1).
 type Derivation struct {
 	Atom     world.Atom        `json:"atom"`
 	FactID   string            `json:"fact_id,omitempty"` // set iff base-fact leaf
@@ -21,12 +23,14 @@ type Derivation struct {
 	Binding  map[string]string `json:"binding,omitempty"`
 	Supports []*Derivation     `json:"supports,omitempty"`
 	Depth    int               `json:"depth"`
+	Frame    string            `json:"frame,omitempty"` // home frame of this fact/rule ("" pre-frames)
 }
 
-// Closure is the set of atoms holding at time t, each with one canonical
-// (highest-precedence, first-found) derivation.
+// Closure is the set of atoms holding at time t in one frame, each with one
+// canonical (highest-precedence, first-found) derivation.
 type Closure struct {
 	T     int
+	Frame string                 // query frame ("actual" for v0 worlds)
 	Atoms map[string]*Derivation // atom.Key() -> derivation
 	w     *world.World
 }
@@ -47,30 +51,65 @@ type Options struct {
 	// revealing episode day is <= t (episodeDay lookup). Used by validators
 	// to ensure ground truth never depends on unrevealed knowledge.
 	RevealedBy func(episodeID string) (day int, ok bool)
+	// Frame selects the query frame; "" means actual. Visibility is the
+	// frame's cone (itself + inherited ancestors); items in pinned layers
+	// are evaluated at the pin's effective day (world.Cone).
+	Frame string
 }
 
-// Eval computes the closure of w at time t.
+// Eval computes the closure of w at time t in opt.Frame (default actual).
 func Eval(w *world.World, t int, opt Options) (*Closure, error) {
-	cl := &Closure{T: t, Atoms: map[string]*Derivation{}, w: w}
+	frame := world.NormFrame(opt.Frame)
+	cone, err := w.Cone(frame, t)
+	if err != nil {
+		return nil, err
+	}
+	cl := &Closure{T: t, Frame: frame, Atoms: map[string]*Derivation{}, w: w}
 
-	revealed := func(epID string) bool {
+	// revealedAt: episode revealed by the effective day of the item's
+	// home frame (a pinned layer must not see later reveals either).
+	revealedAt := func(epID string, eff int) bool {
 		if opt.RevealedBy == nil {
 			return true
 		}
 		day, ok := opt.RevealedBy(epID)
-		return ok && day <= t
+		return ok && day <= eff
 	}
 
-	// Stratum 0: base facts valid at t.
+	// Stratum 0: per atom key, the winning candidate among cone-visible
+	// facts is the nearest frame's (frame proximity above everything;
+	// §9.6.2 decision 1); at equal distance a Block beats an assert
+	// (explicit removal wins, like supersession); then fact ID for
+	// determinism. A winning Block suppresses the atom entirely.
+	type factCand struct {
+		f    *world.BaseFact
+		dist int
+	}
+	candsByKey := map[string][]factCand{}
 	for i := range w.Facts {
 		f := &w.Facts[i]
-		if !f.ValidAt(t) || !revealed(f.EpisodeID) {
+		cm, vis := cone[world.NormFrame(f.FrameID)]
+		if !vis || !f.ValidAt(cm.Eff) || !revealedAt(f.EpisodeID, cm.Eff) {
 			continue
 		}
 		k := f.Atom.Key()
-		if _, dup := cl.Atoms[k]; !dup {
-			cl.Atoms[k] = &Derivation{Atom: f.Atom, FactID: f.ID, Depth: 0}
+		candsByKey[k] = append(candsByKey[k], factCand{f: f, dist: cm.Dist})
+	}
+	for k, cands := range candsByKey {
+		sort.Slice(cands, func(i, j int) bool {
+			if cands[i].dist != cands[j].dist {
+				return cands[i].dist < cands[j].dist
+			}
+			if cands[i].f.Block != cands[j].f.Block {
+				return cands[i].f.Block
+			}
+			return cands[i].f.ID < cands[j].f.ID
+		})
+		win := cands[0]
+		if win.f.Block {
+			continue
 		}
+		cl.Atoms[k] = &Derivation{Atom: win.f.Atom, FactID: win.f.ID, Depth: 0, Frame: world.NormFrame(win.f.FrameID)}
 	}
 
 	maxStratum := 0
@@ -96,6 +135,7 @@ func Eval(w *world.World, t int, opt Options) (*Closure, error) {
 
 	type candidate struct {
 		rule    *world.Rule
+		dist    int // frame distance of the rule's home frame from the query frame
 		atom    world.Atom
 		binding map[string]string
 		deriv   *Derivation
@@ -110,10 +150,11 @@ func Eval(w *world.World, t int, opt Options) (*Closure, error) {
 		for {
 			candsByAtom := map[string][]candidate{}
 			for _, r := range rules {
-				if !r.EffectiveAt(t) || !revealed(r.EpisodeID) {
+				cm, vis := cone[world.NormFrame(r.FrameID)]
+				if !vis || !r.EffectiveAt(cm.Eff) || !revealedAt(r.EpisodeID, cm.Eff) {
 					continue
 				}
-				if !opt.IgnoreSupersessions && fullySuperseded(w, r.ID, t, revealed) {
+				if !opt.IgnoreSupersessions && fullySuperseded(w, r.ID, cone, revealedAt) {
 					continue
 				}
 				bindings, err := matchAll(cl, r.Conditions, map[string]string{})
@@ -129,7 +170,7 @@ func Eval(w *world.World, t int, opt Options) (*Closure, error) {
 						continue
 					}
 					if !opt.IgnoreSupersessions {
-						sup, err := conditionallySuperseded(w, cl, r.ID, t, b, revealed)
+						sup, err := conditionallySuperseded(w, cl, r.ID, b, cone, revealedAt)
 						if err != nil {
 							return nil, &JoinExplosionError{RuleID: r.ID, Phase: "supersession"}
 						}
@@ -143,8 +184,8 @@ func Eval(w *world.World, t int, opt Options) (*Closure, error) {
 					}
 					supports, depth := collectSupports(cl, r.Conditions, b)
 					candsByAtom[atom.Key()] = append(candsByAtom[atom.Key()], candidate{
-						rule: r, atom: atom, binding: b,
-						deriv: &Derivation{Atom: atom, RuleID: r.ID, Binding: b, Supports: supports, Depth: depth + 1},
+						rule: r, dist: cm.Dist, atom: atom, binding: b,
+						deriv: &Derivation{Atom: atom, RuleID: r.ID, Binding: b, Supports: supports, Depth: depth + 1, Frame: world.NormFrame(r.FrameID)},
 					})
 				}
 			}
@@ -153,7 +194,15 @@ func Eval(w *world.World, t int, opt Options) (*Closure, error) {
 				if _, exists := cl.Atoms[key]; exists {
 					continue // base facts and earlier derivations are not retracted
 				}
-				sort.Slice(cands, func(i, j int) bool { return precede(cands[i].rule, cands[j].rule) })
+				sort.Slice(cands, func(i, j int) bool {
+					// Frame proximity is the leading precedence key
+					// (§9.6.2 decision 1): a nearer frame's rule wins
+					// regardless of authority.
+					if cands[i].dist != cands[j].dist {
+						return cands[i].dist < cands[j].dist
+					}
+					return precede(cands[i].rule, cands[j].rule)
+				})
 				win := cands[0]
 				if !win.rule.Assert {
 					continue // winning candidate blocks the atom
@@ -183,20 +232,33 @@ func precede(a, b *world.Rule) bool {
 	return a.ID < b.ID
 }
 
-func fullySuperseded(w *world.World, ruleID string, t int, revealed func(string) bool) bool {
+// A supersession applies in the query frame iff its home frame is in the
+// cone; it is timed against its home frame's effective day, so a pinned
+// layer never sees supersessions issued after the pin. A scenario-frame
+// supersession may target an actual rule — that is the delta mechanism —
+// and is invisible outside the scenario's cone.
+func fullySuperseded(w *world.World, ruleID string, cone map[string]world.ConeMember, revealedAt func(string, int) bool) bool {
 	for i := range w.Supersessions {
 		s := &w.Supersessions[i]
-		if s.OldRule == ruleID && s.From <= t && len(s.Condition) == 0 && revealed(s.EpisodeID) {
+		if s.OldRule != ruleID || len(s.Condition) != 0 {
+			continue
+		}
+		cm, vis := cone[world.NormFrame(s.FrameID)]
+		if vis && s.From <= cm.Eff && revealedAt(s.EpisodeID, cm.Eff) {
 			return true
 		}
 	}
 	return false
 }
 
-func conditionallySuperseded(w *world.World, cl *Closure, ruleID string, t int, b map[string]string, revealed func(string) bool) (bool, error) {
+func conditionallySuperseded(w *world.World, cl *Closure, ruleID string, b map[string]string, cone map[string]world.ConeMember, revealedAt func(string, int) bool) (bool, error) {
 	for i := range w.Supersessions {
 		s := &w.Supersessions[i]
-		if s.OldRule != ruleID || s.From > t || len(s.Condition) == 0 || !revealed(s.EpisodeID) {
+		if s.OldRule != ruleID || len(s.Condition) == 0 {
+			continue
+		}
+		cm, vis := cone[world.NormFrame(s.FrameID)]
+		if !vis || s.From > cm.Eff || !revealedAt(s.EpisodeID, cm.Eff) {
 			continue
 		}
 		sat, err := satisfiable(cl, s.Condition, b)

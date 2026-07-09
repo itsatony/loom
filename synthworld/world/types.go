@@ -80,14 +80,18 @@ type PatternAtom struct {
 // ---------- Facts, rules, supersession ----------
 
 // BaseFact is an observed ground atom with validity interval [From, To).
-// To == 0 means open-ended.
+// To == 0 means open-ended. FrameID "" means actual. Block, in a non-actual
+// frame, suppresses the same atom inherited from farther frames (frame-scoped
+// fact removal — the delta mechanism; MASTERPLAN §9.6.2 decision 2).
 type BaseFact struct {
 	ID        string `json:"id"`
 	Atom      Atom   `json:"atom"`
 	From      int    `json:"from"`
 	To        int    `json:"to"`
 	Source    string `json:"source"`
-	EpisodeID string `json:"episode_id"` // episode that revealed it
+	EpisodeID string `json:"episode_id"`      // episode that revealed it
+	FrameID   string `json:"frame,omitempty"` // "" = actual
+	Block     bool   `json:"block,omitempty"` // frame-scoped removal of an inherited atom
 }
 
 func (f BaseFact) ValidAt(t int) bool {
@@ -106,8 +110,9 @@ type Rule struct {
 	Authority     int           `json:"authority"` // 1..5, higher wins
 	IssuedAt      int           `json:"issued_at"`
 	EffectiveFrom int           `json:"effective_from"`
-	EffectiveTo   int           `json:"effective_to"` // 0 = open
-	EpisodeID     string        `json:"episode_id"`   // episode that revealed it
+	EffectiveTo   int           `json:"effective_to"`    // 0 = open
+	EpisodeID     string        `json:"episode_id"`      // episode that revealed it
+	FrameID       string        `json:"frame,omitempty"` // "" = actual; rule fires in F iff home ∈ cone(F)
 }
 
 func (r Rule) EffectiveAt(t int) bool {
@@ -123,6 +128,7 @@ type Supersession struct {
 	Condition []PatternAtom `json:"condition,omitempty"`
 	From      int           `json:"from"`
 	EpisodeID string        `json:"episode_id"`
+	FrameID   string        `json:"frame,omitempty"` // "" = actual; applies in F iff home ∈ cone(F)
 }
 
 // ---------- World ----------
@@ -136,6 +142,7 @@ type World struct {
 	Facts         []BaseFact       `json:"facts"`
 	Rules         []Rule           `json:"rules"`
 	Supersessions []Supersession   `json:"supersessions"`
+	Frames        []Frame          `json:"frames,omitempty"` // empty = v0 world (actual only)
 }
 
 func (w *World) RelationByID(id string) *RelationSchema {
@@ -260,5 +267,5 @@ func (w *World) Validate() error {
 			return fmt.Errorf("supersession %s references unknown rule", s.ID)
 		}
 	}
-	return nil
+	return w.validateFrames()
 }
