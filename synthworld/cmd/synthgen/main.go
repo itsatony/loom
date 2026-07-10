@@ -14,7 +14,7 @@ import (
 func main() {
 	seed := flag.Int64("seed", 42, "generation seed")
 	out := flag.String("out", "dataset", "output directory")
-	preset := flag.String("preset", "small", "small | medium | batch")
+	preset := flag.String("preset", "small", "small | medium | batch | scale3x | scale10x | frames")
 	flag.Parse()
 
 	cfg, err := gen.PresetConfig(*preset, *seed)
@@ -23,6 +23,9 @@ func main() {
 	}
 
 	b := gen.NewBuilder(cfg)
+	if fc := gen.FramesPreset(*preset); fc != nil {
+		b.EnableFrames(fc)
+	}
 	if err := b.BuildWorld(); err != nil {
 		fatal(fmt.Errorf("build world: %w", err))
 	}

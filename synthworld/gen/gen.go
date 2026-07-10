@@ -117,6 +117,30 @@ type Builder struct {
 	// whose deep strata over-fire or whose depth histogram is flat is a bad
 	// seed — visible here instead of only on manual inspection.
 	Stats DatasetStats
+
+	// Frames layer (nil for v0 presets; see frames.go). All fields below are
+	// inert unless EnableFrames was called — the v0 build path consumes the
+	// rng identically with or without them.
+	frames           *FramesConfig
+	frameLive        string
+	framePinned      string
+	narrators        []string
+	fictionIDs       []string
+	perspectiveIDs   []string
+	contraFacts      []frameTrap
+	gapFacts         []frameTrap
+	quoteFacts       []frameTrap
+	sarcasmTraps     []frameTrap
+	contested        []contestedTopic
+	overrides        []overrideDelta
+	scenarioSupOld   map[string][]string // frame -> rule IDs superseded within it
+	predictions      []prediction
+	predictionByFact map[string]*prediction
+	extraEvents      []Event
+	extraKeys        []string
+	assertKind       map[string]string // fact ID -> quote/non-assertive ("" = assert)
+	frameUsed        map[string]bool   // atom keys consumed by frame content
+	FrameStats       FramesStats
 }
 
 // DatasetStats reports generation-quality metrics.
@@ -128,14 +152,15 @@ type DatasetStats struct {
 
 func NewBuilder(cfg Config) *Builder {
 	return &Builder{
-		cfg:           cfg,
-		rng:           rand.New(rand.NewSource(cfg.Seed)),
-		w:             &world.World{Seed: cfg.Seed, Horizon: cfg.Horizon},
-		factKeys:      map[string]string{},
-		factRevealDay: map[string]int{},
-		ruleRevealDay: map[string]int{},
-		supRevealDay:  map[string]int{},
-		SupersededBy:  map[string]string{},
+		cfg:            cfg,
+		rng:            rand.New(rand.NewSource(cfg.Seed)),
+		w:              &world.World{Seed: cfg.Seed, Horizon: cfg.Horizon},
+		factKeys:       map[string]string{},
+		factRevealDay:  map[string]int{},
+		ruleRevealDay:  map[string]int{},
+		supRevealDay:   map[string]int{},
+		SupersededBy:   map[string]string{},
+		scenarioSupOld: map[string][]string{},
 	}
 }
 
@@ -160,6 +185,11 @@ func (b *Builder) BuildWorld() error {
 	b.buildRevisionPairs()
 	if err := b.probeExplosions(5); err != nil {
 		return err
+	}
+	if b.frames != nil {
+		if err := b.buildFrames(); err != nil {
+			return err
+		}
 	}
 	return b.w.Validate()
 }

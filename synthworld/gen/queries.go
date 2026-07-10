@@ -13,17 +13,24 @@ import (
 // the structured Atom/Pattern); Answer/StaleAnswer/Trace are for scoring.
 type Query struct {
 	ID    string `json:"id"`
-	Slice string `json:"slice"` // repetition | composition | revision
-	Type  string `json:"type"`  // holds | find
+	Slice string `json:"slice"` // repetition | composition | revision | contamination | isolation | pinning | misattribution | promotion | ideation
+	Type  string `json:"type"`  // holds | find | which_frames
 	AtDay int    `json:"at_day"`
 
-	Atom     *world.Atom        `json:"atom,omitempty"`    // holds
+	Atom     *world.Atom        `json:"atom,omitempty"`    // holds, which_frames
 	Pattern  *world.PatternAtom `json:"pattern,omitempty"` // find
 	FindSlot string             `json:"find_slot,omitempty"`
 
 	Answer      *bool    `json:"answer,omitempty"`       // holds
 	AnswerSet   []string `json:"answer_set,omitempty"`   // find
 	StaleAnswer *bool    `json:"stale_answer,omitempty"` // revision only
+
+	// Frames-v1 fields (all empty for v0 queries; MASTERPLAN §9.6.4).
+	Frame        string        `json:"frame,omitempty"`         // query frame; "" = actual
+	FramesScope  []string      `json:"frames_scope,omitempty"`  // ideation find: explicit frame set
+	AnswerFrames []string      `json:"answer_frames,omitempty"` // which_frames: frames where Atom holds
+	AnswerFramed []FramedValue `json:"answer_framed,omitempty"` // ideation: (value, frame) pairs
+	Subpop       string        `json:"subpop,omitempty"`        // trap sub-population (gap traps are gated separately)
 
 	Depth              int      `json:"depth"`
 	ProvenanceEpisodes []string `json:"provenance_episodes,omitempty"`
@@ -292,6 +299,12 @@ func (b *Builder) BuildQueries() (*QuerySet, error) {
 			fmt.Sprintf("retained control: supersession of predecessor does not affect this binding (rule %s)", d.RuleID))
 	}
 
+	if b.frames != nil {
+		if err := b.buildFrameQueries(qs, nextID, seen, cl); err != nil {
+			return nil, fmt.Errorf("frame queries: %w", err)
+		}
+	}
+
 	return qs, nil
 }
 
@@ -409,6 +422,12 @@ func QueryStats(qs *QuerySet) string {
 		}
 		if q.Type == "find" {
 			pol = fmt.Sprintf("set%d", len(q.AnswerSet))
+			if len(q.FramesScope) > 0 {
+				pol = fmt.Sprintf("set%d", len(q.AnswerFramed))
+			}
+		}
+		if q.Type == "which_frames" {
+			pol = fmt.Sprintf("set%d", len(q.AnswerFrames))
 		}
 		counts[q.Slice+"/"+q.Type+"/"+pol]++
 		if q.Slice == "composition" {

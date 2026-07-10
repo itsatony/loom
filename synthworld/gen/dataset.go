@@ -55,6 +55,11 @@ func (b *Builder) WriteDataset(dir string, episodes []Episode, qs *QuerySet) err
 			"world.json and query answers/traces are for scoring. " +
 			"Episode events carry structured payloads (easy mode) and text (hard mode).",
 	}
+	if b.frames != nil {
+		manifest["frames_config"] = b.frames
+		manifest["frames_quality"] = b.FrameStats
+		manifest["frames_gates"] = ComputeFramesGateStats(qs, b.FrameStats)
+	}
 	return writeJSONFile(filepath.Join(dir, "manifest.json"), manifest)
 }
 

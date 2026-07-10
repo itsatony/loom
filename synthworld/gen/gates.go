@@ -73,6 +73,107 @@ func ComputeGateStats(qs *QuerySet, stats DatasetStats) GateStats {
 	return gs
 }
 
+// FramesGateStats are the frames-edition dataset-quality measurements
+// (MASTERPLAN §9.6.8): gap traps, scenario-composition chains, scenario
+// presence, per-frame firing hygiene. Frames seeds are gated on ALL v0
+// gates PLUS these.
+type FramesGateStats struct {
+	GapTrapQueries        int      `json:"gap_trap_queries"`
+	ContraTrapQueries     int      `json:"contra_trap_queries"`
+	SpeechTrapQueries     int      `json:"speech_trap_queries"`
+	ScenarioChainQueries  int      `json:"scenario_chain_queries"`
+	PinnedScenarios       int      `json:"pinned_scenarios"`
+	LiveScenarios         int      `json:"live_scenarios"`
+	MajorityOverFiring    []string `json:"majority_over_firing_frames"` // frames where >50% of derived relations over-fire
+	MisattributionQueries int      `json:"misattribution_queries"`
+	PromotionQueries      int      `json:"promotion_queries"`
+	IdeationQueries       int      `json:"ideation_queries"`
+}
+
+// FramesGateThresholds are the pre-registered §9.6.8 acceptance gates.
+type FramesGateThresholds struct {
+	MinGapTraps       int `json:"min_gap_traps"`
+	MinScenarioChains int `json:"min_scenario_chains"`
+	MinPinned         int `json:"min_pinned"`
+	MinLive           int `json:"min_live"`
+}
+
+// DefaultFramesGateThresholds returns the §9.6.8 gates: >= 15 gap-trap
+// queries, >= 10 scenario-composition chains, >= 1 pinned + >= 1 live
+// scenario, and no frame where a majority of rules over-fire.
+func DefaultFramesGateThresholds() FramesGateThresholds {
+	return FramesGateThresholds{MinGapTraps: 15, MinScenarioChains: 10, MinPinned: 1, MinLive: 1}
+}
+
+// ComputeFramesGateStats derives FramesGateStats from a built query set and
+// the builder's FramesStats (the same numbers land in the manifest).
+func ComputeFramesGateStats(qs *QuerySet, fs FramesStats) FramesGateStats {
+	gs := FramesGateStats{}
+	for _, q := range qs.Queries {
+		switch {
+		case q.Slice == "contamination" && q.Subpop == "gap":
+			gs.GapTrapQueries++
+		case q.Slice == "contamination" && q.Subpop == "contradiction":
+			gs.ContraTrapQueries++
+		case q.Slice == "contamination" && (q.Subpop == "sarcasm" || q.Subpop == "quote"):
+			gs.SpeechTrapQueries++
+		case q.Slice == "isolation" && q.Subpop == "chain":
+			gs.ScenarioChainQueries++
+		case q.Slice == "misattribution":
+			gs.MisattributionQueries++
+		case q.Slice == "promotion":
+			gs.PromotionQueries++
+		case q.Slice == "ideation":
+			gs.IdeationQueries++
+		}
+	}
+	var frames []string
+	for f := range fs.PerFrameFiring {
+		frames = append(frames, f)
+	}
+	sort.Strings(frames)
+	gs.PinnedScenarios = fs.PinnedScenarios
+	gs.LiveScenarios = fs.LiveScenarios
+	for _, f := range frames {
+		ratios := fs.PerFrameFiring[f]
+		over, total := 0, 0
+		for _, r := range ratios {
+			total++
+			if r > 0.5 {
+				over++
+			}
+		}
+		if total > 0 && float64(over)/float64(total) > 0.5 {
+			gs.MajorityOverFiring = append(gs.MajorityOverFiring, f)
+		}
+	}
+	return gs
+}
+
+// EvaluateFramesGates returns the sorted list of frames-gate violations
+// (empty = pass). Scenario presence is checked against the world's frame
+// table by the caller (cmd/batch) via CountScenarios.
+func EvaluateFramesGates(gs FramesGateStats, th FramesGateThresholds) []string {
+	var reasons []string
+	if gs.GapTrapQueries < th.MinGapTraps {
+		reasons = append(reasons, fmt.Sprintf("gap-trap queries %d < %d", gs.GapTrapQueries, th.MinGapTraps))
+	}
+	if gs.ScenarioChainQueries < th.MinScenarioChains {
+		reasons = append(reasons, fmt.Sprintf("scenario-composition chain queries %d < %d", gs.ScenarioChainQueries, th.MinScenarioChains))
+	}
+	if gs.PinnedScenarios < th.MinPinned {
+		reasons = append(reasons, fmt.Sprintf("pinned scenarios %d < %d", gs.PinnedScenarios, th.MinPinned))
+	}
+	if gs.LiveScenarios < th.MinLive {
+		reasons = append(reasons, fmt.Sprintf("live scenarios %d < %d", gs.LiveScenarios, th.MinLive))
+	}
+	if len(gs.MajorityOverFiring) > 0 {
+		reasons = append(reasons, fmt.Sprintf("frames with majority over-firing rules: %v", gs.MajorityOverFiring))
+	}
+	sort.Strings(reasons)
+	return reasons
+}
+
 // EvaluateGates returns the sorted list of gate violations (empty = pass).
 func EvaluateGates(gs GateStats, th GateThresholds) []string {
 	var reasons []string

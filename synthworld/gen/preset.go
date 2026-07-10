@@ -85,6 +85,22 @@ func PresetConfig(name string, seed int64) (Config, error) {
 			cfg.NumBaseRelations = 30
 			cfg.BackgroundFactsPerBaseRelation = Range{Min: 180, Max: 280}
 		}
+	case "frames":
+		// Frames-v1 preset (MASTERPLAN §9.6.4/§9.6.8): batch-level v0 world
+		// (the frames seed protocol gates on ALL v0 gates too), plus the
+		// frames layer configured via FramesPreset — deliberately NOT in
+		// Config, so v0 manifests stay byte-identical.
+		cfg.EntitiesPerType = Range{Min: 15, Max: 30}
+		cfg.NumBaseRelations = 10
+		cfg.RelationsPerStratum = 3
+		cfg.RulesPerDerivedRelation = Range{Min: 2, Max: 3}
+		cfg.SeedChainsPerRule = Range{Min: 3, Max: 6}
+		cfg.BackgroundFactsPerBaseRelation = Range{Min: 15, Max: 30}
+		cfg.NumRevisionPairs = 14
+		cfg.NumRepetitionQueries = 60
+		cfg.NumCompositionQueries = 80
+		cfg.NumFindQueries = 20
+		cfg.NumRevisionQueries = 48
 	default:
 		return cfg, fmt.Errorf("unknown preset %q", name)
 	}

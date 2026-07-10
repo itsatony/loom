@@ -67,33 +67,73 @@ func VerifyDataset(dir string) (*VerifyReport, error) {
 		return d, ok
 	}
 
-	// closures per distinct query day (v0.1: a single day, but stay general)
-	days := map[int]bool{}
-	for _, q := range queries {
-		days[q.AtDay] = true
+	// closures per distinct (query day, frame) — lazy: frames datasets query
+	// many frames, v0 datasets exactly one
+	type clKey struct {
+		day   int
+		frame string
 	}
-	closures := map[int]*oracle.Closure{}
+	closures := map[clKey]*oracle.Closure{}
+	getCl := func(day int, frame string) (*oracle.Closure, error) {
+		k := clKey{day, world.NormFrame(frame)}
+		if c, ok := closures[k]; ok {
+			return c, nil
+		}
+		c, err := oracle.Eval(&w, day, oracle.Options{RevealedBy: revealedBy, Frame: k.frame})
+		if err != nil {
+			return nil, err
+		}
+		closures[k] = c
+		return c, nil
+	}
 	stales := map[int]*oracle.Closure{}
-	for d := range days {
-		cl, err := oracle.Eval(&w, d, oracle.Options{RevealedBy: revealedBy})
+	getStale := func(day int) (*oracle.Closure, error) {
+		if c, ok := stales[day]; ok {
+			return c, nil
+		}
+		c, err := oracle.Eval(&w, day, oracle.Options{IgnoreSupersessions: true, RevealedBy: revealedBy})
 		if err != nil {
 			return nil, err
 		}
-		st, err := oracle.Eval(&w, d, oracle.Options{IgnoreSupersessions: true, RevealedBy: revealedBy})
-		if err != nil {
-			return nil, err
+		stales[day] = c
+		return c, nil
+	}
+	// frame universe for which_frames queries: actual + every declared frame
+	frameIDs := []string{world.ActualFrame}
+	{
+		var rest []string
+		for _, f := range w.Frames {
+			rest = append(rest, f.ID)
 		}
-		closures[d] = cl
-		stales[d] = st
+		sort.Strings(rest)
+		frameIDs = append(frameIDs, rest...)
 	}
 
 	rep := &VerifyReport{Checked: map[string]int{}}
 	problem := func(format string, args ...any) {
 		rep.Problems = append(rep.Problems, fmt.Sprintf(format, args...))
 	}
-	for _, q := range queries {
-		cl := closures[q.AtDay]
-		st := stales[q.AtDay]
+	// guarantee 5b: every support in a query's derivation is homed on the
+	// query frame's ancestor chain (its visibility cone)
+	var coneCheck func(q *Query, d *oracle.Derivation, cone map[string]world.ConeMember)
+	coneCheck = func(q *Query, d *oracle.Derivation, cone map[string]world.ConeMember) {
+		if d == nil {
+			return
+		}
+		if _, ok := cone[world.NormFrame(d.Frame)]; !ok {
+			problem("FAIL %s: trace support (frame %s) outside the cone of query frame %s",
+				q.ID, world.NormFrame(d.Frame), world.NormFrame(q.Frame))
+		}
+		for _, s := range d.Supports {
+			coneCheck(q, s, cone)
+		}
+	}
+	for i := range queries {
+		q := queries[i]
+		cl, err := getCl(q.AtDay, q.Frame)
+		if err != nil {
+			return nil, err
+		}
 		switch q.Type {
 		case "holds":
 			got := cl.Holds(*q.Atom)
@@ -105,7 +145,19 @@ func VerifyDataset(dir string) (*VerifyReport, error) {
 				problem("FAIL %s [%s]: oracle says %v, ground truth says %v for %s",
 					q.ID, q.Slice, got, *q.Answer, q.Atom.Key())
 			}
+			if got {
+				cone, cerr := w.Cone(world.NormFrame(q.Frame), q.AtDay)
+				if cerr != nil {
+					problem("FAIL %s: cone: %v", q.ID, cerr)
+				} else {
+					coneCheck(&q, cl.Get(*q.Atom), cone)
+				}
+			}
 			if q.Slice == "revision" {
+				st, serr := getStale(q.AtDay)
+				if serr != nil {
+					return nil, serr
+				}
 				if q.StaleAnswer == nil {
 					problem("FAIL %s: revision query without stale answer", q.ID)
 				} else if st.Holds(*q.Atom) != *q.StaleAnswer {
@@ -120,27 +172,73 @@ func VerifyDataset(dir string) (*VerifyReport, error) {
 				}
 			}
 		case "find":
-			var got []string
 			rel := w.RelationByID(q.Pattern.Relation)
-			for _, d := range cl.Atoms {
-				if d.Atom.Relation != q.Pattern.Relation {
-					continue
-				}
-				match := true
-				for _, s := range rel.Slots {
-					t := q.Pattern.Args[s.Name]
-					if t.Const != "" && d.Atom.Args[s.Name] != t.Const {
-						match = false
-						break
+			matchValues := func(c *oracle.Closure) []string {
+				var vals []string
+				for _, d := range c.Atoms {
+					if d.Atom.Relation != q.Pattern.Relation {
+						continue
+					}
+					match := true
+					for _, s := range rel.Slots {
+						t := q.Pattern.Args[s.Name]
+						if t.Const != "" && d.Atom.Args[s.Name] != t.Const {
+							match = false
+							break
+						}
+					}
+					if match {
+						vals = append(vals, d.Atom.Args[q.FindSlot])
 					}
 				}
-				if match {
-					got = append(got, d.Atom.Args[q.FindSlot])
+				sort.Strings(vals)
+				return vals
+			}
+			if len(q.FramesScope) > 0 {
+				// ideation: (value, frame) pairs across the explicit scope
+				var got []FramedValue
+				for _, fid := range q.FramesScope {
+					fcl, ferr := getCl(q.AtDay, fid)
+					if ferr != nil {
+						return nil, ferr
+					}
+					seenVals := map[string]bool{}
+					for _, v := range matchValues(fcl) {
+						if !seenVals[v] {
+							seenVals[v] = true
+							got = append(got, FramedValue{Value: v, Frame: fid})
+						}
+					}
+				}
+				sort.Slice(got, func(a, b int) bool {
+					if got[a].Frame != got[b].Frame {
+						return got[a].Frame < got[b].Frame
+					}
+					return got[a].Value < got[b].Value
+				})
+				if !equalFramedValues(got, q.AnswerFramed) {
+					problem("FAIL %s: framed find answer mismatch\n  oracle: %v\n  stored: %v", q.ID, got, q.AnswerFramed)
+				}
+			} else {
+				got := matchValues(cl)
+				if !equalStringSlices(got, q.AnswerSet) {
+					problem("FAIL %s: find answer set mismatch\n  oracle: %v\n  stored: %v", q.ID, got, q.AnswerSet)
+				}
+			}
+		case "which_frames":
+			var got []string
+			for _, fid := range frameIDs {
+				fcl, ferr := getCl(q.AtDay, fid)
+				if ferr != nil {
+					return nil, ferr
+				}
+				if fcl.Holds(*q.Atom) {
+					got = append(got, fid)
 				}
 			}
 			sort.Strings(got)
-			if !equalStringSlices(got, q.AnswerSet) {
-				problem("FAIL %s: find answer set mismatch\n  oracle: %v\n  stored: %v", q.ID, got, q.AnswerSet)
+			if !equalStringSlices(got, q.AnswerFrames) {
+				problem("FAIL %s: which_frames answer mismatch\n  oracle: %v\n  stored: %v", q.ID, got, q.AnswerFrames)
 			}
 		default:
 			problem("FAIL %s: unknown query type %s", q.ID, q.Type)
@@ -158,6 +256,18 @@ func VerifyDataset(dir string) (*VerifyReport, error) {
 		rep.Checked[q.Slice+"/"+q.Type]++
 	}
 	return rep, nil
+}
+
+func equalFramedValues(a, b []FramedValue) bool {
+	if len(a) != len(b) {
+		return false
+	}
+	for i := range a {
+		if a[i] != b[i] {
+			return false
+		}
+	}
+	return true
 }
 
 func equalStringSlices(a, b []string) bool {
