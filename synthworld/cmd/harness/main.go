@@ -76,6 +76,16 @@ func main() {
 		&harness.LoomC2bCondition{Label: "loom-c2b-det", Vocab: vocab,
 			Extractor: loom.DeterministicExtractor{}, Workers: pipelineWorkers},
 	}
+	// Frame diagnostics (MASTERPLAN §9.6.5): registered only on frames
+	// datasets; each breaks frame semantics in exactly one way.
+	if len(w.Frames) > 0 {
+		conditions = append(conditions,
+			&harness.FrameOracleCondition{W: &w},
+			&harness.MonoWorldCondition{W: &w},
+			&harness.IsolationistCondition{W: &w},
+			&harness.LiteralistCondition{W: &w},
+		)
+	}
 
 	// Embedding client: configured by environment; nil when unset.
 	//   HARNESS_EMBED_BASE_URL    e.g. https://api.openai.com/v1

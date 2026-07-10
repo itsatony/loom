@@ -710,6 +710,29 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   points. Design only; no scope or endpoint change to the running
   campaign. Haiku c1c legs (5 seeds) approved and launched (≈$60,
   user-authorized).
+- 2026-07-10 — Frames build steps 2+3 complete (generator frames preset +
+  validate guarantee 5 + harness frame slices + the four §9.6.5 diagnostic
+  oracles), all BEFORE any naturalizer token or LLM-condition run. No
+  endpoint, threshold, or arithmetic change. Three refinements to the
+  §9.6.5 QUALITATIVE predictions, discovered by the LLM-free dev-seed runs
+  (seeds 99, 7; exact counts still freeze on the first gated seed batch):
+  (1) mono-world cannot score 100% on v0 slices — rehoming frame-scoped
+  supersessions and scenario exception facts into one world necessarily
+  perturbs some actual derivations (seed 99: comp+ 63/80). That damage IS
+  the frame-DAG failure mode, so it is reported, not repaired. (2)
+  mono-world passes the sarcasm trap sub-line (5/5) because sarcasm
+  literals exist only as episode events, never in world.json — sarcasm
+  detection is the literalist's cell (0/5), separating assertion-type from
+  frame-DAG failures as designed. (3) literalist scores 18/20 on ideation:
+  literals asserted into actual add spurious (value, actual) satisfiers —
+  speech-act contamination surfacing in cross-frame enumeration; recorded
+  as part of its fingerprint. Also: the misattribution slice now
+  GUARANTEES the inherited-atom targets (truth spans [actual, both
+  scenarios]) — without them an isolationist store aced the slice (20/20);
+  with them it fails exactly those 4 (16/20). Dev note: seed 42 is
+  intractable under batch-level knobs (pre-existing join explosion,
+  identical on the plain batch preset) — a rejected candidate by protocol;
+  frames dev seeds are 99 (fast, ~5 min) and 7 (~12 min).
 - 2026-07-09 — §9.6 registered: frames v1 committed spec +
   pre-registration, resolving §9.5. Design input consolidated in
   FRAMES-DESIGN-NOTES.md (three-lens expert analysis). The five open

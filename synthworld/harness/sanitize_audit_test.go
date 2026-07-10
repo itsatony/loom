@@ -22,14 +22,22 @@ import (
 // sanitizedAllowlist is every field SanitizedQuery is permitted to carry.
 // ID is allowed because it is an opaque generation-order index (qry_NNNN)
 // carrying no answer information; D6 uses it harness-side.
+// Frame and FramesScope (frames-v1) are allowed because they are part of
+// the QUESTION, not its answer: the query text itself names the frame
+// ("within frame scn_live, does P hold?") and the ideation scope; the
+// structured fields mirror the text exactly, the way Atom/Pattern do.
+// Ground-truth frame labels (AnswerFrames, AnswerFramed, Subpop) are not
+// copied by sanitize() and the serialized-form audit rejects them.
 var sanitizedAllowlist = map[string]bool{
-	"ID":       true,
-	"Type":     true,
-	"AtDay":    true,
-	"Atom":     true,
-	"Pattern":  true,
-	"FindSlot": true,
-	"Text":     true,
+	"ID":          true,
+	"Type":        true,
+	"AtDay":       true,
+	"Atom":        true,
+	"Pattern":     true,
+	"FindSlot":    true,
+	"Frame":       true,
+	"FramesScope": true,
+	"Text":        true,
 }
 
 func TestSanitizedQueryFieldAllowlist(t *testing.T) {

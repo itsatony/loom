@@ -403,10 +403,28 @@ func (b *Builder) buildFrameQueries(qs *QuerySet, nextID func() string, seen map
 			notes  string
 		}{clActual.Atoms[k].Atom, "actual", "paired control: an actual fact, visible to actual and inheriting scenarios"})
 	}
-	for i, mt := range misTargets {
-		if i >= fc.NumMisattribution {
-			break
+	// The inherited controls are guaranteed slots: they are the only
+	// misattribution targets whose truth spans an inheritance chain
+	// ([actual, scn_live, scn_pin]) — without them an isolationist store
+	// aces the slice and the diagnostic loses its tooth.
+	var misPick []int
+	reserved := 0
+	for i := range misTargets {
+		if misTargets[i].subpop == "actual" {
+			reserved++
 		}
+	}
+	quota := fc.NumMisattribution - reserved
+	for i := range misTargets {
+		if misTargets[i].subpop == "actual" {
+			misPick = append(misPick, i)
+		} else if quota > 0 {
+			misPick = append(misPick, i)
+			quota--
+		}
+	}
+	for _, i := range misPick {
+		mt := misTargets[i]
 		if err := addWhichFrames(mt.atom, mt.subpop, mt.notes); err != nil {
 			return err
 		}

@@ -15,21 +15,26 @@ import (
 )
 
 // SanitizedQuery is what a condition is allowed to see: no answers, no
-// traces, no provenance, no slice label.
+// traces, no provenance, no slice label, no subpopulation. Frame and
+// FramesScope ARE visible — they are part of the question ("within scenario
+// X, does P hold?"), not ground truth.
 type SanitizedQuery struct {
-	ID       string
-	Type     string // holds | find
-	AtDay    int
-	Atom     *world.Atom
-	Pattern  *world.PatternAtom
-	FindSlot string
-	Text     string
+	ID          string
+	Type        string // holds | find | which_frames
+	AtDay       int
+	Atom        *world.Atom
+	Pattern     *world.PatternAtom
+	FindSlot    string
+	Frame       string   // query frame; "" = actual
+	FramesScope []string // ideation find: explicit frame set
+	Text        string
 }
 
 func sanitize(q gen.Query) SanitizedQuery {
 	return SanitizedQuery{
 		ID: q.ID, Type: q.Type, AtDay: q.AtDay,
-		Atom: q.Atom, Pattern: q.Pattern, FindSlot: q.FindSlot, Text: q.Text,
+		Atom: q.Atom, Pattern: q.Pattern, FindSlot: q.FindSlot,
+		Frame: q.Frame, FramesScope: q.FramesScope, Text: q.Text,
 	}
 }
 
@@ -40,6 +45,17 @@ type Condition interface {
 	Ingest(episodes []gen.Episode) error
 	AnswerHolds(q SanitizedQuery) (bool, error)
 	AnswerFind(q SanitizedQuery) ([]string, error)
+}
+
+// FrameAnswerer is the optional extension for frame-native query types
+// (MASTERPLAN §9.6.4). Conditions that do not implement it are scored with
+// frame-blind defaults: which_frames answers ["actual"] if the condition
+// holds the atom (else empty), and ideation finds are labeled "actual" —
+// the honest output of a frameless store, punished exactly where frames
+// matter (misattribution, cross-frame attribution).
+type FrameAnswerer interface {
+	AnswerWhichFrames(q SanitizedQuery) ([]string, error)
+	AnswerFindFramed(q SanitizedQuery) ([]gen.FramedValue, error)
 }
 
 // ---------- Scoring ----------
@@ -78,16 +94,40 @@ type RevisionScore struct {
 	StaleAgreements int `json:"stale_agreements"` // wrong flip answers matching the stale answer
 }
 
+// FrameReport scores the six frame slices (MASTERPLAN §9.6.4). Traps carry
+// answer=false (negatives), paired controls answer=true (positives), so
+// balanced accuracy per direction reads off SliceScore. ContaminationSub
+// buckets trap+control pairs by subpopulation (gap is the F-E1 mandatory
+// sub-line; sarcasm/quote form the literalist speech-act sub-slice).
+type FrameReport struct {
+	Contamination    SliceScore             `json:"contamination"`
+	ContaminationSub map[string]*SliceScore `json:"contamination_sub,omitempty"`
+	Isolation        SliceScore             `json:"isolation"`
+	IsolationChain   SliceScore             `json:"isolation_chain"`
+	Pinning          SliceScore             `json:"pinning"`
+	Promotion        SliceScore             `json:"promotion"`
+	Misattribution   FindScore              `json:"misattribution"` // exact frame-set + micro over frame labels
+	Ideation         FindScore              `json:"ideation"`       // exact (value,frame) pair-set + micro (F-E4)
+}
+
 type Report struct {
 	Condition    string              `json:"condition"`
 	Repetition   SliceScore          `json:"repetition"`
 	Composition  SliceScore          `json:"composition"`
 	Find         FindScore           `json:"find"`
 	Revision     RevisionScore       `json:"revision"`
+	Frames       *FrameReport        `json:"frames,omitempty"` // nil on v0 datasets
 	Errors       int                 `json:"errors"`
 	UnknownSlice int                 `json:"unknown_slice,omitempty"` // queries with an unrecognized slice/type: scored nowhere, must be zero
 	PerDepth     map[int]*SliceScore `json:"per_depth,omitempty"`     // composition holds, by derivation depth
 	Usage        *UsageStats         `json:"usage,omitempty"`         // LLM token accounting; nil for LLM-free conditions
+}
+
+func (r *Report) frames() *FrameReport {
+	if r.Frames == nil {
+		r.Frames = &FrameReport{ContaminationSub: map[string]*SliceScore{}}
+	}
+	return r.Frames
 }
 
 // Run executes one condition over the dataset and scores it. Worker count
@@ -131,8 +171,38 @@ func RunWorkers(cond Condition, episodes []gen.Episode, queries []gen.Query, wor
 			got, err := cond.AnswerHolds(sq)
 			results[i] = answerResult{holds: got, err: err}
 		case "find":
+			if len(q.FramesScope) > 0 {
+				// ideation: (value, frame) pairs, encoded frame|value for
+				// set scoring. Frame-blind conditions answer via plain find
+				// with every value labeled "actual".
+				if fa, ok := cond.(FrameAnswerer); ok {
+					pairs, err := fa.AnswerFindFramed(sq)
+					results[i] = answerResult{found: encodePairs(pairs), err: err}
+				} else {
+					got, err := cond.AnswerFind(sq)
+					var pairs []gen.FramedValue
+					for _, v := range got {
+						pairs = append(pairs, gen.FramedValue{Value: v, Frame: world.ActualFrame})
+					}
+					results[i] = answerResult{found: encodePairs(pairs), err: err}
+				}
+				return
+			}
 			got, err := cond.AnswerFind(sq)
 			results[i] = answerResult{found: got, err: err}
+		case "which_frames":
+			if fa, ok := cond.(FrameAnswerer); ok {
+				got, err := fa.AnswerWhichFrames(sq)
+				results[i] = answerResult{found: got, err: err}
+			} else {
+				// frame-blind default: "actual" iff the condition holds the atom
+				got, err := cond.AnswerHolds(sq)
+				var frames []string
+				if got {
+					frames = []string{world.ActualFrame}
+				}
+				results[i] = answerResult{found: frames, err: err}
+			}
 		}
 	}
 	if workers == 1 {
@@ -195,6 +265,26 @@ func RunWorkers(cond Condition, episodes []gen.Episode, queries []gen.Query, wor
 						rep.Revision.RetainCorrect++
 					}
 				}
+			case "contamination":
+				fr := rep.frames()
+				tally(&fr.Contamination, want, correct)
+				sub := strings.TrimSuffix(q.Subpop, "-control")
+				ss, ok := fr.ContaminationSub[sub]
+				if !ok {
+					ss = &SliceScore{}
+					fr.ContaminationSub[sub] = ss
+				}
+				tally(ss, want, correct)
+			case "isolation":
+				fr := rep.frames()
+				tally(&fr.Isolation, want, correct)
+				if q.Subpop == "chain" || q.Subpop == "chain-control" {
+					tally(&fr.IsolationChain, want, correct)
+				}
+			case "pinning":
+				tally(&rep.frames().Pinning, want, correct)
+			case "promotion":
+				tally(&rep.frames().Promotion, want, correct)
 			default:
 				// a query scored nowhere is a silent hole in the campaign;
 				// count it loudly instead of vanishing it (D7-adjacent).
@@ -205,13 +295,37 @@ func RunWorkers(cond Condition, episodes []gen.Episode, queries []gen.Query, wor
 				rep.Errors++
 				continue
 			}
-			scoreFind(&rep.Find, res.found, q.AnswerSet)
+			if len(q.FramesScope) > 0 {
+				scoreFind(&rep.frames().Ideation, res.found, encodePairs(q.AnswerFramed))
+			} else {
+				scoreFind(&rep.Find, res.found, q.AnswerSet)
+			}
+		case "which_frames":
+			if res.err != nil {
+				rep.Errors++
+				continue
+			}
+			scoreFind(&rep.frames().Misattribution, res.found, q.AnswerFrames)
 		default:
 			rep.UnknownSlice++
 		}
 	}
 	finalizeFind(&rep.Find)
+	if rep.Frames != nil {
+		finalizeFind(&rep.Frames.Misattribution)
+		finalizeFind(&rep.Frames.Ideation)
+	}
 	return rep, nil
+}
+
+// encodePairs flattens ideation (value, frame) pairs into strings for
+// exact-set + micro scoring: right value in the wrong frame is an error.
+func encodePairs(pairs []gen.FramedValue) []string {
+	out := make([]string, 0, len(pairs))
+	for _, p := range pairs {
+		out = append(out, p.Frame+"|"+p.Value)
+	}
+	return out
 }
 
 func tally(s *SliceScore, want, correct bool) {
@@ -297,6 +411,76 @@ func Table(reports []*Report) string {
 			frac(r.Find.ExactMatches, r.Find.Total),
 		)
 	}
+	// frame slices (frames datasets only)
+	anyFrames := false
+	for _, r := range reports {
+		if r.Frames != nil {
+			anyFrames = true
+			break
+		}
+	}
+	if anyFrames {
+		b.WriteString("\nframe slices (traps are negatives, paired controls positives):\n")
+		fmt.Fprintf(&b, "%-20s %9s %9s %9s %9s %9s %9s %9s %9s %7s %7s\n",
+			"condition", "cont+", "cont-", "iso+", "iso-", "pin+", "pin-", "prom+", "prom-", "mis=", "idea=")
+		for _, r := range reports {
+			if r.Frames == nil {
+				continue
+			}
+			f := r.Frames
+			fmt.Fprintf(&b, "%-20s %9s %9s %9s %9s %9s %9s %9s %9s %7s %7s\n",
+				r.Condition,
+				frac(f.Contamination.PosCorrect, f.Contamination.PosTotal),
+				frac(f.Contamination.NegCorrect, f.Contamination.NegTotal),
+				frac(f.Isolation.PosCorrect, f.Isolation.PosTotal),
+				frac(f.Isolation.NegCorrect, f.Isolation.NegTotal),
+				frac(f.Pinning.PosCorrect, f.Pinning.PosTotal),
+				frac(f.Pinning.NegCorrect, f.Pinning.NegTotal),
+				frac(f.Promotion.PosCorrect, f.Promotion.PosTotal),
+				frac(f.Promotion.NegCorrect, f.Promotion.NegTotal),
+				frac(f.Misattribution.ExactMatches, f.Misattribution.Total),
+				frac(f.Ideation.ExactMatches, f.Ideation.Total),
+			)
+		}
+		// contamination sub-populations (gap is the F-E1 mandatory sub-line)
+		subSet := map[string]bool{}
+		for _, r := range reports {
+			if r.Frames != nil {
+				for s := range r.Frames.ContaminationSub {
+					subSet[s] = true
+				}
+			}
+		}
+		if len(subSet) > 0 {
+			var subs []string
+			for s := range subSet {
+				subs = append(subs, s)
+			}
+			sort.Strings(subs)
+			b.WriteString("\ncontamination by sub-population (trap-/control+ correct):\n")
+			fmt.Fprintf(&b, "%-20s", "condition")
+			for _, s := range subs {
+				fmt.Fprintf(&b, " %16s", s)
+			}
+			b.WriteString("\n")
+			for _, r := range reports {
+				if r.Frames == nil {
+					continue
+				}
+				fmt.Fprintf(&b, "%-20s", r.Condition)
+				for _, s := range subs {
+					if ss, ok := r.Frames.ContaminationSub[s]; ok {
+						fmt.Fprintf(&b, " %16s", fmt.Sprintf("%s/%s",
+							frac(ss.NegCorrect, ss.NegTotal), frac(ss.PosCorrect, ss.PosTotal)))
+					} else {
+						fmt.Fprintf(&b, " %16s", "-")
+					}
+				}
+				b.WriteString("\n")
+			}
+		}
+	}
+
 	// per-depth breakdown for composition holds
 	depthSet := map[int]bool{}
 	for _, r := range reports {
