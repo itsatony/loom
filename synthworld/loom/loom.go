@@ -58,16 +58,37 @@ type StoredSupersession struct {
 	Provenance   Provenance         `json:"provenance"`
 }
 
+// StoredFrame is a declared frame (MASTERPLAN §9.6.4). The store's frame
+// table comes exclusively from ingested frame declarations — actual is
+// implicit and never stored.
+type StoredFrame struct {
+	Frame      world.Frame `json:"frame"`
+	Lifecycle  Lifecycle   `json:"lifecycle"`
+	Provenance Provenance  `json:"provenance"`
+}
+
+// StoredPromotion records an explicit promotion notice (a claim confirmed
+// into the actual record). The evaluator does not consume it in easy mode —
+// the confirming actual observation arrives as its own fact — but it is the
+// audit trail the S2 promotion policy (proposed-until-observed) builds on.
+type StoredPromotion struct {
+	Promotion  gen.PromotionEvent `json:"promotion"`
+	Provenance Provenance         `json:"provenance"`
+}
+
 // ---------- Store ----------
 
 type Store struct {
 	Facts         []StoredFact         `json:"facts"`
 	Rules         []StoredRule         `json:"rules"`
 	Supersessions []StoredSupersession `json:"supersessions"`
+	Frames        []StoredFrame        `json:"frames,omitempty"`
+	Promotions    []StoredPromotion    `json:"promotions,omitempty"`
 
-	factKeys map[string]bool // dedupe: atom key + interval
+	factKeys map[string]bool // dedupe: frame + block + atom key + interval
 	ruleIDs  map[string]bool
 	supIDs   map[string]bool
+	frameIDs map[string]bool
 
 	// caches, invalidated on commit. mu guards them: reads (Holds/Find/
 	// Diff/StatsAt) may run concurrently under the harness worker pool
@@ -83,6 +104,7 @@ type Store struct {
 type closureKey struct {
 	t     int
 	stale bool
+	frame string
 }
 
 func NewStore() *Store {
@@ -90,6 +112,7 @@ func NewStore() *Store {
 		factKeys: map[string]bool{},
 		ruleIDs:  map[string]bool{},
 		supIDs:   map[string]bool{},
+		frameIDs: map[string]bool{},
 		closures: map[closureKey]*oracle.Closure{},
 	}
 }
@@ -99,17 +122,24 @@ func (s *Store) invalidate() {
 	s.closures = map[closureKey]*oracle.Closure{}
 }
 
-// CommitFact stores a fact unless an identical one (atom + interval) exists;
-// duplicate provenance is merged.
+// factKey identifies a fact up to content: the same atom + interval homed in
+// different frames (or as a block vs an assertion) is two distinct items —
+// scenario overrides deliberately duplicate actual atom keys.
+func factKey(f world.BaseFact) string {
+	return fmt.Sprintf("%s|%v|%s|%d|%d", world.NormFrame(f.FrameID), f.Block, f.Atom.Key(), f.From, f.To)
+}
+
+// CommitFact stores a fact unless an identical one (frame + block + atom +
+// interval) exists; duplicate provenance is merged.
 func (s *Store) CommitFact(f world.BaseFact, prov Provenance) error {
 	if len(prov.EpisodeIDs) == 0 {
 		return fmt.Errorf("fact %s: provenance is mandatory", f.ID)
 	}
-	key := fmt.Sprintf("%s|%d|%d", f.Atom.Key(), f.From, f.To)
+	key := factKey(f)
 	if s.factKeys[key] {
 		for i := range s.Facts {
 			ef := &s.Facts[i]
-			if fmt.Sprintf("%s|%d|%d", ef.Fact.Atom.Key(), ef.Fact.From, ef.Fact.To) == key {
+			if factKey(ef.Fact) == key {
 				ef.Provenance.EpisodeIDs = mergeIDs(ef.Provenance.EpisodeIDs, prov.EpisodeIDs)
 				break
 			}
@@ -148,6 +178,34 @@ func (s *Store) CommitSupersession(sp world.Supersession, prov Provenance) error
 	return nil
 }
 
+// CommitFrame stores a frame declaration; duplicates are ignored. The actual
+// frame is implicit and may not be declared (mirrors world.Validate).
+func (s *Store) CommitFrame(f world.Frame, prov Provenance) error {
+	if len(prov.EpisodeIDs) == 0 {
+		return fmt.Errorf("frame %s: provenance is mandatory", f.ID)
+	}
+	if f.ID == "" || f.ID == world.ActualFrame {
+		return fmt.Errorf("frame declaration %q: actual is implicit and may not be declared", f.ID)
+	}
+	if s.frameIDs[f.ID] {
+		return nil
+	}
+	s.frameIDs[f.ID] = true
+	s.Frames = append(s.Frames, StoredFrame{Frame: f, Lifecycle: Active, Provenance: prov})
+	s.invalidate()
+	return nil
+}
+
+// CommitPromotion records a promotion notice. No closure impact in easy
+// mode; kept as the audit trail for the S2 promotion policy.
+func (s *Store) CommitPromotion(p gen.PromotionEvent, prov Provenance) error {
+	if len(prov.EpisodeIDs) == 0 {
+		return fmt.Errorf("promotion of %s: provenance is mandatory", p.PredictionFactID)
+	}
+	s.Promotions = append(s.Promotions, StoredPromotion{Promotion: p, Provenance: prov})
+	return nil
+}
+
 func mergeIDs(a, b []string) []string {
 	set := map[string]bool{}
 	for _, x := range a {
@@ -168,11 +226,17 @@ func mergeIDs(a, b []string) []string {
 
 // IngestReport is the compilation trace for one ingest call (spec §5).
 type IngestReport struct {
-	Episodes      int      `json:"episodes"`
-	Facts         int      `json:"facts"`
-	Rules         int      `json:"rules"`
-	Supersessions int      `json:"supersessions"`
-	Problems      []string `json:"problems,omitempty"`
+	Episodes      int `json:"episodes"`
+	Facts         int `json:"facts"`
+	Rules         int `json:"rules"`
+	Supersessions int `json:"supersessions"`
+	Frames        int `json:"frames,omitempty"`
+	Promotions    int `json:"promotions,omitempty"`
+	// NonAssertive counts events whose literal content is asserted nowhere
+	// (sarcasm/irony) and therefore deliberately NOT committed. Skipping is
+	// the correct compilation, not a loss — counted here, not in Problems.
+	NonAssertive int      `json:"non_assertive_skipped,omitempty"`
+	Problems     []string `json:"problems,omitempty"`
 }
 
 // IngestStructured consumes episodes' structured payloads. Confidence 1.0;
@@ -186,6 +250,15 @@ func (s *Store) IngestStructured(episodes []gen.Episode) (*IngestReport, error) 
 			case gen.EvFact:
 				if ev.Fact == nil {
 					rep.Problems = append(rep.Problems, fmt.Sprintf("%s: fact event without payload", ep.ID))
+					continue
+				}
+				// Non-assertive speech (sarcasm/irony): the literal content
+				// is asserted in NO frame — committing it anywhere would be
+				// the literalist failure mode. Quotes are assertions homed in
+				// the speaker's perspective frame (the payload's FrameID) and
+				// commit like any frame-homed fact.
+				if ev.AssertionType == gen.AssertNonAssertive {
+					rep.NonAssertive++
 					continue
 				}
 				if err := s.CommitFact(*ev.Fact, prov); err != nil {
@@ -210,6 +283,24 @@ func (s *Store) IngestStructured(episodes []gen.Episode) (*IngestReport, error) 
 					return rep, err
 				}
 				rep.Supersessions++
+			case gen.EvFrame:
+				if ev.Frame == nil {
+					rep.Problems = append(rep.Problems, fmt.Sprintf("%s: frame event without payload", ep.ID))
+					continue
+				}
+				if err := s.CommitFrame(*ev.Frame, prov); err != nil {
+					return rep, err
+				}
+				rep.Frames++
+			case gen.EvPromotion:
+				if ev.Promotion == nil {
+					rep.Problems = append(rep.Problems, fmt.Sprintf("%s: promotion event without payload", ep.ID))
+					continue
+				}
+				if err := s.CommitPromotion(*ev.Promotion, prov); err != nil {
+					return rep, err
+				}
+				rep.Promotions++
 			default:
 				rep.Problems = append(rep.Problems, fmt.Sprintf("%s: unknown event kind %q", ep.ID, ev.Kind))
 			}
@@ -268,6 +359,12 @@ func (s *Store) worldView() (*world.World, error) {
 			w.Supersessions = append(w.Supersessions, s.Supersessions[i].Supersession)
 		}
 	}
+	for i := range s.Frames {
+		if s.Frames[i].Lifecycle == Active {
+			w.Frames = append(w.Frames, s.Frames[i].Frame)
+		}
+	}
+	sort.Slice(w.Frames, func(i, j int) bool { return w.Frames[i].ID < w.Frames[j].ID })
 
 	// stratum inference: memoized DFS over the rule dependency graph
 	strata := map[string]int{}
@@ -320,10 +417,10 @@ func (s *Store) worldView() (*world.World, error) {
 
 // ---------- Operations (spec §6, evaluator = synthworld oracle) ----------
 
-func (s *Store) closureAt(t int, stale bool) (*oracle.Closure, error) {
+func (s *Store) closureAt(t int, stale bool, frame string) (*oracle.Closure, error) {
 	s.mu.Lock()
 	defer s.mu.Unlock()
-	key := closureKey{t: t, stale: stale}
+	key := closureKey{t: t, stale: stale, frame: world.NormFrame(frame)}
 	if c, ok := s.closures[key]; ok {
 		return c, nil
 	}
@@ -331,7 +428,7 @@ func (s *Store) closureAt(t int, stale bool) (*oracle.Closure, error) {
 	if err != nil {
 		return nil, err
 	}
-	c, err := oracle.Eval(w, t, oracle.Options{IgnoreSupersessions: stale})
+	c, err := oracle.Eval(w, t, oracle.Options{IgnoreSupersessions: stale, Frame: frame})
 	if err != nil {
 		return nil, err
 	}
@@ -339,10 +436,15 @@ func (s *Store) closureAt(t int, stale bool) (*oracle.Closure, error) {
 	return c, nil
 }
 
-// Holds evaluates a ground atom at time t and returns the derivation (nil
-// when the atom does not hold).
+// Holds evaluates a ground atom at time t in the actual frame and returns
+// the derivation (nil when the atom does not hold).
 func (s *Store) Holds(a world.Atom, t int) (bool, *oracle.Derivation, error) {
-	c, err := s.closureAt(t, false)
+	return s.HoldsIn(world.ActualFrame, a, t)
+}
+
+// HoldsIn evaluates a ground atom at time t in the given query frame.
+func (s *Store) HoldsIn(frame string, a world.Atom, t int) (bool, *oracle.Derivation, error) {
+	c, err := s.closureAt(t, false, frame)
 	if err != nil {
 		return false, nil, err
 	}
@@ -350,9 +452,15 @@ func (s *Store) Holds(a world.Atom, t int) (bool, *oracle.Derivation, error) {
 	return d != nil, d, nil
 }
 
-// Find enumerates satisfiers of a pattern with exactly one free slot.
+// Find enumerates satisfiers of a pattern with exactly one free slot, in the
+// actual frame.
 func (s *Store) Find(p world.PatternAtom, freeSlot string, t int) ([]string, error) {
-	c, err := s.closureAt(t, false)
+	return s.FindIn(world.ActualFrame, p, freeSlot, t)
+}
+
+// FindIn enumerates satisfiers of a pattern in the given query frame.
+func (s *Store) FindIn(frame string, p world.PatternAtom, freeSlot string, t int) ([]string, error) {
+	c, err := s.closureAt(t, false, frame)
 	if err != nil {
 		return nil, err
 	}
@@ -383,11 +491,11 @@ func (s *Store) Find(p world.PatternAtom, freeSlot string, t int) ([]string, err
 
 // Diff reports atoms whose truth differs between t1 and t2 (spec §6).
 func (s *Store) Diff(t1, t2 int) (gained, lost []world.Atom, err error) {
-	c1, err := s.closureAt(t1, false)
+	c1, err := s.closureAt(t1, false, world.ActualFrame)
 	if err != nil {
 		return nil, nil, err
 	}
-	c2, err := s.closureAt(t2, false)
+	c2, err := s.closureAt(t2, false, world.ActualFrame)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -417,7 +525,7 @@ type Stats struct {
 }
 
 func (s *Store) StatsAt(t int) (*Stats, error) {
-	c, err := s.closureAt(t, false)
+	c, err := s.closureAt(t, false, world.ActualFrame)
 	if err != nil {
 		return nil, err
 	}

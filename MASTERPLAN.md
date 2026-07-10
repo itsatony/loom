@@ -745,3 +745,25 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   and the frames seed protocol locked BEFORE any naturalizer token,
   seed lock, or frames extraction run. v0 endpoints/verdicts untouched
   (campaign closed: H5 PASS, H6 retention 1.0, C3 triangle complete).
+- 2026-07-10 (later) — Frames build step 4 complete: loom C2a frame ingest
+  (structured). The store gains a frame table (compiled from EvFrame
+  declarations; actual stays implicit), promotion records (audit trail for
+  the S2 proposed-until-observed policy; no closure impact in easy mode —
+  the confirming observation arrives as its own fact), and speech-act
+  discipline: non-assertive events (sarcasm) are counted and deliberately
+  NOT committed; quotes commit as assertions homed in the speaker's
+  perspective frame (payload FrameID). Fact dedupe key widened to
+  frame+block+atom+interval (scenario overrides deliberately duplicate
+  actual atom keys). Ops are frame-parameterized (HoldsIn/FindIn; closure
+  cache keyed by frame) and the C2a condition implements FrameAnswerer
+  (which_frames over the ingested frame universe, framed find over the
+  query's frame scope). Exit criterion MET: loom-C2a == frame-oracle on
+  BOTH frames dev seeds (99, 7) at full JSON-report granularity — every v0
+  slice, all six frame slices incl. misattribution 20/20 (was 0/20 frame-
+  blind) and all contamination sub-populations incl. sarcasm 5/5 (was 0/5
+  believed). v0 regression intact (sample-dataset: diagnostic pattern
+  byte-identical, C2a and c2b-det oracle-equal); validator green on both
+  dev seeds. No endpoint, threshold, or arithmetic change. Next: build
+  step 5 = cmd/batch frames edition (candidates 1..40, v0 + §9.6.8 gates,
+  first 20 passers locked + committed BEFORE any LLM run; exact diagnostic
+  per-cell counts freeze there).

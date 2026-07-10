@@ -191,7 +191,7 @@ func (b *Builder) factText(f *world.BaseFact) string {
 		p := b.predictionByFact[f.ID]
 		return fmt.Sprintf("[day %d] Forecast %s by %s (source frame %s): expects that %s will hold.",
 			f.From, f.ID, p.Origin, frame, b.atomText(f.Atom))
-	case b.assertKind[f.ID] == assertQuote:
+	case b.assertKind[f.ID] == AssertQuote:
 		return fmt.Sprintf("[day %d] Report (%s): according to a statement attributed to frame %s, \"%s\" (a claim, not independently observed).",
 			f.From, f.ID, frame, b.atomText(f.Atom))
 	default: // perspective narration

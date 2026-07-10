@@ -22,14 +22,14 @@ const (
 // exact atom+interval match = duplicate; same atom with a strictly narrower
 // validity than an existing open/wider interval = refinement; otherwise new.
 func (s *Store) factRelation(f world.BaseFact) factConsistency {
-	key := fmt.Sprintf("%s|%d|%d", f.Atom.Key(), f.From, f.To)
-	if s.factKeys[key] {
+	if s.factKeys[factKey(f)] {
 		return factDuplicate
 	}
 	ak := f.Atom.Key()
+	frame := world.NormFrame(f.FrameID)
 	for i := range s.Facts {
 		ef := &s.Facts[i].Fact
-		if ef.Atom.Key() != ak {
+		if ef.Atom.Key() != ak || world.NormFrame(ef.FrameID) != frame || ef.Block != f.Block {
 			continue
 		}
 		if narrower(f.From, f.To, ef.From, ef.To) {
@@ -125,7 +125,7 @@ func (s *Store) maxKnownDay() int {
 // This is the store-side analogue of the generator's firing-ratio hygiene;
 // the denominator uses only ingested content, never world.json.
 func (s *Store) firingRatios(t int) map[string]float64 {
-	c, err := s.closureAt(t, false)
+	c, err := s.closureAt(t, false, world.ActualFrame)
 	if err != nil {
 		return nil
 	}

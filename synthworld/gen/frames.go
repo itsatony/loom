@@ -165,9 +165,11 @@ type FramesStats struct {
 
 // ---------- Build ----------
 
+// AssertionType values carried on Event (ground truth in easy mode).
+// Exported: loom's structured ingest keys its speech-act discipline on them.
 const (
-	assertQuote        = "quote"
-	assertNonAssertive = "non-assertive"
+	AssertQuote        = "quote"
+	AssertNonAssertive = "non-assertive"
 )
 
 // buildFrames runs after the v0 world is final (rules repaired, revision
@@ -362,7 +364,7 @@ func (b *Builder) buildFrames() error {
 			}
 			day := created + b.rng.Intn(h-10-created)
 			id := b.addFrameFact(atom, pid, day, 0, false, "narrator_"+b.narrators[i])
-			b.assertKind[id] = assertQuote
+			b.assertKind[id] = AssertQuote
 			b.quoteFacts = append(b.quoteFacts, frameTrap{FactID: id, Atom: atom, Frame: pid})
 		}
 	}
@@ -386,7 +388,7 @@ func (b *Builder) buildFrames() error {
 		sid := fmt.Sprintf("sar_%02d", len(b.sarcasmTraps)+1)
 		fact := &world.BaseFact{ID: sid, Atom: cand, From: day, Source: "remark_" + speaker}
 		b.addExtraEvent(day, sid, Event{
-			Kind: EvFact, Day: day, Fact: fact, AssertionType: assertNonAssertive,
+			Kind: EvFact, Day: day, Fact: fact, AssertionType: AssertNonAssertive,
 			Text: fmt.Sprintf("[day %d] Sarcastic remark by %s (non-assertive; the speaker does not believe the literal content): \"Oh sure, %s — obviously.\"", day, speaker, b.atomText(cand)),
 		})
 		b.sarcasmTraps = append(b.sarcasmTraps, frameTrap{FactID: sid, Atom: cand, Source: af.Atom, HasSource: true, Slot: slot, Frame: world.ActualFrame})

@@ -137,6 +137,15 @@ identical dataset; all map iteration over sorted keys.
 That is the S1 exit criterion, met. It also means: the interesting numbers
 all come from C2b (text mode) and the C1/C3 baselines.
 
+**Frames (2026-07-10, build step 4):** structured ingest is frame-native —
+frame table from EvFrame declarations, promotion records (audit only),
+non-assertive events skipped (counted in IngestReport.NonAssertive), quotes
+homed in perspective frames, fact dedupe on frame+block+atom+interval; ops
+frame-parameterized (`HoldsIn`/`FindIn`) and the C2a condition implements
+`harness.FrameAnswerer`. Verified `loom-C2a == frame-oracle` on frames dev
+seeds 99 + 7 at full JSON-report granularity; v0 sample-dataset regression
+intact.
+
 **S2 hooks that exist but are intentionally dormant (don't mistake for bugs):**
 lifecycle states `proposed`/`retracted`/`quarantined` are defined and honored
 by `worldView`/`StatsAt`, but nothing sets them yet — structured ingest
