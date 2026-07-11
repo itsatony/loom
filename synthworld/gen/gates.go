@@ -151,8 +151,8 @@ func ComputeFramesGateStats(qs *QuerySet, fs FramesStats) FramesGateStats {
 }
 
 // EvaluateFramesGates returns the sorted list of frames-gate violations
-// (empty = pass). Scenario presence is checked against the world's frame
-// table by the caller (cmd/batch) via CountScenarios.
+// (empty = pass). Scenario presence (pinned/live counts) arrives via
+// FramesGateStats, computed from the builder's FramesStats.
 func EvaluateFramesGates(gs FramesGateStats, th FramesGateThresholds) []string {
 	var reasons []string
 	if gs.GapTrapQueries < th.MinGapTraps {
