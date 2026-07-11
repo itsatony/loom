@@ -767,3 +767,18 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   step 5 = cmd/batch frames edition (candidates 1..40, v0 + §9.6.8 gates,
   first 20 passers locked + committed BEFORE any LLM run; exact diagnostic
   per-cell counts freeze there).
+- 2026-07-11 — Frames seed list LOCKED (§9.6.8, build step 5). cmd/batch
+  frames edition (v0 gates + frames gates + worker pool with numeric-order
+  finalization provably identical to a sequential run) over candidates
+  1..40. **Locked 20: {1, 2, 3, 7, 8, 9, 10, 12, 13, 14, 15, 16, 18, 19,
+  20, 21, 22, 24, 25, 29}.** Rejects, all pre-registered failure modes,
+  recorded in datasets/frames-batch-v1/batch-manifest.json (committed;
+  datasets regenerable deterministically, same policy as the v0 lock):
+  4/17/26 join explosion, 6/11 frame firing-hygiene, 23/28 gap-trap
+  shortfall, 5/27 zero composition positives + majority over-firing
+  (these two took 2-6 h wall-clock each before their gates fired —
+  pathological worlds, correctly rejected, not instrument hangs).
+  Candidates 30..40 skipped (quota met at seed 29). No LLM token has
+  touched any frames dataset. No endpoint, threshold, or arithmetic
+  change. Next: freeze exact §9.6.5 diagnostic per-cell counts from the
+  locked batch (LLM-free harness), then tier-M naturalization.
