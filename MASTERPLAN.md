@@ -575,6 +575,42 @@ Exact per-cell counts get frozen into the committed table on the first
 gated seed batch, before any LLM-condition run (same discipline as the
 v0 diagnostics table).
 
+**FROZEN 2026-07-11** — exact per-cell counts summed over the 20 locked
+frames seeds {1,2,3,7,8,9,10,12–16,18–22,24,25,29} (per-seed JSON
+reports committed under results/frames-diagnostics/; no LLM token has
+touched any frames dataset). Cells are `pos-correct/pos-total +
+neg-correct/neg-total`; find/misattribution/ideation are exact-set
+`matches/total`. frame-oracle is perfect in every cell (ceiling);
+loom-C2a equals frame-oracle EXACTLY on every cell of every individual
+seed (S1 frame-ingest exit now verified on the full locked batch, not
+just dev seeds). If any cell below changes after a harness change, fix
+the harness before measuring anything.
+
+| condition | rep | comp | find | rev flip | rev ret | contam | c:contra | c:gap | c:quote | c:sarcasm | isol | i:chain | pin | promo | misattr | ideation |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| frame-oracle | 1200/1200+1191/1191 | 1556/1556+1467/1467 | 400/400 | 480/480 | 480/480 | 1033/1033+1033/1033 | 400/400+400/400 | 400/400+400/400 | 120/120+120/120 | 113/113+113/113 | 921/921+529/529 | 380/380+369/369 | 320/320+319/319 | 308/308+200/200 | 400/400 | 400/400 |
+| loom-C2a | == frame-oracle in every cell, every seed | | | | | | | | | | | | | | | |
+| mono-world | 1200/1200+1178/1191 | 1518/1556+1311/1467 | 240/400 | 465/480 | 470/480 | 1033/1033+113/1033 | 400/400+0/400 | 400/400+0/400 | 120/120+0/120 | 113/113+113/113 | 819/921+99/529 | 281/380+99/369 | 161/320+159/319 | 308/308+0/200 | 0/400 | 0/400 |
+| isolationist | 1200/1200+1191/1191 | 1556/1556+1467/1467 | 400/400 | 480/480 | 480/480 | 1033/1033+1033/1033 | 400/400+400/400 | 400/400+400/400 | 120/120+120/120 | 113/113+113/113 | 301/921+529/529 | 0/380+369/369 | 0/320+319/319 | 308/308+200/200 | 320/400 | 346/400 |
+| literalist | 1200/1200+1191/1191 | 1556/1556+1462/1467 | 387/400 | 479/480 | 480/480 | 1033/1033+800/1033 | 400/400+400/400 | 400/400+400/400 | 120/120+0/120 | 113/113+0/113 | 921/921+525/529 | 380/380+365/369 | 320/320+319/319 | 308/308+200/200 | 400/400 | 398/400 |
+| v0 oracle (frame-blind) | 1200/1200+1191/1191 | 1556/1556+1467/1467 | 400/400 | 480/480 | 480/480 | 1033/1033+1033/1033 | 400/400+400/400 | 400/400+400/400 | 120/120+120/120 | 113/113+113/113 | 378/921+369/529 | 0/380+369/369 | 171/320+149/319 | 228/308+200/200 | 0/400 | 200/400 |
+| loom-c2b-det | == v0 oracle in every cell | | | | | | | | | | | | | | | |
+| always-true | 1200/1200+0/1191 | 1556/1556+0/1467 | 0/400 | 0/480 | 480/480 | 1033/1033+0/1033 | 400/400+0/400 | 400/400+0/400 | 120/120+0/120 | 113/113+0/113 | 921/921+0/529 | 380/380+0/369 | 320/320+0/319 | 308/308+0/200 | 0/400 | 120/400 |
+| always-false | 0/1200+1191/1191 | 0/1556+1467/1467 | 0/400 | 480/480 | 0/480 | 0/1033+1033/1033 | 0/400+400/400 | 0/400+400/400 | 0/120+120/120 | 0/113+113/113 | 0/921+529/529 | 0/380+369/369 | 0/320+319/319 | 0/308+200/200 | 0/400 | 120/400 |
+| episode-grep | 1200/1200+1178/1191 | 0/1556+1467/1467 | 0/400 | 480/480 | 0/480 | 1033/1033+0/1033 | 400/400+0/400 | 400/400+0/400 | 120/120+0/120 | 113/113+0/113 | 538/921+369/529 | 0/380+369/369 | 45/320+275/319 | 308/308+0/200 | 0/400 | 0/400 |
+| stale-oracle | 1200/1200+1191/1191 | 1556/1556+1467/1467 | 288/400 | 0/480 | 480/480 | 1033/1033+1033/1033 | 400/400+400/400 | 400/400+400/400 | 120/120+120/120 | 113/113+113/113 | 426/921+323/529 | 48/380+323/369 | 255/320+65/319 | 228/308+200/200 | 0/400 | 200/400 |
+
+Every qualitative prediction above holds in the frozen counts:
+mono-world fails exactly the contamination traps (contra/gap/quote
+negatives 0), misattribution (0/400), the premature-belief promotion
+side (0/200 neg), and passes the sarcasm sub-line (assertion-type vs
+frame-DAG separation) while carrying the registered comp+ rehoming
+damage (1518/1556). Isolationist fails inherited isolation (301/921),
+chains (0/380), pinning positives (0/320) and loses cross-frame
+ideation (346/400). Literalist fails exactly the speech-act negatives
+(quote 0/120, sarcasm 0/113) plus its registered literal-contamination
+fingerprint (find 387/400, ideation 398/400).
+
 ### 9.6.6 Text hardness tiers + authenticity certificate
 
 - **Tier E** (templated, explicit markers): harness-debugging only;
@@ -782,3 +818,16 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   touched any frames dataset. No endpoint, threshold, or arithmetic
   change. Next: freeze exact §9.6.5 diagnostic per-cell counts from the
   locked batch (LLM-free harness), then tier-M naturalization.
+- 2026-07-11 (later) — §9.6.5 diagnostic table FROZEN. LLM-free harness
+  over all 20 locked seeds (per-seed JSONs in results/frames-diagnostics/,
+  committed); exact per-cell counts (summed over the batch) now in §9.6.5.
+  Zero scoring errors. All qualitative predictions, including the three
+  2026-07-10 refinements, hold in the frozen counts. Two strengthenings of
+  previously-verified facts, no new claims: (1) loom-C2a == frame-oracle
+  in every cell of every locked seed — the S1 frame-ingest exit criterion,
+  previously verified on dev seeds {99, 7}, holds on the full locked
+  batch; (2) frame-oracle is perfect in every cell (ceiling intact). No
+  endpoint, threshold, or arithmetic change. Frames build step 5 complete;
+  next: tier-M naturalization (naturalizer outside the evaluated matrix,
+  ≥2 families, H4 content-preservation + frame-recoverability judge panel
+  + authenticity certificate).

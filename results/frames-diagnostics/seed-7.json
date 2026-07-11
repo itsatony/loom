@@ -1,0 +1,1278 @@
+[
+  {
+    "condition": "always-true",
+    "repetition": {
+      "pos_correct": 60,
+      "pos_total": 60,
+      "neg_correct": 0,
+      "neg_total": 58
+    },
+    "composition": {
+      "pos_correct": 80,
+      "pos_total": 80,
+      "neg_correct": 0,
+      "neg_total": 80
+    },
+    "find": {
+      "exact_matches": 0,
+      "total": 20,
+      "micro_p": 0,
+      "micro_r": 0,
+      "micro_f1": 0
+    },
+    "revision": {
+      "flip_correct": 0,
+      "flip_total": 24,
+      "retain_correct": 24,
+      "retain_total": 24,
+      "stale_agreements": 24
+    },
+    "frames": {
+      "contamination": {
+        "pos_correct": 51,
+        "pos_total": 51,
+        "neg_correct": 0,
+        "neg_total": 51
+      },
+      "contamination_sub": {
+        "contradiction": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 0,
+          "neg_total": 20
+        },
+        "gap": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 0,
+          "neg_total": 20
+        },
+        "quote": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 0,
+          "neg_total": 6
+        },
+        "sarcasm": {
+          "pos_correct": 5,
+          "pos_total": 5,
+          "neg_correct": 0,
+          "neg_total": 5
+        }
+      },
+      "isolation": {
+        "pos_correct": 47,
+        "pos_total": 47,
+        "neg_correct": 0,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 20,
+        "pos_total": 20,
+        "neg_correct": 0,
+        "neg_total": 19
+      },
+      "pinning": {
+        "pos_correct": 16,
+        "pos_total": 16,
+        "neg_correct": 0,
+        "neg_total": 16
+      },
+      "promotion": {
+        "pos_correct": 16,
+        "pos_total": 16,
+        "neg_correct": 0,
+        "neg_total": 10
+      },
+      "misattribution": {
+        "exact_matches": 0,
+        "total": 20,
+        "micro_p": 0.2,
+        "micro_r": 0.15384615384615385,
+        "micro_f1": 0.17391304347826086
+      },
+      "ideation": {
+        "exact_matches": 6,
+        "total": 20,
+        "micro_p": 0,
+        "micro_r": 0,
+        "micro_f1": 0
+      }
+    },
+    "errors": 0,
+    "per_depth": {
+      "2": {
+        "pos_correct": 11,
+        "pos_total": 11,
+        "neg_correct": 0,
+        "neg_total": 11
+      },
+      "3": {
+        "pos_correct": 69,
+        "pos_total": 69,
+        "neg_correct": 0,
+        "neg_total": 69
+      }
+    }
+  },
+  {
+    "condition": "always-false",
+    "repetition": {
+      "pos_correct": 0,
+      "pos_total": 60,
+      "neg_correct": 58,
+      "neg_total": 58
+    },
+    "composition": {
+      "pos_correct": 0,
+      "pos_total": 80,
+      "neg_correct": 80,
+      "neg_total": 80
+    },
+    "find": {
+      "exact_matches": 0,
+      "total": 20,
+      "micro_p": 0,
+      "micro_r": 0,
+      "micro_f1": 0
+    },
+    "revision": {
+      "flip_correct": 24,
+      "flip_total": 24,
+      "retain_correct": 0,
+      "retain_total": 24,
+      "stale_agreements": 0
+    },
+    "frames": {
+      "contamination": {
+        "pos_correct": 0,
+        "pos_total": 51,
+        "neg_correct": 51,
+        "neg_total": 51
+      },
+      "contamination_sub": {
+        "contradiction": {
+          "pos_correct": 0,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "gap": {
+          "pos_correct": 0,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "quote": {
+          "pos_correct": 0,
+          "pos_total": 6,
+          "neg_correct": 6,
+          "neg_total": 6
+        },
+        "sarcasm": {
+          "pos_correct": 0,
+          "pos_total": 5,
+          "neg_correct": 5,
+          "neg_total": 5
+        }
+      },
+      "isolation": {
+        "pos_correct": 0,
+        "pos_total": 47,
+        "neg_correct": 27,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 19,
+        "neg_total": 19
+      },
+      "pinning": {
+        "pos_correct": 0,
+        "pos_total": 16,
+        "neg_correct": 16,
+        "neg_total": 16
+      },
+      "promotion": {
+        "pos_correct": 0,
+        "pos_total": 16,
+        "neg_correct": 10,
+        "neg_total": 10
+      },
+      "misattribution": {
+        "exact_matches": 0,
+        "total": 20,
+        "micro_p": 0,
+        "micro_r": 0,
+        "micro_f1": 0
+      },
+      "ideation": {
+        "exact_matches": 6,
+        "total": 20,
+        "micro_p": 0,
+        "micro_r": 0,
+        "micro_f1": 0
+      }
+    },
+    "errors": 0,
+    "per_depth": {
+      "2": {
+        "pos_correct": 0,
+        "pos_total": 11,
+        "neg_correct": 11,
+        "neg_total": 11
+      },
+      "3": {
+        "pos_correct": 0,
+        "pos_total": 69,
+        "neg_correct": 69,
+        "neg_total": 69
+      }
+    }
+  },
+  {
+    "condition": "episode-grep",
+    "repetition": {
+      "pos_correct": 60,
+      "pos_total": 60,
+      "neg_correct": 58,
+      "neg_total": 58
+    },
+    "composition": {
+      "pos_correct": 0,
+      "pos_total": 80,
+      "neg_correct": 80,
+      "neg_total": 80
+    },
+    "find": {
+      "exact_matches": 0,
+      "total": 20,
+      "micro_p": 0,
+      "micro_r": 0,
+      "micro_f1": 0
+    },
+    "revision": {
+      "flip_correct": 24,
+      "flip_total": 24,
+      "retain_correct": 0,
+      "retain_total": 24,
+      "stale_agreements": 0
+    },
+    "frames": {
+      "contamination": {
+        "pos_correct": 51,
+        "pos_total": 51,
+        "neg_correct": 0,
+        "neg_total": 51
+      },
+      "contamination_sub": {
+        "contradiction": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 0,
+          "neg_total": 20
+        },
+        "gap": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 0,
+          "neg_total": 20
+        },
+        "quote": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 0,
+          "neg_total": 6
+        },
+        "sarcasm": {
+          "pos_correct": 5,
+          "pos_total": 5,
+          "neg_correct": 0,
+          "neg_total": 5
+        }
+      },
+      "isolation": {
+        "pos_correct": 27,
+        "pos_total": 47,
+        "neg_correct": 19,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 19,
+        "neg_total": 19
+      },
+      "pinning": {
+        "pos_correct": 2,
+        "pos_total": 16,
+        "neg_correct": 14,
+        "neg_total": 16
+      },
+      "promotion": {
+        "pos_correct": 16,
+        "pos_total": 16,
+        "neg_correct": 0,
+        "neg_total": 10
+      },
+      "misattribution": {
+        "exact_matches": 0,
+        "total": 20,
+        "micro_p": 0.2,
+        "micro_r": 0.15384615384615385,
+        "micro_f1": 0.17391304347826086
+      },
+      "ideation": {
+        "exact_matches": 0,
+        "total": 20,
+        "micro_p": 0.3235294117647059,
+        "micro_r": 0.43137254901960786,
+        "micro_f1": 0.3697478991596639
+      }
+    },
+    "errors": 0,
+    "per_depth": {
+      "2": {
+        "pos_correct": 0,
+        "pos_total": 11,
+        "neg_correct": 11,
+        "neg_total": 11
+      },
+      "3": {
+        "pos_correct": 0,
+        "pos_total": 69,
+        "neg_correct": 69,
+        "neg_total": 69
+      }
+    }
+  },
+  {
+    "condition": "stale-oracle",
+    "repetition": {
+      "pos_correct": 60,
+      "pos_total": 60,
+      "neg_correct": 58,
+      "neg_total": 58
+    },
+    "composition": {
+      "pos_correct": 80,
+      "pos_total": 80,
+      "neg_correct": 80,
+      "neg_total": 80
+    },
+    "find": {
+      "exact_matches": 18,
+      "total": 20,
+      "micro_p": 0.9565217391304348,
+      "micro_r": 1,
+      "micro_f1": 0.9777777777777777
+    },
+    "revision": {
+      "flip_correct": 0,
+      "flip_total": 24,
+      "retain_correct": 24,
+      "retain_total": 24,
+      "stale_agreements": 24
+    },
+    "frames": {
+      "contamination": {
+        "pos_correct": 51,
+        "pos_total": 51,
+        "neg_correct": 51,
+        "neg_total": 51
+      },
+      "contamination_sub": {
+        "contradiction": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "gap": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "quote": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 6,
+          "neg_total": 6
+        },
+        "sarcasm": {
+          "pos_correct": 5,
+          "pos_total": 5,
+          "neg_correct": 5,
+          "neg_total": 5
+        }
+      },
+      "isolation": {
+        "pos_correct": 20,
+        "pos_total": 47,
+        "neg_correct": 18,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 1,
+        "pos_total": 20,
+        "neg_correct": 18,
+        "neg_total": 19
+      },
+      "pinning": {
+        "pos_correct": 16,
+        "pos_total": 16,
+        "neg_correct": 0,
+        "neg_total": 16
+      },
+      "promotion": {
+        "pos_correct": 12,
+        "pos_total": 16,
+        "neg_correct": 10,
+        "neg_total": 10
+      },
+      "misattribution": {
+        "exact_matches": 0,
+        "total": 20,
+        "micro_p": 1,
+        "micro_r": 0.15384615384615385,
+        "micro_f1": 0.2666666666666667
+      },
+      "ideation": {
+        "exact_matches": 10,
+        "total": 20,
+        "micro_p": 1,
+        "micro_r": 0.43137254901960786,
+        "micro_f1": 0.6027397260273972
+      }
+    },
+    "errors": 0,
+    "per_depth": {
+      "2": {
+        "pos_correct": 11,
+        "pos_total": 11,
+        "neg_correct": 11,
+        "neg_total": 11
+      },
+      "3": {
+        "pos_correct": 69,
+        "pos_total": 69,
+        "neg_correct": 69,
+        "neg_total": 69
+      }
+    }
+  },
+  {
+    "condition": "oracle",
+    "repetition": {
+      "pos_correct": 60,
+      "pos_total": 60,
+      "neg_correct": 58,
+      "neg_total": 58
+    },
+    "composition": {
+      "pos_correct": 80,
+      "pos_total": 80,
+      "neg_correct": 80,
+      "neg_total": 80
+    },
+    "find": {
+      "exact_matches": 20,
+      "total": 20,
+      "micro_p": 1,
+      "micro_r": 1,
+      "micro_f1": 1
+    },
+    "revision": {
+      "flip_correct": 24,
+      "flip_total": 24,
+      "retain_correct": 24,
+      "retain_total": 24,
+      "stale_agreements": 0
+    },
+    "frames": {
+      "contamination": {
+        "pos_correct": 51,
+        "pos_total": 51,
+        "neg_correct": 51,
+        "neg_total": 51
+      },
+      "contamination_sub": {
+        "contradiction": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "gap": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "quote": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 6,
+          "neg_total": 6
+        },
+        "sarcasm": {
+          "pos_correct": 5,
+          "pos_total": 5,
+          "neg_correct": 5,
+          "neg_total": 5
+        }
+      },
+      "isolation": {
+        "pos_correct": 19,
+        "pos_total": 47,
+        "neg_correct": 19,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 19,
+        "neg_total": 19
+      },
+      "pinning": {
+        "pos_correct": 11,
+        "pos_total": 16,
+        "neg_correct": 5,
+        "neg_total": 16
+      },
+      "promotion": {
+        "pos_correct": 12,
+        "pos_total": 16,
+        "neg_correct": 10,
+        "neg_total": 10
+      },
+      "misattribution": {
+        "exact_matches": 0,
+        "total": 20,
+        "micro_p": 1,
+        "micro_r": 0.15384615384615385,
+        "micro_f1": 0.2666666666666667
+      },
+      "ideation": {
+        "exact_matches": 10,
+        "total": 20,
+        "micro_p": 1,
+        "micro_r": 0.43137254901960786,
+        "micro_f1": 0.6027397260273972
+      }
+    },
+    "errors": 0,
+    "per_depth": {
+      "2": {
+        "pos_correct": 11,
+        "pos_total": 11,
+        "neg_correct": 11,
+        "neg_total": 11
+      },
+      "3": {
+        "pos_correct": 69,
+        "pos_total": 69,
+        "neg_correct": 69,
+        "neg_total": 69
+      }
+    }
+  },
+  {
+    "condition": "loom-C2a",
+    "repetition": {
+      "pos_correct": 60,
+      "pos_total": 60,
+      "neg_correct": 58,
+      "neg_total": 58
+    },
+    "composition": {
+      "pos_correct": 80,
+      "pos_total": 80,
+      "neg_correct": 80,
+      "neg_total": 80
+    },
+    "find": {
+      "exact_matches": 20,
+      "total": 20,
+      "micro_p": 1,
+      "micro_r": 1,
+      "micro_f1": 1
+    },
+    "revision": {
+      "flip_correct": 24,
+      "flip_total": 24,
+      "retain_correct": 24,
+      "retain_total": 24,
+      "stale_agreements": 0
+    },
+    "frames": {
+      "contamination": {
+        "pos_correct": 51,
+        "pos_total": 51,
+        "neg_correct": 51,
+        "neg_total": 51
+      },
+      "contamination_sub": {
+        "contradiction": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "gap": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "quote": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 6,
+          "neg_total": 6
+        },
+        "sarcasm": {
+          "pos_correct": 5,
+          "pos_total": 5,
+          "neg_correct": 5,
+          "neg_total": 5
+        }
+      },
+      "isolation": {
+        "pos_correct": 47,
+        "pos_total": 47,
+        "neg_correct": 27,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 20,
+        "pos_total": 20,
+        "neg_correct": 19,
+        "neg_total": 19
+      },
+      "pinning": {
+        "pos_correct": 16,
+        "pos_total": 16,
+        "neg_correct": 16,
+        "neg_total": 16
+      },
+      "promotion": {
+        "pos_correct": 16,
+        "pos_total": 16,
+        "neg_correct": 10,
+        "neg_total": 10
+      },
+      "misattribution": {
+        "exact_matches": 20,
+        "total": 20,
+        "micro_p": 1,
+        "micro_r": 1,
+        "micro_f1": 1
+      },
+      "ideation": {
+        "exact_matches": 20,
+        "total": 20,
+        "micro_p": 1,
+        "micro_r": 1,
+        "micro_f1": 1
+      }
+    },
+    "errors": 0,
+    "per_depth": {
+      "2": {
+        "pos_correct": 11,
+        "pos_total": 11,
+        "neg_correct": 11,
+        "neg_total": 11
+      },
+      "3": {
+        "pos_correct": 69,
+        "pos_total": 69,
+        "neg_correct": 69,
+        "neg_total": 69
+      }
+    }
+  },
+  {
+    "condition": "loom-c2b-det",
+    "repetition": {
+      "pos_correct": 60,
+      "pos_total": 60,
+      "neg_correct": 58,
+      "neg_total": 58
+    },
+    "composition": {
+      "pos_correct": 80,
+      "pos_total": 80,
+      "neg_correct": 80,
+      "neg_total": 80
+    },
+    "find": {
+      "exact_matches": 20,
+      "total": 20,
+      "micro_p": 1,
+      "micro_r": 1,
+      "micro_f1": 1
+    },
+    "revision": {
+      "flip_correct": 24,
+      "flip_total": 24,
+      "retain_correct": 24,
+      "retain_total": 24,
+      "stale_agreements": 0
+    },
+    "frames": {
+      "contamination": {
+        "pos_correct": 51,
+        "pos_total": 51,
+        "neg_correct": 51,
+        "neg_total": 51
+      },
+      "contamination_sub": {
+        "contradiction": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "gap": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "quote": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 6,
+          "neg_total": 6
+        },
+        "sarcasm": {
+          "pos_correct": 5,
+          "pos_total": 5,
+          "neg_correct": 5,
+          "neg_total": 5
+        }
+      },
+      "isolation": {
+        "pos_correct": 19,
+        "pos_total": 47,
+        "neg_correct": 19,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 19,
+        "neg_total": 19
+      },
+      "pinning": {
+        "pos_correct": 11,
+        "pos_total": 16,
+        "neg_correct": 5,
+        "neg_total": 16
+      },
+      "promotion": {
+        "pos_correct": 12,
+        "pos_total": 16,
+        "neg_correct": 10,
+        "neg_total": 10
+      },
+      "misattribution": {
+        "exact_matches": 0,
+        "total": 20,
+        "micro_p": 1,
+        "micro_r": 0.15384615384615385,
+        "micro_f1": 0.2666666666666667
+      },
+      "ideation": {
+        "exact_matches": 10,
+        "total": 20,
+        "micro_p": 1,
+        "micro_r": 0.43137254901960786,
+        "micro_f1": 0.6027397260273972
+      }
+    },
+    "errors": 0,
+    "per_depth": {
+      "2": {
+        "pos_correct": 11,
+        "pos_total": 11,
+        "neg_correct": 11,
+        "neg_total": 11
+      },
+      "3": {
+        "pos_correct": 69,
+        "pos_total": 69,
+        "neg_correct": 69,
+        "neg_total": 69
+      }
+    }
+  },
+  {
+    "condition": "frame-oracle",
+    "repetition": {
+      "pos_correct": 60,
+      "pos_total": 60,
+      "neg_correct": 58,
+      "neg_total": 58
+    },
+    "composition": {
+      "pos_correct": 80,
+      "pos_total": 80,
+      "neg_correct": 80,
+      "neg_total": 80
+    },
+    "find": {
+      "exact_matches": 20,
+      "total": 20,
+      "micro_p": 1,
+      "micro_r": 1,
+      "micro_f1": 1
+    },
+    "revision": {
+      "flip_correct": 24,
+      "flip_total": 24,
+      "retain_correct": 24,
+      "retain_total": 24,
+      "stale_agreements": 0
+    },
+    "frames": {
+      "contamination": {
+        "pos_correct": 51,
+        "pos_total": 51,
+        "neg_correct": 51,
+        "neg_total": 51
+      },
+      "contamination_sub": {
+        "contradiction": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "gap": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "quote": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 6,
+          "neg_total": 6
+        },
+        "sarcasm": {
+          "pos_correct": 5,
+          "pos_total": 5,
+          "neg_correct": 5,
+          "neg_total": 5
+        }
+      },
+      "isolation": {
+        "pos_correct": 47,
+        "pos_total": 47,
+        "neg_correct": 27,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 20,
+        "pos_total": 20,
+        "neg_correct": 19,
+        "neg_total": 19
+      },
+      "pinning": {
+        "pos_correct": 16,
+        "pos_total": 16,
+        "neg_correct": 16,
+        "neg_total": 16
+      },
+      "promotion": {
+        "pos_correct": 16,
+        "pos_total": 16,
+        "neg_correct": 10,
+        "neg_total": 10
+      },
+      "misattribution": {
+        "exact_matches": 20,
+        "total": 20,
+        "micro_p": 1,
+        "micro_r": 1,
+        "micro_f1": 1
+      },
+      "ideation": {
+        "exact_matches": 20,
+        "total": 20,
+        "micro_p": 1,
+        "micro_r": 1,
+        "micro_f1": 1
+      }
+    },
+    "errors": 0,
+    "per_depth": {
+      "2": {
+        "pos_correct": 11,
+        "pos_total": 11,
+        "neg_correct": 11,
+        "neg_total": 11
+      },
+      "3": {
+        "pos_correct": 69,
+        "pos_total": 69,
+        "neg_correct": 69,
+        "neg_total": 69
+      }
+    }
+  },
+  {
+    "condition": "mono-world",
+    "repetition": {
+      "pos_correct": 60,
+      "pos_total": 60,
+      "neg_correct": 58,
+      "neg_total": 58
+    },
+    "composition": {
+      "pos_correct": 76,
+      "pos_total": 80,
+      "neg_correct": 70,
+      "neg_total": 80
+    },
+    "find": {
+      "exact_matches": 12,
+      "total": 20,
+      "micro_p": 0.88,
+      "micro_r": 1,
+      "micro_f1": 0.9361702127659575
+    },
+    "revision": {
+      "flip_correct": 24,
+      "flip_total": 24,
+      "retain_correct": 23,
+      "retain_total": 24,
+      "stale_agreements": 0
+    },
+    "frames": {
+      "contamination": {
+        "pos_correct": 51,
+        "pos_total": 51,
+        "neg_correct": 5,
+        "neg_total": 51
+      },
+      "contamination_sub": {
+        "contradiction": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 0,
+          "neg_total": 20
+        },
+        "gap": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 0,
+          "neg_total": 20
+        },
+        "quote": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 0,
+          "neg_total": 6
+        },
+        "sarcasm": {
+          "pos_correct": 5,
+          "pos_total": 5,
+          "neg_correct": 5,
+          "neg_total": 5
+        }
+      },
+      "isolation": {
+        "pos_correct": 45,
+        "pos_total": 47,
+        "neg_correct": 2,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 18,
+        "pos_total": 20,
+        "neg_correct": 2,
+        "neg_total": 19
+      },
+      "pinning": {
+        "pos_correct": 9,
+        "pos_total": 16,
+        "neg_correct": 7,
+        "neg_total": 16
+      },
+      "promotion": {
+        "pos_correct": 16,
+        "pos_total": 16,
+        "neg_correct": 0,
+        "neg_total": 10
+      },
+      "misattribution": {
+        "exact_matches": 0,
+        "total": 20,
+        "micro_p": 0.2,
+        "micro_r": 0.15384615384615385,
+        "micro_f1": 0.17391304347826086
+      },
+      "ideation": {
+        "exact_matches": 0,
+        "total": 20,
+        "micro_p": 0.3235294117647059,
+        "micro_r": 0.43137254901960786,
+        "micro_f1": 0.3697478991596639
+      }
+    },
+    "errors": 0,
+    "per_depth": {
+      "2": {
+        "pos_correct": 11,
+        "pos_total": 11,
+        "neg_correct": 11,
+        "neg_total": 11
+      },
+      "3": {
+        "pos_correct": 65,
+        "pos_total": 69,
+        "neg_correct": 59,
+        "neg_total": 69
+      }
+    }
+  },
+  {
+    "condition": "isolationist",
+    "repetition": {
+      "pos_correct": 60,
+      "pos_total": 60,
+      "neg_correct": 58,
+      "neg_total": 58
+    },
+    "composition": {
+      "pos_correct": 80,
+      "pos_total": 80,
+      "neg_correct": 80,
+      "neg_total": 80
+    },
+    "find": {
+      "exact_matches": 20,
+      "total": 20,
+      "micro_p": 1,
+      "micro_r": 1,
+      "micro_f1": 1
+    },
+    "revision": {
+      "flip_correct": 24,
+      "flip_total": 24,
+      "retain_correct": 24,
+      "retain_total": 24,
+      "stale_agreements": 0
+    },
+    "frames": {
+      "contamination": {
+        "pos_correct": 51,
+        "pos_total": 51,
+        "neg_correct": 51,
+        "neg_total": 51
+      },
+      "contamination_sub": {
+        "contradiction": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "gap": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "quote": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 6,
+          "neg_total": 6
+        },
+        "sarcasm": {
+          "pos_correct": 5,
+          "pos_total": 5,
+          "neg_correct": 5,
+          "neg_total": 5
+        }
+      },
+      "isolation": {
+        "pos_correct": 15,
+        "pos_total": 47,
+        "neg_correct": 27,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 19,
+        "neg_total": 19
+      },
+      "pinning": {
+        "pos_correct": 0,
+        "pos_total": 16,
+        "neg_correct": 16,
+        "neg_total": 16
+      },
+      "promotion": {
+        "pos_correct": 16,
+        "pos_total": 16,
+        "neg_correct": 10,
+        "neg_total": 10
+      },
+      "misattribution": {
+        "exact_matches": 16,
+        "total": 20,
+        "micro_p": 1,
+        "micro_r": 0.7692307692307693,
+        "micro_f1": 0.8695652173913044
+      },
+      "ideation": {
+        "exact_matches": 18,
+        "total": 20,
+        "micro_p": 1,
+        "micro_r": 0.8627450980392157,
+        "micro_f1": 0.9263157894736842
+      }
+    },
+    "errors": 0,
+    "per_depth": {
+      "2": {
+        "pos_correct": 11,
+        "pos_total": 11,
+        "neg_correct": 11,
+        "neg_total": 11
+      },
+      "3": {
+        "pos_correct": 69,
+        "pos_total": 69,
+        "neg_correct": 69,
+        "neg_total": 69
+      }
+    }
+  },
+  {
+    "condition": "literalist",
+    "repetition": {
+      "pos_correct": 60,
+      "pos_total": 60,
+      "neg_correct": 58,
+      "neg_total": 58
+    },
+    "composition": {
+      "pos_correct": 80,
+      "pos_total": 80,
+      "neg_correct": 80,
+      "neg_total": 80
+    },
+    "find": {
+      "exact_matches": 20,
+      "total": 20,
+      "micro_p": 1,
+      "micro_r": 1,
+      "micro_f1": 1
+    },
+    "revision": {
+      "flip_correct": 24,
+      "flip_total": 24,
+      "retain_correct": 24,
+      "retain_total": 24,
+      "stale_agreements": 0
+    },
+    "frames": {
+      "contamination": {
+        "pos_correct": 51,
+        "pos_total": 51,
+        "neg_correct": 40,
+        "neg_total": 51
+      },
+      "contamination_sub": {
+        "contradiction": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "gap": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "quote": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 0,
+          "neg_total": 6
+        },
+        "sarcasm": {
+          "pos_correct": 5,
+          "pos_total": 5,
+          "neg_correct": 0,
+          "neg_total": 5
+        }
+      },
+      "isolation": {
+        "pos_correct": 47,
+        "pos_total": 47,
+        "neg_correct": 27,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 20,
+        "pos_total": 20,
+        "neg_correct": 19,
+        "neg_total": 19
+      },
+      "pinning": {
+        "pos_correct": 16,
+        "pos_total": 16,
+        "neg_correct": 16,
+        "neg_total": 16
+      },
+      "promotion": {
+        "pos_correct": 16,
+        "pos_total": 16,
+        "neg_correct": 10,
+        "neg_total": 10
+      },
+      "misattribution": {
+        "exact_matches": 20,
+        "total": 20,
+        "micro_p": 1,
+        "micro_r": 1,
+        "micro_f1": 1
+      },
+      "ideation": {
+        "exact_matches": 20,
+        "total": 20,
+        "micro_p": 1,
+        "micro_r": 1,
+        "micro_f1": 1
+      }
+    },
+    "errors": 0,
+    "per_depth": {
+      "2": {
+        "pos_correct": 11,
+        "pos_total": 11,
+        "neg_correct": 11,
+        "neg_total": 11
+      },
+      "3": {
+        "pos_correct": 69,
+        "pos_total": 69,
+        "neg_correct": 69,
+        "neg_total": 69
+      }
+    }
+  }
+]
