@@ -146,6 +146,16 @@ frame-parameterized (`HoldsIn`/`FindIn`) and the C2a condition implements
 seeds 99 + 7 at full JSON-report granularity; v0 sample-dataset regression
 intact.
 
+**Frames seed lock (2026-07-11, build step 5):** cmd/batch frames edition
+(v0 + §9.6.8 gates, worker pool with numeric-order finalization) locked the
+20 frames seeds {1,2,3,7,8,9,10,12–16,18–22,24,25,29} from candidates 1..40
+(batch manifest committed; datasets in datasets/frames-batch-v1/,
+regenerable deterministically). §9.6.5 diagnostic table FROZEN from the
+locked batch: frame-oracle perfect in every cell, `loom-C2a == frame-oracle`
+per cell per seed on all 20 (per-seed JSONs in results/frames-diagnostics/).
+No LLM token has touched any frames dataset. Next: tier-M naturalization
+(§9.6.6), then C2b frames extraction (F-E1..F-E4).
+
 **S2 hooks that exist but are intentionally dormant (don't mistake for bugs):**
 lifecycle states `proposed`/`retracted`/`quarantined` are defined and honored
 by `worldView`/`StatsAt`, but nothing sets them yet — structured ingest
