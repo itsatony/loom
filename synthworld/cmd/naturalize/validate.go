@@ -39,7 +39,7 @@ var (
 	reAtomExpr      = regexp.MustCompile(`\b\w+\([^()]*\)`)
 	reWordIf        = regexp.MustCompile(`(?i)\b(if|when|whenever|where|wherever|provided|in case|as long as|once)\b`)
 	reWordExc       = regexp.MustCompile(`(?i)\b(unless|except|excluding|barring|save for|does not apply|not fire|exempt)\b`)
-	reWordBlock     = regexp.MustCompile(`(?i)\b(disregard|set aside|sets? aside|exclud\w*|ignor\w*|suspend\w*|drop\w*|remove\w*|off the table|not (to )?(hold|apply|stand)|no longer (holds?|applies|stands?)|treat\w* .{0,40}(as absent|as not)|without)\b`)
+	reWordBlock     = regexp.MustCompile(`(?i)\b(disregard\w*|set(s|ting)? aside|exclud\w*|ignor\w*|suspend\w*|drop\w*|remove\w*|off the table|not (to )?(hold|apply|stand)|no longer (holds?|applies|stands?)|treat\w* .{0,40}(as absent|as not)|without)\b`)
 	reWordForecast  = regexp.MustCompile(`(?i)\b(expect\w*|project\w*|anticipat\w*|forecast\w*|predict\w*|foresee\w*|will|due to hold|likely)\b`)
 	reQuoteMark     = regexp.MustCompile(`["“”«»]`)
 	reFrameIDTok    = regexp.MustCompile(`\b(fic|psp|scn)_\w+\b`)
@@ -262,11 +262,21 @@ func validateLine(orig, nat string, sp lineSpec) error {
 	if miss, extra := diffMultiset(wantNums, gotNums); len(miss)+len(extra) > 0 {
 		var parts []string
 		for _, m := range miss {
-			parts = append(parts, fmt.Sprintf("the number %s appears %d time(s) in the original prose but only %d in yours — repeat it (e.g. the day is both the log date and the validity start)",
-				m, countTok(wantNums, m), countTok(gotNums, m)))
+			want, got := countTok(wantNums, m), countTok(gotNums, m)
+			hint := ""
+			if want > 1 {
+				hint = " (e.g. the day is both the log date and the validity start)"
+			}
+			parts = append(parts, fmt.Sprintf("the number %s must appear EXACTLY %d time(s) as digits outside atom expressions; your line has %d%s",
+				m, want, got, hint))
 		}
-		if len(extra) > 0 {
-			parts = append(parts, fmt.Sprintf("unexpected numbers added: %v", extra))
+		for _, x := range extra {
+			want, got := countTok(wantNums, x), countTok(gotNums, x)
+			if want > 0 {
+				parts = append(parts, fmt.Sprintf("the number %s must appear EXACTLY %d time(s) as digits outside atom expressions; your line has %d — do not repeat it beyond that", x, want, got))
+			} else {
+				parts = append(parts, fmt.Sprintf("the number %s does not occur in the original prose — remove it", x))
+			}
 		}
 		problems = append(problems, "numbers changed: "+strings.Join(parts, "; "))
 	}

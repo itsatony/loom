@@ -908,3 +908,23 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   computable; descriptor printed with advisory 0.65 reference). Rationale
   and options (a)/(b)/(c) recorded in the previous entry; this ratification
   unblocks locked-batch tier-M naturalization.
+- 2026-07-12 (later, PIPELINE amendment mid-batch) — first locked-batch
+  tier-M run (v2 driver, 3-way seed parallelism) surfaced two mechanical-
+  validator defects on seed-2 (and a borderline seed-8): (1) the
+  block-delta removal-language guard used uninflected word-boundary forms
+  (\bdisregard\b, "set aside") and falsely rejected valid naturalizations
+  ("is disregarded", "setting aside") — on frame-bearing scenario lines
+  this cascaded into zero-tolerance frame fallbacks; (2) the number-count
+  retry feedback said "repeat it (the day is both the log date and the
+  validity start)" even when the required count was 1, driving both
+  naturalizers to oscillate between 0 and 2 mentions for 20 attempts
+  (seed-2 ep_262). Fixes: inflected removal-language alternatives; exact-
+  count feedback ("must appear EXACTLY N time(s)", overshoot variant, no
+  repeat-hint unless N>1). Regression tests added. These change the
+  mechanical validator's acceptance set (strictly broader) and retry
+  prompts only — no registered gate, threshold, or scoring semantics is
+  touched. DISCIPLINE: the whole 20-seed batch is re-run under the fixed
+  validator (uniform validator version; cassettes replay unchanged
+  prefixes), with batch-wide -retries 10 -judge-rounds 5 (operational
+  budgets, recorded per-seed in naturalize-report.json). Partial results
+  from the pre-fix run are discarded as non-evidence.

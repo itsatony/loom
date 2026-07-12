@@ -125,3 +125,48 @@ func TestParseJudgeLabels(t *testing.T) {
 		t.Error("view without party accepted")
 	}
 }
+
+// Regression: 2026-07-12 locked-batch seed-2. The block-delta guard must
+// accept inflected removal language ("is disregarded", "setting aside") —
+// the narrow \bdisregard\b form falsely rejected valid frame-bearing
+// naturalizations, cascading into zero-tolerance frame fallbacks.
+func TestBlockGuardAcceptsInflectedRemoval(t *testing.T) {
+	orig := `[day 329] Scenario scn_pin assumption (fct_0863): within this scenario, disregard partnered_with(product=product_07, jurisdiction=jurisdiction_06).`
+	sp := lineSpec{IsBlock: true, ExemptIDs: []string{"scn_pin"}}
+	for _, nat := range []string{
+		`Hazelwood's day 329 log includes fct_0863: for purposes of that exercise, partnered_with(product=product_07, jurisdiction=jurisdiction_06) is disregarded.`,
+		`Hazelwood's day 329 log, fct_0863, notes the desk is setting aside partnered_with(product=product_07, jurisdiction=jurisdiction_06).`,
+	} {
+		if err := validateLine(orig, nat, sp); err != nil {
+			t.Errorf("valid removal language rejected: %v\n%s", err, nat)
+		}
+	}
+	lost := `Hazelwood's day 329 log includes fct_0863 regarding partnered_with(product=product_07, jurisdiction=jurisdiction_06).`
+	if err := validateLine(orig, lost, sp); err == nil {
+		t.Error("line without removal language was accepted")
+	}
+}
+
+// Regression: 2026-07-12 locked-batch seed-2 ep_262. When a number must
+// appear exactly once, the feedback must NOT suggest repeating it (the old
+// "repeat it" hint made naturalizers oscillate between 0 and 2 mentions).
+func TestNumberCountFeedbackExact(t *testing.T) {
+	orig := `[day 276] Scenario scn_pin assumption (fct_0871): assume offered_in(customer=customer_11, product=product_18).`
+	sp := lineSpec{ExemptIDs: []string{"scn_pin"}}
+	missing := `Under the Hazelwood drill, the working premise fct_0871 applies: offered_in(customer=customer_11, product=product_18).`
+	err := validateLine(orig, missing, sp)
+	if err == nil {
+		t.Fatal("missing day accepted")
+	}
+	if !strings.Contains(err.Error(), "EXACTLY 1 time(s)") || strings.Contains(err.Error(), "log date") {
+		t.Errorf("missing-number feedback wrong: %v", err)
+	}
+	doubled := `Under the Hazelwood drill, as of day 276, premise fct_0871 applies from day 276: offered_in(customer=customer_11, product=product_18).`
+	err = validateLine(orig, doubled, sp)
+	if err == nil {
+		t.Fatal("doubled day accepted")
+	}
+	if !strings.Contains(err.Error(), "EXACTLY 1 time(s)") || !strings.Contains(err.Error(), "beyond that") {
+		t.Errorf("overshoot feedback wrong: %v", err)
+	}
+}
