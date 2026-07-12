@@ -123,6 +123,10 @@ type episodeResult struct {
 	FrameLines      int    `json:"frame_lines"`
 	ActualLines     int    `json:"actual_lines"`
 	Error           string `json:"error,omitempty"`
+	// JudgeErrors counts judge verdicts for this episode that ended in an
+	// API/parse error (nil labels). A silently dead judge shrinks the
+	// panel to 2 unanimous votes — it must be visible, never tolerated.
+	JudgeErrors map[string]int `json:"judge_errors,omitempty"`
 }
 
 type report struct {
@@ -141,6 +145,7 @@ type report struct {
 	ActualCtxMissRate  float64                    `json:"actual_ctx_miss_rate"`
 	Handles            []frameHandle              `json:"handles"`
 	Usage              map[string]json.RawMessage `json:"usage,omitempty"`
+	JudgeErrors        map[string]int             `json:"judge_errors,omitempty"` // errored verdicts per judge across all episodes
 	PerEpisode         []episodeResult            `json:"per_episode"`
 	JudgingEnabled     bool                       `json:"judging_enabled"`
 	MechRetries        int                        `json:"mech_retries"`
@@ -307,6 +312,12 @@ func main() {
 			}
 			fmt.Fprintf(os.Stderr, "FALLBACK %s after %d attempts: %s\n", res.ID, res.MechAttempts, res.Error)
 		}
+		for j, n := range res.JudgeErrors {
+			if rep.JudgeErrors == nil {
+				rep.JudgeErrors = map[string]int{}
+			}
+			rep.JudgeErrors[j] += n
+		}
 		rep.FrameLines += res.FrameLines
 		rep.UnrecoveredLines += len(res.Unrecovered)
 		rep.ActualLinesJudged += res.ActualLines
@@ -347,6 +358,16 @@ func main() {
 	if !*noJudge && rep.UnrecoveredRate > 0.05 {
 		fmt.Fprintln(os.Stderr, "ERROR: >5% of frame-bearing lines are not recoverable by the judge panel — tier M is INVALID; regenerate harder (better prompts/models) and log the failure.")
 		bad = true
+	}
+	// Panel-health gate: a judge erroring on >10% of episodes means the
+	// 3-judge panel was effectively smaller — a run-health failure (the
+	// silent-dead-judge incident of 2026-07-12), not a tier verdict. Fail
+	// loudly so it is fixed and the run repeated, never absorbed.
+	for j, n := range rep.JudgeErrors {
+		if !*noJudge && float64(n) > 0.10*float64(rep.Episodes) {
+			fmt.Fprintf(os.Stderr, "ERROR: judge %s errored on %d/%d episodes (>10%%) — panel integrity lost; fix the judge endpoint and re-run.\n", j, n, rep.Episodes)
+			bad = true
+		}
 	}
 	if bad {
 		os.Exit(1)
@@ -436,6 +457,14 @@ func (p *processor) process(idx int, ep *gen.Episode, declCtx []string) episodeR
 			}(ji, j)
 		}
 		jwg.Wait()
+		for _, v := range lastVerdicts {
+			if v.Err != "" {
+				if res.JudgeErrors == nil {
+					res.JudgeErrors = map[string]int{}
+				}
+				res.JudgeErrors[v.Judge]++
+			}
+		}
 
 		var fails []int
 		for i := range expected {

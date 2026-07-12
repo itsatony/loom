@@ -928,3 +928,22 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   prefixes), with batch-wide -retries 10 -judge-rounds 5 (operational
   budgets, recorded per-seed in naturalize-report.json). Partial results
   from the pre-fix run are discarded as non-evidence.
+- 2026-07-12 (later still, INFRASTRUCTURE incident + amendment) — the v3
+  re-run exposed that judge 2 (kimi-k2.6 @ Moonshot) had been failing on
+  ~80% of calls: the Moonshot account was suspended mid-campaign
+  (insufficient balance), and judge API errors were silently tolerated as
+  nil verdicts, shrinking the panel to 2 judges requiring unanimity —
+  visible only as elevated judge-unrecovered rates (seed-2 6.6%, seed-8
+  5.1%). Evidence: 574 kimi cassettes vs ~3,088 for each other judge;
+  live probe returned exceeded_current_quota_error. Remedies: (1) judge 2
+  endpoint moved to Nebius hosting the IDENTICAL model
+  (moonshotai/Kimi-K2.6, temp 1) — the registered roster (model
+  identities, family disjointness) is unchanged, only the host; (2)
+  cmd/naturalize now counts errored judge verdicts per judge
+  (judge_errors in the report) and FAILS the run if any judge errors on
+  >10% of episodes — a silently dead judge can never again be absorbed
+  into unrecovered rates. All panel verdicts are recollected: the batch
+  restarts uniformly under the fixed validator + healthy panel;
+  naturalizer/other-judge cassettes replay, kimi verdicts are re-asked
+  live at Nebius. Judge-error counts from this incident's partial runs
+  are non-evidence.
