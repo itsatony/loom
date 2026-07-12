@@ -1,12 +1,20 @@
 // authcert computes the tier-M AUTHENTICITY CERTIFICATE (MASTERPLAN
-// §9.6.6): a surface-cue baseline — tier-E marker regexes plus a shallow
-// bag-of-words classifier — answers the pooled contamination+isolation
-// trap queries from episode text alone. The tier is certified authentic
-// iff this baseline's pooled balanced accuracy is ≤ the pre-registered
-// maximum (0.65). On tier E (templated markers) the same baseline is
-// pre-registered to score ≈1.0 — run it there first to calibrate the
-// scaffold; a low tier-E score means the scaffold is broken, not that
-// tier E is hard.
+// §9.6.6, reading RATIFIED 2026-07-12, option (a) — see MASTERPLAN §10):
+// the certificate is the COLLAPSE OF THE TIER-E MARKER REGEXES — the
+// tier is certified authentic iff the marker rules fire on ZERO lines of
+// the naturalized corpus (they fire on essentially every frame-bearing
+// line of tier E; run tier E first to calibrate the scaffold — a low
+// tier-E marker count means the scaffold is broken, not that tier E is
+// hard). This mirrors the H4 paraphrase certificate exactly: an
+// unsupervised surface-cue detector that was ≈perfect on the templated
+// tier must be dead on the naturalized tier.
+//
+// The supervised leave-one-seed-out naive-Bayes baseline is additionally
+// run and REPORTED UNGATED as a hardness descriptor: any text that a
+// judge panel can decode at ≥95% necessarily carries some learnable
+// signal, so a labeled-data classifier (strictly stronger than the H4
+// analog) cannot be a certification gate — its number contextualizes how
+// much structural-lexical signal remains for the measured conditions.
 //
 // The baseline is deliberately a steelman within surface cues: it sees
 // ground-truth per-line frame labels of OTHER seeds for training
@@ -406,17 +414,15 @@ type certReport struct {
 	BalancedContam  float64      `json:"balanced_contamination"`
 	BalancedIsol    float64      `json:"balanced_isolation"`
 	BalancedPooled  float64      `json:"balanced_pooled_with_controls"`
-	// BalancedTraps is the PRIMARY certified metric: mean accuracy over
-	// the two trap directions — contamination traps (negatives; fiction/
-	// quote/sarcasm content must not read as actual) and isolation traps
-	// (positives; inherited facts must hold in the scenario). §9.6.6 says
-	// "pooled contamination+isolation trap set" WITHOUT "paired controls"
-	// (which F-E1, ten lines later, includes explicitly) — and the
-	// with-controls reading is unreachable by construction (controls are
-	// verbatim-stated facts, trivially grep-correct), which cannot have
-	// been the registered intent. Both numbers are reported;
-	// INTERPRETATION FLAGGED FOR USER RATIFICATION before any
-	// locked-batch certification.
+	// BalancedTraps is the supervised-baseline HARDNESS DESCRIPTOR
+	// (ungated per the ratified §9.6.6 reading (a), 2026-07-12): mean
+	// accuracy over the two trap directions — contamination traps
+	// (negatives; fiction/quote/sarcasm content must not read as actual)
+	// and isolation traps (positives; inherited facts must hold in the
+	// scenario). The with-controls pooled number is also reported; it is
+	// unreachable as a ≤0.65 gate by construction (controls are
+	// verbatim-stated facts, trivially grep-correct). Neither gates
+	// certification; the certificate is marker collapse.
 	BalancedTraps    float64 `json:"balanced_traps"`
 	TotalMarkerHits  int     `json:"total_marker_hits"`
 	Certified        bool    `json:"certified"`
@@ -426,7 +432,7 @@ type certReport struct {
 func main() {
 	dirsFlag := flag.String("dirs", "", "comma-separated dataset directories (≥1)")
 	episodesFile := flag.String("episodes", "episodes_natural.jsonl", "episodes file per dataset (episodes.jsonl = tier-E calibration)")
-	maxBal := flag.Float64("max", 0.65, "pre-registered maximum pooled balanced accuracy (§9.6.6)")
+	maxBal := flag.Float64("max", 0.65, "advisory reference for the ungated hardness descriptor (was the §9.6.6 draft gate; superseded by the ratified marker-collapse reading)")
 	reportPath := flag.String("report", "", "write JSON report here (default <first dir>/authcert-report.json)")
 	flag.Parse()
 
@@ -503,11 +509,18 @@ func main() {
 	} else {
 		rep.BalancedTraps = math.NaN()
 	}
-	rep.Certified = !math.IsNaN(rep.BalancedTraps) && rep.BalancedTraps <= *maxBal
+	// Ratified §9.6.6 reading (a), 2026-07-12: the certificate is the
+	// collapse of the tier-E marker regexes to zero hits; the supervised
+	// LOSO baseline is a hardness descriptor, not a gate. BalancedTraps
+	// must be computable (trap queries present and answered) for the run
+	// to count as a certification run at all.
+	rep.Certified = rep.TotalMarkerHits == 0 && !math.IsNaN(rep.BalancedTraps)
 	if rep.Certified {
-		rep.CertifiedComment = fmt.Sprintf("surface-cue baseline trap-direction balanced accuracy %.3f ≤ %.2f — tier certified (with-controls reading: %.3f; interpretation pending user ratification)", rep.BalancedTraps, *maxBal, rep.BalancedPooled)
+		rep.CertifiedComment = fmt.Sprintf("tier-E marker regexes collapsed to 0 hits — tier CERTIFIED (§9.6.6 reading (a), ratified 2026-07-12); ungated hardness descriptor: supervised LOSO trap-direction balanced accuracy %.3f (with-controls %.3f)", rep.BalancedTraps, rep.BalancedPooled)
+	} else if rep.TotalMarkerHits > 0 {
+		rep.CertifiedComment = fmt.Sprintf("%d tier-E marker hits — tier NOT certified (markers must collapse to 0; non-evidence, regenerate harder and log the failure)", rep.TotalMarkerHits)
 	} else {
-		rep.CertifiedComment = fmt.Sprintf("surface-cue baseline trap-direction balanced accuracy %.3f > %.2f — tier NOT certified (non-evidence; regenerate harder and log the failure)", rep.BalancedTraps, *maxBal)
+		rep.CertifiedComment = "trap-direction balanced accuracy not computable (no trap queries answered) — not a certification run"
 	}
 
 	out := *reportPath
@@ -529,7 +542,7 @@ func main() {
 	}
 	fmt.Printf("  balanced (with controls): contamination %.3f, isolation %.3f, pooled %.3f\n",
 		rep.BalancedContam, rep.BalancedIsol, rep.BalancedPooled)
-	fmt.Printf("  TRAP-DIRECTION balanced (primary): contamination-traps %.3f, isolation-traps %.3f → %.3f (max %.2f)\n",
+	fmt.Printf("  TRAP-DIRECTION balanced (hardness descriptor, ungated): contamination-traps %.3f, isolation-traps %.3f → %.3f (advisory ref %.2f)\n",
 		float64(rep.PooledContam.NegCorrect)/float64(rep.PooledContam.NegTotal),
 		float64(rep.PooledIsolation.PosCorrect)/float64(rep.PooledIsolation.PosTotal),
 		rep.BalancedTraps, *maxBal)

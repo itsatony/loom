@@ -894,3 +894,17 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   tier M as designed cannot certify (which would falsify the tier design,
   not the frames thesis). No softening is adopted here; nothing runs on
   locked seeds until this is ratified and logged.
+- 2026-07-12 (RATIFICATION) — Toni ratified reading (a) of the §9.6.6
+  authenticity certificate: the registered certificate is the COLLAPSE OF
+  THE TIER-E MARKER DETECTOR (unsupervised regex baseline, ≈1.0 on tier E
+  by calibration, must hit ZERO lines on tier M) — the exact analog of the
+  H4 paraphrase certificate. The supervised leave-one-seed-out naive-Bayes
+  trap-direction number is REPORTED UNGATED as a hardness descriptor in
+  every writeup (dev value 0.757; with-controls 0.827), on the argument
+  that text a judge panel decodes at ≥95% necessarily carries learnable
+  signal, so a labeled-data classifier is strictly stronger than any
+  registered surface-cue baseline and cannot be a gate. cmd/authcert
+  amended accordingly (Certified := marker_hits == 0 with descriptor
+  computable; descriptor printed with advisory 0.65 reference). Rationale
+  and options (a)/(b)/(c) recorded in the previous entry; this ratification
+  unblocks locked-batch tier-M naturalization.

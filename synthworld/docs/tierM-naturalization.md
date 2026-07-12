@@ -64,11 +64,20 @@ auditing only, never to a measured condition.
    type prefixes, digits to <num>) trained leave-one-seed-out on
    ground-truth line labels — answers the pooled contamination+isolation
    trap queries via atom-grep + per-line frame classification (+ the
-   scenario-inheritance shortcut as steelman). Certified iff pooled
-   balanced accuracy ≤ 0.65. Chain queries are a sub-line of isolation
-   and are not double-counted. Single-seed dev runs fall back to a 2-fold
-   split by episode parity (each line classified by the other fold's
-   model) — the batch certificate always uses leave-one-seed-out.
+   scenario-inheritance shortcut as steelman). **Certificate (§9.6.6
+   reading (a), ratified by Toni 2026-07-12 — MASTERPLAN §10): the tier
+   is certified iff the tier-E marker regexes fire on ZERO lines of the
+   naturalized corpus** (the exact analog of the H4 paraphrase
+   certificate: an unsupervised detector that is ≈perfect on the
+   templated tier must be dead on the naturalized tier). The supervised
+   LOSO naive-Bayes trap-direction balanced accuracy is reported UNGATED
+   as a hardness descriptor (advisory reference 0.65): text a judge panel
+   decodes at ≥95% necessarily carries learnable signal, so a
+   labeled-data classifier is strictly stronger than any registered
+   surface-cue baseline and cannot gate. Chain queries are a sub-line of
+   isolation and are not double-counted. Single-seed dev runs fall back
+   to a 2-fold split by episode parity (each line classified by the other
+   fold's model) — the batch descriptor always uses leave-one-seed-out.
 
 ## Tier-E calibration (pre-registered expectation, verified)
 
