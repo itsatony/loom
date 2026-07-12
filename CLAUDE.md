@@ -156,6 +156,32 @@ per cell per seed on all 20 (per-seed JSONs in results/frames-diagnostics/).
 No LLM token has touched any frames dataset. Next: tier-M naturalization
 (§9.6.6), then C2b frames extraction (F-E1..F-E4).
 
+**Tier-M pipeline (2026-07-12, build step 6):** cmd/naturalize (2
+naturalizers outside matrix: mistral-medium-3.5 + deepseek-v4-pro, split by
+episode parity; mechanical content validator = v0 rules + frame-ID
+ban/handles + marker/genre bans; 3-judge frame-recoverability panel
+gemini-3.5-flash / kimi-k2.6 / grok-4.20-non-reasoning, ≥2/3 exact,
+retry-with-feedback, zero-tolerance on frame-bearing fallbacks) +
+cmd/authcert (LLM-free surface-cue baseline: marker regex + LOSO
+naive-Bayes; reports BOTH §9.6.6 readings — see MASTERPLAN §10 2026-07-12:
+the with-controls reading is unreachable by construction; trap-direction
+reading gates, PENDING TONI'S RATIFICATION). Design memo:
+synthworld/docs/tierM-naturalization.md. INSTRUMENT amendment same day:
+frame-fact source names (manuscript_*/planning_*/narrator_*) no longer
+rendered into tier-E text (they leaked frame type lexically); locked-seed
+payloads/world/queries byte-identical, frozen §9.6.5 reproduced per cell
+per seed, on-disk episodes.jsonl refreshed (datasets stay untracked
+regenerables). Dev seeds 99+7 naturalized green on all pipeline gates
+(fallbacks 0.4%/2.0%, frame-bearing fallbacks 0/0, unrecovered 3.7%/1.4%,
+actual-line judge false alarms 0/1754, tier-E marker hits 0). LOSO
+surface-cue certificate does NOT yet pass on either §9.6.6 reading
+(trap-direction 0.757, with-controls 0.827, bound 0.65): with markers
+dead and genre words banned, the supervised LOSO naive-Bayes still finds
+structural lexical cues (e.g. actual observation lines carry a feed
+token, frame lines don't). Open design question for Toni — see MASTERPLAN
+§10 2026-07-12 entries. NO locked seed has been naturalized — that run
+(and certificate ratification) needs explicit user go.
+
 **S2 hooks that exist but are intentionally dormant (don't mistake for bugs):**
 lifecycle states `proposed`/`retracted`/`quarantined` are defined and honored
 by `worldView`/`StatsAt`, but nothing sets them yet — structured ingest

@@ -831,3 +831,66 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   next: tier-M naturalization (naturalizer outside the evaluated matrix,
   ≥2 families, H4 content-preservation + frame-recoverability judge panel
   + authenticity certificate).
+- 2026-07-12 — INSTRUMENT amendment (logged before any LLM token touches a
+  locked seed): the first naturalizer tokens — on DEV seeds {99, 7} only —
+  exposed a surface-cue leak in the frames instrument itself. Frame-homed
+  base facts carried type-revealing source names (manuscript_fic_*,
+  narrator_*, planning_scn_*, forecast_*) which the tier-E templates
+  rendered into episode text; since every identifier in text must survive
+  naturalization verbatim (H4 content preservation), the §9.6.6 surface-cue
+  baseline would read the frame type off the source token on EVERY tier,
+  making tier-M certification impossible by construction. Fix: the tier-E
+  templates no longer render sources for frame-homed fact lines (fiction /
+  scenario-delta / perspective-narration); payloads are untouched.
+  Verified on all 20 locked seeds: world.json and queries.jsonl
+  byte-identical, zero non-text payload diffs (only rendered text lines
+  changed), and the FROZEN §9.6.5 diagnostic table reproduces per cell
+  per seed (LLM-free harness re-run vs committed
+  results/frames-diagnostics/ JSONs — no cell changed). Locked
+  episodes.jsonl files refreshed in place; seed list, gates, endpoints,
+  thresholds, arithmetic all unchanged.
+- 2026-07-12 (later) — Frames build step 6: tier-M naturalization pipeline
+  BUILT and dev-verified (cmd/naturalize + cmd/authcert; design memo
+  synthworld/docs/tierM-naturalization.md). Roster (all outside the
+  evaluated matrix, judges disjoint from naturalizers): naturalizers
+  mistral-medium-3.5 + deepseek-v4-pro; judges gemini-3.5-flash,
+  kimi-k2.6, grok-4.20-non-reasoning. Enforcement: mechanical content
+  preservation (v0 rules + frame-ID ban + registered handles + banned
+  marker vocabulary + genre-word ban on fiction content lines),
+  3-judge frame-recoverability audit (≥2/3 exact, retry-with-feedback,
+  cross-naturalizer escalation for frame-bearing episodes, zero-tolerance
+  gate on frame-bearing fallbacks), LLM-free authenticity certificate
+  (marker regex + leave-one-seed-out naive-Bayes answering the
+  contamination+isolation trap queries; tier-E calibration confirmed the
+  pre-registered marker-detector ≈1.0 / certification refusal).
+  OPEN INTERPRETATION QUESTION flagged for ratification, decided by no
+  one yet: §9.6.6 bounds the baseline at ≤0.65 balanced accuracy "on the
+  pooled contamination+isolation trap set" — WITHOUT "paired controls"
+  (which F-E1 names explicitly). With controls included the bound is
+  unreachable by construction (controls are verbatim-stated facts,
+  trivially grep-correct, pinning one class at ~1.0). cmd/authcert
+  therefore reports BOTH readings and gates on the trap-direction
+  balanced accuracy (mean of contamination-trap accuracy and
+  isolation-trap accuracy) pending Toni's ratification; no locked-seed
+  naturalization or certification happens before that ratification.
+  Dev-seed pipeline numbers (final, seeds 99/7): fallbacks 0.4%/2.0%,
+  frame-bearing fallbacks 0/0, judge-unrecovered frame lines 3.7%/1.4%,
+  actual-line judge false alarms 0/1754, tier-E marker hits 0. LOSO
+  certificate numbers: contamination-traps 0.961, isolation-traps 0.553
+  → trap-direction 0.757 (with-controls pooled 0.827) — NOT ≤0.65 under
+  either reading. Diagnosis: with markers dead and genre vocabulary
+  banned, a supervised leave-one-seed-out classifier still finds
+  structural lexical regularities (most sharply: actual observation
+  lines carry a data-feed token, frame-homed lines do not) — and any
+  text from which the judge panel can recover frames at ≥95% carries
+  SOME learnable signal; a labeled-data shallow classifier is strictly
+  stronger than the H4 analog (an unsupervised det-extractor whose
+  collapse certified the paraphrase tier). Decision needed from Toni
+  before locked-batch naturalization: (a) treat marker-regex collapse
+  (achieved, 34→0) as the registered certificate and REPORT the
+  supervised-classifier number as a hardness descriptor without a gate,
+  (b) keep the 0.65 gate but define the baseline as unsupervised
+  (regex/lexicon only), or (c) keep the supervised gate and accept that
+  tier M as designed cannot certify (which would falsify the tier design,
+  not the frames thesis). No softening is adopted here; nothing runs on
+  locked seeds until this is ratified and logged.

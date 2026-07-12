@@ -176,17 +176,23 @@ func (b *Builder) factText(f *world.BaseFact) string {
 	}
 	// Frame-homed facts: tier-E templates with explicit markers (harness
 	// debugging only; pre-registered as non-evidence, MASTERPLAN §9.6.6).
+	// The payload Source is deliberately NOT rendered here: frame-fact
+	// source names are type-revealing (manuscript_*/narrator_*/planning_*),
+	// and any identifier in tier-E text must survive naturalization
+	// verbatim — mentioning them would hand the §9.6.6 surface-cue
+	// baseline the frame type on every tier (found on dev seeds,
+	// 2026-07-12; payloads unchanged, easy mode unaffected).
 	fr := b.w.FrameByID(frame)
 	switch {
 	case f.Block:
-		return fmt.Sprintf("[day %d] Scenario %s assumption (%s, source %s): within this scenario, disregard %s.",
-			f.From, frame, f.ID, f.Source, b.atomText(f.Atom))
+		return fmt.Sprintf("[day %d] Scenario %s assumption (%s): within this scenario, disregard %s.",
+			f.From, frame, f.ID, b.atomText(f.Atom))
 	case fr != nil && fr.Kind == world.FrameScenario:
-		return fmt.Sprintf("[day %d] Scenario %s assumption (%s, source %s): assume %s.",
-			f.From, frame, f.ID, f.Source, b.atomText(f.Atom))
+		return fmt.Sprintf("[day %d] Scenario %s assumption (%s): assume %s.",
+			f.From, frame, f.ID, b.atomText(f.Atom))
 	case fr != nil && fr.Kind == world.FrameFiction:
-		return fmt.Sprintf("[day %d] Story excerpt (%s, fiction frame %s, source %s): in the story, %s.",
-			f.From, f.ID, frame, f.Source, b.atomText(f.Atom))
+		return fmt.Sprintf("[day %d] Story excerpt (%s, fiction frame %s): in the story, %s.",
+			f.From, f.ID, frame, b.atomText(f.Atom))
 	case b.predictionByFact[f.ID] != nil:
 		p := b.predictionByFact[f.ID]
 		return fmt.Sprintf("[day %d] Forecast %s by %s (source frame %s): expects that %s will hold.",
@@ -195,8 +201,8 @@ func (b *Builder) factText(f *world.BaseFact) string {
 		return fmt.Sprintf("[day %d] Report (%s): according to a statement attributed to frame %s, \"%s\" (a claim, not independently observed).",
 			f.From, f.ID, frame, b.atomText(f.Atom))
 	default: // perspective narration
-		return fmt.Sprintf("[day %d] According to %s (perspective frame %s, source %s): %s.",
-			f.From, strings.TrimPrefix(frame, "psp_"), frame, f.Source, b.atomText(f.Atom))
+		return fmt.Sprintf("[day %d] According to %s (perspective frame %s): %s.",
+			f.From, strings.TrimPrefix(frame, "psp_"), frame, b.atomText(f.Atom))
 	}
 }
 
