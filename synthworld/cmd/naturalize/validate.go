@@ -64,6 +64,12 @@ var bannedMarkers = []struct {
 	{regexp.MustCompile(`(?i)do(es)?n'?t believe|does not believe`), `"does not believe"`},
 	{regexp.MustCompile(`(?i)story excerpt`), `"story excerpt"`},
 	{regexp.MustCompile(`(?i)frame declaration`), `"frame declaration"`},
+	// The next two are tier-E template phrases cmd/authcert's markerClass
+	// fires on; the mechanical ban list must stay a superset of those
+	// triggers (2026-07-13 batch: 6 scenario-supersession lines kept
+	// "within this scenario" and failed certification).
+	{regexp.MustCompile(`(?i)\bin the story\b`), `"in the story"`},
+	{regexp.MustCompile(`(?i)\bwithin this scenario\b`), `"within this scenario"`},
 }
 
 // lineSpec carries the frame-aware validation requirements for one line.

@@ -170,3 +170,28 @@ func TestNumberCountFeedbackExact(t *testing.T) {
 		t.Errorf("overshoot feedback wrong: %v", err)
 	}
 }
+
+// Regression: 2026-07-13 locked batch. The mechanical banned-marker list
+// must reject every phrase cmd/authcert's markerClass fires on (keep the
+// two lists in sync — authcert is the arbiter, this list the enforcer).
+// Six scenario-supersession lines kept "within this scenario" and failed
+// batch certification.
+func TestBannedMarkersCoverAuthcertTriggers(t *testing.T) {
+	for _, phrase := range []string{
+		"fiction frame", "in the story", "non-assertive", "Sarcastic remark",
+		"perspective frame", "attributed to frame", "frame declaration",
+		"story excerpt", "within this scenario",
+	} {
+		nat := "On day 208, " + phrase + " content applies."
+		covered := false
+		for _, b := range bannedMarkers {
+			if b.re.MatchString(nat) {
+				covered = true
+				break
+			}
+		}
+		if !covered {
+			t.Errorf("authcert marker phrase %q not covered by bannedMarkers", phrase)
+		}
+	}
+}
