@@ -1,0 +1,6 @@
+FALLBACK ep_025 after 5 attempts: mechanical validation failed after 5 attempts: line 1: numbers changed: the number 1 must appear EXACTLY 4 time(s) as digits outside atom expressions; your line has 3 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+FALLBACK ep_033 after 5 attempts: mechanical validation failed after 5 attempts: line 4: numbers changed: the number 3 must appear EXACTLY 3 time(s) as digits outside atom expressions; your line has 2 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+FALLBACK ep_311 after 5 attempts: mechanical validation failed after 5 attempts: line 3: identifiers changed: missing [rul_019], unexpected []
+FALLBACK ep_315 after 5 attempts: mechanical validation failed after 5 attempts: line 2: numbers changed: the number 286 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+naturalized 328 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-8/episodes_tierH.jsonl
+  fallbacks: 4 (1.2%)  frame-bearing lines: 138  unrecovered: 0 (0.0%)  actual-ctx misses: 0/979 (0.0%)

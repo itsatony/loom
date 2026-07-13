@@ -1,0 +1,4 @@
+FALLBACK ep_149 after 5 attempts: mechanical validation failed after 5 attempts: line 5: numbers changed: the number 83 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+FALLBACK ep_219 after 5 attempts: mechanical validation failed after 5 attempts: line 2: numbers changed: the number 217 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 3 — do not repeat it beyond that
+naturalized 267 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-3/episodes_tierH.jsonl
+  fallbacks: 2 (0.7%)  frame-bearing lines: 136  unrecovered: 0 (0.0%)  actual-ctx misses: 0/774 (0.0%)
