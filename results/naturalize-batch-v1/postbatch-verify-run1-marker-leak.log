@@ -1,0 +1,56 @@
+== 1. payload identity (non-text fields byte-identical) ==
+payloads identical on all 20 seeds
+== 2. authenticity certificate (tier M, LOSO) ==
+authenticity certificate (episodes_natural.jsonl):
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-1 contam 51/51+51/51  isol 27/37+10/18  chain 0/10+10/10  markers 0  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-2 contam 52/52+51/52  isol 28/48+20/28  chain 0/20+20/20  markers 1  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-3 contam 51/51+51/51  isol 25/45+20/28  chain 0/20+20/20  markers 1  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-7 contam 51/51+51/51  isol 27/47+19/27  chain 0/20+19/19  markers 0  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-8 contam 51/51+51/51  isol 27/47+19/27  chain 0/20+19/19  markers 0  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-9 contam 52/52+52/52  isol 28/48+20/28  chain 0/20+20/20  markers 0  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-10 contam 51/51+50/51  isol 27/48+20/28  chain 0/20+20/20  markers 1  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-12 contam 52/52+52/52  isol 27/47+20/28  chain 0/20+20/20  markers 1  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-13 contam 52/52+52/52  isol 28/48+20/28  chain 0/20+20/20  markers 0  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-14 contam 52/52+52/52  isol 26/46+20/28  chain 0/20+20/20  markers 0  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-15 contam 52/52+52/52  isol 28/48+20/28  chain 0/20+20/20  markers 1  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-16 contam 52/52+52/52  isol 27/47+18/26  chain 0/20+18/18  markers 0  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-18 contam 52/52+51/52  isol 25/35+7/15  chain 0/10+7/7  markers 0  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-19 contam 52/52+52/52  isol 27/47+19/27  chain 0/20+19/19  markers 0  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-20 contam 52/52+52/52  isol 28/48+19/27  chain 0/20+19/19  markers 0  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-21 contam 52/52+52/52  isol 27/47+19/27  chain 0/20+19/19  markers 0  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-22 contam 50/50+50/50  isol 27/47+20/28  chain 0/20+20/20  markers 0  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-24 contam 52/52+52/52  isol 27/47+20/28  chain 0/20+20/20  markers 0  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-25 contam 52/52+51/52  isol 27/48+19/27  chain 0/20+19/19  markers 0  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-29 contam 52/52+52/52  isol 26/46+20/28  chain 0/20+20/20  markers 1  (loso)
+  balanced (with controls): contamination 0.998, isolation 0.641, pooled 0.850
+  TRAP-DIRECTION balanced (hardness descriptor, ungated): contamination-traps 0.996, isolation-traps 0.585 → 0.791 (advisory ref 0.65)
+  6 tier-E marker hits — tier NOT certified (markers must collapse to 0; non-evidence, regenerate harder and log the failure)
+exit status 1
+== 3. tier-E calibration (expected NOT certified) ==
+authenticity certificate (episodes.jsonl):
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-1 contam 51/51+51/51  isol 27/37+10/18  chain 0/10+10/10  markers 124  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-2 contam 52/52+52/52  isol 28/48+20/28  chain 0/20+20/20  markers 130  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-3 contam 51/51+51/51  isol 25/45+20/28  chain 0/20+20/20  markers 130  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-7 contam 51/51+51/51  isol 27/47+19/27  chain 0/20+19/19  markers 132  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-8 contam 51/51+51/51  isol 27/47+19/27  chain 0/20+19/19  markers 132  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-9 contam 52/52+52/52  isol 28/48+20/28  chain 0/20+20/20  markers 124  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-10 contam 51/51+50/51  isol 28/48+20/28  chain 0/20+20/20  markers 130  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-12 contam 52/52+52/52  isol 27/47+20/28  chain 0/20+20/20  markers 132  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-13 contam 52/52+52/52  isol 28/48+20/28  chain 0/20+20/20  markers 129  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-14 contam 52/52+52/52  isol 26/46+20/28  chain 0/20+20/20  markers 127  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-15 contam 52/52+52/52  isol 28/48+20/28  chain 0/20+20/20  markers 131  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-16 contam 52/52+52/52  isol 27/47+18/26  chain 0/20+18/18  markers 137  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-18 contam 52/52+52/52  isol 25/35+7/15  chain 0/10+7/7  markers 125  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-19 contam 52/52+52/52  isol 27/47+19/27  chain 0/20+19/19  markers 129  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-20 contam 52/52+52/52  isol 28/48+19/27  chain 0/20+19/19  markers 128  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-21 contam 52/52+52/52  isol 27/47+19/27  chain 0/20+19/19  markers 133  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-22 contam 50/50+50/50  isol 27/47+20/28  chain 0/20+20/20  markers 129  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-24 contam 52/52+52/52  isol 27/47+20/28  chain 0/20+20/20  markers 129  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-25 contam 52/52+51/52  isol 28/48+19/27  chain 0/20+19/19  markers 128  (loso)
+  /home/itsatony/code/loom/datasets/frames-batch-v1/seed-29 contam 52/52+52/52  isol 26/46+20/28  chain 0/20+20/20  markers 133  (loso)
+  balanced (with controls): contamination 0.999, isolation 0.642, pooled 0.851
+  TRAP-DIRECTION balanced (hardness descriptor, ungated): contamination-traps 0.998, isolation-traps 0.587 → 0.793 (advisory ref 0.65)
+  2592 tier-E marker hits — tier NOT certified (markers must collapse to 0; non-evidence, regenerate harder and log the failure)
+exit status 1
+(tier-E exit 1 — nonzero EXPECTED)
+== 4. harness sweep on naturalized stream (5-way parallel) ==

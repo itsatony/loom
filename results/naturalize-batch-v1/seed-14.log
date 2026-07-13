@@ -1,0 +1,10 @@
+=== seed 14 start 2026-07-13T01:34:14+00:00 ===
+FALLBACK ep_071 after 10 attempts: mechanical validation failed after 10 attempts: line 3: numbers changed: the number 31 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+naturalized 244 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-14/episodes_natural.jsonl
+  fallbacks: 1 (0.4%)  frame-bearing lines: 133  unrecovered: 4 (3.0%)  actual-ctx misses: 0/732 (0.0%)
+=== seed 14 exit 0 2026-07-13T02:05:18+00:00 ===
+=== seed 14 start 2026-07-13T04:14:59+00:00 ===
+FALLBACK ep_071 after 10 attempts: mechanical validation failed after 10 attempts: line 3: numbers changed: the number 31 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+naturalized 244 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-14/episodes_natural.jsonl
+  fallbacks: 1 (0.4%)  frame-bearing lines: 133  unrecovered: 4 (3.0%)  actual-ctx misses: 0/732 (0.0%)
+=== seed 14 exit 0 2026-07-13T04:14:59+00:00 ===

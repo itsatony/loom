@@ -1,0 +1,84 @@
+dataset: /home/itsatony/code/loom/datasets/frames-batch-v1/seed-20 (347 episodes, 617 queries)
+
+condition                 rep+      rep-     comp+     comp-  rev.flip   rev.ret   find=
+always-true              60/60      0/60     80/80      0/73      0/24     24/24    0/20
+always-false              0/60     60/60      0/80     73/73     24/24      0/24    0/20
+episode-grep             60/60     60/60      0/80     73/73     24/24      0/24    0/20
+stale-oracle             60/60     60/60     80/80     73/73      0/24     24/24   13/20
+oracle                   60/60     60/60     80/80     73/73     24/24     24/24   20/20
+loom-C2a                 60/60     60/60     80/80     73/73     24/24     24/24   20/20
+loom-c2b-det              0/60     60/60      0/80     73/73     24/24      0/24    0/20
+frame-oracle             60/60     60/60     80/80     73/73     24/24     24/24   20/20
+mono-world               60/60     60/60     80/80     70/73     24/24     24/24   13/20
+isolationist             60/60     60/60     80/80     73/73     24/24     24/24   20/20
+literalist               60/60     60/60     80/80     73/73     24/24     24/24   19/20
+
+frame slices (traps are negatives, paired controls positives):
+condition                cont+     cont-      iso+      iso-      pin+      pin-     prom+     prom-    mis=   idea=
+always-true              52/52      0/52     48/48      0/27     16/16      0/16     15/15      0/10    0/20    6/20
+always-false              0/52     52/52      0/48     27/27      0/16     16/16      0/15     10/10    0/20    6/20
+episode-grep             52/52      0/52     28/48     19/27      1/16     15/16     15/15      0/10    0/20    0/20
+stale-oracle             52/52     52/52     27/48     12/27     15/16      1/16     11/15     10/10    0/20   10/20
+oracle                   52/52     52/52     20/48     19/27      9/16      7/16     11/15     10/10    0/20   10/20
+loom-C2a                 52/52     52/52     48/48     27/27     16/16     16/16     15/15     10/10   20/20   20/20
+loom-c2b-det              0/52     52/52      0/48     27/27      0/16     16/16      0/15     10/10    0/20    6/20
+frame-oracle             52/52     52/52     48/48     27/27     16/16     16/16     15/15     10/10   20/20   20/20
+mono-world               52/52      6/52     41/48      7/27      9/16      7/16     15/15      0/10    0/20    0/20
+isolationist             52/52     52/52     16/48     27/27      0/16     16/16     15/15     10/10   16/20   17/20
+literalist               52/52     40/52     48/48     26/27     16/16     16/16     15/15     10/10   20/20   20/20
+
+contamination by sub-population (trap-/control+ correct):
+condition               contradiction              gap            quote          sarcasm
+always-true                0/20/20/20       0/20/20/20          0/6/6/6          0/6/6/6
+always-false               20/20/0/20       20/20/0/20          6/6/0/6          6/6/0/6
+episode-grep               0/20/20/20       0/20/20/20          0/6/6/6          0/6/6/6
+stale-oracle              20/20/20/20      20/20/20/20          6/6/6/6          6/6/6/6
+oracle                    20/20/20/20      20/20/20/20          6/6/6/6          6/6/6/6
+loom-C2a                  20/20/20/20      20/20/20/20          6/6/6/6          6/6/6/6
+loom-c2b-det               20/20/0/20       20/20/0/20          6/6/0/6          6/6/0/6
+frame-oracle              20/20/20/20      20/20/20/20          6/6/6/6          6/6/6/6
+mono-world                 0/20/20/20       0/20/20/20          0/6/6/6          6/6/6/6
+isolationist              20/20/20/20      20/20/20/20          6/6/6/6          6/6/6/6
+literalist                20/20/20/20      20/20/20/20          0/6/6/6          0/6/6/6
+
+composition accuracy by derivation depth:
+condition                  d2       d3
+always-true              0.55     0.51
+always-false             0.45     0.49
+episode-grep             0.45     0.49
+stale-oracle             1.00     1.00
+oracle                   1.00     1.00
+loom-C2a                 1.00     1.00
+loom-c2b-det             0.45     0.49
+frame-oracle             1.00     1.00
+mono-world               0.98     0.98
+isolationist             1.00     1.00
+literalist               1.00     1.00
+
+retrieval provenance probe (upper bound for RAG conditions):
+
+[bm25]
+retriever        k  slice         full-coverage   episode-recall
+bm25             4  composition           0/100          104/771
+bm25             4  contamination          50/52            50/52
+bm25             4  isolation             27/48           39/193
+bm25             4  pinning                1/16             4/63
+bm25             4  promotion             14/15            14/15
+bm25             4  repetition            59/60            59/60
+bm25             4  revision               0/48           37/256
+bm25             8  composition           0/100          180/771
+bm25             8  contamination          50/52            50/52
+bm25             8  isolation             28/48           45/193
+bm25             8  pinning                2/16            16/63
+bm25             8  promotion             15/15            15/15
+bm25             8  repetition            60/60            60/60
+bm25             8  revision               0/48           63/256
+bm25            16  composition           0/100          294/771
+bm25            16  contamination          52/52            52/52
+bm25            16  isolation             28/48           65/193
+bm25            16  pinning                2/16            26/63
+bm25            16  promotion             15/15            15/15
+bm25            16  repetition            60/60            60/60
+bm25            16  revision               1/48          107/256
+
+JSON report: /home/itsatony/code/loom/results/naturalize-batch-v1/harness-natural-seed-20.json

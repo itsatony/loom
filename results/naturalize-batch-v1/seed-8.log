@@ -1,0 +1,16 @@
+=== seed 8 start 2026-07-13T00:53:04+00:00 ===
+FALLBACK ep_025 after 10 attempts: mechanical validation failed after 10 attempts: line 1: numbers changed: the number 1 must appear EXACTLY 4 time(s) as digits outside atom expressions; your line has 5 — do not repeat it beyond that
+FALLBACK ep_033 after 10 attempts: mechanical validation failed after 10 attempts: line 4: numbers changed: the number 3 must appear EXACTLY 3 time(s) as digits outside atom expressions; your line has 2 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+FALLBACK ep_311 after 10 attempts: mechanical validation failed after 10 attempts: line 3: numbers changed: the number 278 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 3 — do not repeat it beyond that
+FALLBACK ep_315 after 10 attempts: mechanical validation failed after 10 attempts: line 2: numbers changed: the number 286 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+naturalized 328 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-8/episodes_natural.jsonl
+  fallbacks: 4 (1.2%)  frame-bearing lines: 138  unrecovered: 5 (3.6%)  actual-ctx misses: 0/979 (0.0%)
+=== seed 8 exit 0 2026-07-13T01:09:40+00:00 ===
+=== seed 8 start 2026-07-13T04:14:40+00:00 ===
+FALLBACK ep_025 after 10 attempts: mechanical validation failed after 10 attempts: line 1: numbers changed: the number 1 must appear EXACTLY 4 time(s) as digits outside atom expressions; your line has 5 — do not repeat it beyond that
+FALLBACK ep_033 after 10 attempts: mechanical validation failed after 10 attempts: line 4: numbers changed: the number 3 must appear EXACTLY 3 time(s) as digits outside atom expressions; your line has 2 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+FALLBACK ep_311 after 10 attempts: mechanical validation failed after 10 attempts: line 3: numbers changed: the number 278 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 3 — do not repeat it beyond that
+FALLBACK ep_315 after 10 attempts: mechanical validation failed after 10 attempts: line 2: numbers changed: the number 286 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+naturalized 328 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-8/episodes_natural.jsonl
+  fallbacks: 4 (1.2%)  frame-bearing lines: 138  unrecovered: 5 (3.6%)  actual-ctx misses: 0/979 (0.0%)
+=== seed 8 exit 0 2026-07-13T04:14:40+00:00 ===

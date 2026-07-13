@@ -1,0 +1,8 @@
+=== seed 21 start 2026-07-13T02:42:13+00:00 ===
+naturalized 305 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-21/episodes_natural.jsonl
+  fallbacks: 0 (0.0%)  frame-bearing lines: 139  unrecovered: 5 (3.6%)  actual-ctx misses: 0/960 (0.0%)
+=== seed 21 exit 0 2026-07-13T03:27:48+00:00 ===
+=== seed 21 start 2026-07-13T04:15:00+00:00 ===
+naturalized 305 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-21/episodes_natural.jsonl
+  fallbacks: 0 (0.0%)  frame-bearing lines: 139  unrecovered: 5 (3.6%)  actual-ctx misses: 0/960 (0.0%)
+=== seed 21 exit 0 2026-07-13T04:15:00+00:00 ===

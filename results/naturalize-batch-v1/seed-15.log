@@ -1,0 +1,8 @@
+=== seed 15 start 2026-07-13T01:44:59+00:00 ===
+naturalized 284 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-15/episodes_natural.jsonl
+  fallbacks: 0 (0.0%)  frame-bearing lines: 137  unrecovered: 0 (0.0%)  actual-ctx misses: 0/863 (0.0%)
+=== seed 15 exit 0 2026-07-13T02:12:32+00:00 ===
+=== seed 15 start 2026-07-13T04:14:59+00:00 ===
+naturalized 284 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-15/episodes_natural.jsonl
+  fallbacks: 0 (0.0%)  frame-bearing lines: 137  unrecovered: 0 (0.0%)  actual-ctx misses: 0/863 (0.0%)
+=== seed 15 exit 0 2026-07-13T04:15:52+00:00 ===

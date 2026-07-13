@@ -1,0 +1,10 @@
+=== seed 22 start 2026-07-13T02:43:21+00:00 ===
+FALLBACK ep_242 after 15 attempts: mechanical validation failed after 10 attempts: line 4: identifiers changed: missing [rul_010], unexpected []
+naturalized 276 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-22/episodes_natural.jsonl
+  fallbacks: 1 (0.4%)  frame-bearing lines: 135  unrecovered: 5 (3.7%)  actual-ctx misses: 0/842 (0.0%)
+=== seed 22 exit 0 2026-07-13T03:18:55+00:00 ===
+=== seed 22 start 2026-07-13T04:15:00+00:00 ===
+FALLBACK ep_242 after 15 attempts: mechanical validation failed after 10 attempts: line 4: identifiers changed: missing [rul_010], unexpected []
+naturalized 276 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-22/episodes_natural.jsonl
+  fallbacks: 1 (0.4%)  frame-bearing lines: 135  unrecovered: 5 (3.7%)  actual-ctx misses: 0/842 (0.0%)
+=== seed 22 exit 0 2026-07-13T04:15:00+00:00 ===

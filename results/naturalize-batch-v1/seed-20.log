@@ -1,0 +1,12 @@
+=== seed 20 start 2026-07-13T02:16:23+00:00 ===
+FALLBACK ep_181 after 10 attempts: mechanical validation failed after 10 attempts: line 4: identifiers changed: missing [field_report], unexpected [Field_report]
+FALLBACK ep_251 after 10 attempts: mechanical validation failed after 10 attempts: line 2: numbers changed: the number 116 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+naturalized 347 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-20/episodes_natural.jsonl
+  fallbacks: 2 (0.6%)  frame-bearing lines: 134  unrecovered: 4 (3.0%)  actual-ctx misses: 0/1041 (0.0%)
+=== seed 20 exit 0 2026-07-13T02:46:13+00:00 ===
+=== seed 20 start 2026-07-13T04:15:00+00:00 ===
+FALLBACK ep_181 after 10 attempts: mechanical validation failed after 10 attempts: line 4: identifiers changed: missing [field_report], unexpected [Field_report]
+FALLBACK ep_251 after 10 attempts: mechanical validation failed after 10 attempts: line 2: numbers changed: the number 116 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+naturalized 347 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-20/episodes_natural.jsonl
+  fallbacks: 2 (0.6%)  frame-bearing lines: 134  unrecovered: 4 (3.0%)  actual-ctx misses: 0/1041 (0.0%)
+=== seed 20 exit 0 2026-07-13T04:15:00+00:00 ===

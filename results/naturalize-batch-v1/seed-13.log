@@ -1,0 +1,12 @@
+=== seed 13 start 2026-07-13T01:12:48+00:00 ===
+FALLBACK ep_027 after 10 attempts: mechanical validation failed after 10 attempts: line 3: identifiers changed: missing [field_report], unexpected [Field_report]
+FALLBACK ep_239 after 10 attempts: mechanical validation failed after 10 attempts: line 3: numbers changed: the number 180 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 3 — do not repeat it beyond that
+naturalized 297 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-13/episodes_natural.jsonl
+  fallbacks: 2 (0.7%)  frame-bearing lines: 135  unrecovered: 1 (0.7%)  actual-ctx misses: 0/936 (0.0%)
+=== seed 13 exit 0 2026-07-13T01:44:59+00:00 ===
+=== seed 13 start 2026-07-13T04:14:59+00:00 ===
+FALLBACK ep_027 after 10 attempts: mechanical validation failed after 10 attempts: line 3: identifiers changed: missing [field_report], unexpected [Field_report]
+FALLBACK ep_239 after 10 attempts: mechanical validation failed after 10 attempts: line 3: numbers changed: the number 180 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 3 — do not repeat it beyond that
+naturalized 297 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-13/episodes_natural.jsonl
+  fallbacks: 2 (0.7%)  frame-bearing lines: 135  unrecovered: 1 (0.7%)  actual-ctx misses: 0/936 (0.0%)
+=== seed 13 exit 0 2026-07-13T04:14:59+00:00 ===

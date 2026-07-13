@@ -1,0 +1,2436 @@
+{
+  "dataset": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-2",
+  "naturalizers": [
+    "mistral-medium-3.5",
+    "deepseek-v4-pro"
+  ],
+  "judges": [
+    "gemini-3.5-flash",
+    "moonshotai/Kimi-K2.6",
+    "grok-4.20-0309-non-reasoning"
+  ],
+  "episodes": 286,
+  "fallbacks": 7,
+  "frame_fallbacks": 0,
+  "fallback_rate": 0.024475524475524476,
+  "frame_lines": 136,
+  "unrecovered_lines": 3,
+  "unrecovered_rate": 0.022058823529411766,
+  "actual_lines_judged": 850,
+  "actual_ctx_misses": 0,
+  "actual_ctx_miss_rate": 0,
+  "handles": [
+    {
+      "frame_id": "fic_01",
+      "kind": "fiction",
+      "handle": "Softwood"
+    },
+    {
+      "frame_id": "fic_02",
+      "kind": "fiction",
+      "handle": "The Long Recess"
+    },
+    {
+      "frame_id": "psp_jurisdiction_01",
+      "kind": "perspective",
+      "handle": "jurisdiction_01",
+      "entity": "jurisdiction_01"
+    },
+    {
+      "frame_id": "psp_product_15",
+      "kind": "perspective",
+      "handle": "product_15",
+      "entity": "product_15"
+    },
+    {
+      "frame_id": "psp_product_20",
+      "kind": "perspective",
+      "handle": "product_20",
+      "entity": "product_20"
+    },
+    {
+      "frame_id": "scn_live",
+      "kind": "scenario",
+      "handle": "Coldharbor",
+      "basis": "live"
+    },
+    {
+      "frame_id": "scn_pin",
+      "kind": "scenario",
+      "handle": "Hazelwood",
+      "pin_day": 179,
+      "basis": "pinned"
+    }
+  ],
+  "usage": {
+    "deepseek-v4-pro": {
+      "calls": 197,
+      "errors": 0,
+      "cache_hits": 197,
+      "spent_prompt_tokens": 0,
+      "spent_completion_tokens": 0,
+      "replayed_prompt_tokens": 426752,
+      "replayed_completion_tokens": 243264
+    },
+    "gemini-3.5-flash": {
+      "calls": 305,
+      "errors": 0,
+      "cache_hits": 304,
+      "spent_prompt_tokens": 1135,
+      "spent_completion_tokens": 29,
+      "replayed_prompt_tokens": 275383,
+      "replayed_completion_tokens": 6784
+    },
+    "grok-4.20-0309-non-reasoning": {
+      "calls": 305,
+      "errors": 0,
+      "cache_hits": 304,
+      "spent_prompt_tokens": 1192,
+      "spent_completion_tokens": 32,
+      "replayed_prompt_tokens": 300573,
+      "replayed_completion_tokens": 6949
+    },
+    "mistral-medium-3.5": {
+      "calls": 262,
+      "errors": 0,
+      "cache_hits": 260,
+      "spent_prompt_tokens": 4982,
+      "spent_completion_tokens": 546,
+      "replayed_prompt_tokens": 606249,
+      "replayed_completion_tokens": 48388
+    },
+    "moonshotai/Kimi-K2.6": {
+      "calls": 305,
+      "errors": 0,
+      "cache_hits": 304,
+      "spent_prompt_tokens": 1027,
+      "spent_completion_tokens": 1719,
+      "replayed_prompt_tokens": 249826,
+      "replayed_completion_tokens": 670688
+    }
+  },
+  "per_episode": [
+    {
+      "id": "ep_001",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_002",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_003",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_004",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_005",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 10,
+      "fallback": true,
+      "frame_lines": 0,
+      "actual_lines": 2,
+      "error": "mechanical validation failed after 10 attempts: line 2: numbers changed: the number 0 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. \"logged on day N and effective from day N\" states N twice"
+    },
+    {
+      "id": "ep_006",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_007",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_008",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_009",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_010",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_011",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_012",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_013",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_014",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_015",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_016",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_017",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_018",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_019",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_020",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_021",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_022",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_023",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_024",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_025",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_026",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 3,
+      "judge_rounds": 2,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_027",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_028",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_029",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_030",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_031",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_032",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_033",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_034",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_035",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_036",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_037",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_038",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_039",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 2,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_040",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_041",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_042",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_043",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_044",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_045",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_046",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_047",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_048",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_049",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_050",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_051",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_052",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_053",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_054",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_055",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_056",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_057",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_058",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_059",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_060",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_061",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_062",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_063",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_064",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_065",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_066",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_067",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_068",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_069",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_070",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_071",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_072",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_073",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_074",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_075",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_076",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 6,
+      "judge_rounds": 5,
+      "unrecovered": [
+        {
+          "line": 2,
+          "expected": "view product_15 | declaration",
+          "exact_judges": 1,
+          "labels": "view product_15 | declaration / actual | declaration / exercise product_15 | declaration"
+        }
+      ],
+      "frame_lines": 1,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_077",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_078",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_079",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 10,
+      "fallback": true,
+      "frame_lines": 0,
+      "actual_lines": 4,
+      "error": "mechanical validation failed after 10 attempts: line 4: numbers changed: the number 23 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. \"logged on day N and effective from day N\" states N twice"
+    },
+    {
+      "id": "ep_080",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_081",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_082",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_083",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_084",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_085",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_086",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_087",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_088",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_089",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_090",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_091",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_092",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_093",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 10,
+      "fallback": true,
+      "frame_lines": 0,
+      "actual_lines": 5,
+      "error": "mechanical validation failed after 10 attempts: line 5: numbers changed: the number 30 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. \"logged on day N and effective from day N\" states N twice"
+    },
+    {
+      "id": "ep_094",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_095",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_096",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_097",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_098",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_099",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_100",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_101",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_102",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_103",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_104",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_105",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_106",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_107",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_108",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_109",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 2,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_110",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_111",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_112",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_113",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_114",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_115",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_116",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_117",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_118",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_119",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_120",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_121",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_122",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_123",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 10,
+      "fallback": true,
+      "frame_lines": 0,
+      "actual_lines": 2,
+      "error": "mechanical validation failed after 10 attempts: line 2: identifiers changed: missing [field_report], unexpected [Field_report]"
+    },
+    {
+      "id": "ep_124",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_125",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_126",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_127",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_128",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_129",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_130",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_131",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_132",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_133",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_134",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_135",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_136",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_137",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 5,
+      "judge_rounds": 5,
+      "unrecovered": [
+        {
+          "line": 2,
+          "expected": "actual | sarcasm",
+          "exact_judges": 0,
+          "labels": "view product_15 | quote / view product_15 | quote / view product_15 | quote"
+        }
+      ],
+      "frame_lines": 1,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_138",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_139",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_140",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_141",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_142",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_143",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_144",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_145",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_146",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_147",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_148",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_149",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_150",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_151",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_152",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_153",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_154",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_155",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_156",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_157",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_158",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_159",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_160",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_161",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_162",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_163",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_164",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_165",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 10,
+      "fallback": true,
+      "frame_lines": 0,
+      "actual_lines": 4,
+      "error": "mechanical validation failed after 10 attempts: line 3: numbers changed: the number 80 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. \"logged on day N and effective from day N\" states N twice"
+    },
+    {
+      "id": "ep_166",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_167",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_168",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_169",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 10,
+      "fallback": true,
+      "frame_lines": 0,
+      "actual_lines": 4,
+      "error": "mechanical validation failed after 10 attempts: line 3: numbers changed: the number 84 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. \"logged on day N and effective from day N\" states N twice"
+    },
+    {
+      "id": "ep_170",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_171",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_172",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_173",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_174",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_175",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_176",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_177",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_178",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_179",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_180",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_181",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_182",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 2,
+      "frame_lines": 1,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_183",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 6,
+      "judge_rounds": 3,
+      "frame_lines": 2,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_184",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_185",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_186",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_187",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_188",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_189",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_190",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_191",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_192",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_193",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_194",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 7,
+      "judge_rounds": 5,
+      "unrecovered": [
+        {
+          "line": 4,
+          "expected": "story softwood | declaration",
+          "exact_judges": 0,
+          "labels": "actual | declaration / actual | declaration / exercise softwood | declaration"
+        }
+      ],
+      "frame_lines": 3,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_195",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_196",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_197",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_198",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 4,
+      "judge_rounds": 4,
+      "frame_lines": 1,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_199",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_200",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_201",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 2,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_202",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_203",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_204",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_205",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_206",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_207",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_208",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_209",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_210",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_211",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_212",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 2,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_213",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_214",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_215",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 3,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_216",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 2,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_217",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_218",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_219",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_220",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 2,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_221",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_222",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 3,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_223",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 10,
+      "fallback": true,
+      "frame_lines": 0,
+      "actual_lines": 2,
+      "error": "mechanical validation failed after 10 attempts: line 2: numbers changed: the number 180 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 3 — do not repeat it beyond that"
+    },
+    {
+      "id": "ep_224",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_225",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_226",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 5
+    },
+    {
+      "id": "ep_227",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_228",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_229",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_230",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_231",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_232",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_233",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_234",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_235",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 2,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_236",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 4,
+      "judge_rounds": 3,
+      "frame_lines": 3,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_237",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_238",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 3,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_239",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 4,
+      "judge_rounds": 1,
+      "frame_lines": 3,
+      "actual_lines": 0
+    },
+    {
+      "id": "ep_240",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 2,
+      "actual_lines": 0
+    },
+    {
+      "id": "ep_241",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_242",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_243",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 3,
+      "actual_lines": 0
+    },
+    {
+      "id": "ep_244",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_245",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 3,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_246",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_247",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_248",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_249",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 4,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_250",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_251",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_252",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_253",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 3,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_254",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 2,
+      "actual_lines": 0
+    },
+    {
+      "id": "ep_255",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_256",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_257",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 2,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_258",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_259",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 2,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_260",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 2,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_261",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 3,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_262",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 3,
+      "judge_rounds": 1,
+      "frame_lines": 3,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_263",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 4,
+      "judge_rounds": 1,
+      "frame_lines": 2,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_264",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 4
+    },
+    {
+      "id": "ep_265",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_266",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_267",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 4,
+      "judge_rounds": 1,
+      "frame_lines": 2,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_268",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_269",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 2,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_270",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 3,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_271",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_272",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_273",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 3,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_274",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_275",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_276",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_277",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_278",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 2,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 1
+    },
+    {
+      "id": "ep_279",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 0,
+      "actual_lines": 3
+    },
+    {
+      "id": "ep_280",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 2,
+      "actual_lines": 0
+    },
+    {
+      "id": "ep_281",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 3,
+      "judge_rounds": 2,
+      "frame_lines": 4,
+      "actual_lines": 0
+    },
+    {
+      "id": "ep_282",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_283",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 3,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_284",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 4,
+      "judge_rounds": 4,
+      "frame_lines": 3,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_285",
+      "naturalizer": "mistral-medium-3.5",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 2
+    },
+    {
+      "id": "ep_286",
+      "naturalizer": "deepseek-v4-pro",
+      "mech_attempts": 1,
+      "judge_rounds": 1,
+      "frame_lines": 1,
+      "actual_lines": 0
+    }
+  ],
+  "judging_enabled": true,
+  "mech_retries": 10,
+  "judge_rounds_allowed": 5
+}

@@ -1,0 +1,491 @@
+{
+  "episodes_file": "episodes.jsonl",
+  "max_balanced_accuracy": 0.65,
+  "seeds": [
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-1",
+      "marker_hits": 124,
+      "contamination": {
+        "pos_correct": 51,
+        "pos_total": 51,
+        "neg_correct": 51,
+        "neg_total": 51
+      },
+      "isolation": {
+        "pos_correct": 27,
+        "pos_total": 37,
+        "neg_correct": 10,
+        "neg_total": 18
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 10,
+        "neg_correct": 10,
+        "neg_total": 10
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-2",
+      "marker_hits": 130,
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 52,
+        "neg_total": 52
+      },
+      "isolation": {
+        "pos_correct": 28,
+        "pos_total": 48,
+        "neg_correct": 20,
+        "neg_total": 28
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 20,
+        "neg_total": 20
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-3",
+      "marker_hits": 130,
+      "contamination": {
+        "pos_correct": 51,
+        "pos_total": 51,
+        "neg_correct": 51,
+        "neg_total": 51
+      },
+      "isolation": {
+        "pos_correct": 25,
+        "pos_total": 45,
+        "neg_correct": 20,
+        "neg_total": 28
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 20,
+        "neg_total": 20
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-7",
+      "marker_hits": 132,
+      "contamination": {
+        "pos_correct": 51,
+        "pos_total": 51,
+        "neg_correct": 51,
+        "neg_total": 51
+      },
+      "isolation": {
+        "pos_correct": 27,
+        "pos_total": 47,
+        "neg_correct": 19,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 19,
+        "neg_total": 19
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-8",
+      "marker_hits": 132,
+      "contamination": {
+        "pos_correct": 51,
+        "pos_total": 51,
+        "neg_correct": 51,
+        "neg_total": 51
+      },
+      "isolation": {
+        "pos_correct": 27,
+        "pos_total": 47,
+        "neg_correct": 19,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 19,
+        "neg_total": 19
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-9",
+      "marker_hits": 124,
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 52,
+        "neg_total": 52
+      },
+      "isolation": {
+        "pos_correct": 28,
+        "pos_total": 48,
+        "neg_correct": 20,
+        "neg_total": 28
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 20,
+        "neg_total": 20
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-10",
+      "marker_hits": 130,
+      "contamination": {
+        "pos_correct": 51,
+        "pos_total": 51,
+        "neg_correct": 50,
+        "neg_total": 51
+      },
+      "isolation": {
+        "pos_correct": 28,
+        "pos_total": 48,
+        "neg_correct": 20,
+        "neg_total": 28
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 20,
+        "neg_total": 20
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-12",
+      "marker_hits": 132,
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 52,
+        "neg_total": 52
+      },
+      "isolation": {
+        "pos_correct": 27,
+        "pos_total": 47,
+        "neg_correct": 20,
+        "neg_total": 28
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 20,
+        "neg_total": 20
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-13",
+      "marker_hits": 129,
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 52,
+        "neg_total": 52
+      },
+      "isolation": {
+        "pos_correct": 28,
+        "pos_total": 48,
+        "neg_correct": 20,
+        "neg_total": 28
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 20,
+        "neg_total": 20
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-14",
+      "marker_hits": 127,
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 52,
+        "neg_total": 52
+      },
+      "isolation": {
+        "pos_correct": 26,
+        "pos_total": 46,
+        "neg_correct": 20,
+        "neg_total": 28
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 20,
+        "neg_total": 20
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-15",
+      "marker_hits": 131,
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 52,
+        "neg_total": 52
+      },
+      "isolation": {
+        "pos_correct": 28,
+        "pos_total": 48,
+        "neg_correct": 20,
+        "neg_total": 28
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 20,
+        "neg_total": 20
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-16",
+      "marker_hits": 137,
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 52,
+        "neg_total": 52
+      },
+      "isolation": {
+        "pos_correct": 27,
+        "pos_total": 47,
+        "neg_correct": 18,
+        "neg_total": 26
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 18,
+        "neg_total": 18
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-18",
+      "marker_hits": 125,
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 52,
+        "neg_total": 52
+      },
+      "isolation": {
+        "pos_correct": 25,
+        "pos_total": 35,
+        "neg_correct": 7,
+        "neg_total": 15
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 10,
+        "neg_correct": 7,
+        "neg_total": 7
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-19",
+      "marker_hits": 129,
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 52,
+        "neg_total": 52
+      },
+      "isolation": {
+        "pos_correct": 27,
+        "pos_total": 47,
+        "neg_correct": 19,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 19,
+        "neg_total": 19
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-20",
+      "marker_hits": 128,
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 52,
+        "neg_total": 52
+      },
+      "isolation": {
+        "pos_correct": 28,
+        "pos_total": 48,
+        "neg_correct": 19,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 19,
+        "neg_total": 19
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-21",
+      "marker_hits": 133,
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 52,
+        "neg_total": 52
+      },
+      "isolation": {
+        "pos_correct": 27,
+        "pos_total": 47,
+        "neg_correct": 19,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 19,
+        "neg_total": 19
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-22",
+      "marker_hits": 129,
+      "contamination": {
+        "pos_correct": 50,
+        "pos_total": 50,
+        "neg_correct": 50,
+        "neg_total": 50
+      },
+      "isolation": {
+        "pos_correct": 27,
+        "pos_total": 47,
+        "neg_correct": 20,
+        "neg_total": 28
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 20,
+        "neg_total": 20
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-24",
+      "marker_hits": 129,
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 52,
+        "neg_total": 52
+      },
+      "isolation": {
+        "pos_correct": 27,
+        "pos_total": 47,
+        "neg_correct": 20,
+        "neg_total": 28
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 20,
+        "neg_total": 20
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-25",
+      "marker_hits": 128,
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 51,
+        "neg_total": 52
+      },
+      "isolation": {
+        "pos_correct": 28,
+        "pos_total": 48,
+        "neg_correct": 19,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 19,
+        "neg_total": 19
+      },
+      "trained_on": "loso"
+    },
+    {
+      "dir": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-29",
+      "marker_hits": 133,
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 52,
+        "neg_total": 52
+      },
+      "isolation": {
+        "pos_correct": 26,
+        "pos_total": 46,
+        "neg_correct": 20,
+        "neg_total": 28
+      },
+      "isolation_chain": {
+        "pos_correct": 0,
+        "pos_total": 20,
+        "neg_correct": 20,
+        "neg_total": 20
+      },
+      "trained_on": "loso"
+    }
+  ],
+  "pooled_contamination": {
+    "PosCorrect": 1033,
+    "PosTotal": 1033,
+    "NegCorrect": 1031,
+    "NegTotal": 1033
+  },
+  "pooled_isolation": {
+    "PosCorrect": 541,
+    "PosTotal": 921,
+    "NegCorrect": 369,
+    "NegTotal": 529
+  },
+  "pooled_isolation_chain": {
+    "PosCorrect": 0,
+    "PosTotal": 380,
+    "NegCorrect": 369,
+    "NegTotal": 369
+  },
+  "balanced_contamination": 0.9990319457889643,
+  "balanced_isolation": 0.6424737638262019,
+  "balanced_pooled_with_controls": 0.8509069678141428,
+  "balanced_traps": 0.7927344430745233,
+  "total_marker_hits": 2592,
+  "certified": false,
+  "comment": "2592 tier-E marker hits — tier NOT certified (markers must collapse to 0; non-evidence, regenerate harder and log the failure)"
+}

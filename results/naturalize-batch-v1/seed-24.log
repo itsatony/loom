@@ -1,0 +1,14 @@
+=== seed 24 start 2026-07-13T02:46:13+00:00 ===
+FALLBACK ep_007 after 10 attempts: mechanical validation failed after 10 attempts: line 3: numbers changed: the number 0 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+FALLBACK ep_165 after 10 attempts: mechanical validation failed after 10 attempts: line 4: numbers changed: the number 59 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 3 — do not repeat it beyond that
+FALLBACK ep_217 after 10 attempts: mechanical validation failed after 10 attempts: line 3: numbers changed: the number 110 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+naturalized 327 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-24/episodes_natural.jsonl
+  fallbacks: 3 (0.9%)  frame-bearing lines: 135  unrecovered: 4 (3.0%)  actual-ctx misses: 0/986 (0.0%)
+=== seed 24 exit 0 2026-07-13T03:18:21+00:00 ===
+=== seed 24 start 2026-07-13T04:15:00+00:00 ===
+FALLBACK ep_007 after 10 attempts: mechanical validation failed after 10 attempts: line 3: numbers changed: the number 0 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+FALLBACK ep_165 after 10 attempts: mechanical validation failed after 10 attempts: line 4: numbers changed: the number 59 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 3 — do not repeat it beyond that
+FALLBACK ep_217 after 10 attempts: mechanical validation failed after 10 attempts: line 3: numbers changed: the number 110 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+naturalized 327 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-24/episodes_natural.jsonl
+  fallbacks: 3 (0.9%)  frame-bearing lines: 135  unrecovered: 4 (3.0%)  actual-ctx misses: 0/986 (0.0%)
+=== seed 24 exit 0 2026-07-13T04:15:01+00:00 ===

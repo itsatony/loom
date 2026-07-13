@@ -181,6 +181,24 @@ dead and genre words banned, a labeled-data classifier still finds
 structural lexical cues (e.g. actual observation lines carry a feed
 token, frame lines don't). See MASTERPLAN §10 2026-07-12 entries.
 
+**Tier-M locked batch (2026-07-13, build step 7): DONE and CERTIFIED.**
+All 20 locked seeds naturalized (uniform pipeline; three same-night
+amendments logged in §10: validator inflection/feedback fixes, per-line
+pinning in the mech-retry loop, marker-list sync "within this scenario"/
+"in the story"; plus judge 2 moved to Nebius after the Moonshot account
+suspension silently killed ~80% of kimi calls — naturalize now fails if
+any judge errors on >10% of episodes). Batch aggregate (5,899 episodes):
+fallbacks 0.85%, frame-bearing fallbacks 0, unrecovered 2.6% (max seed
+3.7%), actual-line judge misses 0/17,824, judge errors 0. Certificate:
+marker hits 0 on all 20 seeds → CERTIFIED (reading (a)); tier-E
+calibration refused (2,592 hits). Hardness descriptor 0.791
+trap-direction / 0.850 with-controls (ungated, always reported).
+Payloads byte-identical to tier E; loom-C2a == frame-oracle == frozen
+§9.6.5 per cell per seed on the naturalized stream. Artifacts + 272MB
+cassettes committed. Moonshot recharge pending (Toni). Next: tier-H
+(first 5 locked seeds, ~100-event human audit by Toni), then C2b frames
+extraction (F-E1..F-E4).
+
 **S2 hooks that exist but are intentionally dormant (don't mistake for bugs):**
 lifecycle states `proposed`/`retracted`/`quarantined` are defined and honored
 by `worldView`/`StatsAt`, but nothing sets them yet — structured ingest

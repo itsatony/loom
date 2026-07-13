@@ -1,0 +1,14 @@
+=== seed 9 start 2026-07-13T00:55:07+00:00 ===
+FALLBACK ep_081 after 10 attempts: mechanical validation failed after 10 attempts: line 3: numbers changed: the number 17 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+FALLBACK ep_129 after 10 attempts: mechanical validation failed after 10 attempts: line 2: numbers changed: the number 47 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+FALLBACK ep_183 after 10 attempts: mechanical validation failed after 10 attempts: line 3: numbers changed: the number 86 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+naturalized 295 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-9/episodes_natural.jsonl
+  fallbacks: 3 (1.0%)  frame-bearing lines: 130  unrecovered: 4 (3.1%)  actual-ctx misses: 0/912 (0.0%)
+=== seed 9 exit 0 2026-07-13T01:12:48+00:00 ===
+=== seed 9 start 2026-07-13T04:14:40+00:00 ===
+FALLBACK ep_081 after 10 attempts: mechanical validation failed after 10 attempts: line 3: numbers changed: the number 17 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+FALLBACK ep_129 after 10 attempts: mechanical validation failed after 10 attempts: line 2: numbers changed: the number 47 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+FALLBACK ep_183 after 10 attempts: mechanical validation failed after 10 attempts: line 3: numbers changed: the number 86 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+naturalized 295 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-9/episodes_natural.jsonl
+  fallbacks: 3 (1.0%)  frame-bearing lines: 130  unrecovered: 4 (3.1%)  actual-ctx misses: 0/912 (0.0%)
+=== seed 9 exit 0 2026-07-13T04:14:40+00:00 ===

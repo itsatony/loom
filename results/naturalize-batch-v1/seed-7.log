@@ -1,0 +1,12 @@
+=== seed 7 start 2026-07-13T00:50:36+00:00 ===
+FALLBACK ep_181 after 10 attempts: mechanical validation failed after 10 attempts: line 2: numbers changed: the number 89 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+FALLBACK ep_261 after 10 attempts: mechanical validation failed after 10 attempts: line 2: numbers changed: the number 248 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+naturalized 300 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-7/episodes_natural.jsonl
+  fallbacks: 2 (0.7%)  frame-bearing lines: 138  unrecovered: 5 (3.6%)  actual-ctx misses: 0/929 (0.0%)
+=== seed 7 exit 0 2026-07-13T01:09:37+00:00 ===
+=== seed 7 start 2026-07-13T04:14:40+00:00 ===
+FALLBACK ep_181 after 10 attempts: mechanical validation failed after 10 attempts: line 2: numbers changed: the number 89 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+FALLBACK ep_261 after 10 attempts: mechanical validation failed after 10 attempts: line 2: numbers changed: the number 248 must appear EXACTLY 2 time(s) as digits outside atom expressions; your line has 1 — write it in each role, e.g. "logged on day N and effective from day N" states N twice
+naturalized 300 episodes → /home/itsatony/code/loom/datasets/frames-batch-v1/seed-7/episodes_natural.jsonl
+  fallbacks: 2 (0.7%)  frame-bearing lines: 138  unrecovered: 5 (3.6%)  actual-ctx misses: 0/929 (0.0%)
+=== seed 7 exit 0 2026-07-13T04:14:40+00:00 ===
