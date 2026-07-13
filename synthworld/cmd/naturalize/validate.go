@@ -265,7 +265,7 @@ func validateLine(orig, nat string, sp lineSpec) error {
 			want, got := countTok(wantNums, m), countTok(gotNums, m)
 			hint := ""
 			if want > 1 {
-				hint = " (e.g. the day is both the log date and the validity start)"
+				hint = " — write it in each role, e.g. \"logged on day N and effective from day N\" states N twice"
 			}
 			parts = append(parts, fmt.Sprintf("the number %s must appear EXACTLY %d time(s) as digits outside atom expressions; your line has %d%s",
 				m, want, got, hint))

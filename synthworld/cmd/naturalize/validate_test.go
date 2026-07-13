@@ -158,7 +158,7 @@ func TestNumberCountFeedbackExact(t *testing.T) {
 	if err == nil {
 		t.Fatal("missing day accepted")
 	}
-	if !strings.Contains(err.Error(), "EXACTLY 1 time(s)") || strings.Contains(err.Error(), "log date") {
+	if !strings.Contains(err.Error(), "EXACTLY 1 time(s)") || strings.Contains(err.Error(), "each role") {
 		t.Errorf("missing-number feedback wrong: %v", err)
 	}
 	doubled := `Under the Hazelwood drill, as of day 276, premise fct_0871 applies from day 276: offered_in(customer=customer_11, product=product_18).`

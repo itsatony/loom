@@ -508,10 +508,19 @@ func (p *processor) process(idx int, ep *gen.Episode, declCtx []string) episodeR
 }
 
 // naturalizeOnce runs the mechanical-validation retry loop for one episode.
+//
+// Lines are validated independently, so a line is PINNED the moment any
+// attempt renders it validly; later attempts only need to fix the still-
+// failing lines (their output for pinned lines is ignored). Without this,
+// episodes whose lines alternate validity across attempts (the model fixes
+// line 3 but rewrites line 1 back into the instruction-example style)
+// never have all lines valid simultaneously and fall back spuriously —
+// the 2026-07-12 seed-3 whack-a-mole incident.
 func (p *processor) naturalizeOnce(ctx context.Context, nat *modelCfg, ep *gen.Episode, judgeFeedback string) ([]string, int, error) {
 	prompt := naturalizeUserMsg(ep, p.handles, judgeFeedback)
 	feedback := ""
 	var lastErr error
+	pinned := make([]string, len(ep.Events)) // "" = no valid rendering yet
 	for attempt := 1; attempt <= p.mechRetries; attempt++ {
 		reply, err := nat.Meter.Complete(ctx, naturalizerSystem, prompt+feedback)
 		if err != nil {
@@ -525,31 +534,30 @@ func (p *processor) naturalizeOnce(ctx context.Context, nat *modelCfg, ep *gen.E
 			continue
 		}
 		var violations []string
-		var passed []int
+		allPinned := true
 		for i := range ep.Events {
+			if pinned[i] != "" {
+				continue // already valid from an earlier attempt
+			}
 			sp := buildSpec(&ep.Events[i], p.handles)
 			if verr := validateLine(ep.Events[i].Text, natLines[i], sp); verr != nil {
 				violations = append(violations, fmt.Sprintf("line %d: %v", i+1, verr))
+				allPinned = false
 			} else {
-				passed = append(passed, i+1)
+				pinned[i] = natLines[i]
 			}
 		}
-		if len(violations) > 0 {
-			if os.Getenv("NATURALIZE_DEBUG") != "" {
-				fmt.Fprintf(os.Stderr, "DEBUG %s attempt %d (%s) rejected:\n%s\nviolations: %s\n",
-					ep.ID, attempt, nat.Model, reply, strings.Join(violations, "; "))
-			}
-			var keep string
-			if len(passed) > 0 {
-				keep = fmt.Sprintf(" Lines %v were ACCEPTED — reproduce them VERBATIM from your previous reply; change ONLY the rejected lines.", passed)
-			}
-			feedback = "\n\nYour previous reply was rejected by a mechanical validator:\n- " +
-				strings.Join(violations, "\n- ") +
-				"\nOutput all lines again, fixing exactly these violations." + keep
-			lastErr = fmt.Errorf("%s", strings.Join(violations, "; "))
-			continue
+		if allPinned {
+			return pinned, attempt, nil
 		}
-		return natLines, attempt, nil
+		if os.Getenv("NATURALIZE_DEBUG") != "" {
+			fmt.Fprintf(os.Stderr, "DEBUG %s attempt %d (%s) rejected:\n%s\nviolations: %s\n",
+				ep.ID, attempt, nat.Model, reply, strings.Join(violations, "; "))
+		}
+		feedback = "\n\nYour previous reply was rejected by a mechanical validator:\n- " +
+			strings.Join(violations, "\n- ") +
+			"\nOutput all lines again, fixing exactly these violations. Copy every identifier EXACTLY from the original line — never borrow identifiers from the instructions' example. Lines not listed above are already accepted; their content is locked regardless of what you output for them."
+		lastErr = fmt.Errorf("%s", strings.Join(violations, "; "))
 	}
 	return nil, p.mechRetries, fmt.Errorf("mechanical validation failed after %d attempts: %v", p.mechRetries, lastErr)
 }

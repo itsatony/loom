@@ -947,3 +947,21 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   naturalizer/other-judge cassettes replay, kimi verdicts are re-asked
   live at Nebius. Judge-error counts from this incident's partial runs
   are non-evidence.
+- 2026-07-13 (PIPELINE amendment #2, whack-a-mole fix) — with a healthy
+  panel, seed-2 went green (unrecovered 1.5%) but seed-3 exposed a
+  retry-loop failure mode: lines are validated independently, yet the
+  loop demanded ALL lines valid in the SAME attempt. Models fixing a
+  flagged line routinely rewrote an already-valid line back into the
+  instruction-example style (source token audit_note replacing the true
+  registry_B/partner_feed/...), so validity alternated between lines and
+  frame-bearing episodes fell back spuriously (seed-3 ep_157: line 1
+  valid on odd attempts, line 3's twice-written day never joint-valid;
+  31 attempts). Fix in cmd/naturalize: per-line PINNING — a line is
+  locked the first time any attempt renders it validly; later attempts
+  only need the still-failing lines. Convergence is now monotone in
+  attempts. Retry feedback also tells the model accepted lines are
+  locked, to copy identifiers exactly from the original (never from the
+  instructions' example), and shows a concrete two-role phrasing for
+  repeated day values. First-attempt prompts are byte-identical
+  (cassettes replay); only retry paths change. Gates, judges, scoring
+  untouched. Batch restarted uniformly (v5).
