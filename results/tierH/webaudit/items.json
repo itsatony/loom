@@ -1,0 +1,2643 @@
+[
+ {
+  "n": 1,
+  "seed": 1,
+  "ep": "ep_177",
+  "day": 44,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion.",
+   "A new piece of imaginative writing, Ten Days of Grey, enters circulation at the desk on day 41; its contents are a constructed narrative, not factual observations."
+  ],
+  "episode_lines": [
+   "jurisdiction_16, on day 44, reported that supplies(customer=customer_13, sector=sector_07, partner=partner_08).",
+   "From day 44, statements from asset_15 are logged as asset_15's own claims."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian",
+   "story Ten Days of Grey",
+   "view asset_15"
+  ]
+ },
+ {
+  "n": 2,
+  "seed": 1,
+  "ep": "ep_236",
+  "day": 158,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion.",
+   "A new piece of imaginative writing, Ten Days of Grey, enters circulation at the desk on day 41; its contents are a constructed narrative, not factual observations.",
+   "From day 44, statements from asset_15 are logged as asset_15's own claims.",
+   "From day 84 onward, claims attributed to product_16 will be logged under its own view.",
+   "Planning exercise Kestrel goes live on day 148, following the world\u2019s actual unfolding state."
+  ],
+  "episode_lines": [
+   "Logged on day 158, prm_02 notes that product_16\u2019s earlier projection fct_0986 has been borne out by observation fct_0641; from day 158, it stands as established in the record.",
+   "A partner_feed received on day 159, filed as fct_0675 and effective from day 159, reports that holds(product=product_27, product2=product_01, partner=partner_08).",
+   "Logged on day 159 and effective from day 159, policy rul_015 (\"flagged_for policy 2\", authority level 1) provides: IF eligible_for(jurisdiction=jurisdiction_10, product=?A) AND offered_in(asset=?B, asset2=asset_13, sector=?D) AND partnered_with(jurisdiction=?E, product=?A) THEN flagged_for(product=?A, asset=?B).",
+   "On day 160, a customer_disclosure provides fct_0619, valid from day 160, that classified_as(partner=partner_04, sector=sector_12).",
+   "A field_report logged on day 161 as fct_0738, in force from day 161, records located_in(asset=asset_05, asset2=asset_20, jurisdiction=jurisdiction_17)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian",
+   "story Ten Days of Grey",
+   "view asset_15",
+   "view product_16",
+   "exercise Kestrel"
+  ]
+ },
+ {
+  "n": 3,
+  "seed": 1,
+  "ep": "ep_221",
+  "day": 123,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion.",
+   "A new piece of imaginative writing, Ten Days of Grey, enters circulation at the desk on day 41; its contents are a constructed narrative, not factual observations.",
+   "From day 44, statements from asset_15 are logged as asset_15's own claims.",
+   "From day 84 onward, claims attributed to product_16 will be logged under its own view."
+  ],
+  "episode_lines": [
+   "jurisdiction_16\u2019s forecast fct_0987, borne out by observation fct_0066, is entered into the record from day 123, logged on day 123 as prm_03.",
+   "asset_15, on day 123, quipped: \"Of course\u2014rated_as(jurisdiction=jurisdiction_00, product=product_15, jurisdiction2=jurisdiction_02) is beyond doubt.\"",
+   "registry_A reports, effective from day 126 and logged on day 126 under fct_0584, that operates_in(product=product_23, customer=customer_15)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian",
+   "story Ten Days of Grey",
+   "view asset_15",
+   "view product_16"
+  ]
+ },
+ {
+  "n": 4,
+  "seed": 1,
+  "ep": "ep_106",
+  "day": 9,
+  "decls": [],
+  "episode_lines": [
+   "A day 9 entry sourced from customer_disclosure, effective from day 9, records as fct_0180 that member_of(product=product_14, partner=partner_14).",
+   "On day 9 an audit_note filing (fct_0191, in force from day 9) confirms that holds(product=product_13, product2=product_17, partner=partner_13).",
+   "registry_B files note, day 9, that member_of(product=product_07, partner=partner_01) \u2014 catalogued as fct_0200, from day 9.",
+   "Through customer_disclosure on day 9, effective day 9, fct_0230 logs the finding that rated_as(jurisdiction=jurisdiction_00, product=product_13, jurisdiction2=jurisdiction_20)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual"
+  ]
+ },
+ {
+  "n": 5,
+  "seed": 1,
+  "ep": "ep_156",
+  "day": 26,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations."
+  ],
+  "episode_lines": [
+   "Logged in registry_A on day 26 and in force from day 26, fct_0542 records that offered_in(asset=asset_05, asset2=asset_05, sector=sector_05).",
+   "Another registry_A entry, fct_0857, filed on day 26 and effective from day 26, indicates offered_in(asset=asset_06, asset2=asset_16, sector=sector_13).",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion.",
+   "A field_report from day 27, valid from day 27, logs fct_0169 showing registered_in(sector=sector_03, partner=partner_15, customer=customer_05).",
+   "fct_0356, sourced from registry_A on day 27 and effective as of day 27, documents that offered_in(asset=asset_19, asset2=asset_14, sector=sector_05)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian"
+  ]
+ },
+ {
+  "n": 6,
+  "seed": 1,
+  "ep": "ep_301",
+  "day": 317,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion.",
+   "A new piece of imaginative writing, Ten Days of Grey, enters circulation at the desk on day 41; its contents are a constructed narrative, not factual observations.",
+   "From day 44, statements from asset_15 are logged as asset_15's own claims.",
+   "From day 84 onward, claims attributed to product_16 will be logged under its own view.",
+   "Planning exercise Kestrel goes live on day 148, following the world\u2019s actual unfolding state.",
+   "Effective day 191, planning exercise Coldharbor commences, pinned to the world as it stood on day 179; later alterations to the record are not incorporated."
+  ],
+  "episode_lines": [
+   "On day 316, registry_A records fct_0559 \u2014 effective from day 316 \u2014 that registered_in(sector=sector_20, partner=partner_03, customer=customer_04).",
+   "partner_feed reports on day 317, under fct_0575 and valid from day 317, that registered_in(sector=sector_02, partner=partner_15, customer=customer_01).",
+   "A customer_disclosure entry logged on day 317 as fct_0723, in force from day 317, notes located_in(asset=asset_12, asset2=asset_01, jurisdiction=jurisdiction_12)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian",
+   "story Ten Days of Grey",
+   "view asset_15",
+   "view product_16",
+   "exercise Kestrel",
+   "exercise Coldharbor"
+  ]
+ },
+ {
+  "n": 7,
+  "seed": 1,
+  "ep": "ep_091",
+  "day": 8,
+  "decls": [],
+  "episode_lines": [
+   "A field_report entry logged on day 8 \u2014 reference fct_0009, effective from day 8 \u2014 confirms that member_of(product=product_12, partner=partner_12).",
+   "Another field_report on day 8, recorded as fct_0017 and valid from day 8, notes that holds(product=product_03, product2=product_24, partner=partner_13).",
+   "An audit_note from day 8, cited as fct_0037 and in force from day 8, attests to member_of(product=product_14, partner=partner_05)."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual"
+  ]
+ },
+ {
+  "n": 8,
+  "seed": 1,
+  "ep": "ep_249",
+  "day": 191,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion.",
+   "A new piece of imaginative writing, Ten Days of Grey, enters circulation at the desk on day 41; its contents are a constructed narrative, not factual observations.",
+   "From day 44, statements from asset_15 are logged as asset_15's own claims.",
+   "From day 84 onward, claims attributed to product_16 will be logged under its own view.",
+   "Planning exercise Kestrel goes live on day 148, following the world\u2019s actual unfolding state."
+  ],
+  "episode_lines": [
+   "In The Paper Meridian, day 191 brings the record that registered_in(sector=sector_08, partner=partner_00, customer=customer_11) \u2014 noted as fct_0900.",
+   "product_16, on day 191, filed that located_in(asset=asset_08, asset2=asset_01, jurisdiction=jurisdiction_12)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian",
+   "story Ten Days of Grey",
+   "view asset_15",
+   "view product_16",
+   "exercise Kestrel"
+  ]
+ },
+ {
+  "n": 9,
+  "seed": 1,
+  "ep": "ep_185",
+  "day": 54,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion.",
+   "A new piece of imaginative writing, Ten Days of Grey, enters circulation at the desk on day 41; its contents are a constructed narrative, not factual observations.",
+   "From day 44, statements from asset_15 are logged as asset_15's own claims."
+  ],
+  "episode_lines": [
+   "jurisdiction_16 was quoted on day 54 as saying, \"rated_as(jurisdiction=jurisdiction_01, product=product_27, jurisdiction2=jurisdiction_01)\" \u2014 recorded as fct_0984.",
+   "Policy rul_014 (\"flagged_for policy 1\", authority level 1) was logged on day 54 and effective from day 54: IF eligible_for(jurisdiction=jurisdiction_19, product=?A) AND offered_in(asset=?B, asset2=?B, sector=?D) AND offered_in(asset=asset_06, asset2=?B, sector=?E) THEN flagged_for(product=?A, asset=?B).",
+   "An audit_note entry on day 55 \u2014 reference fct_0414, effective from day 55 \u2014 notes that registered_in(sector=sector_08, partner=partner_06, customer=customer_10).",
+   "partner_feed reports on day 55 \u2014 reference fct_0660, effective from day 55 \u2014 that supplies(customer=customer_02, sector=sector_18, partner=partner_03)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian",
+   "story Ten Days of Grey",
+   "view asset_15"
+  ]
+ },
+ {
+  "n": 10,
+  "seed": 1,
+  "ep": "ep_230",
+  "day": 151,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion.",
+   "A new piece of imaginative writing, Ten Days of Grey, enters circulation at the desk on day 41; its contents are a constructed narrative, not factual observations.",
+   "From day 44, statements from asset_15 are logged as asset_15's own claims.",
+   "From day 84 onward, claims attributed to product_16 will be logged under its own view."
+  ],
+  "episode_lines": [
+   "An entry from registry_A, logged on day 146 and valid from day 146, records fct_0123: offered_in(asset=asset_06, asset2=asset_06, sector=sector_21).",
+   "Filed on day 146, effective from day 146, policy rul_011 (\"exempt_from policy 1\", authority level 5) holds: IF eligible_for(jurisdiction=jurisdiction_00, product=?A) AND registered_in(sector=?B, partner=partner_00, customer=?E) THEN exempt_from(product=?A, sector=?B).",
+   "Planning exercise Kestrel goes live on day 148, following the world\u2019s actual unfolding state.",
+   "A field_report entry logged on day 149, in force from day 149 until day 212, is designated fct_0712: partnered_with(jurisdiction=jurisdiction_23, product=product_22).",
+   "On day 151, jurisdiction_16 offered this mock-upon reflection: \"Well, clearly holds(product=product_15, product2=product_17, partner=partner_13) \u2014 what else would one expect?\""
+  ],
+  "target_line": 5,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian",
+   "story Ten Days of Grey",
+   "view asset_15",
+   "view product_16",
+   "exercise Kestrel"
+  ]
+ },
+ {
+  "n": 11,
+  "seed": 1,
+  "ep": "ep_172",
+  "day": 41,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion."
+  ],
+  "episode_lines": [
+   "Logged on day 41 via partner_feed and in force from day 41, fct_0779 reports that classified_as(partner=partner_01, sector=sector_02).",
+   "A new piece of imaginative writing, Ten Days of Grey, enters circulation at the desk on day 41; its contents are a constructed narrative, not factual observations.",
+   "registry_B logs fct_0054 on day 42, in force from day 42: holds(product=product_04, product2=product_04, partner=partner_11).",
+   "From registry_A, as of day 42, fct_0570 records registered_in(sector=sector_10, partner=partner_15, customer=customer_13) \u2014 valid from day 42."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian",
+   "story Ten Days of Grey"
+  ]
+ },
+ {
+  "n": 12,
+  "seed": 1,
+  "ep": "ep_256",
+  "day": 203,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion.",
+   "A new piece of imaginative writing, Ten Days of Grey, enters circulation at the desk on day 41; its contents are a constructed narrative, not factual observations.",
+   "From day 44, statements from asset_15 are logged as asset_15's own claims.",
+   "From day 84 onward, claims attributed to product_16 will be logged under its own view.",
+   "Planning exercise Kestrel goes live on day 148, following the world\u2019s actual unfolding state.",
+   "Effective day 191, planning exercise Coldharbor commences, pinned to the world as it stood on day 179; later alterations to the record are not incorporated."
+  ],
+  "episode_lines": [
+   "The Paper Meridian records, on day 203, that rated_as(jurisdiction=jurisdiction_19, product=product_11, jurisdiction2=jurisdiction_12) \u2014 designated fct_0892.",
+   "The Coldharbor planning exercise, from day 203, treats as set aside the premise tracked as fct_0953 that rated_as(jurisdiction=jurisdiction_21, product=product_29, jurisdiction2=jurisdiction_15).",
+   "Under Coldharbor as of day 203, the desk proceeds on the working assumption (fct_0954) that rated_as(jurisdiction=jurisdiction_21, product=product_21, jurisdiction2=jurisdiction_15) holds."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian",
+   "story Ten Days of Grey",
+   "view asset_15",
+   "view product_16",
+   "exercise Kestrel",
+   "exercise Coldharbor"
+  ]
+ },
+ {
+  "n": 13,
+  "seed": 1,
+  "ep": "ep_259",
+  "day": 214,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion.",
+   "A new piece of imaginative writing, Ten Days of Grey, enters circulation at the desk on day 41; its contents are a constructed narrative, not factual observations.",
+   "From day 44, statements from asset_15 are logged as asset_15's own claims.",
+   "From day 84 onward, claims attributed to product_16 will be logged under its own view.",
+   "Planning exercise Kestrel goes live on day 148, following the world\u2019s actual unfolding state.",
+   "Effective day 191, planning exercise Coldharbor commences, pinned to the world as it stood on day 179; later alterations to the record are not incorporated."
+  ],
+  "episode_lines": [
+   "On day 214, the Coldharbor drill adopts the working premise that holds(product=product_12, product2=product_05, partner=partner_00) \u2014 recorded as fct_0957.",
+   "In The Paper Meridian, day 215 has it that located_in(asset=asset_01, asset2=asset_17, jurisdiction=jurisdiction_07) \u2014 noted as fct_0907.",
+   "asset_15, on day 217, piped up: \"Of course, member_of(product=product_06, partner=partner_03) \u2014 who wouldn\u2019t see that.\""
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian",
+   "story Ten Days of Grey",
+   "view asset_15",
+   "view product_16",
+   "exercise Kestrel",
+   "exercise Coldharbor"
+  ]
+ },
+ {
+  "n": 14,
+  "seed": 1,
+  "ep": "ep_165",
+  "day": 34,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion."
+  ],
+  "episode_lines": [
+   "[day 34] Observation (fct_0417, source registry_A, valid from day 34): offered_in(asset=asset_08, asset2=asset_11, sector=sector_16).",
+   "[day 34] Observation (fct_0888, source field_report, valid from day 34): registered_in(sector=sector_10, partner=partner_08, customer=customer_10).",
+   "[day 34] Policy rul_021 (\"eligible_for_1 policy 1\", authority level 3, effective from day 34 until day 112): IF exempt_from(product=?C, sector=?A) AND located_in(asset=?B, asset2=?B, jurisdiction=?D) THEN eligible_for_1(sector=?A, asset=?B).",
+   "[day 35] Observation (fct_0274, source registry_A, valid from day 35): offered_in(asset=asset_09, asset2=asset_09, sector=sector_16).",
+   "[day 35] Observation (fct_0410, source audit_note, valid from day 35): registered_in(sector=sector_17, partner=partner_10, customer=customer_10)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian"
+  ]
+ },
+ {
+  "n": 15,
+  "seed": 1,
+  "ep": "ep_160",
+  "day": 31,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion."
+  ],
+  "episode_lines": [
+   "Logged on day 30, the field_report record fct_0513\u2014valid from day 30\u2014shows that registered_in(sector=sector_01, partner=partner_02, customer=customer_15).",
+   "The partner_feed logged on day 30, under reference fct_0536 and valid from day 30, reports supplies(customer=customer_07, sector=sector_05, partner=partner_02).",
+   "A customer_disclosure filed on day 31 \u2014 entry fct_0315, in force from day 31 \u2014 attests that partnered_with(jurisdiction=jurisdiction_20, product=product_10).",
+   "On day 31, partner_feed entry fct_0514, valid from day 31, reports located_in(asset=asset_11, asset2=asset_11, jurisdiction=jurisdiction_02)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian"
+  ]
+ },
+ {
+  "n": 16,
+  "seed": 1,
+  "ep": "ep_253",
+  "day": 198,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion.",
+   "A new piece of imaginative writing, Ten Days of Grey, enters circulation at the desk on day 41; its contents are a constructed narrative, not factual observations.",
+   "From day 44, statements from asset_15 are logged as asset_15's own claims.",
+   "From day 84 onward, claims attributed to product_16 will be logged under its own view.",
+   "Planning exercise Kestrel goes live on day 148, following the world\u2019s actual unfolding state.",
+   "Effective day 191, planning exercise Coldharbor commences, pinned to the world as it stood on day 179; later alterations to the record are not incorporated."
+  ],
+  "episode_lines": [
+   "On day 197, partner_feed records fct_0760 \u2014 valid from day 197 \u2014 showing member_of(product=product_16, partner=partner_14).",
+   "jurisdiction_16, in its day 198 filing, states that located_in(asset=asset_08, asset2=asset_01, jurisdiction=jurisdiction_03).",
+   "Policy rul_032 (\"restricted_in policy 1 (revised)\", authority level 3) takes effect on day 199: IF member_of(product=product_08, partner=?A) AND member_of(product=product_08, partner=?B) AND partnered_with(jurisdiction=?D, product=product_08) THEN restricted_in(partner=?A, partner2=?B), UNLESS holds(product=product_24, product2=product_03, partner=?A) OR classified_as(partner=?A, sector=sector_18), effective from day 199.",
+   "Notice sup_010, logged on day 199, records that rul_032 supersedes rul_003 effective day 199; from that day, rul_003 no longer applies."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian",
+   "story Ten Days of Grey",
+   "view asset_15",
+   "view product_16",
+   "exercise Kestrel",
+   "exercise Coldharbor"
+  ]
+ },
+ {
+  "n": 17,
+  "seed": 1,
+  "ep": "ep_250",
+  "day": 191,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion.",
+   "A new piece of imaginative writing, Ten Days of Grey, enters circulation at the desk on day 41; its contents are a constructed narrative, not factual observations.",
+   "From day 44, statements from asset_15 are logged as asset_15's own claims.",
+   "From day 84 onward, claims attributed to product_16 will be logged under its own view.",
+   "Planning exercise Kestrel goes live on day 148, following the world\u2019s actual unfolding state."
+  ],
+  "episode_lines": [
+   "Effective day 191, planning exercise Coldharbor commences, pinned to the world as it stood on day 179; later alterations to the record are not incorporated.",
+   "Entered on day 191, policy rul_025 (\"cleared_for policy 2 (revised)\", level 5, in force from day 191) holds: IF operates_in(product=product_00, customer=?A) AND approved_for(jurisdiction=?B, jurisdiction2=?B) THEN cleared_for(customer=?A, jurisdiction=?B), UNLESS supplies(customer=?A, sector=sector_04, partner=partner_03).",
+   "On day 191, supersession notice sup_003 takes effect: as of day 191, rul_025 replaces rul_018; rul_018 no longer applies.",
+   "Day 192 supplies, from The Paper Meridian, the item that member_of(product=product_27, partner=partner_06) \u2014 fct_0896.",
+   "An audit_note filed on day 193 records fct_0565, operative from day 193, attesting that registered_in(sector=sector_20, partner=partner_07, customer=customer_11)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian",
+   "story Ten Days of Grey",
+   "view asset_15",
+   "view product_16",
+   "exercise Kestrel",
+   "exercise Coldharbor"
+  ]
+ },
+ {
+  "n": 18,
+  "seed": 1,
+  "ep": "ep_232",
+  "day": 155,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion.",
+   "A new piece of imaginative writing, Ten Days of Grey, enters circulation at the desk on day 41; its contents are a constructed narrative, not factual observations.",
+   "From day 44, statements from asset_15 are logged as asset_15's own claims.",
+   "From day 84 onward, claims attributed to product_16 will be logged under its own view.",
+   "Planning exercise Kestrel goes live on day 148, following the world\u2019s actual unfolding state."
+  ],
+  "episode_lines": [
+   "Entered on day 154 for the Kestrel drill: sup_016 stipulates that, effective day 154, rul_038 supersedes rul_015 within the exercise; outside Kestrel, rul_015 remains in force.",
+   "Logged on day 155 under exercise Kestrel, policy rul_037 \u2014 \"restricted_in policy 3 (scenario-narrowed)\", authority level 2, in effect from day 155 \u2014 lays down that IF supplies(customer=customer_10, sector=sector_20, partner=?A) AND holds(product=product_26, product2=product_26, partner=?B) THEN restricted_in(partner=?A, partner2=?B), UNLESS classified_as(partner=?B, sector=sector_01).",
+   "On day 155, asset_15 contributed this wholly earnest statement: \"Oh sure, offered_in(asset=asset_19, asset2=asset_16, sector=sector_11) \u2014 obviously.\""
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian",
+   "story Ten Days of Grey",
+   "view asset_15",
+   "view product_16",
+   "exercise Kestrel"
+  ]
+ },
+ {
+  "n": 19,
+  "seed": 1,
+  "ep": "ep_230",
+  "day": 148,
+  "decls": [
+   "As of day 10, the desk opens a separate log for claims attributed to jurisdiction_16; going forward, statements from that jurisdiction will be filed as its own claims, kept apart from the desk\u2019s independent observations.",
+   "Day 26 sees the arrival of The Paper Meridian, a new work of imaginative writing for the desk's diversion.",
+   "A new piece of imaginative writing, Ten Days of Grey, enters circulation at the desk on day 41; its contents are a constructed narrative, not factual observations.",
+   "From day 44, statements from asset_15 are logged as asset_15's own claims.",
+   "From day 84 onward, claims attributed to product_16 will be logged under its own view."
+  ],
+  "episode_lines": [
+   "An entry from registry_A, logged on day 146 and valid from day 146, records fct_0123: offered_in(asset=asset_06, asset2=asset_06, sector=sector_21).",
+   "Filed on day 146, effective from day 146, policy rul_011 (\"exempt_from policy 1\", authority level 5) holds: IF eligible_for(jurisdiction=jurisdiction_00, product=?A) AND registered_in(sector=?B, partner=partner_00, customer=?E) THEN exempt_from(product=?A, sector=?B).",
+   "Planning exercise Kestrel goes live on day 148, following the world\u2019s actual unfolding state.",
+   "A field_report entry logged on day 149, in force from day 149 until day 212, is designated fct_0712: partnered_with(jurisdiction=jurisdiction_23, product=product_22).",
+   "On day 151, jurisdiction_16 offered this mock-upon reflection: \"Well, clearly holds(product=product_15, product2=product_17, partner=partner_13) \u2014 what else would one expect?\""
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view jurisdiction_16",
+   "story The Paper Meridian",
+   "story Ten Days of Grey",
+   "view asset_15",
+   "view product_16",
+   "exercise Kestrel"
+  ]
+ },
+ {
+  "n": 20,
+  "seed": 1,
+  "ep": "ep_104",
+  "day": 8,
+  "decls": [],
+  "episode_lines": [
+   "registry_A's day 8 entry, filed as fct_0846 with effect from day 8, records member_of(product=product_11, partner=partner_13).",
+   "A field_report submitted day 8 and valid that day 8 logs fct_0864: holds(product=product_09, product2=product_16, partner=partner_13).",
+   "field_report fct_0012, captured on day 9 and in force from day 9, documents member_of(product=product_03, partner=partner_13).",
+   "Per audit_note on day 9, fct_0016 \u2014 taking effect day 9 \u2014 confirms rated_as(jurisdiction=jurisdiction_09, product=product_24, jurisdiction2=jurisdiction_09)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual"
+  ]
+ },
+ {
+  "n": 21,
+  "seed": 2,
+  "ep": "ep_284",
+  "day": 340,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation.",
+   "Beginning day 94, the desk opens a view for jurisdiction_01; statements from that entity will be logged separately as its own claims, distinct from the desk's own observations.",
+   "Day 120 brings Softwood, a work of imaginative writing provided for the desk's diversion.",
+   "Coldharbor begins on day 149, tracking the live actual world.",
+   "Planning exercise Hazelwood begins on day 198, working from the state of affairs as of day 179; later developments are not incorporated."
+  ],
+  "episode_lines": [
+   "A field_report logged on day 340 and in force from day 340 documents holds(partner=partner_19, customer=customer_13) as fct_0611.",
+   "As of day 340, within the Hazelwood planning exercise, rated_as(partner=partner_02, product=product_01) is set aside \u2014 for this drill it is disregarded (fct_0859).",
+   "Hazelwood's working premises adopt, from day 340, the assumption that rated_as(partner=partner_02, product=product_03) (fct_0860).",
+   "Through registry_B on day 342, and valid from day 342, comes fct_0653: located_in(partner=partner_16, jurisdiction=jurisdiction_18).",
+   "product_15, on day 342, deadpanned: \"Naturally, supplies(sector=sector_26, customer=customer_01) \u2014 how could it be otherwise?\""
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess",
+   "view jurisdiction_01",
+   "story Softwood",
+   "exercise Coldharbor",
+   "exercise Hazelwood"
+  ]
+ },
+ {
+  "n": 22,
+  "seed": 2,
+  "ep": "ep_236",
+  "day": 199,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation.",
+   "Beginning day 94, the desk opens a view for jurisdiction_01; statements from that entity will be logged separately as its own claims, distinct from the desk's own observations.",
+   "Day 120 brings Softwood, a work of imaginative writing provided for the desk's diversion.",
+   "Coldharbor begins on day 149, tracking the live actual world.",
+   "Planning exercise Hazelwood begins on day 198, working from the state of affairs as of day 179; later developments are not incorporated."
+  ],
+  "episode_lines": [
+   "Logged on day 199 via partner_feed, fct_0766 \u2014 effective from day 199 \u2014 records that classified_as(sector=sector_11, asset=asset_22).",
+   "Within the Coldharbor drill, as of day 199, the premise fct_0846 disregards that member_of(partner=partner_14, asset=asset_25).",
+   "The Coldharbor exercise, on day 199, adopts as its working assumption fct_0847: member_of(partner=partner_17, asset=asset_25).",
+   "On day 199, product_20 offered this level-eyed assessment: \u201cOh, yes, holds(partner=partner_02, customer=customer_12) \u2014 no other conclusion possible.\u201d",
+   "Day 201 gives us fct_0671 from registry_B, effective day 201, indicating that rated_as(partner=partner_15, product=product_08)."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess",
+   "view jurisdiction_01",
+   "story Softwood",
+   "exercise Coldharbor",
+   "exercise Hazelwood"
+  ]
+ },
+ {
+  "n": 23,
+  "seed": 2,
+  "ep": "ep_235",
+  "day": 198,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation.",
+   "Beginning day 94, the desk opens a view for jurisdiction_01; statements from that entity will be logged separately as its own claims, distinct from the desk's own observations.",
+   "Day 120 brings Softwood, a work of imaginative writing provided for the desk's diversion.",
+   "Coldharbor begins on day 149, tracking the live actual world."
+  ],
+  "episode_lines": [
+   "A customer_disclosure entry logged on day 198 \u2014 reference fct_0699, effective from day 198 \u2014 confirms that member_of(partner=partner_13, asset=asset_13).",
+   "In The Long Recess, day 198 brings word that classified_as(sector=sector_15, asset=asset_00) \u2014 noted as fct_0826.",
+   "Planning exercise Hazelwood begins on day 198, working from the state of affairs as of day 179; later developments are not incorporated.",
+   "A customer_disclosure entry logged on day 199 \u2014 reference fct_0551, effective from day 199 \u2014 confirms that operates_in(sector=sector_18, jurisdiction=jurisdiction_20, jurisdiction2=jurisdiction_10)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess",
+   "view jurisdiction_01",
+   "story Softwood",
+   "exercise Coldharbor",
+   "exercise Hazelwood"
+  ]
+ },
+ {
+  "n": 24,
+  "seed": 2,
+  "ep": "ep_249",
+  "day": 237,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation.",
+   "Beginning day 94, the desk opens a view for jurisdiction_01; statements from that entity will be logged separately as its own claims, distinct from the desk's own observations.",
+   "Day 120 brings Softwood, a work of imaginative writing provided for the desk's diversion.",
+   "Coldharbor begins on day 149, tracking the live actual world.",
+   "Planning exercise Hazelwood begins on day 198, working from the state of affairs as of day 179; later developments are not incorporated."
+  ],
+  "episode_lines": [
+   "jurisdiction_01\u2019s forecast fct_0900 is borne out by observation fct_0625; from day 237, the claim stands in the record as prm_04, logged on day 237.",
+   "On day 238, product_15 reported that operates_in(sector=sector_05, jurisdiction=jurisdiction_16, jurisdiction2=jurisdiction_20).",
+   "A customer_disclosure entry on day 240 \u2014 reference fct_0624, effective from day 240 \u2014 notes that partnered_with(product=product_12, jurisdiction=jurisdiction_14).",
+   "In Softwood, day 240 has it that operates_in(sector=sector_07, jurisdiction=jurisdiction_19, jurisdiction2=jurisdiction_04) \u2014 noted as fct_0814.",
+   "jurisdiction_01, on day 240, stated that operates_in(sector=sector_03, jurisdiction=jurisdiction_20, jurisdiction2=jurisdiction_02)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess",
+   "view jurisdiction_01",
+   "story Softwood",
+   "exercise Coldharbor",
+   "exercise Hazelwood"
+  ]
+ },
+ {
+  "n": 25,
+  "seed": 2,
+  "ep": "ep_134",
+  "day": 53,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation."
+  ],
+  "episode_lines": [
+   "Day 53 brings a field_report observation \u2014 fct_0285, valid from day 53 \u2014 that supplies(sector=sector_18, customer=customer_11).",
+   "On day 53, an audit_note logs fct_0319, in force from day 53: member_of(partner=partner_03, asset=asset_19).",
+   "A field_report, dated day 53 and effective day 53, records as fct_0732 that operates_in(sector=sector_12, jurisdiction=jurisdiction_20, jurisdiction2=jurisdiction_10)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess"
+  ]
+ },
+ {
+  "n": 26,
+  "seed": 2,
+  "ep": "ep_094",
+  "day": 31,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations."
+  ],
+  "episode_lines": [
+   "Filed on day 31 by registry_B, fct_0170 holds from day 31 onward: classified_as(sector=sector_02, asset=asset_17).",
+   "An audit_note entry from day 31, effective day 31, records fct_0258: partnered_with(product=product_15, jurisdiction=jurisdiction_15).",
+   "fct_0339, captured in a field_report on day 31 and valid from day 31, notes member_of(partner=partner_03, asset=asset_11).",
+   "Per a customer_disclosure lodged on day 31, effective day 31, identified as fct_0466: located_in(partner=partner_22, jurisdiction=jurisdiction_21).",
+   "A second registry_B entry, fct_0037, appears on day 32, in force from day 32: classified_as(sector=sector_06, asset=asset_02)."
+  ],
+  "target_line": 4,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15"
+  ]
+ },
+ {
+  "n": 27,
+  "seed": 2,
+  "ep": "ep_248",
+  "day": 235,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation.",
+   "Beginning day 94, the desk opens a view for jurisdiction_01; statements from that entity will be logged separately as its own claims, distinct from the desk's own observations.",
+   "Day 120 brings Softwood, a work of imaginative writing provided for the desk's diversion.",
+   "Coldharbor begins on day 149, tracking the live actual world.",
+   "Planning exercise Hazelwood begins on day 198, working from the state of affairs as of day 179; later developments are not incorporated."
+  ],
+  "episode_lines": [
+   "As of day 235, product_20's forecast fct_0904 projects that supplies(sector=sector_06, customer=customer_09) will come to pass.",
+   "Day 237 field_report entry fct_0609, in force from day 237 through day 309, notes that holds(partner=partner_22, customer=customer_07).",
+   "Day 237 brings a customer_disclosure \u2014 fct_0625, effective day 237 \u2014 confirming partnered_with(product=product_00, jurisdiction=jurisdiction_13).",
+   "A customer_disclosure on day 237, recorded as fct_0685 and in force from day 237, adds member_of(partner=partner_03, asset=asset_26).",
+   "On day 237, an audit_note (fct_0759, in effect from day 237) records rated_as(partner=partner_01, product=product_06)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess",
+   "view jurisdiction_01",
+   "story Softwood",
+   "exercise Coldharbor",
+   "exercise Hazelwood"
+  ]
+ },
+ {
+  "n": 28,
+  "seed": 2,
+  "ep": "ep_012",
+  "day": 2,
+  "decls": [],
+  "episode_lines": [
+   "A registry_A entry dated day 2 records fct_0093, effective from day 2: supplies(sector=sector_19, customer=customer_10).",
+   "From a customer_disclosure filed on day 2 and retained as fct_0110 from day 2, member_of(partner=partner_17, asset=asset_21)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual"
+  ]
+ },
+ {
+  "n": 29,
+  "seed": 2,
+  "ep": "ep_098",
+  "day": 33,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations."
+  ],
+  "episode_lines": [
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation.",
+   "Sourced from partner_feed on day 34 \u2014 recorded as fct_0340 and in force from day 34 \u2014 an observation that partnered_with(product=product_07, jurisdiction=jurisdiction_13)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess"
+  ]
+ },
+ {
+  "n": 30,
+  "seed": 2,
+  "ep": "ep_277",
+  "day": 324,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation.",
+   "Beginning day 94, the desk opens a view for jurisdiction_01; statements from that entity will be logged separately as its own claims, distinct from the desk's own observations.",
+   "Day 120 brings Softwood, a work of imaginative writing provided for the desk's diversion.",
+   "Coldharbor begins on day 149, tracking the live actual world.",
+   "Planning exercise Hazelwood begins on day 198, working from the state of affairs as of day 179; later developments are not incorporated."
+  ],
+  "episode_lines": [
+   "A field_report entry logged on day 324 \u2014 reference fct_0692, effective from day 324 \u2014 confirms that member_of(partner=partner_06, asset=asset_19).",
+   "In The Long Recess, day 324 brings word that registered_in(customer=customer_13, product=product_23) \u2014 noted as fct_0833."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess",
+   "view jurisdiction_01",
+   "story Softwood",
+   "exercise Coldharbor",
+   "exercise Hazelwood"
+  ]
+ },
+ {
+  "n": 31,
+  "seed": 2,
+  "ep": "ep_178",
+  "day": 94,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation."
+  ],
+  "episode_lines": [
+   "An audit_note entry dated day 94, valid from day 94, notes under fct_0077: member_of(partner=partner_05, asset=asset_23).",
+   "Recorded via customer_disclosure on day 94, and holding from day 94, is partnered_with(product=product_09, jurisdiction=jurisdiction_07), logged as fct_0628.",
+   "Beginning day 94, the desk opens a view for jurisdiction_01; statements from that entity will be logged separately as its own claims, distinct from the desk's own observations.",
+   "Filed on day 94, policy rul_024 \u2014 labeled \u201celigible_for_1 policy 1\u201d, with authority level 3 and taking effect day 94 \u2014 states: if exempt_from(partner=?A, jurisdiction=jurisdiction_16, partner2=?A) AND classified_as(sector=?B, asset=asset_15) AND located_in(partner=?A, jurisdiction=?E), then eligible_for_1(partner=?A, sector=?B).",
+   "As of day 95, customer_disclosure indicates located_in(partner=partner_07, jurisdiction=jurisdiction_16); this observation, fct_0262, holds from day 95."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess",
+   "view jurisdiction_01"
+  ]
+ },
+ {
+  "n": 32,
+  "seed": 2,
+  "ep": "ep_207",
+  "day": 149,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation.",
+   "Beginning day 94, the desk opens a view for jurisdiction_01; statements from that entity will be logged separately as its own claims, distinct from the desk's own observations.",
+   "Day 120 brings Softwood, a work of imaginative writing provided for the desk's diversion."
+  ],
+  "episode_lines": [
+   "On day 148, registry_A recorded fct_0720, effective from day 148, noting member_of(partner=partner_15, asset=asset_10).",
+   "Coldharbor begins on day 149, tracking the live actual world.",
+   "A field_report entry logged on day 150 \u2014 reference fct_0529, effective from day 150 \u2014 confirms operates_in(sector=sector_00, jurisdiction=jurisdiction_12, jurisdiction2=jurisdiction_06).",
+   "registry_B logged fct_0672 on day 150, in force from day 150, showing rated_as(partner=partner_16, product=product_08)."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess",
+   "view jurisdiction_01",
+   "story Softwood",
+   "exercise Coldharbor"
+  ]
+ },
+ {
+  "n": 33,
+  "seed": 2,
+  "ep": "ep_044",
+  "day": 9,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records."
+  ],
+  "episode_lines": [
+   "Logged on day 9 via field_report, and effective from day 9, fct_0411 records that rated_as(partner=partner_19, product=product_20).",
+   "A partner_feed observation filed on day 9, with identifier fct_0497 and valid from day 9, attests to rated_as(partner=partner_12, product=product_22)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view product_20"
+  ]
+ },
+ {
+  "n": 34,
+  "seed": 2,
+  "ep": "ep_266",
+  "day": 288,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation.",
+   "Beginning day 94, the desk opens a view for jurisdiction_01; statements from that entity will be logged separately as its own claims, distinct from the desk's own observations.",
+   "Day 120 brings Softwood, a work of imaginative writing provided for the desk's diversion.",
+   "Coldharbor begins on day 149, tracking the live actual world.",
+   "Planning exercise Hazelwood begins on day 198, working from the state of affairs as of day 179; later developments are not incorporated."
+  ],
+  "episode_lines": [
+   "Logged on day 288 via customer_disclosure and valid from day 288, fct_0547 records that operates_in(sector=sector_10, jurisdiction=jurisdiction_16, jurisdiction2=jurisdiction_12).",
+   "A customer_disclosure entry dated day 288, in force from day 288, conveys rated_as(partner=partner_01, product=product_03) \u2014 reference fct_0668.",
+   "On day 291, customer_disclosure provided fct_0627, effective as of day 291, noting partnered_with(product=product_11, jurisdiction=jurisdiction_06)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess",
+   "view jurisdiction_01",
+   "story Softwood",
+   "exercise Coldharbor",
+   "exercise Hazelwood"
+  ]
+ },
+ {
+  "n": 35,
+  "seed": 2,
+  "ep": "ep_284",
+  "day": 342,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation.",
+   "Beginning day 94, the desk opens a view for jurisdiction_01; statements from that entity will be logged separately as its own claims, distinct from the desk's own observations.",
+   "Day 120 brings Softwood, a work of imaginative writing provided for the desk's diversion.",
+   "Coldharbor begins on day 149, tracking the live actual world.",
+   "Planning exercise Hazelwood begins on day 198, working from the state of affairs as of day 179; later developments are not incorporated."
+  ],
+  "episode_lines": [
+   "A field_report logged on day 340 and in force from day 340 documents holds(partner=partner_19, customer=customer_13) as fct_0611.",
+   "As of day 340, within the Hazelwood planning exercise, rated_as(partner=partner_02, product=product_01) is set aside \u2014 for this drill it is disregarded (fct_0859).",
+   "Hazelwood's working premises adopt, from day 340, the assumption that rated_as(partner=partner_02, product=product_03) (fct_0860).",
+   "Through registry_B on day 342, and valid from day 342, comes fct_0653: located_in(partner=partner_16, jurisdiction=jurisdiction_18).",
+   "product_15, on day 342, deadpanned: \"Naturally, supplies(sector=sector_26, customer=customer_01) \u2014 how could it be otherwise?\""
+  ],
+  "target_line": 5,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess",
+   "view jurisdiction_01",
+   "story Softwood",
+   "exercise Coldharbor",
+   "exercise Hazelwood"
+  ]
+ },
+ {
+  "n": 36,
+  "seed": 2,
+  "ep": "ep_194",
+  "day": 120,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation.",
+   "Beginning day 94, the desk opens a view for jurisdiction_01; statements from that entity will be logged separately as its own claims, distinct from the desk's own observations."
+  ],
+  "episode_lines": [
+   "In The Long Recess, as of day 119, the situation has holds(partner=partner_08, customer=customer_04) \u2014 recorded as fct_0829.",
+   "On day 119, jurisdiction_01 projects that rated_as(partner=partner_20, product=product_24) will hold; recorded as fct_0897.",
+   "Logged on day 120, a field_report yields fct_0604, effective from day 120 through day 277, that supplies(sector=sector_19, customer=customer_05).",
+   "Day 120 brings Softwood, a work of imaginative writing provided for the desk's diversion.",
+   "A customer_disclosure entered on day 121, and valid from day 121, records fct_0236: supplies(sector=sector_09, customer=customer_10)."
+  ],
+  "target_line": 4,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess",
+   "view jurisdiction_01",
+   "story Softwood"
+  ]
+ },
+ {
+  "n": 37,
+  "seed": 2,
+  "ep": "ep_182",
+  "day": 98,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation.",
+   "Beginning day 94, the desk opens a view for jurisdiction_01; statements from that entity will be logged separately as its own claims, distinct from the desk's own observations."
+  ],
+  "episode_lines": [
+   "An entry from partner_feed logged on day 98 as fct_0649, effective from day 98 through day 261, records that located_in(partner=partner_02, jurisdiction=jurisdiction_17).",
+   "On day 98, product_20 offered this for the record: \"Oh sure, member_of(partner=partner_05, asset=asset_11) \u2014 obviously.\""
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess",
+   "view jurisdiction_01"
+  ]
+ },
+ {
+  "n": 38,
+  "seed": 2,
+  "ep": "ep_265",
+  "day": 287,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation.",
+   "Beginning day 94, the desk opens a view for jurisdiction_01; statements from that entity will be logged separately as its own claims, distinct from the desk's own observations.",
+   "Day 120 brings Softwood, a work of imaginative writing provided for the desk's diversion.",
+   "Coldharbor begins on day 149, tracking the live actual world.",
+   "Planning exercise Hazelwood begins on day 198, working from the state of affairs as of day 179; later developments are not incorporated."
+  ],
+  "episode_lines": [
+   "A customer_disclosure entry logged on day 287 \u2014 reference fct_0788, effective from day 287 \u2014 confirms that holds(partner=partner_01, customer=customer_08).",
+   "On day 287, the forecast fct_0901 by product_20 is borne out by observation fct_0677; the claim is recorded as prm_05 and enters the actual record from day 287.",
+   "An audit_note entry logged on day 288 \u2014 reference fct_0524, effective from day 288 \u2014 confirms that registered_in(customer=customer_11, product=product_20)."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess",
+   "view jurisdiction_01",
+   "story Softwood",
+   "exercise Coldharbor",
+   "exercise Hazelwood"
+  ]
+ },
+ {
+  "n": 39,
+  "seed": 2,
+  "ep": "ep_126",
+  "day": 48,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation."
+  ],
+  "episode_lines": [
+   "On day 48, product_15 put it this way: \"operates_in(sector=sector_04, jurisdiction=jurisdiction_11, jurisdiction2=jurisdiction_06)\" \u2014 a claim the desk has not yet confirmed, entered as fct_0896.",
+   "Logged on day 49 via registry_B, effective from day 49: operates_in(sector=sector_14, jurisdiction=jurisdiction_07, jurisdiction2=jurisdiction_07) (fct_0112).",
+   "Also from registry_B on day 49, and in force from day 49, fct_0161 records that located_in(partner=partner_05, jurisdiction=jurisdiction_17)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess"
+  ]
+ },
+ {
+  "n": 40,
+  "seed": 2,
+  "ep": "ep_195",
+  "day": 124,
+  "decls": [
+   "On day 7, the desk opens a dedicated channel for product_20's submissions: claims attributed to product_20 will from now on be kept as that party's own filings, distinct from the desk's independent records.",
+   "From day 21, a dedicated log is opened to track claims as stated by product_15; any such filing henceforth stands as product_15's own assertion, kept separate from the desk's independently compiled observations.",
+   "Day 33 brings word that a piece of imaginative writing titled The Long Recess has begun circulating; it's offered as desk entertainment and carries no pretense of factual observation.",
+   "Beginning day 94, the desk opens a view for jurisdiction_01; statements from that entity will be logged separately as its own claims, distinct from the desk's own observations.",
+   "Day 120 brings Softwood, a work of imaginative writing provided for the desk's diversion."
+  ],
+  "episode_lines": [
+   "A field_report entry on day 121 \u2014 reference fct_0479, effective from day 121 \u2014 notes that holds(partner=partner_01, customer=customer_13).",
+   "registry_A records on day 122, under fct_0416 and valid from day 122, that partnered_with(product=product_03, jurisdiction=jurisdiction_19).",
+   "An audit_note from day 122, logged as fct_0419 and in force from day 122, shows offered_in(customer=customer_01, product=product_11).",
+   "Per audit_note on day 124, fct_0425 (valid from day 124) confirms partnered_with(product=product_16, jurisdiction=jurisdiction_00).",
+   "registry_B\u2019s day 125 entry, fct_0137 and effective from day 125, states classified_as(sector=sector_02, asset=asset_10)."
+  ],
+  "target_line": 4,
+  "context_options": [
+   "actual",
+   "view product_20",
+   "view product_15",
+   "story The Long Recess",
+   "view jurisdiction_01",
+   "story Softwood"
+  ]
+ },
+ {
+  "n": 41,
+  "seed": 3,
+  "ep": "ep_021",
+  "day": 6,
+  "decls": [],
+  "episode_lines": [
+   "On day 6, a customer_disclosure entry \u2014 reference fct_0394, effective from day 6 \u2014 shows supplies(partner=partner_13, jurisdiction=jurisdiction_01).",
+   "Also on day 6, customer_disclosure records fct_0409, valid from day 6, indicating operates_in(sector=sector_06, customer=customer_09).",
+   "On day 6, registry_B records fct_0422, effective from day 6: partnered_with(asset=asset_01, jurisdiction=jurisdiction_20).",
+   "On day 6, registry_A records fct_0661, effective from day 6: supplies(partner=partner_15, jurisdiction=jurisdiction_19).",
+   "On day 6, registry_B records fct_0698, effective from day 6: registered_in(jurisdiction=jurisdiction_06, customer=customer_07)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual"
+  ]
+ },
+ {
+  "n": 42,
+  "seed": 3,
+  "ep": "ep_214",
+  "day": 203,
+  "decls": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts.",
+   "Starting day 85, the desk designates a separate log for jurisdiction_13 submissions: from this point forward, statements from that party will be entered as its own claims rather than as direct observations.",
+   "As of day 94, claims from jurisdiction_09 will be logged under its own view.",
+   "Day 95 sees the desk receive a new piece of imaginative work, \u201cWinter in the Annex,\u201d for its entertainment.",
+   "The Marble Index, an inventive narrative for the desk, began making the rounds on day 113.",
+   "The Saffron drill commenced on day 139, set to track the live world and its developments."
+  ],
+  "episode_lines": [
+   "In The Marble Index, day 200 records that located_in(customer=customer_12, partner=partner_09, sector=sector_03) \u2014 reference fct_0738.",
+   "A registry_A entry from day 201, effective day 201, documents fct_0450: registered_in(jurisdiction=jurisdiction_22, customer=customer_10).",
+   "Logged on day 203 via registry_B \u2014 valid from day 203 \u2014 fct_0554 notes located_in(customer=customer_11, partner=partner_02, sector=sector_08).",
+   "As of day 203, Blueline stands up as a planning exercise, pinned to the state of affairs on day 184; later real\u2011world changes are not brought in.",
+   "A field_report filed on day 204 \u2014 captured as fct_0567, in force from day 204 \u2014 gives located_in(customer=customer_11, partner=partner_07, sector=sector_08)."
+  ],
+  "target_line": 4,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00",
+   "view jurisdiction_13",
+   "view jurisdiction_09",
+   "story Winter in the Annex",
+   "story The Marble Index",
+   "exercise Saffron",
+   "exercise Blueline"
+  ]
+ },
+ {
+  "n": 43,
+  "seed": 3,
+  "ep": "ep_132",
+  "day": 64,
+  "decls": [],
+  "episode_lines": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts.",
+   "A partner_feed entry logged on day 65, designated fct_0036 and in force from day 65, reports partnered_with(asset=asset_17, jurisdiction=jurisdiction_24).",
+   "Also on day 65, a customer_disclosure recorded as fct_0116 and valid from day 65 attests to supplies(partner=partner_15, jurisdiction=jurisdiction_18)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00"
+  ]
+ },
+ {
+  "n": 44,
+  "seed": 3,
+  "ep": "ep_174",
+  "day": 121,
+  "decls": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts.",
+   "Starting day 85, the desk designates a separate log for jurisdiction_13 submissions: from this point forward, statements from that party will be entered as its own claims rather than as direct observations.",
+   "As of day 94, claims from jurisdiction_09 will be logged under its own view.",
+   "Day 95 sees the desk receive a new piece of imaginative work, \u201cWinter in the Annex,\u201d for its entertainment.",
+   "The Marble Index, an inventive narrative for the desk, began making the rounds on day 113."
+  ],
+  "episode_lines": [
+   "On day 121, a field_report logged as fct_0222 documents that rated_as(customer=customer_14, sector=sector_06), in force from day 121.",
+   "As of day 121, The Marble Index has it that located_in(customer=customer_06, partner=partner_12, sector=sector_12) \u2014 recorded as fct_0741.",
+   "jurisdiction_00, in a filing dated day 121, asserts located_in(customer=customer_02, partner=partner_00, sector=sector_11).",
+   "Notice prm_02 logged on day 121 confirms that jurisdiction_00's earlier forecast fct_0827 is borne out by observation fct_0222, and from day 121 onward it stands in the record.",
+   "A customer_disclosure entry made on day 122 and valid from day 122, recorded as fct_0512, shows that supplies(partner=partner_05, jurisdiction=jurisdiction_20)."
+  ],
+  "target_line": 4,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00",
+   "view jurisdiction_13",
+   "view jurisdiction_09",
+   "story Winter in the Annex",
+   "story The Marble Index"
+  ]
+ },
+ {
+  "n": 45,
+  "seed": 3,
+  "ep": "ep_155",
+  "day": 91,
+  "decls": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts.",
+   "Starting day 85, the desk designates a separate log for jurisdiction_13 submissions: from this point forward, statements from that party will be entered as its own claims rather than as direct observations."
+  ],
+  "episode_lines": [
+   "jurisdiction_09 projects, as of day 91, that member_of(partner=partner_12, product=product_04) will hold \u2014 forecast fct_0829.",
+   "A partner_feed entry logged on day 92 \u2014 reference fct_0065, effective from day 92 \u2014 confirms partnered_with(asset=asset_18, jurisdiction=jurisdiction_11).",
+   "field_report on day 92 notes holds(asset=asset_13, partner=partner_14) \u2014 reference fct_0258, effective from day 92.",
+   "partner_feed data from day 92, noted as fct_0582 and in force from day 92, indicates rated_as(customer=customer_00, sector=sector_12)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00",
+   "view jurisdiction_13"
+  ]
+ },
+ {
+  "n": 46,
+  "seed": 3,
+  "ep": "ep_253",
+  "day": 312,
+  "decls": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts.",
+   "Starting day 85, the desk designates a separate log for jurisdiction_13 submissions: from this point forward, statements from that party will be entered as its own claims rather than as direct observations.",
+   "As of day 94, claims from jurisdiction_09 will be logged under its own view.",
+   "Day 95 sees the desk receive a new piece of imaginative work, \u201cWinter in the Annex,\u201d for its entertainment.",
+   "The Marble Index, an inventive narrative for the desk, began making the rounds on day 113.",
+   "The Saffron drill commenced on day 139, set to track the live world and its developments.",
+   "As of day 203, Blueline stands up as a planning exercise, pinned to the state of affairs on day 184; later real\u2011world changes are not brought in."
+  ],
+  "episode_lines": [
+   "On day 310, partner_feed logged fct_0549 \u2014 valid from day 310 until day 343 \u2014 noting partnered_with(asset=asset_23, jurisdiction=jurisdiction_18).",
+   "jurisdiction_13, on day 310, put it this way: \"located_in(customer=customer_13, partner=partner_14, sector=sector_02)\" \u2014 recorded as fct_0825.",
+   "A customer_disclosure entry logged on day 312 \u2014 reference fct_0540, effective from day 312 \u2014 confirms partnered_with(asset=asset_05, jurisdiction=jurisdiction_08).",
+   "jurisdiction_09, on day 312, remarked with a straight face: \"Of course, classified_as(product=product_19, customer=customer_09) \u2014 who wouldn\u2019t see that.\""
+  ],
+  "target_line": 4,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00",
+   "view jurisdiction_13",
+   "view jurisdiction_09",
+   "story Winter in the Annex",
+   "story The Marble Index",
+   "exercise Saffron",
+   "exercise Blueline"
+  ]
+ },
+ {
+  "n": 47,
+  "seed": 3,
+  "ep": "ep_191",
+  "day": 153,
+  "decls": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts.",
+   "Starting day 85, the desk designates a separate log for jurisdiction_13 submissions: from this point forward, statements from that party will be entered as its own claims rather than as direct observations.",
+   "As of day 94, claims from jurisdiction_09 will be logged under its own view.",
+   "Day 95 sees the desk receive a new piece of imaginative work, \u201cWinter in the Annex,\u201d for its entertainment.",
+   "The Marble Index, an inventive narrative for the desk, began making the rounds on day 113.",
+   "The Saffron drill commenced on day 139, set to track the live world and its developments."
+  ],
+  "episode_lines": [
+   "In the Saffron exercise, policy rul_037 (\"eligible_for_1 policy 3 (scenario-narrowed)\", authority level 3) is logged on day 153 and effective from day 153: IF partnered_with(asset=?A, jurisdiction=?B) AND holds(asset=?A, partner=partner_00) AND classified_as(product=product_13, customer=customer_00) THEN eligible_for_1(asset=?A, jurisdiction=?B), UNLESS supplies(partner=partner_10, jurisdiction=?B).",
+   "Logged on day 153 for Saffron: notice sup_016 has rul_037 replacing rul_021 effective day 153; in the desk's standing records, rul_021 remains in force.",
+   "A partner_feed entry logged on day 154 \u2014 reference fct_0228, effective from day 154 \u2014 confirms that rated_as(customer=customer_05, sector=sector_10).",
+   "registry_A reports on day 154 \u2014 reference fct_0552, effective from day 154 \u2014 that located_in(customer=customer_01, partner=partner_06, sector=sector_14)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00",
+   "view jurisdiction_13",
+   "view jurisdiction_09",
+   "story Winter in the Annex",
+   "story The Marble Index",
+   "exercise Saffron"
+  ]
+ },
+ {
+  "n": 48,
+  "seed": 3,
+  "ep": "ep_210",
+  "day": 194,
+  "decls": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts.",
+   "Starting day 85, the desk designates a separate log for jurisdiction_13 submissions: from this point forward, statements from that party will be entered as its own claims rather than as direct observations.",
+   "As of day 94, claims from jurisdiction_09 will be logged under its own view.",
+   "Day 95 sees the desk receive a new piece of imaginative work, \u201cWinter in the Annex,\u201d for its entertainment.",
+   "The Marble Index, an inventive narrative for the desk, began making the rounds on day 113.",
+   "The Saffron drill commenced on day 139, set to track the live world and its developments."
+  ],
+  "episode_lines": [
+   "On day 194, an audit_note entry logged as fct_0487, valid from day 194, reports that offered_in(customer=customer_12, sector=sector_07).",
+   "Recorded in registry_A as fct_0537 and in effect from day 195, the day 195 observation confirms partnered_with(asset=asset_18, jurisdiction=jurisdiction_24)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00",
+   "view jurisdiction_13",
+   "view jurisdiction_09",
+   "story Winter in the Annex",
+   "story The Marble Index",
+   "exercise Saffron"
+  ]
+ },
+ {
+  "n": 49,
+  "seed": 3,
+  "ep": "ep_140",
+  "day": 73,
+  "decls": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts."
+  ],
+  "episode_lines": [
+   "Logged on day 73, partner_feed provides fct_0277, effective from day 73: member_of(partner=partner_03, product=product_12).",
+   "A field_report dated day 73 records fct_0282, valid from day 73, noting member_of(partner=partner_02, product=product_01).",
+   "From a customer_disclosure filed on day 73, fct_0334 comes into effect on day 73: partnered_with(asset=asset_14, jurisdiction=jurisdiction_03)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00"
+  ]
+ },
+ {
+  "n": 50,
+  "seed": 3,
+  "ep": "ep_239",
+  "day": 273,
+  "decls": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts.",
+   "Starting day 85, the desk designates a separate log for jurisdiction_13 submissions: from this point forward, statements from that party will be entered as its own claims rather than as direct observations.",
+   "As of day 94, claims from jurisdiction_09 will be logged under its own view.",
+   "Day 95 sees the desk receive a new piece of imaginative work, \u201cWinter in the Annex,\u201d for its entertainment.",
+   "The Marble Index, an inventive narrative for the desk, began making the rounds on day 113.",
+   "The Saffron drill commenced on day 139, set to track the live world and its developments.",
+   "As of day 203, Blueline stands up as a planning exercise, pinned to the state of affairs on day 184; later real\u2011world changes are not brought in."
+  ],
+  "episode_lines": [
+   "jurisdiction_09, on day 273, put it on record: \"located_in(customer=customer_09, partner=partner_11, sector=sector_08)\" (fct_0820).",
+   "registry_A logged on day 274 \u2014 reference fct_0586, effective from day 274 \u2014 that rated_as(customer=customer_14, sector=sector_11).",
+   "A field_report entry from day 274 \u2014 reference fct_0594, effective from day 274 \u2014 notes member_of(partner=partner_11, product=product_12).",
+   "field_report shows, as of day 275 \u2014 reference fct_0515, effective from day 275 \u2014 that supplies(partner=partner_11, jurisdiction=jurisdiction_20)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00",
+   "view jurisdiction_13",
+   "view jurisdiction_09",
+   "story Winter in the Annex",
+   "story The Marble Index",
+   "exercise Saffron",
+   "exercise Blueline"
+  ]
+ },
+ {
+  "n": 51,
+  "seed": 3,
+  "ep": "ep_201",
+  "day": 175,
+  "decls": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts.",
+   "Starting day 85, the desk designates a separate log for jurisdiction_13 submissions: from this point forward, statements from that party will be entered as its own claims rather than as direct observations.",
+   "As of day 94, claims from jurisdiction_09 will be logged under its own view.",
+   "Day 95 sees the desk receive a new piece of imaginative work, \u201cWinter in the Annex,\u201d for its entertainment.",
+   "The Marble Index, an inventive narrative for the desk, began making the rounds on day 113.",
+   "The Saffron drill commenced on day 139, set to track the live world and its developments."
+  ],
+  "episode_lines": [
+   "On day 175, registry_A records fct_0445 \u2014 effective from day 175 \u2014 that registered_in(jurisdiction=jurisdiction_06, customer=customer_03).",
+   "In The Marble Index, day 175 has it that operates_in(sector=sector_14, customer=customer_08) \u2014 noted as fct_0728.",
+   "The Annex in Winter in the Annex, as of day 175, places located_in(customer=customer_10, partner=partner_03, sector=sector_14) on record as fct_0770."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00",
+   "view jurisdiction_13",
+   "view jurisdiction_09",
+   "story Winter in the Annex",
+   "story The Marble Index",
+   "exercise Saffron"
+  ]
+ },
+ {
+  "n": 52,
+  "seed": 3,
+  "ep": "ep_238",
+  "day": 269,
+  "decls": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts.",
+   "Starting day 85, the desk designates a separate log for jurisdiction_13 submissions: from this point forward, statements from that party will be entered as its own claims rather than as direct observations.",
+   "As of day 94, claims from jurisdiction_09 will be logged under its own view.",
+   "Day 95 sees the desk receive a new piece of imaginative work, \u201cWinter in the Annex,\u201d for its entertainment.",
+   "The Marble Index, an inventive narrative for the desk, began making the rounds on day 113.",
+   "The Saffron drill commenced on day 139, set to track the live world and its developments.",
+   "As of day 203, Blueline stands up as a planning exercise, pinned to the state of affairs on day 184; later real\u2011world changes are not brought in."
+  ],
+  "episode_lines": [
+   "Logged on day 269, notice prm_06: jurisdiction_13's earlier projection fct_0831 is now borne out by observation fct_0516, so it stands as an established record from day 269.",
+   "Day 270 brought a field_report (fct_0542, in force from day 270) noting that partnered_with(asset=asset_14, jurisdiction=jurisdiction_13)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00",
+   "view jurisdiction_13",
+   "view jurisdiction_09",
+   "story Winter in the Annex",
+   "story The Marble Index",
+   "exercise Saffron",
+   "exercise Blueline"
+  ]
+ },
+ {
+  "n": 53,
+  "seed": 3,
+  "ep": "ep_168",
+  "day": 113,
+  "decls": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts.",
+   "Starting day 85, the desk designates a separate log for jurisdiction_13 submissions: from this point forward, statements from that party will be entered as its own claims rather than as direct observations.",
+   "As of day 94, claims from jurisdiction_09 will be logged under its own view.",
+   "Day 95 sees the desk receive a new piece of imaginative work, \u201cWinter in the Annex,\u201d for its entertainment."
+  ],
+  "episode_lines": [
+   "The Marble Index, an inventive narrative for the desk, began making the rounds on day 113.",
+   "Logged via registry_A on day 114, fct_0308 attests that operates_in(sector=sector_05, customer=customer_09), valid from day 114.",
+   "A day\u2011114 registry_A entry, fct_0426, records partnered_with(asset=asset_00, jurisdiction=jurisdiction_04) in force from day 114."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00",
+   "view jurisdiction_13",
+   "view jurisdiction_09",
+   "story Winter in the Annex",
+   "story The Marble Index"
+  ]
+ },
+ {
+  "n": 54,
+  "seed": 3,
+  "ep": "ep_043",
+  "day": 17,
+  "decls": [],
+  "episode_lines": [
+   "On day 16, partner_feed reports fct_0642 \u2014 effective from day 16 \u2014 that classified_as(product=product_10, customer=customer_03).",
+   "On day 17, registry_B logs fct_0021, effective from day 17: rated_as(customer=customer_10, sector=sector_04).",
+   "On day 17, partner_feed logs fct_0170, effective from day 17: registered_in(jurisdiction=jurisdiction_08, customer=customer_02).",
+   "Also on day 17, partner_feed\u2019s fct_0209 \u2014 valid from day 17 \u2014 indicates rated_as(customer=customer_02, sector=sector_10)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual"
+  ]
+ },
+ {
+  "n": 55,
+  "seed": 3,
+  "ep": "ep_220",
+  "day": 219,
+  "decls": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts.",
+   "Starting day 85, the desk designates a separate log for jurisdiction_13 submissions: from this point forward, statements from that party will be entered as its own claims rather than as direct observations.",
+   "As of day 94, claims from jurisdiction_09 will be logged under its own view.",
+   "Day 95 sees the desk receive a new piece of imaginative work, \u201cWinter in the Annex,\u201d for its entertainment.",
+   "The Marble Index, an inventive narrative for the desk, began making the rounds on day 113.",
+   "The Saffron drill commenced on day 139, set to track the live world and its developments.",
+   "As of day 203, Blueline stands up as a planning exercise, pinned to the state of affairs on day 184; later real\u2011world changes are not brought in."
+  ],
+  "episode_lines": [
+   "Under the Blueline exercise's working premises, as of day 218, the assumption recorded as fct_0797 is that holds(asset=asset_25, partner=partner_06).",
+   "Logged on day 218 for the Blueline exercise, and in force from day 218 within it, policy rul_039 (\"restricted_in policy 2 (scenario-narrowed)\", authority level 3) provides: IF operates_in(sector=sector_03, customer=?A) AND partnered_with(asset=?B, jurisdiction=jurisdiction_13) AND operates_in(sector=?C, customer=?A) THEN restricted_in(customer=?A, asset=?B, sector=?C), UNLESS holds(asset=?B, partner=partner_06).",
+   "Entered day 218, notice sup_018 records that effective day 218, under Blueline, rul_039 supersedes rul_005; outside the exercise, rul_005 stands unchanged.",
+   "jurisdiction_13, on day 219, deadpanned: \"Yes, absolutely, holds(asset=asset_18, partner=partner_09) \u2014 because nothing ever falls through the cracks around here.\""
+  ],
+  "target_line": 4,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00",
+   "view jurisdiction_13",
+   "view jurisdiction_09",
+   "story Winter in the Annex",
+   "story The Marble Index",
+   "exercise Saffron",
+   "exercise Blueline"
+  ]
+ },
+ {
+  "n": 56,
+  "seed": 3,
+  "ep": "ep_182",
+  "day": 139,
+  "decls": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts.",
+   "Starting day 85, the desk designates a separate log for jurisdiction_13 submissions: from this point forward, statements from that party will be entered as its own claims rather than as direct observations.",
+   "As of day 94, claims from jurisdiction_09 will be logged under its own view.",
+   "Day 95 sees the desk receive a new piece of imaginative work, \u201cWinter in the Annex,\u201d for its entertainment.",
+   "The Marble Index, an inventive narrative for the desk, began making the rounds on day 113."
+  ],
+  "episode_lines": [
+   "A partner_feed observation logged on day 139 as fct_0374 \u2014 in force from day 139 \u2014 attests that supplies(partner=partner_09, jurisdiction=jurisdiction_03).",
+   "registry_B\u2019s day-139 note fct_0686, effective from day 139, records member_of(partner=partner_02, product=product_06).",
+   "The Saffron drill commenced on day 139, set to track the live world and its developments."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00",
+   "view jurisdiction_13",
+   "view jurisdiction_09",
+   "story Winter in the Annex",
+   "story The Marble Index",
+   "exercise Saffron"
+  ]
+ },
+ {
+  "n": 57,
+  "seed": 3,
+  "ep": "ep_089",
+  "day": 37,
+  "decls": [],
+  "episode_lines": [
+   "A field_report entry logged on day 37 \u2014 reference fct_0110, effective from day 37 \u2014 confirms that operates_in(sector=sector_02, customer=customer_13).",
+   "partner_feed data recorded on day 37 \u2014 reference fct_0280, effective from day 37 \u2014 shows that holds(asset=asset_05, partner=partner_13)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual"
+  ]
+ },
+ {
+  "n": 58,
+  "seed": 3,
+  "ep": "ep_090",
+  "day": 38,
+  "decls": [],
+  "episode_lines": [
+   "Logged in registry_B on day 37, fct_0428 confirms from day 37 that classified_as(product=product_00, customer=customer_04).",
+   "Filed under audit_note on day 37, fct_0551 establishes from day 37 onward that partnered_with(asset=asset_23, jurisdiction=jurisdiction_00).",
+   "Day 38 brings a registry_A entry \u2014 fct_0206, effective day 38 \u2014 recording classified_as(product=product_21, customer=customer_00)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual"
+  ]
+ },
+ {
+  "n": 59,
+  "seed": 3,
+  "ep": "ep_158",
+  "day": 95,
+  "decls": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts.",
+   "Starting day 85, the desk designates a separate log for jurisdiction_13 submissions: from this point forward, statements from that party will be entered as its own claims rather than as direct observations.",
+   "As of day 94, claims from jurisdiction_09 will be logged under its own view."
+  ],
+  "episode_lines": [
+   "An entry from registry_B on day 95, valid from day 95, records observation fct_0509: supplies(partner=partner_06, jurisdiction=jurisdiction_22).",
+   "Day 95 sees the desk receive a new piece of imaginative work, \u201cWinter in the Annex,\u201d for its entertainment.",
+   "registry_A logs fct_0106 on day 96, in force from day 96, that partnered_with(asset=asset_06, jurisdiction=jurisdiction_13).",
+   "On day 96, effective day 96, registry_B files fct_0583: rated_as(customer=customer_05, sector=sector_07).",
+   "As of day 96, \u201cWinter in the Annex\u201d relates that located_in(customer=customer_01, partner=partner_02, sector=sector_13), logged as fct_0765."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00",
+   "view jurisdiction_13",
+   "view jurisdiction_09",
+   "story Winter in the Annex"
+  ]
+ },
+ {
+  "n": 60,
+  "seed": 3,
+  "ep": "ep_193",
+  "day": 158,
+  "decls": [
+   "From day 64, the desk maintains a separate record for submissions by jurisdiction_00, keeping its filings apart from independently logged facts.",
+   "Starting day 85, the desk designates a separate log for jurisdiction_13 submissions: from this point forward, statements from that party will be entered as its own claims rather than as direct observations.",
+   "As of day 94, claims from jurisdiction_09 will be logged under its own view.",
+   "Day 95 sees the desk receive a new piece of imaginative work, \u201cWinter in the Annex,\u201d for its entertainment.",
+   "The Marble Index, an inventive narrative for the desk, began making the rounds on day 113.",
+   "The Saffron drill commenced on day 139, set to track the live world and its developments."
+  ],
+  "episode_lines": [
+   "In Winter in the Annex, day 158 has it that rated_as(customer=customer_14, sector=sector_14) \u2014 noted as fct_0759.",
+   "Winter in the Annex records, as of day 158, that located_in(customer=customer_05, partner=partner_13, sector=sector_05) \u2014 logged as fct_0763.",
+   "Logged on day 158 and effective from day 158 within Saffron: policy rul_036 (\"restricted_in policy 2 (scenario-narrowed)\", authority level 3) states that IF operates_in(sector=sector_03, customer=?A) AND partnered_with(asset=?B, jurisdiction=jurisdiction_13) AND operates_in(sector=?C, customer=?A) THEN restricted_in(customer=?A, asset=?B, sector=?C), UNLESS rated_as(customer=?A, sector=sector_09)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view jurisdiction_00",
+   "view jurisdiction_13",
+   "view jurisdiction_09",
+   "story Winter in the Annex",
+   "story The Marble Index",
+   "exercise Saffron"
+  ]
+ },
+ {
+  "n": 61,
+  "seed": 7,
+  "ep": "ep_238",
+  "day": 204,
+  "decls": [
+   "The Unsigned Page begins circulating on day 39.",
+   "From day 52 onward, claims attributed to product_02 will be recorded as product_02's own position.",
+   "From day 62, statements from product_13 will be logged as product_13\u2019s own claims.",
+   "From day 93 onward, claims attributed to jurisdiction_11 will be logged under jurisdiction_11's own view.",
+   "Day 113 brings the arrival of A Season of Salt, an entertainment for the desk.",
+   "The planning exercise Hazelwood goes live on day 124, starting from the desk\u2019s current world and incorporating all developments as they arrive."
+  ],
+  "episode_lines": [
+   "Logged on day 202, notice sup_005 records that policy rul_023 is superseded by policy rul_028, effective day 202; from that day, rul_023 no longer applies.",
+   "In The Unsigned Page, as of day 203, offered_in(customer=customer_23, asset=asset_17) \u2014 recorded as fct_0889.",
+   "Entered on day 204, and in force from day 204, policy rul_029 (\"eligible_for policy 1 (revised)\"), authority level 5, provides that if located_in(asset=?C, partner=?A) and holds(asset=?B, jurisdiction=jurisdiction_12, product=?E) and supplies(customer=?F, customer2=?F, jurisdiction=jurisdiction_12), then eligible_for(partner=?A, asset=?B), unless located_in(asset=?C, partner=partner_05).",
+   "Day 204 brings notice sup_006: as of day 204, rul_029 supersedes rul_001, and rul_001 is no longer in force."
+  ],
+  "target_line": 4,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page",
+   "view product_02",
+   "view product_13",
+   "view jurisdiction_11",
+   "story A Season of Salt",
+   "exercise Hazelwood"
+  ]
+ },
+ {
+  "n": 62,
+  "seed": 7,
+  "ep": "ep_133",
+  "day": 39,
+  "decls": [],
+  "episode_lines": [
+   "The Unsigned Page begins circulating on day 39.",
+   "As of day 39, policy rul_019 (\"priority_case policy 1\", authority level 3, effective from day 39) states: IF exempt_from(asset=?A, customer=customer_27) AND classified_as(sector=?B, product=product_03, sector2=?E) AND offered_in(customer=?C, asset=?A) THEN priority_case(asset=?A, sector=?B, customer=?C)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page"
+  ]
+ },
+ {
+  "n": 63,
+  "seed": 7,
+  "ep": "ep_185",
+  "day": 93,
+  "decls": [
+   "The Unsigned Page begins circulating on day 39.",
+   "From day 52 onward, claims attributed to product_02 will be recorded as product_02's own position.",
+   "From day 62, statements from product_13 will be logged as product_13\u2019s own claims."
+  ],
+  "episode_lines": [
+   "From day 93 onward, claims attributed to jurisdiction_11 will be logged under jurisdiction_11's own view.",
+   "On day 94, registry_A records fct_0293, effective from day 94: located_in(asset=asset_14, partner=partner_15).",
+   "A field_report entry on day 94 \u2014 fct_0733, valid from day 94 \u2014 notes located_in(asset=asset_17, partner=partner_13).",
+   "registry_B logs fct_0485 on day 95, in force from day 95: supplies(customer=customer_12, customer2=customer_12, jurisdiction=jurisdiction_09)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page",
+   "view product_02",
+   "view product_13",
+   "view jurisdiction_11"
+  ]
+ },
+ {
+  "n": 64,
+  "seed": 7,
+  "ep": "ep_231",
+  "day": 175,
+  "decls": [
+   "The Unsigned Page begins circulating on day 39.",
+   "From day 52 onward, claims attributed to product_02 will be recorded as product_02's own position.",
+   "From day 62, statements from product_13 will be logged as product_13\u2019s own claims.",
+   "From day 93 onward, claims attributed to jurisdiction_11 will be logged under jurisdiction_11's own view.",
+   "Day 113 brings the arrival of A Season of Salt, an entertainment for the desk.",
+   "The planning exercise Hazelwood goes live on day 124, starting from the desk\u2019s current world and incorporating all developments as they arrive."
+  ],
+  "episode_lines": [
+   "On day 174, partner_feed recorded fct_0875 \u2014 effective from day 174 \u2014 noting supplies(customer=customer_21, customer2=customer_16, jurisdiction=jurisdiction_02).",
+   "A field_report entry on day 175, fct_0763, valid from day 175, shows member_of(jurisdiction=jurisdiction_14, partner=partner_03, partner2=partner_01).",
+   "partner_feed logged fct_0876 on day 175, in force from day 175, with classified_as(sector=sector_09, product=product_26, sector2=sector_09)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page",
+   "view product_02",
+   "view product_13",
+   "view jurisdiction_11",
+   "story A Season of Salt",
+   "exercise Hazelwood"
+  ]
+ },
+ {
+  "n": 65,
+  "seed": 7,
+  "ep": "ep_057",
+  "day": 12,
+  "decls": [],
+  "episode_lines": [
+   "An audit_note entry on day 12 \u2014 reference fct_0080, effective from day 12 \u2014 records that classified_as(sector=sector_14, product=product_09, sector2=sector_14).",
+   "A field_report logged on day 12 \u2014 reference fct_0136, effective from day 12 \u2014 notes that supplies(customer=customer_09, customer2=customer_09, jurisdiction=jurisdiction_29).",
+   "A registry_B entry logged on day 12 \u2014 reference fct_0215, effective from day 12 \u2014 confirms that member_of(jurisdiction=jurisdiction_01, partner=partner_16, partner2=partner_04)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual"
+  ]
+ },
+ {
+  "n": 66,
+  "seed": 7,
+  "ep": "ep_111",
+  "day": 27,
+  "decls": [],
+  "episode_lines": [
+   "A partner_feed entry logged on day 27 and valid from day 27 records holds(asset=asset_05, jurisdiction=jurisdiction_01, product=product_22) as fct_0564.",
+   "Day 27\u2019s partner_feed also carries fct_0724, effective from day 27: located_in(asset=asset_15, partner=partner_13).",
+   "On day 27, policy rul_023 (\"eligible_for_1 policy 3\", authority level 5, effective from day 27) came into force: IF exempt_from(asset=?C, customer=?A) AND member_of(jurisdiction=?D, partner=?B, partner2=partner_01) THEN eligible_for_1(customer=?A, partner=?B, asset=?C), UNLESS located_in(asset=?C, partner=partner_09).",
+   "Day 27 saw jurisdiction_11 nod along: \u201cAh, but of course \u2014 supplies(customer=customer_24, customer2=customer_22, jurisdiction=jurisdiction_11) \u2014 it practically verifies itself.\u201d"
+  ],
+  "target_line": 4,
+  "context_options": [
+   "actual"
+  ]
+ },
+ {
+  "n": 67,
+  "seed": 7,
+  "ep": "ep_279",
+  "day": 291,
+  "decls": [
+   "The Unsigned Page begins circulating on day 39.",
+   "From day 52 onward, claims attributed to product_02 will be recorded as product_02's own position.",
+   "From day 62, statements from product_13 will be logged as product_13\u2019s own claims.",
+   "From day 93 onward, claims attributed to jurisdiction_11 will be logged under jurisdiction_11's own view.",
+   "Day 113 brings the arrival of A Season of Salt, an entertainment for the desk.",
+   "The planning exercise Hazelwood goes live on day 124, starting from the desk\u2019s current world and incorporating all developments as they arrive.",
+   "On day 205, the planning exercise Nettlebed begins, anchored to the state of affairs as of day 185; subsequent changes are not incorporated."
+  ],
+  "episode_lines": [
+   "A field_report entry logged on day 291 \u2014 reference fct_0680, effective from day 291 \u2014 confirms that holds(asset=asset_14, jurisdiction=jurisdiction_08, product=product_03).",
+   "As of day 291, product_13\u2019s earlier projection fct_0982 is borne out by observation fct_0680, and the claim is now recorded as prm_02 from day 291."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page",
+   "view product_02",
+   "view product_13",
+   "view jurisdiction_11",
+   "story A Season of Salt",
+   "exercise Hazelwood",
+   "exercise Nettlebed"
+  ]
+ },
+ {
+  "n": 68,
+  "seed": 7,
+  "ep": "ep_206",
+  "day": 124,
+  "decls": [
+   "The Unsigned Page begins circulating on day 39.",
+   "From day 52 onward, claims attributed to product_02 will be recorded as product_02's own position.",
+   "From day 62, statements from product_13 will be logged as product_13\u2019s own claims.",
+   "From day 93 onward, claims attributed to jurisdiction_11 will be logged under jurisdiction_11's own view.",
+   "Day 113 brings the arrival of A Season of Salt, an entertainment for the desk."
+  ],
+  "episode_lines": [
+   "Logged on day 124 via customer_disclosure, observation fct_0742 (effective from day 124) records that rated_as(asset=asset_17, asset2=asset_18).",
+   "The planning exercise Hazelwood goes live on day 124, starting from the desk\u2019s current world and incorporating all developments as they arrive.",
+   "Introduced on day 124 and effective from day 124, the Hazelwood exercise enacts policy rul_038 (authority level 2), titled \"eligible_for_1 policy 1 (scenario-narrowed)\": IF exempt_from(asset=?C, customer=?A) AND registered_in(partner=?B, partner2=?B) AND rated_as(asset=?C, asset2=?C) THEN eligible_for_1(customer=?A, partner=?B, asset=?C), UNLESS supplies(customer=?A, customer2=customer_01, jurisdiction=jurisdiction_00).",
+   "Notice sup_015, entered for Hazelwood on day 124, specifies that with effect from day 124 rul_038 replaces rul_021; beyond the exercise, rul_021 holds as before.",
+   "A registry_B entry on day 125 \u2014 fct_0085, valid from day 125 \u2014 confirms that supplies(customer=customer_01, customer2=customer_08, jurisdiction=jurisdiction_08)."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page",
+   "view product_02",
+   "view product_13",
+   "view jurisdiction_11",
+   "story A Season of Salt",
+   "exercise Hazelwood"
+  ]
+ },
+ {
+  "n": 69,
+  "seed": 7,
+  "ep": "ep_246",
+  "day": 211,
+  "decls": [
+   "The Unsigned Page begins circulating on day 39.",
+   "From day 52 onward, claims attributed to product_02 will be recorded as product_02's own position.",
+   "From day 62, statements from product_13 will be logged as product_13\u2019s own claims.",
+   "From day 93 onward, claims attributed to jurisdiction_11 will be logged under jurisdiction_11's own view.",
+   "Day 113 brings the arrival of A Season of Salt, an entertainment for the desk.",
+   "The planning exercise Hazelwood goes live on day 124, starting from the desk\u2019s current world and incorporating all developments as they arrive.",
+   "On day 205, the planning exercise Nettlebed begins, anchored to the state of affairs as of day 185; subsequent changes are not incorporated."
+  ],
+  "episode_lines": [
+   "On day 211, notice prm_06 records that jurisdiction_11's earlier forecast fct_0986 has been borne out by observation fct_0738, and the claim enters the standing record from day 211.",
+   "A registry_B filing on day 212 (fct_0721, effective day 212) attests that located_in(asset=asset_04, partner=partner_00).",
+   "From registry_A on day 212, observation fct_0834 is in force as of day 212 and reports holds(asset=asset_14, jurisdiction=jurisdiction_17, product=product_26)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page",
+   "view product_02",
+   "view product_13",
+   "view jurisdiction_11",
+   "story A Season of Salt",
+   "exercise Hazelwood",
+   "exercise Nettlebed"
+  ]
+ },
+ {
+  "n": 70,
+  "seed": 7,
+  "ep": "ep_239",
+  "day": 205,
+  "decls": [
+   "The Unsigned Page begins circulating on day 39.",
+   "From day 52 onward, claims attributed to product_02 will be recorded as product_02's own position.",
+   "From day 62, statements from product_13 will be logged as product_13\u2019s own claims.",
+   "From day 93 onward, claims attributed to jurisdiction_11 will be logged under jurisdiction_11's own view.",
+   "Day 113 brings the arrival of A Season of Salt, an entertainment for the desk.",
+   "The planning exercise Hazelwood goes live on day 124, starting from the desk\u2019s current world and incorporating all developments as they arrive."
+  ],
+  "episode_lines": [
+   "On day 205, partner_feed reports fct_0674 \u2014 valid from day 205 \u2014 that holds(asset=asset_16, jurisdiction=jurisdiction_18, product=product_19).",
+   "On day 205, the planning exercise Nettlebed begins, anchored to the state of affairs as of day 185; subsequent changes are not incorporated.",
+   "An audit_note entry on day 206 \u2014 reference fct_0643, effective from day 206 \u2014 records offered_in(customer=customer_26, asset=asset_11).",
+   "Within Nettlebed, on day 206 and effective from day 206, policy rul_041 (\"requires_review policy 2 (scenario-narrowed)\", authority level 2) states: IF rated_as(asset=?A, asset2=asset_14) AND holds(asset=asset_14, jurisdiction=?B, product=?D) THEN requires_review(asset=?A, jurisdiction=?B), UNLESS holds(asset=asset_07, jurisdiction=?B, product=product_15)."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page",
+   "view product_02",
+   "view product_13",
+   "view jurisdiction_11",
+   "story A Season of Salt",
+   "exercise Hazelwood",
+   "exercise Nettlebed"
+  ]
+ },
+ {
+  "n": 71,
+  "seed": 7,
+  "ep": "ep_160",
+  "day": 63,
+  "decls": [
+   "The Unsigned Page begins circulating on day 39.",
+   "From day 52 onward, claims attributed to product_02 will be recorded as product_02's own position.",
+   "From day 62, statements from product_13 will be logged as product_13\u2019s own claims."
+  ],
+  "episode_lines": [
+   "A field_report entry logged on day 63, filed as fct_0446 and in force from day 63, shows holds(asset=asset_01, jurisdiction=jurisdiction_13, product=product_07).",
+   "Logged day 63 from registry_B, and valid from day 63, fct_0782 reports supplies(customer=customer_16, customer2=customer_16, jurisdiction=jurisdiction_12).",
+   "registry_A, on day 64, records fct_0097 \u2014 effective day 64 \u2014 documenting supplies(customer=customer_19, customer2=customer_28, jurisdiction=jurisdiction_24).",
+   "Day 64 brings fct_0102 from registry_A, valid from day 64: offered_in(customer=customer_17, asset=asset_11).",
+   "As of day 64, registry_A notes under fct_0164 (effective day 64) that supplies(customer=customer_08, customer2=customer_05, jurisdiction=jurisdiction_01)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page",
+   "view product_02",
+   "view product_13"
+  ]
+ },
+ {
+  "n": 72,
+  "seed": 7,
+  "ep": "ep_248",
+  "day": 215,
+  "decls": [
+   "The Unsigned Page begins circulating on day 39.",
+   "From day 52 onward, claims attributed to product_02 will be recorded as product_02's own position.",
+   "From day 62, statements from product_13 will be logged as product_13\u2019s own claims.",
+   "From day 93 onward, claims attributed to jurisdiction_11 will be logged under jurisdiction_11's own view.",
+   "Day 113 brings the arrival of A Season of Salt, an entertainment for the desk.",
+   "The planning exercise Hazelwood goes live on day 124, starting from the desk\u2019s current world and incorporating all developments as they arrive.",
+   "On day 205, the planning exercise Nettlebed begins, anchored to the state of affairs as of day 185; subsequent changes are not incorporated."
+  ],
+  "episode_lines": [
+   "In the Nettlebed drill, working premise fct_0950, adopted on day 214, assumes classified_as(sector=sector_18, product=product_04, sector2=sector_20).",
+   "registry_B records on day 215, effective day 215, that operates_in(sector=sector_20, product=product_13) \u2014 catalogued as fct_0590.",
+   "Day 215 brings word in A Season of Salt that supplies(customer=customer_24, customer2=customer_20, jurisdiction=jurisdiction_11) (fct_0916).",
+   "An audit_note logged on day 216, in force from day 216, reports registered_in(partner=partner_02, partner2=partner_11) as fct_0574.",
+   "registry_B on day 216, effective from day 216, logs located_in(asset=asset_02, partner=partner_17) under fct_0714."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page",
+   "view product_02",
+   "view product_13",
+   "view jurisdiction_11",
+   "story A Season of Salt",
+   "exercise Hazelwood",
+   "exercise Nettlebed"
+  ]
+ },
+ {
+  "n": 73,
+  "seed": 7,
+  "ep": "ep_200",
+  "day": 113,
+  "decls": [
+   "The Unsigned Page begins circulating on day 39.",
+   "From day 52 onward, claims attributed to product_02 will be recorded as product_02's own position.",
+   "From day 62, statements from product_13 will be logged as product_13\u2019s own claims.",
+   "From day 93 onward, claims attributed to jurisdiction_11 will be logged under jurisdiction_11's own view."
+  ],
+  "episode_lines": [
+   "A field_report observation, logged as fct_0685 on day 112 and valid from day 112, records partnered_with(product=product_25, product2=product_17).",
+   "Entry fct_0309 from registry_B, captured on day 113 and in force as of day 113, shows rated_as(asset=asset_00, asset2=asset_01).",
+   "From registry_A on day 113, valid day 113, fct_0550 confirms that holds(asset=asset_15, jurisdiction=jurisdiction_06, product=product_07).",
+   "On day 113, a field_report (fct_0848, effective from day 113) documents holds(asset=asset_11, jurisdiction=jurisdiction_10, product=product_07).",
+   "Day 113 brings the arrival of A Season of Salt, an entertainment for the desk."
+  ],
+  "target_line": 5,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page",
+   "view product_02",
+   "view product_13",
+   "view jurisdiction_11",
+   "story A Season of Salt"
+  ]
+ },
+ {
+  "n": 74,
+  "seed": 7,
+  "ep": "ep_121",
+  "day": 34,
+  "decls": [],
+  "episode_lines": [
+   "A field_report on day 34 \u2014 reference fct_0285, effective from day 34 \u2014 notes that located_in(asset=asset_02, partner=partner_00).",
+   "Per customer_disclosure logged on day 34 \u2014 reference fct_0326, effective from day 34 \u2014 member_of(jurisdiction=jurisdiction_20, partner=partner_05, partner2=partner_04).",
+   "A customer_disclosure entry logged on day 34 \u2014 reference fct_0447, effective from day 34 \u2014 confirms that rated_as(asset=asset_01, asset2=asset_01).",
+   "A registry_A entry logged on day 34 \u2014 reference fct_0500, effective from day 34 \u2014 confirms that holds(asset=asset_14, jurisdiction=jurisdiction_28, product=product_02)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual"
+  ]
+ },
+ {
+  "n": 75,
+  "seed": 7,
+  "ep": "ep_207",
+  "day": 125,
+  "decls": [
+   "The Unsigned Page begins circulating on day 39.",
+   "From day 52 onward, claims attributed to product_02 will be recorded as product_02's own position.",
+   "From day 62, statements from product_13 will be logged as product_13\u2019s own claims.",
+   "From day 93 onward, claims attributed to jurisdiction_11 will be logged under jurisdiction_11's own view.",
+   "Day 113 brings the arrival of A Season of Salt, an entertainment for the desk.",
+   "The planning exercise Hazelwood goes live on day 124, starting from the desk\u2019s current world and incorporating all developments as they arrive."
+  ],
+  "episode_lines": [
+   "A field_report entry on day 125 \u2014 reference fct_0156, effective from day 125 \u2014 notes supplies(customer=customer_25, customer2=customer_15, jurisdiction=jurisdiction_23).",
+   "A partner_feed entry logged on day 125 \u2014 reference fct_0299, effective from day 125 \u2014 confirms that classified_as(sector=sector_04, product=product_26, sector2=sector_07).",
+   "product_13, on day 125, put it this way: \"member_of(jurisdiction=jurisdiction_00, partner=partner_13, partner2=partner_06)\" (fct_0977).",
+   "jurisdiction_11, on day 125, stated: \"member_of(jurisdiction=jurisdiction_11, partner=partner_15, partner2=partner_09)\" (fct_0980)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page",
+   "view product_02",
+   "view product_13",
+   "view jurisdiction_11",
+   "story A Season of Salt",
+   "exercise Hazelwood"
+  ]
+ },
+ {
+  "n": 76,
+  "seed": 7,
+  "ep": "ep_091",
+  "day": 20,
+  "decls": [],
+  "episode_lines": [
+   "On day 20, registry_B records fct_0048 \u2014 valid from day 20 \u2014 showing member_of(jurisdiction=jurisdiction_17, partner=partner_01, partner2=partner_04).",
+   "audit_note on day 20 logs fct_0154, effective from day 20, noting rated_as(asset=asset_01, asset2=asset_12).",
+   "Per audit_note, fct_0175 is entered on day 20 and in force from day 20: rated_as(asset=asset_10, asset2=asset_10).",
+   "registry_A\u2019s day 20 entry fct_0182, valid from day 20, captures rated_as(asset=asset_12, asset2=asset_11).",
+   "partner_feed supplies fct_0231 on day 20, effective from day 20, with rated_as(asset=asset_07, asset2=asset_14)."
+  ],
+  "target_line": 5,
+  "context_options": [
+   "actual"
+  ]
+ },
+ {
+  "n": 77,
+  "seed": 7,
+  "ep": "ep_209",
+  "day": 130,
+  "decls": [
+   "The Unsigned Page begins circulating on day 39.",
+   "From day 52 onward, claims attributed to product_02 will be recorded as product_02's own position.",
+   "From day 62, statements from product_13 will be logged as product_13\u2019s own claims.",
+   "From day 93 onward, claims attributed to jurisdiction_11 will be logged under jurisdiction_11's own view.",
+   "Day 113 brings the arrival of A Season of Salt, an entertainment for the desk.",
+   "The planning exercise Hazelwood goes live on day 124, starting from the desk\u2019s current world and incorporating all developments as they arrive."
+  ],
+  "episode_lines": [
+   "product_13, on day 127, reported that supplies(customer=customer_04, customer2=customer_05, jurisdiction=jurisdiction_16).",
+   "An audit_note entry logged on day 130 \u2014 reference fct_0853, effective from day 130 \u2014 confirms that supplies(customer=customer_20, customer2=customer_09, jurisdiction=jurisdiction_12).",
+   "product_02, on day 130, had this to say: \"Of course, operates_in(sector=sector_01, product=product_02) \u2014 who wouldn\u2019t think so?\"",
+   "Policy rul_015 (\"flagged_for policy 2\", authority level 4) takes effect on day 131 and, from day 131, stipulates that IF restricted_in(asset=?A, sector=?B) AND classified_as(sector=?C, product=product_26, sector2=?B) AND located_in(asset=?A, partner=?D) THEN flagged_for(asset=?A, sector=?B)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page",
+   "view product_02",
+   "view product_13",
+   "view jurisdiction_11",
+   "story A Season of Salt",
+   "exercise Hazelwood"
+  ]
+ },
+ {
+  "n": 78,
+  "seed": 7,
+  "ep": "ep_256",
+  "day": 238,
+  "decls": [
+   "The Unsigned Page begins circulating on day 39.",
+   "From day 52 onward, claims attributed to product_02 will be recorded as product_02's own position.",
+   "From day 62, statements from product_13 will be logged as product_13\u2019s own claims.",
+   "From day 93 onward, claims attributed to jurisdiction_11 will be logged under jurisdiction_11's own view.",
+   "Day 113 brings the arrival of A Season of Salt, an entertainment for the desk.",
+   "The planning exercise Hazelwood goes live on day 124, starting from the desk\u2019s current world and incorporating all developments as they arrive.",
+   "On day 205, the planning exercise Nettlebed begins, anchored to the state of affairs as of day 185; subsequent changes are not incorporated."
+  ],
+  "episode_lines": [
+   "Under Hazelwood's working premises, effective day 238, fct_0931 is disregarded: supplies(customer=customer_06, customer2=customer_06, jurisdiction=jurisdiction_07).",
+   "As a Hazelwood assumption, day 238 introduces fct_0932, which takes supplies(customer=customer_06, customer2=customer_10, jurisdiction=jurisdiction_07) as operative.",
+   "Filed on day 238 and in force from day 238, rul_035 (\"approved_for policy 3 (revised)\"), authority level 1, stipulates that when restricted_in(asset=?D, sector=?A) and supplies(customer=?B, customer2=?B, jurisdiction=jurisdiction_05) and supplies(customer=?C, customer2=?C, jurisdiction=jurisdiction_05), then approved_for(sector=?A, customer=?B, customer2=?C), except where supplies(customer=?C, customer2=customer_15, jurisdiction=jurisdiction_03) or supplies(customer=?B, customer2=customer_02, jurisdiction=jurisdiction_03).",
+   "On day 238, sup_012 records that rul_035 replaces rul_010 effective day 238; thereafter, rul_010 no longer applies.",
+   "A customer_disclosure entry logged day 239 and effective from day 239 records as fct_0592 that operates_in(sector=sector_20, product=product_07)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page",
+   "view product_02",
+   "view product_13",
+   "view jurisdiction_11",
+   "story A Season of Salt",
+   "exercise Hazelwood",
+   "exercise Nettlebed"
+  ]
+ },
+ {
+  "n": 79,
+  "seed": 7,
+  "ep": "ep_289",
+  "day": 320,
+  "decls": [
+   "The Unsigned Page begins circulating on day 39.",
+   "From day 52 onward, claims attributed to product_02 will be recorded as product_02's own position.",
+   "From day 62, statements from product_13 will be logged as product_13\u2019s own claims.",
+   "From day 93 onward, claims attributed to jurisdiction_11 will be logged under jurisdiction_11's own view.",
+   "Day 113 brings the arrival of A Season of Salt, an entertainment for the desk.",
+   "The planning exercise Hazelwood goes live on day 124, starting from the desk\u2019s current world and incorporating all developments as they arrive.",
+   "On day 205, the planning exercise Nettlebed begins, anchored to the state of affairs as of day 185; subsequent changes are not incorporated."
+  ],
+  "episode_lines": [
+   "product_02, on day 316, filed that holds(asset=asset_15, jurisdiction=jurisdiction_05, product=product_05).",
+   "registry_A records on day 318 \u2014 reference fct_0645, effective from day 318 \u2014 that offered_in(customer=customer_26, asset=asset_04).",
+   "On day 318, under Hazelwood, the assumption fct_0927 sets aside rated_as(asset=asset_15, asset2=asset_15).",
+   "On day 318, the Hazelwood drill adopts assumption fct_0928: rated_as(asset=asset_15, asset2=asset_00).",
+   "On day 320, in Hazelwood, assumption fct_0929 disregards holds(asset=asset_10, jurisdiction=jurisdiction_03, product=product_00)."
+  ],
+  "target_line": 5,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page",
+   "view product_02",
+   "view product_13",
+   "view jurisdiction_11",
+   "story A Season of Salt",
+   "exercise Hazelwood",
+   "exercise Nettlebed"
+  ]
+ },
+ {
+  "n": 80,
+  "seed": 7,
+  "ep": "ep_266",
+  "day": 260,
+  "decls": [
+   "The Unsigned Page begins circulating on day 39.",
+   "From day 52 onward, claims attributed to product_02 will be recorded as product_02's own position.",
+   "From day 62, statements from product_13 will be logged as product_13\u2019s own claims.",
+   "From day 93 onward, claims attributed to jurisdiction_11 will be logged under jurisdiction_11's own view.",
+   "Day 113 brings the arrival of A Season of Salt, an entertainment for the desk.",
+   "The planning exercise Hazelwood goes live on day 124, starting from the desk\u2019s current world and incorporating all developments as they arrive.",
+   "On day 205, the planning exercise Nettlebed begins, anchored to the state of affairs as of day 185; subsequent changes are not incorporated."
+  ],
+  "episode_lines": [
+   "In a filing dated day 260, product_13 asserted that supplies(customer=customer_15, customer2=customer_08, jurisdiction=jurisdiction_22).",
+   "On day 260, rul_024 \u2014 the \"eligible_for_1 policy 2 (revised)\" policy, authority level 5 \u2014 became effective from day 260: IF approved_for(sector=?D, customer=?A, customer2=?A) AND member_of(jurisdiction=?E, partner=?B, partner2=?B) AND located_in(asset=?C, partner=?B) THEN eligible_for_1(customer=?A, partner=?B, asset=?C), UNLESS supplies(customer=customer_11, customer2=customer_09, jurisdiction=?E).",
+   "Notice sup_001, logged on day 260, records that effective day 260, rul_024 supersedes rul_022; from that day, rul_022 no longer applies."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "story The Unsigned Page",
+   "view product_02",
+   "view product_13",
+   "view jurisdiction_11",
+   "story A Season of Salt",
+   "exercise Hazelwood",
+   "exercise Nettlebed"
+  ]
+ },
+ {
+  "n": 81,
+  "seed": 8,
+  "ep": "ep_246",
+  "day": 128,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment.",
+   "As of day 116, statements from product_16 will be logged as its own claims."
+  ],
+  "episode_lines": [
+   "Logged on day 128 and taking effect from day 128, partner_feed observation fct_0237 records that operates_in(customer=customer_00, sector=sector_04, customer2=customer_00).",
+   "A field_report received day 128, in force as of day 128 and recorded as fct_0526, details that operates_in(customer=customer_10, sector=sector_13, customer2=customer_10).",
+   "A partner_feed report from day 128, in force from day 128, supplies fct_0897: located_in(partner=partner_13, partner2=partner_25).",
+   "On day 128, product_14 offered for the record: \u201cWell, naturally, classified_as(jurisdiction=jurisdiction_15, partner=partner_13) \u2014 who could doubt it?\u201d"
+  ],
+  "target_line": 4,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk",
+   "view product_16"
+  ]
+ },
+ {
+  "n": 82,
+  "seed": 8,
+  "ep": "ep_123",
+  "day": 40,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims."
+  ],
+  "episode_lines": [
+   "On day 40, partner_feed reports \u2014 reference fct_0887, effective from day 40 \u2014 that supplies(customer=customer_05, asset=asset_01).",
+   "A customer_disclosure entry logged on day 41 \u2014 reference fct_0158, effective from day 41 \u2014 notes classified_as(jurisdiction=jurisdiction_14, partner=partner_25).",
+   "A field_report entry logged on day 41 \u2014 reference fct_0178, effective from day 41 \u2014 confirms that operates_in(customer=customer_08, sector=sector_06, customer2=customer_08)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14"
+  ]
+ },
+ {
+  "n": 83,
+  "seed": 8,
+  "ep": "ep_126",
+  "day": 42,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims."
+  ],
+  "episode_lines": [
+   "An entry from a field_report on day 41, tagged fct_0609 and in effect from day 41, states: offered_in(asset=asset_02, customer=customer_01).",
+   "The audit_note of day 41 records fct_0909, valid from day 41, indicating operates_in(customer=customer_04, sector=sector_06, customer2=customer_04).",
+   "From day 42, audit_note fct_0275 attests, with effect from day 42, to registered_in(jurisdiction=jurisdiction_16, asset=asset_07, customer=customer_10)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14"
+  ]
+ },
+ {
+  "n": 84,
+  "seed": 8,
+  "ep": "ep_174",
+  "day": 67,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation."
+  ],
+  "episode_lines": [
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment.",
+   "Logged via audit_note on day 68, fct_0173 \u2014 in force from day 68 \u2014 confirms that registered_in(jurisdiction=jurisdiction_09, asset=asset_15, customer=customer_02)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk"
+  ]
+ },
+ {
+  "n": 85,
+  "seed": 8,
+  "ep": "ep_175",
+  "day": 68,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment."
+  ],
+  "episode_lines": [
+   "A customer_disclosure entry on day 68 \u2014 reference fct_0273, effective from day 68 \u2014 notes that member_of(sector=sector_02, sector2=sector_02, asset=asset_11).",
+   "A field_report logged on day 68 \u2014 reference fct_0447, effective from day 68 \u2014 records located_in(partner=partner_08, partner2=partner_05).",
+   "registry_A reports on day 69 \u2014 reference fct_0156, effective from day 69 \u2014 that registered_in(jurisdiction=jurisdiction_14, asset=asset_02, customer=customer_14).",
+   "partner_feed shows on day 69 \u2014 reference fct_0404, effective from day 69 \u2014 that registered_in(jurisdiction=jurisdiction_14, asset=asset_13, customer=customer_12).",
+   "registry_A confirms on day 69 \u2014 reference fct_0524, effective from day 69 \u2014 that classified_as(jurisdiction=jurisdiction_15, partner=partner_10)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk"
+  ]
+ },
+ {
+  "n": 86,
+  "seed": 8,
+  "ep": "ep_256",
+  "day": 145,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment.",
+   "As of day 116, statements from product_16 will be logged as its own claims."
+  ],
+  "episode_lines": [
+   "An audit_note entry logged day 145, reference fct_0753 and valid from day 145, records that rated_as(asset=asset_04, partner=partner_22).",
+   "Notice prm_01, filed day 145, marks that product_23's earlier projection fct_1030 is borne out by observation fct_0753 and, from day 145, stands as established."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk",
+   "view product_16"
+  ]
+ },
+ {
+  "n": 87,
+  "seed": 8,
+  "ep": "ep_276",
+  "day": 187,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment.",
+   "As of day 116, statements from product_16 will be logged as its own claims.",
+   "Planning exercise Tallgrass begins on day 173, working from the live actual world and tracking developments as they occur."
+  ],
+  "episode_lines": [
+   "An audit_note entry logged on day 186, and valid from that same day 186, records fct_0886: registered_in(jurisdiction=jurisdiction_14, asset=asset_14, customer=customer_00).",
+   "For the Northstar drill, as of day 187, the working premises include fct_1005 \u2014 that member_of(sector=sector_13, sector2=sector_13, asset=asset_16).",
+   "Day 187 marks the start of the planning exercise Northstar, with its picture of the world frozen at day 180; later changes are not incorporated.",
+   "A customer_disclosure from day 189 gives us fct_0682, in effect from day 189, reporting that offered_in(asset=asset_13, customer=customer_07)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk",
+   "view product_16",
+   "exercise Tallgrass",
+   "exercise Northstar"
+  ]
+ },
+ {
+  "n": 88,
+  "seed": 8,
+  "ep": "ep_148",
+  "day": 54,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims."
+  ],
+  "episode_lines": [
+   "From registry_B on day 54, observation fct_0834 (in force from day 54) records member_of(sector=sector_07, sector2=sector_07, asset=asset_00).",
+   "A customer_disclosure filed on day 54 records registered_in(jurisdiction=jurisdiction_10, asset=asset_15, customer=customer_14), captured as fct_0901 and in force from day 54.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "Day 55 brings an audit_note \u2014 fct_0066, effective from day 55 \u2014 confirming that offered_in(asset=asset_11, customer=customer_00)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint"
+  ]
+ },
+ {
+  "n": 89,
+  "seed": 8,
+  "ep": "ep_303",
+  "day": 249,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment.",
+   "As of day 116, statements from product_16 will be logged as its own claims.",
+   "Planning exercise Tallgrass begins on day 173, working from the live actual world and tracking developments as they occur.",
+   "Day 187 marks the start of the planning exercise Northstar, with its picture of the world frozen at day 180; later changes are not incorporated."
+  ],
+  "episode_lines": [
+   "Policy rul_033 (\"eligible_for_1 policy 3 (revised)\", authority level 5) was logged on day 247 and is effective from day 247: IF exempt_from(customer=?A, asset=asset_12) AND classified_as(jurisdiction=?B, partner=partner_24) AND partnered_with(jurisdiction=?B, sector=?C) THEN eligible_for_1(customer=?A, jurisdiction=?B, sector=?C), UNLESS partnered_with(jurisdiction=?B, sector=sector_05).",
+   "Notice sup_009, logged on day 247, states that policy rul_024 is superseded by policy rul_033 effective day 247; from that day, rul_024 no longer applies.",
+   "Under the Northstar drill, assumption fct_1002 on day 249 posits that operates_in(customer=customer_03, sector=sector_07, customer2=customer_05).",
+   "A partner_feed entry logged on day 251 \u2014 reference fct_0787, effective from day 251 \u2014 confirms that member_of(sector=sector_15, sector2=sector_14, asset=asset_10)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk",
+   "view product_16",
+   "exercise Tallgrass",
+   "exercise Northstar"
+  ]
+ },
+ {
+  "n": 90,
+  "seed": 8,
+  "ep": "ep_190",
+  "day": 77,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment."
+  ],
+  "episode_lines": [
+   "Day 76's field_report, bearing identifier fct_0844 and in force from day 76, establishes registered_in(jurisdiction=jurisdiction_14, asset=asset_15, customer=customer_06).",
+   "On day 76 product_23 declared, and the desk recorded as fct_1025, \"member_of(sector=sector_05, sector2=sector_01, asset=asset_09)\".",
+   "A field_report that took effect on day 77, labeled fct_0080 and first logged day 77, gives located_in(partner=partner_21, partner2=partner_05).",
+   "The field_report logged on day 77 and active from day 77 \u2014 reference fct_0175 \u2014 confirms located_in(partner=partner_21, partner2=partner_21)."
+  ],
+  "target_line": 4,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk"
+  ]
+ },
+ {
+  "n": 91,
+  "seed": 8,
+  "ep": "ep_269",
+  "day": 173,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment.",
+   "As of day 116, statements from product_16 will be logged as its own claims."
+  ],
+  "episode_lines": [
+   "A partner_feed entry logged on day 171 \u2014 reference fct_0900, effective from day 171 \u2014 confirms that operates_in(customer=customer_00, sector=sector_08, customer2=customer_01).",
+   "A customer_disclosure entry recorded on day 172 \u2014 reference fct_0740, effective from day 172 \u2014 notes that located_in(partner=partner_09, partner2=partner_18).",
+   "An audit_note entry from day 173 \u2014 reference fct_0794, effective from day 173 \u2014 states that member_of(sector=sector_07, sector2=sector_12, asset=asset_11).",
+   "In Aster and Flint, as of day 173, member_of(sector=sector_14, sector2=sector_10, asset=asset_00) \u2014 noted as fct_0934.",
+   "Planning exercise Tallgrass begins on day 173, working from the live actual world and tracking developments as they occur."
+  ],
+  "target_line": 5,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk",
+   "view product_16",
+   "exercise Tallgrass"
+  ]
+ },
+ {
+  "n": 92,
+  "seed": 8,
+  "ep": "ep_237",
+  "day": 116,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment."
+  ],
+  "episode_lines": [
+   "On day 116, partner_feed reports \u2014 reference fct_0839, valid from day 116 \u2014 that member_of(sector=sector_06, sector2=sector_06, asset=asset_13).",
+   "As of day 116, statements from product_16 will be logged as its own claims."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk",
+   "view product_16"
+  ]
+ },
+ {
+  "n": 93,
+  "seed": 8,
+  "ep": "ep_302",
+  "day": 242,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment.",
+   "As of day 116, statements from product_16 will be logged as its own claims.",
+   "Planning exercise Tallgrass begins on day 173, working from the live actual world and tracking developments as they occur.",
+   "Day 187 marks the start of the planning exercise Northstar, with its picture of the world frozen at day 180; later changes are not incorporated."
+  ],
+  "episode_lines": [
+   "Day 242's log includes fct_0938, drawing on Aster and Flint: offered_in(asset=asset_14, customer=customer_02).",
+   "A customer_disclosure filed on day 243 and valid from day 243, fct_0638, establishes that operates_in(customer=customer_04, sector=sector_10, customer2=customer_05).",
+   "Through a customer_disclosure recorded on day 245 and effective from day 245, fct_0683 confirms offered_in(asset=asset_13, customer=customer_11)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk",
+   "view product_16",
+   "exercise Tallgrass",
+   "exercise Northstar"
+  ]
+ },
+ {
+  "n": 94,
+  "seed": 8,
+  "ep": "ep_251",
+  "day": 137,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment.",
+   "As of day 116, statements from product_16 will be logged as its own claims."
+  ],
+  "episode_lines": [
+   "A customer_disclosure entry logged on day 137 \u2014 reference fct_0808, effective from day 137 \u2014 confirms that member_of(sector=sector_04, sector2=sector_04, asset=asset_05).",
+   "The forecast fct_1034 by product_16, borne out by observation fct_0032, is recorded as prm_05 and enters the actual record on day 137, effective from day 137.",
+   "A customer_disclosure entry logged on day 140 \u2014 reference fct_0184, effective from day 140 \u2014 confirms that operates_in(customer=customer_04, sector=sector_13, customer2=customer_04).",
+   "A registry_B entry logged on day 140 \u2014 reference fct_0503, effective from day 140 \u2014 confirms that supplies(customer=customer_13, asset=asset_05).",
+   "An audit_note entry logged on day 140 \u2014 reference fct_0515, effective from day 140 \u2014 confirms that operates_in(customer=customer_03, sector=sector_02, customer2=customer_03)."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk",
+   "view product_16"
+  ]
+ },
+ {
+  "n": 95,
+  "seed": 8,
+  "ep": "ep_081",
+  "day": 22,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view."
+  ],
+  "episode_lines": [
+   "On day 21, partner_feed records fct_0830 \u2014 valid from day 21 \u2014 showing member_of(sector=sector_06, sector2=sector_06, asset=asset_03).",
+   "product_14, on day 21, quipped: \"Of course, classified_as(jurisdiction=jurisdiction_11, partner=partner_22) \u2014 who wouldn\u2019t see that.\"",
+   "audit_note on day 22 logs fct_0057, effective from day 22, noting registered_in(jurisdiction=jurisdiction_00, asset=asset_13, customer=customer_11).",
+   "registry_B\u2019s entry fct_0118, logged on day 22 and valid from day 22, confirms supplies(customer=customer_11, asset=asset_00)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view product_23"
+  ]
+ },
+ {
+  "n": 96,
+  "seed": 8,
+  "ep": "ep_213",
+  "day": 92,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment."
+  ],
+  "episode_lines": [
+   "On day 92, partner_feed reports \u2014 reference fct_0498, valid from day 92 \u2014 that operates_in(customer=customer_12, sector=sector_03, customer2=customer_12).",
+   "A customer_disclosure entry on day 92 \u2014 fct_0528, effective from day 92 \u2014 notes supplies(customer=customer_06, asset=asset_03).",
+   "product_14, on day 92, projects that member_of(sector=sector_00, sector2=sector_00, asset=asset_08) will hold, recorded as fct_1032.",
+   "Policy rul_015 (\"flagged_for policy 1\", authority level 4) takes effect on day 92 and applies from day 92: IF registered_in(jurisdiction=?C, asset=?A, customer=?D) AND member_of(sector=?B, sector2=?B, asset=?A) AND offered_in(asset=?E, customer=?D) THEN flagged_for(asset=?A, sector=?B)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk"
+  ]
+ },
+ {
+  "n": 97,
+  "seed": 8,
+  "ep": "ep_298",
+  "day": 236,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment.",
+   "As of day 116, statements from product_16 will be logged as its own claims.",
+   "Planning exercise Tallgrass begins on day 173, working from the live actual world and tracking developments as they occur.",
+   "Day 187 marks the start of the planning exercise Northstar, with its picture of the world frozen at day 180; later changes are not incorporated."
+  ],
+  "episode_lines": [
+   "A field_report entry logged on day 235, valid from day 235, gives us fct_0748: located_in(partner=partner_11, partner2=partner_13).",
+   "Recorded on day 236 and effective from day 236, registry_B files fct_0639 \u2014 operates_in(customer=customer_00, sector=sector_15, customer2=customer_10).",
+   "On day 236, within the Northstar exercise, the premise that member_of(sector=sector_11, sector2=sector_08, asset=asset_12) is set aside, noted as fct_0996.",
+   "The Northstar drill\u2019s working premises for day 236 include fct_0997: we take it that member_of(sector=sector_11, sector2=sector_08, asset=asset_06)."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk",
+   "view product_16",
+   "exercise Tallgrass",
+   "exercise Northstar"
+  ]
+ },
+ {
+  "n": 98,
+  "seed": 8,
+  "ep": "ep_214",
+  "day": 92,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment."
+  ],
+  "episode_lines": [
+   "product_14, on day 92, recorded a sentiment dripping with insincerity: \u201cNaturally, registered_in(jurisdiction=jurisdiction_14, asset=asset_02, customer=customer_02) \u2014 as if there were any doubt.\u201d",
+   "According to a day-93 entry from registry_A, filed as fct_0221 and in effect from day 93, operates_in(customer=customer_01, sector=sector_07, customer2=customer_01).",
+   "registry_B\u2019s day-94 observation fct_0896, valid from day 94, notes that classified_as(jurisdiction=jurisdiction_07, partner=partner_13).",
+   "As of day 95, partner_feed logged fct_0549 \u2014 effective from day 95 \u2014 confirming classified_as(jurisdiction=jurisdiction_11, partner=partner_06)."
+  ],
+  "target_line": 1,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk"
+  ]
+ },
+ {
+  "n": 99,
+  "seed": 8,
+  "ep": "ep_271",
+  "day": 176,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment.",
+   "As of day 116, statements from product_16 will be logged as its own claims.",
+   "Planning exercise Tallgrass begins on day 173, working from the live actual world and tracking developments as they occur."
+  ],
+  "episode_lines": [
+   "In The Visiting Clerk, day 176 has it that operates_in(customer=customer_06, sector=sector_07, customer2=customer_13) \u2014 noted as fct_0952.",
+   "product_16 put it this way on day 176: \"member_of(sector=sector_12, sector2=sector_01, asset=asset_11)\" \u2014 recorded as fct_1027.",
+   "registry_A logged on day 177, effective from day 177, that registered_in(jurisdiction=jurisdiction_02, asset=asset_01, customer=customer_12) \u2014 reference fct_0622."
+  ],
+  "target_line": 2,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk",
+   "view product_16",
+   "exercise Tallgrass"
+  ]
+ },
+ {
+  "n": 100,
+  "seed": 8,
+  "ep": "ep_192",
+  "day": 78,
+  "decls": [
+   "From day 7 onward, claims attributed to product_23 will be logged under product_23's own view.",
+   "From day 31, statements from product_14 will be logged as its own claims.",
+   "On day 54 the desk places a new work of diversion, Aster and Flint, into circulation.",
+   "The desk takes up a light diversion on day 67: *The Visiting Clerk*, a freshly circulated work of make-believe intended solely for entertainment."
+  ],
+  "episode_lines": [
+   "As of day 77, a customer_disclosure tracked as fct_0645 and valid from day 77 confirms that operates_in(customer=customer_14, sector=sector_07, customer2=customer_03).",
+   "Recorded in registry_B under day 77, observation fct_0699\u2014in force as of day 77\u2014states that holds(asset=asset_00, partner=partner_03).",
+   "On day 78, registry_A supplies fct_0151, effective from day 78, noting that classified_as(jurisdiction=jurisdiction_12, partner=partner_06).",
+   "fct_0410, from registry_B on day 78 and valid from day 78, documents that registered_in(jurisdiction=jurisdiction_06, asset=asset_15, customer=customer_13).",
+   "registry_A logs, day 78, that classified_as(jurisdiction=jurisdiction_08, partner=partner_02)\u2014fct_0461, with effect from day 78."
+  ],
+  "target_line": 3,
+  "context_options": [
+   "actual",
+   "view product_23",
+   "view product_14",
+   "story Aster and Flint",
+   "story The Visiting Clerk"
+  ]
+ }
+]

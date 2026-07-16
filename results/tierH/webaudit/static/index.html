@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tier-H Audit</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <button id="prevBtn" title="Prev item (←)">←</button>
+    <div class="prog-wrap"><div class="prog-bar" id="progBar"></div></div>
+    <div class="count" id="count">0 / 0</div>
+    <button id="nextBtn" title="Next item (→)">→</button>
+    <button id="finishBtn" class="primary">Finish &amp; Score</button>
+  </div>
+  <main id="main"></main>
+  <div class="footer-nav">
+    <span class="status" id="status">loading…</span>
+    <span class="hint kb-hint">1–9 context · s/q/x/d/c type · 0 flag unsure · ⏎ skip · ⌫ back</span>
+    <span class="hint touch-hint">tap to answer · auto-advances</span>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

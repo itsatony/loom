@@ -1,0 +1,237 @@
+// Tier-H audit app. No build step, no framework. Keyboard-first.
+const TYPE_OPTIONS = [
+  {key: 's', label: 'statement'},
+  {key: 'q', label: 'quote'},
+  {key: 'x', label: 'sarcasm'},
+  {key: 'd', label: 'declaration'},
+  {key: 'c', label: 'confirmation'},
+];
+const ADVANCE_DELAY = 400;
+
+let items = [];
+let answers = new Map(); // n -> {context, type, flagged}
+let idx = 0;
+let advanceTimer = null;
+let otherOpen = false;
+
+const $ = (sel) => document.querySelector(sel);
+const main = $('#main');
+
+async function boot() {
+  const [itemsRes, progRes] = await Promise.all([
+    fetch('/api/items'), fetch('/api/progress'),
+  ]);
+  items = await itemsRes.json();
+  const prog = await progRes.json();
+  prog.forEach(a => answers.set(a.n, a));
+  idx = firstUnanswered();
+  render();
+  document.addEventListener('keydown', onKey);
+  $('#prevBtn').onclick = () => goto(idx - 1);
+  $('#nextBtn').onclick = () => goto(idx + 1);
+  $('#finishBtn').onclick = finish;
+}
+
+function firstUnanswered() {
+  for (let i = 0; i < items.length; i++) {
+    if (!isDone(items[i].n)) return i;
+  }
+  return 0;
+}
+
+function isDone(n) {
+  const a = answers.get(n);
+  return !!a && (a.flagged || (a.context && a.type));
+}
+
+function goto(i) {
+  cancelAdvance();
+  otherOpen = false;
+  idx = Math.max(0, Math.min(items.length - 1, i));
+  render();
+}
+
+function cancelAdvance() {
+  if (advanceTimer) { clearTimeout(advanceTimer); advanceTimer = null; }
+}
+
+async function saveCurrent() {
+  const it = items[idx];
+  const a = answers.get(it.n) || {n: it.n, context: '', type: '', flagged: false};
+  answers.set(it.n, a);
+  setStatus('saving…');
+  try {
+    await fetch('/api/answer', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(a),
+    });
+    setStatus('saved');
+  } catch (e) {
+    setStatus('save failed — check server');
+  }
+}
+
+function setAnswer(patch) {
+  const it = items[idx];
+  const cur = answers.get(it.n) || {n: it.n, context: '', type: '', flagged: false};
+  const next = {...cur, ...patch};
+  answers.set(it.n, next);
+  render(); // re-render to reflect selection immediately
+  saveCurrent();
+  cancelAdvance();
+  if (next.flagged || (next.context && next.type)) {
+    advanceTimer = setTimeout(() => {
+      advanceTimer = null;
+      if (idx < items.length - 1) goto(idx + 1);
+    }, ADVANCE_DELAY);
+  }
+}
+
+function setStatus(s) {
+  const el = $('#status');
+  if (el) el.textContent = s;
+}
+
+function render() {
+  const it = items[idx];
+  const a = answers.get(it.n) || {context: '', type: '', flagged: false};
+  const doneCount = items.filter(x => isDone(x.n)).length;
+  $('#count').textContent = `${idx + 1} / ${items.length}  (${doneCount} done)`;
+  $('#progBar').style.width = `${(doneCount / items.length) * 100}%`;
+  setStatus(isDone(it.n) ? 'saved' : 'unanswered');
+
+  const decls = it.decls.length
+    ? `<details class="decls"><summary>Announcements seen earlier in the log (${it.decls.length})</summary>
+        ${it.decls.map(d => `<blockquote>${esc(d)}</blockquote>`).join('')}
+       </details>` : '';
+
+  const lines = it.episode_lines.map((t, i) => {
+    const n = i + 1;
+    const cls = n === it.target_line ? 'line target' : 'line';
+    return `<div class="${cls}"><span class="num">${n}.</span>${esc(t)}</div>`;
+  }).join('');
+
+  const ctxBtns = it.context_options.map((opt, i) => {
+    const keyLabel = i < 9 ? String(i + 1) : '';
+    const sel = a.context === opt ? 'selected' : '';
+    return `<button class="opt ${sel}" data-ctx="${escAttr(opt)}">
+      ${keyLabel ? `<span class="key">${keyLabel}</span>` : ''}${esc(opt)}</button>`;
+  }).join('');
+  const otherIdx = it.context_options.length + 1;
+  const otherSel = a.context && !it.context_options.includes(a.context) ? 'selected' : '';
+  const otherBtn = `<button class="opt other ${otherSel}" id="otherBtn">
+      ${otherIdx <= 9 ? `<span class="key">${otherIdx}</span>` : ''}other…</button>`;
+
+  const typeBtns = TYPE_OPTIONS.map(t => {
+    const sel = a.type === t.label ? 'selected' : '';
+    return `<button class="opt ${sel}" data-type="${t.label}">
+      <span class="key">${t.key}</span>${t.label}</button>`;
+  }).join('');
+
+  const flagSel = a.flagged ? 'selected' : '';
+
+  main.innerHTML = `
+    <div class="item-head">
+      <span>seed ${it.seed} · ${it.ep} · day ${it.day}</span>
+      <span>item ${it.n}</span>
+    </div>
+    ${decls}
+    <div class="episode">${lines}</div>
+
+    <div class="group-label">context</div>
+    <div class="btn-row">${ctxBtns}${otherBtn}</div>
+    <div class="other-input ${otherOpen ? 'show' : ''}" id="otherWrap">
+      <input id="otherInput" placeholder="type context, e.g. view partner_04" value="${a.context && !it.context_options.includes(a.context) ? escAttr(a.context) : ''}">
+    </div>
+
+    <div class="group-label">type</div>
+    <div class="btn-row">${typeBtns}</div>
+
+    <div class="group-label">&nbsp;</div>
+    <div class="btn-row">
+      <button class="opt flag ${flagSel}" id="flagBtn"><span class="key">0</span>flag / unsure</button>
+    </div>
+  `;
+
+  main.querySelectorAll('[data-ctx]').forEach(b => {
+    b.onclick = () => { otherOpen = false; setAnswer({context: b.dataset.ctx, flagged: false}); };
+  });
+  main.querySelectorAll('[data-type]').forEach(b => {
+    b.onclick = () => setAnswer({type: b.dataset.type, flagged: false});
+  });
+  $('#flagBtn').onclick = () => setAnswer({flagged: true, context: '', type: ''});
+  $('#otherBtn').onclick = () => { otherOpen = true; render(); $('#otherInput') && $('#otherInput').focus(); };
+  const otherInput = $('#otherInput');
+  if (otherInput) {
+    otherInput.onkeydown = (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        otherOpen = false;
+        setAnswer({context: otherInput.value.trim(), flagged: false});
+      } else if (e.key === 'Escape') {
+        otherOpen = false; render();
+      }
+      e.stopPropagation();
+    };
+  }
+}
+
+function onKey(e) {
+  if (document.activeElement && document.activeElement.id === 'otherInput') return;
+  if (e.key >= '1' && e.key <= '9') {
+    const i = parseInt(e.key, 10) - 1;
+    const it = items[idx];
+    if (i < it.context_options.length) {
+      otherOpen = false;
+      setAnswer({context: it.context_options[i], flagged: false});
+    } else if (i === it.context_options.length) {
+      otherOpen = true; render(); const el = $('#otherInput'); if (el) el.focus();
+    }
+    return;
+  }
+  if (e.key === '0') { setAnswer({flagged: true, context: '', type: ''}); return; }
+  const t = TYPE_OPTIONS.find(t => t.key === e.key.toLowerCase());
+  if (t) { setAnswer({type: t.label, flagged: false}); return; }
+  if (e.key === 'ArrowRight') { goto(idx + 1); return; }
+  if (e.key === 'ArrowLeft' || e.key === 'Backspace') { e.preventDefault(); goto(idx - 1); return; }
+  if (e.key === 'Enter') { goto(idx + 1); return; }
+}
+
+async function finish() {
+  if (!confirm('This reveals the ground-truth key and scores your current answers. Continue?')) return;
+  cancelAdvance();
+  const r = await fetch('/api/finish', {method: 'POST'});
+  const j = await r.json();
+  if (!j.ok) { alert(j.error || 'scoring failed'); return; }
+  renderScore(j.score);
+}
+
+function renderScore(s) {
+  const misses = s.rows.filter(r => !r.exact);
+  main.innerHTML = `
+    <div class="score-panel">
+      <h2>Score</h2>
+      <div class="stat-row">
+        <div><div class="big-stat">${(s.exact_rate * 100).toFixed(1)}%</div><div class="muted">exact (context+type)</div></div>
+        <div><div class="big-stat">${(s.context_accuracy * 100).toFixed(1)}%</div><div class="muted">context only</div></div>
+        <div><div class="big-stat">${(s.type_accuracy * 100).toFixed(1)}%</div><div class="muted">type only</div></div>
+      </div>
+      <p class="muted">${s.answered}/${s.total} answered · ${s.flagged} flagged as unsure · ${misses.length} misses below</p>
+      <table>
+        <tr><th>item</th><th>seed/ep</th><th>expected</th><th>given</th></tr>
+        ${misses.map(r => `<tr class="miss">
+          <td>${r.item}</td><td>${r.seed}/${r.ep} L${r.line}</td>
+          <td>${esc(r.expected_context)} / ${esc(r.expected_type)}</td>
+          <td>${r.flagged ? '(flagged)' : esc(r.given_context) + ' / ' + esc(r.given_type)}</td>
+        </tr>`).join('')}
+      </table>
+    </div>
+    <p><button class="opt" id="backBtn">back to items</button></p>
+  `;
+  $('#backBtn').onclick = () => render();
+}
+
+function esc(s) { return (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function escAttr(s) { return esc(s).replace(/'/g, '&#39;'); }
+
+boot();
