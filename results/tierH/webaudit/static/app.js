@@ -1,10 +1,10 @@
 // Tier-H audit app. No build step, no framework. Keyboard-first.
 const TYPE_OPTIONS = [
-  {key: 's', label: 'statement'},
-  {key: 'q', label: 'quote'},
-  {key: 'x', label: 'sarcasm'},
-  {key: 'd', label: 'declaration'},
-  {key: 'c', label: 'confirmation'},
+  {key: 's', label: 'statement', caption: 'plain fact / policy'},
+  {key: 'q', label: 'quote', caption: '"…" attributed speech'},
+  {key: 'x', label: 'sarcasm', caption: 'ironic — not really asserted'},
+  {key: 'd', label: 'declaration', caption: 'announces a story/view/exercise'},
+  {key: 'c', label: 'confirmation', caption: 'verifies an earlier claim'},
 ];
 const ADVANCE_DELAY = 400;
 
@@ -30,6 +30,16 @@ async function boot() {
   $('#prevBtn').onclick = () => goto(idx - 1);
   $('#nextBtn').onclick = () => goto(idx + 1);
   $('#finishBtn').onclick = finish;
+  $('#helpBtn').onclick = openHelp;
+  $('#helpCloseBtn').onclick = closeHelp;
+  $('#helpOverlay').onclick = (e) => { if (e.target.id === 'helpOverlay') closeHelp(); };
+  if (!localStorage.getItem('tierh_help_seen')) openHelp();
+}
+
+function openHelp() { $('#helpOverlay').classList.add('show'); }
+function closeHelp() {
+  $('#helpOverlay').classList.remove('show');
+  localStorage.setItem('tierh_help_seen', '1');
 }
 
 function firstUnanswered() {
@@ -107,8 +117,10 @@ function render() {
 
   const lines = it.episode_lines.map((t, i) => {
     const n = i + 1;
-    const cls = n === it.target_line ? 'line target' : 'line';
-    return `<div class="${cls}"><span class="num">${n}.</span>${esc(t)}</div>`;
+    const isTarget = n === it.target_line;
+    const cls = isTarget ? 'line target' : 'line';
+    const marker = isTarget ? '▶ ' : '';
+    return `<div class="${cls}"><span class="num">${n}.</span>${marker}${esc(t)}</div>`;
   }).join('');
 
   const ctxBtns = it.context_options.map((opt, i) => {
@@ -125,7 +137,9 @@ function render() {
   const typeBtns = TYPE_OPTIONS.map(t => {
     const sel = a.type === t.label ? 'selected' : '';
     return `<button class="opt ${sel}" data-type="${t.label}">
-      <span class="key">${t.key}</span>${t.label}</button>`;
+      <span class="key">${t.key}</span>
+      <span>${t.label}<span class="type-caption">${t.caption}</span></span>
+      </button>`;
   }).join('');
 
   const flagSel = a.flagged ? 'selected' : '';
@@ -136,15 +150,17 @@ function render() {
       <span>item ${it.n}</span>
     </div>
     ${decls}
+    <p class="hint-line">Decide about the highlighted line below (↓).</p>
     <div class="episode">${lines}</div>
 
-    <div class="group-label">context</div>
+    <div class="group-label">context — whose reality is this line in?</div>
+    <p class="hint-line">actual = the log's own claim · story/view/exercise = attributed elsewhere (named below, from what's been introduced so far)</p>
     <div class="btn-row">${ctxBtns}${otherBtn}</div>
     <div class="other-input ${otherOpen ? 'show' : ''}" id="otherWrap">
       <input id="otherInput" placeholder="type context, e.g. view partner_04" value="${a.context && !it.context_options.includes(a.context) ? escAttr(a.context) : ''}">
     </div>
 
-    <div class="group-label">type</div>
+    <div class="group-label">type — what kind of line is it?</div>
     <div class="btn-row">${typeBtns}</div>
 
     <div class="group-label">&nbsp;</div>

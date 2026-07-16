@@ -87,3 +87,19 @@ details.decls blockquote { color: var(--muted); font-size: 13px; margin: 6px 0; 
 .score-panel .hit { color: var(--good); }
 .big-stat { font-size: 28px; font-weight: 600; }
 .stat-row { display: flex; gap: 28px; margin: 10px 0; }
+
+.help-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  display: none; align-items: flex-start; justify-content: center; overflow-y: auto;
+  padding: 24px 16px; z-index: 20; }
+.help-overlay.show { display: flex; }
+.help-card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+  padding: 24px 24px 28px; max-width: 560px; width: 100%; }
+.help-card h2 { margin-top: 0; }
+.help-card ul { padding-left: 20px; margin: 8px 0; }
+.help-card li { margin-bottom: 6px; }
+.help-card code { background: var(--panel2); padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+.help-card button { width: 100%; margin-top: 12px; padding: 12px; font-size: 16px; border-radius: 8px;
+  border: none; background: var(--accent); color: white; cursor: pointer; min-height: 46px; }
+
+.hint-line { color: var(--muted); font-size: 13px; margin: 0 0 8px; }
+.type-caption { display: block; font-size: 11px; color: var(--muted); font-weight: normal; }

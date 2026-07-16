@@ -8,6 +8,7 @@
 </head>
 <body>
   <div class="topbar">
+    <button id="helpBtn" title="How this works">?</button>
     <button id="prevBtn" title="Prev item (←)">←</button>
     <div class="prog-wrap"><div class="prog-bar" id="progBar"></div></div>
     <div class="count" id="count">0 / 0</div>
@@ -15,6 +16,50 @@
     <button id="finishBtn" class="primary">Finish &amp; Score</button>
   </div>
   <main id="main"></main>
+
+  <div id="helpOverlay" class="help-overlay">
+    <div class="help-card">
+      <h2>How this works</h2>
+      <p><b>The world.</b> You're reading a business log — observations,
+      policies, notices. Most lines are plain fact ("actual"). Some are
+      not:</p>
+      <ul>
+        <li><b>story</b> — events inside a work of fiction being read at
+        the desk, named by its title (e.g. "The Paper Meridian"). Not
+        true in the real world — just what happens in that story.</li>
+        <li><b>view</b> — a claim attributed to a named party (their
+        statement or quote). The log records that they said/hold it,
+        not that it's true.</li>
+        <li><b>exercise</b> — inside a named planning drill (bare
+        codename, e.g. "Blueline"): assumptions and edits that apply
+        <i>only inside that drill</i>.</li>
+      </ul>
+      <p>A line often <b>announces</b> one of these before any content
+      shows up ("a new story arrives…", "the drill goes live…") — that
+      announcement line's own <code>context</code> is the thing it's
+      announcing, and its <code>type</code> is <code>declaration</code>.</p>
+      <p><b>For the highlighted line, pick two things:</b></p>
+      <p><code>context</code> — whose reality is this line's content
+      in? Pick <code>actual</code>, or one of the named
+      story/view/exercise options built from what's been introduced so
+      far in this log (shown in the collapsible box above the episode).</p>
+      <p><code>type</code> — what kind of line is it?</p>
+      <ul>
+        <li><b>statement</b> — a plain assertion (fact, policy, notice)</li>
+        <li><b>quote</b> — direct quoted speech ("…") attributed to someone</li>
+        <li><b>sarcasm</b> — ironic/mocking; nobody actually asserts the
+        literal content (outranks quote — a mocking quote is sarcasm)</li>
+        <li><b>declaration</b> — the line is announcing/introducing a
+        story, a party's viewpoint, or an exercise, rather than reporting content</li>
+        <li><b>confirmation</b> — the line confirms an earlier claim
+        turned out true in reality</li>
+      </ul>
+      <p class="muted">Unsure? Hit the amber <b>flag / unsure</b> button
+      — an honest "don't know" beats a forced guess and doesn't corrupt
+      the data. First confident read is fine; don't overthink it.</p>
+      <button id="helpCloseBtn" class="primary">Got it — start</button>
+    </div>
+  </div>
   <div class="footer-nav">
     <span class="status" id="status">loading…</span>
     <span class="hint kb-hint">1–9 context · s/q/x/d/c type · 0 flag unsure · ⏎ skip · ⌫ back</span>
