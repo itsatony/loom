@@ -232,22 +232,23 @@ def main():
         sys.exit(f"missing {ITEMS_PATH} — run build_audit.py first")
     server = ThreadingServer((HOST, PORT), Handler)
     local_url = f"http://127.0.0.1:{PORT}/login"
-    print("=" * 60)
-    print(f"  Tier-H audit server")
-    print(f"  On this machine: {local_url}")
+    print("=" * 60, flush=True)
+    print("  Tier-H audit server", flush=True)
+    print(f"  On this machine: {local_url}", flush=True)
     if HOST != "127.0.0.1":
         for ip in lan_ips():
-            print(f"  From your phone (same WiFi): http://{ip}:{PORT}/login")
-        print("  NOTE: plain HTTP on your LAN — fine at home/office, do not")
-        print("  use this over a public/untrusted WiFi network.")
+            print(f"  From your phone (same WiFi): http://{ip}:{PORT}/login", flush=True)
+        print("  NOTE: plain HTTP on your LAN — fine at home/office, do not", flush=True)
+        print("  use this over a public/untrusted WiFi network.", flush=True)
     else:
-        print("  (bound to 127.0.0.1 only — not reachable from a phone)")
-    print(f"  Password: {PASSWORD}")
-    print("=" * 60)
-    try:
-        webbrowser.open(local_url)
-    except Exception:
-        pass
+        print("  (bound to 127.0.0.1 only — not reachable from a phone)", flush=True)
+    print(f"  Password: {PASSWORD}", flush=True)
+    print("=" * 60, flush=True)
+    if os.environ.get("AUDIT_NO_BROWSER") != "1":
+        try:
+            webbrowser.open(local_url)
+        except Exception:
+            pass
     try:
         server.serve_forever()
     except KeyboardInterrupt:
