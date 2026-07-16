@@ -20,43 +20,68 @@
   <div id="helpOverlay" class="help-overlay">
     <div class="help-card">
       <h2>How this works</h2>
-      <p><b>The world.</b> You're reading a business log — observations,
-      policies, notices. Most lines are plain fact ("actual"). Some are
-      not:</p>
+      <p>You're auditing a business log. For the highlighted line, decide
+      its <b>context</b> (whose reality is this content in) and its
+      <b>type</b> (what kind of line is it). This is the exact rule set
+      the machine judges use — not a simplification.</p>
+
+      <p class="group-label" style="margin-top:16px">context</p>
       <ul>
-        <li><b>story</b> — events inside a work of fiction being read at
-        the desk, named by its title (e.g. "The Paper Meridian"). Not
-        true in the real world — just what happens in that story.</li>
-        <li><b>view</b> — a claim attributed to a named party (their
-        statement or quote). The log records that they said/hold it,
-        not that it's true.</li>
-        <li><b>exercise</b> — inside a named planning drill (bare
-        codename, e.g. "Blueline"): assumptions and edits that apply
-        <i>only inside that drill</i>.</li>
+        <li><b>actual</b> — the desk's own record: observations it made,
+        policies and notices in force.</li>
+        <li><b>story "TITLE"</b> — content from a named work of fiction
+        circulating at the desk (storytelling, not observation).</li>
+        <li><b>view PARTY</b> — content attributed to a named party:
+        their claim, statement, filing, or projection — logged, but not
+        independently established by the desk.</li>
+        <li><b>exercise "NAME"</b> — content valid only inside a named
+        planning exercise (assumptions, exercise-scoped policies/notices).</li>
       </ul>
-      <p>A line often <b>announces</b> one of these before any content
-      shows up ("a new story arrives…", "the drill goes live…") — that
-      announcement line's own <code>context</code> is the thing it's
-      announcing, and its <code>type</code> is <code>declaration</code>.</p>
-      <p><b>For the highlighted line, pick two things:</b></p>
-      <p><code>context</code> — whose reality is this line's content
-      in? Pick <code>actual</code>, or one of the named
-      story/view/exercise options built from what's been introduced so
-      far in this log (shown in the collapsible box above the episode).</p>
-      <p><code>type</code> — what kind of line is it?</p>
+
+      <p class="group-label" style="margin-top:16px">type</p>
       <ul>
-        <li><b>statement</b> — a plain assertion (fact, policy, notice)</li>
-        <li><b>quote</b> — direct quoted speech ("…") attributed to someone</li>
-        <li><b>sarcasm</b> — ironic/mocking; nobody actually asserts the
-        literal content (outranks quote — a mocking quote is sarcasm)</li>
-        <li><b>declaration</b> — the line is announcing/introducing a
-        story, a party's viewpoint, or an exercise, rather than reporting content</li>
-        <li><b>confirmation</b> — the line confirms an earlier claim
-        turned out true in reality</li>
+        <li><b>statement</b> — ordinary assertive content: observations,
+        policies, notices, attributed statements, projections.</li>
+        <li><b>quote</b> — the line reports a party's own words as direct
+        quoted speech ("…").</li>
+        <li><b>sarcasm</b> — records an ironic remark; the speaker doesn't
+        mean the literal content. Always <code>actual | sarcasm</code>,
+        even when it mocks someone else's claim.</li>
+        <li><b>declaration</b> — the line INTRODUCES something rather
+        than asserting content: a story starts circulating, an exercise
+        opens, a party's claims begin being tracked.</li>
+        <li><b>confirmation</b> — records that an earlier projection was
+        borne out by observation and now enters the desk's own record.
+        Always <code>actual | confirmation</code>.</li>
       </ul>
+
+      <p class="callout"><b>⚠ The two rules people miss:</b></p>
+      <ol class="callout-list">
+        <li><b>A declaration's context is the thing being declared —
+        never <code>actual</code></b>, even when it reads exactly like an
+        internal policy notice. Example: <i>"As of day 60, the desk opens
+        a separate log for claims attributed to partner_09; going
+        forward, statements from that partner will be filed as its own
+        claims."</i> → <code>view partner_09 | declaration</code>. It
+        LOOKS like the desk describing its own procedure, but it's
+        opening partner_09's view, so the context is partner_09's view,
+        not actual.</li>
+        <li><b>A confirmation is always <code>actual</code></b>, even
+        though it's about someone else's earlier projection. Example:
+        <i>"On day 200, product_04's earlier projection fct_0555 is borne
+        out by observation and now stands entered in the desk's
+        record."</i> → <code>actual | confirmation</code>. The desk is
+        now vouching for it itself — that's the whole point of a
+        confirmation line.</li>
+      </ol>
+      <p class="hint-line">Also: routine feed sources (registry_A,
+      field_report, customer_disclosure, audit_note, partner_feed) are
+      NOT parties with a view — lines sourced from them are
+      <code>actual</code>.</p>
+
       <p class="muted">Unsure? Hit the amber <b>flag / unsure</b> button
       — an honest "don't know" beats a forced guess and doesn't corrupt
-      the data. First confident read is fine; don't overthink it.</p>
+      the data.</p>
       <button id="helpCloseBtn" class="primary">Got it — start</button>
     </div>
   </div>

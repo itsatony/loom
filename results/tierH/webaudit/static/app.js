@@ -143,12 +143,27 @@ function render() {
   }).join('');
 
   const flagSel = a.flagged ? 'selected' : '';
+  const cheatOpen = localStorage.getItem('tierh_cheat_collapsed') !== '1';
 
   main.innerHTML = `
     <div class="item-head">
       <span>seed ${it.seed} · ${it.ep} · day ${it.day}</span>
       <span>item ${it.n}</span>
     </div>
+    <details class="cheatsheet" id="cheatsheet" ${cheatOpen ? 'open' : ''}>
+      <summary>Rules to remember</summary>
+      <ul>
+        <li>A <b>declaration</b>'s context is the thing being declared
+        (story/view/exercise), <b>never actual</b> — even if it reads
+        like a desk policy.</li>
+        <li>A <b>confirmation</b> is <b>always actual</b>, even about a
+        party's earlier projection — the desk is now vouching for it.</li>
+        <li><b>sarcasm</b> is always <code>actual | sarcasm</code>.</li>
+        <li>Routine feed sources (registry_A, field_report,
+        customer_disclosure, audit_note, partner_feed) are
+        <b>actual</b>, not a view.</li>
+      </ul>
+    </details>
     ${decls}
     <p class="hint-line">Decide about the highlighted line below (↓).</p>
     <div class="episode">${lines}</div>
@@ -176,6 +191,9 @@ function render() {
     b.onclick = () => setAnswer({type: b.dataset.type, flagged: false});
   });
   $('#flagBtn').onclick = () => setAnswer({flagged: true, context: '', type: ''});
+  $('#cheatsheet').ontoggle = (e) => {
+    localStorage.setItem('tierh_cheat_collapsed', e.target.open ? '0' : '1');
+  };
   $('#otherBtn').onclick = () => { otherOpen = true; render(); $('#otherInput') && $('#otherInput').focus(); };
   const otherInput = $('#otherInput');
   if (otherInput) {
