@@ -108,6 +108,12 @@ type FrameReport struct {
 	CueSub         map[string]*SliceScore `json:"cue_sub,omitempty"`
 	Isolation      SliceScore             `json:"isolation"`
 	IsolationChain SliceScore             `json:"isolation_chain"`
+	// Per-subpopulation decompositions (subpop → score): committed reports
+	// must carry enough granularity that ANY registered reading of the
+	// F-E2 trap partition is computable post-hoc without re-running.
+	IsolationSub   map[string]*SliceScore `json:"isolation_sub,omitempty"`
+	PinningSub     map[string]*SliceScore `json:"pinning_sub,omitempty"`
+	PromotionSub   map[string]*SliceScore `json:"promotion_sub,omitempty"`
 	Pinning        SliceScore             `json:"pinning"`
 	Promotion      SliceScore             `json:"promotion"`
 	Misattribution FindScore              `json:"misattribution"` // exact frame-set + micro over frame labels
@@ -296,10 +302,15 @@ func RunWorkers(cond Condition, episodes []gen.Episode, queries []gen.Query, wor
 				if q.Subpop == "chain" || q.Subpop == "chain-control" {
 					tally(&fr.IsolationChain, want, correct)
 				}
+				tallySub(&fr.IsolationSub, q.Subpop, want, correct)
 			case "pinning":
-				tally(&rep.frames().Pinning, want, correct)
+				fr := rep.frames()
+				tally(&fr.Pinning, want, correct)
+				tallySub(&fr.PinningSub, q.Subpop, want, correct)
 			case "promotion":
-				tally(&rep.frames().Promotion, want, correct)
+				fr := rep.frames()
+				tally(&fr.Promotion, want, correct)
+				tallySub(&fr.PromotionSub, q.Subpop, want, correct)
 			default:
 				// a query scored nowhere is a silent hole in the campaign;
 				// count it loudly instead of vanishing it (D7-adjacent).
@@ -341,6 +352,21 @@ func encodePairs(pairs []gen.FramedValue) []string {
 		out = append(out, p.Frame+"|"+p.Value)
 	}
 	return out
+}
+
+func tallySub(m *map[string]*SliceScore, subpop string, want, correct bool) {
+	if subpop == "" {
+		return
+	}
+	if *m == nil {
+		*m = map[string]*SliceScore{}
+	}
+	ss, ok := (*m)[subpop]
+	if !ok {
+		ss = &SliceScore{}
+		(*m)[subpop] = ss
+	}
+	tally(ss, want, correct)
 }
 
 func tally(s *SliceScore, want, correct bool) {
