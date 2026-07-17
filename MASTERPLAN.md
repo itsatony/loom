@@ -1006,3 +1006,34 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   refused) preserved in postbatch-verify-run1-marker-leak.log. Next:
   tier-H on the first 5 locked seeds (no judge filter; ~100-event human
   audit by Toni), then C2b frames extraction (F-E1..F-E4).
+- 2026-07-17 (Frames build step 8 — TIER-H HUMAN AUDIT DONE) — Toni
+  completed the full 100-item blind human-recovery audit (frames v1,
+  §9.6.6) via the local webaudit tool, first 5 locked seeds, no judge
+  filter. Confirmed clean: every answer timestamp (2026-07-16 21:47 →
+  2026-07-17 09:09) postdates both tool-comprehension fixes (commits
+  e9864cb1, 3e90eb5a) — this is a measurement of genuine human
+  performance against the corrected instructions, not an artifact of
+  broken onboarding. Result (self-reported: "mostly guessed" after one
+  read of the rules — this is the honest naive-analyst ceiling the
+  tier is designed to produce, not a trained-annotator ceiling):
+  **exact (context+type) 52/100; context-only 78%; type-only 62%;
+  0 items flagged as unsure.** Per-seed exact: seed1 12/20, seed2 8/20,
+  seed3 11/20, seed7 11/20, seed8 10/20 — uniform, no single seed
+  driving the result. Dominant confusions: statement→declaration (19,
+  the "declaration is never actual" rule under-applied in the
+  opposite direction — treating an ordinary statement as if it must be
+  announcing something), sarcasm→quote (10, the sarcasm-outranks-quote
+  tie-break not internalized), declaration→statement (6, the
+  complementary miss). Per §9.6.6 this number is reported
+  machine-vs-human and sits OUTSIDE all kill arithmetic — it does not
+  gate F-E1/F-E2. Interpretive note for any writeup: the ~97%
+  judge-panel recoverability certified for tier M (§9.6.6/§10
+  2026-07-12) is panel-of-3-with-retries on TEXT ALONE by models
+  reading many examples in context; this 52% is one human's single
+  blind pass reading the stated rules once. The gap is expected and is
+  itself evidence that frame-tracking pragmatics, while learnable, are
+  not "obvious" — reinforcing rather than undermining the case for a
+  compiled substrate that gets it right deterministically. Artifacts:
+  results/tierH/human-audit-score.json (full per-item breakdown)
+  committed. Next: C2b frames extraction (F-E1..F-E4) on the certified
+  tier-M corpus — no further gates block it.
