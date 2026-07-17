@@ -127,8 +127,13 @@ func NewLLMExtractor(llm Completer, vocab Vocabulary) *LLMExtractor {
 
 // vocabLines renders the seeded vocabulary for the prompt, sorted for
 // deterministic prompts (and therefore cache keys).
-func (e *LLMExtractor) vocabLines() string {
-	rels := append([]RelationVocab(nil), e.vocabRef.Relations...)
+func (e *LLMExtractor) vocabLines() string { return vocabPromptLines(e.vocabRef) }
+
+// vocabPromptLines is the shared prompt rendering of the seeded vocabulary
+// (v0 and frames extractors must produce identical vocabulary blocks so
+// cassettes stay comparable across extractor variants).
+func vocabPromptLines(v Vocabulary) string {
+	rels := append([]RelationVocab(nil), v.Relations...)
 	sort.Slice(rels, func(i, j int) bool { return rels[i].Name < rels[j].Name })
 	var b strings.Builder
 	for _, r := range rels {

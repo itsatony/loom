@@ -55,6 +55,20 @@ const (
 	CandFact         CandidateKind = "fact"
 	CandRule         CandidateKind = "rule"
 	CandSupersession CandidateKind = "supersession"
+	// Frames-v1 candidate kinds (MASTERPLAN §9.6.4): frame declarations and
+	// promotion notices extracted from text.
+	CandFrame     CandidateKind = "frame"
+	CandPromotion CandidateKind = "promotion"
+)
+
+// Assertion types an extractor may attach to a fact candidate. Empty means
+// plain assertion. Quotes are assertions homed in the speaker's perspective
+// frame (the extractor sets Frame accordingly); non-assertive content
+// (sarcasm/irony) is asserted in NO frame and is deliberately skipped at
+// commit — the literalist failure mode is believing it anywhere.
+const (
+	AssertionQuote        = "quote"
+	AssertionNonAssertive = "non-assertive"
 )
 
 // PatternCand is a pre-normalization pattern atom: relation by surface NAME,
@@ -71,6 +85,10 @@ type FactCand struct {
 	From     int               `json:"valid_from"`
 	To       int               `json:"valid_to"` // 0 = open
 	Source   string            `json:"source"`
+	// Frames-v1 fields (zero values = v0 behavior: an asserted actual fact).
+	Frame     string `json:"frame,omitempty"`     // surface frame name; ""/"actual" = actual
+	Block     bool   `json:"block,omitempty"`     // frame-scoped removal of an inherited atom
+	Assertion string `json:"assertion,omitempty"` // "", "quote", "non-assertive"
 }
 
 type RuleCand struct {
@@ -83,6 +101,7 @@ type RuleCand struct {
 	Conditions    []PatternCand `json:"conditions"`
 	Conclusion    PatternCand   `json:"conclusion"`
 	Exceptions    []PatternCand `json:"exceptions,omitempty"`
+	Frame         string        `json:"frame,omitempty"` // surface frame name; ""/"actual" = actual
 }
 
 type SupCand struct {
@@ -90,6 +109,29 @@ type SupCand struct {
 	OldRule  string `json:"old_rule"`
 	NewRule  string `json:"new_rule"`
 	From     int    `json:"from"`
+	Frame    string `json:"frame,omitempty"` // surface frame name; ""/"actual" = actual
+}
+
+// FrameCand is an extracted frame declaration. Name is the frame's surface
+// name exactly as the text gives it (a raw ID on tier E, a handle on tier M);
+// the pipeline normalizes it to the canonical frame ID via FrameNames.
+type FrameCand struct {
+	Name       string `json:"name"`
+	Kind       string `json:"kind"`              // fiction | scenario | perspective
+	Basis      string `json:"basis,omitempty"`   // scenario only: live | pinned
+	PinDay     int    `json:"pin_day,omitempty"` // meaningful iff pinned
+	CreatedDay int    `json:"created_day"`
+	Entity     string `json:"entity,omitempty"` // perspective only: the narrator entity
+}
+
+// PromoCand is an extracted promotion notice (audit trail only in v1: the
+// confirming actual observation arrives as its own fact, so promotions have
+// no closure impact — exactly like structured ingest).
+type PromoCand struct {
+	PredictionFactID string `json:"prediction_fact_id"`
+	ActualFactID     string `json:"actual_fact_id"`
+	FromFrame        string `json:"from_frame"` // surface frame name
+	Day              int    `json:"day"`
 }
 
 // Candidate is one extracted item plus its audit trail: confidence and the
@@ -99,6 +141,8 @@ type Candidate struct {
 	Fact       *FactCand     `json:"fact,omitempty"`
 	Rule       *RuleCand     `json:"rule,omitempty"`
 	Sup        *SupCand      `json:"supersession,omitempty"`
+	Frame      *FrameCand    `json:"frame_decl,omitempty"`
+	Promo      *PromoCand    `json:"promotion,omitempty"`
 	Confidence float64       `json:"confidence"`
 	SourceSpan string        `json:"source_span"`
 }
@@ -122,6 +166,10 @@ const (
 	VDropped      ItemVerdict = "dropped"       // unrecoverable candidate (normalization failure w/o quarantinable payload)
 	VRefinement   ItemVerdict = "refinement"    // narrower validity than an existing item, committed alongside
 	VOverFireFlag ItemVerdict = "overfire-flag" // post-compile firing ratio above threshold (flag, see Pipeline.QuarantineOverFiring)
+	// VNonAssertive: the extractor labeled the content non-assertive
+	// (sarcasm/irony); it is asserted in NO frame, so skipping the commit IS
+	// the correct compilation, not a loss (mirrors IngestReport.NonAssertive).
+	VNonAssertive ItemVerdict = "non-assertive-skip"
 )
 
 type ItemTrace struct {
@@ -145,6 +193,10 @@ type CompileReport struct {
 	Facts         int            `json:"facts"`
 	Rules         int            `json:"rules"`
 	Supersessions int            `json:"supersessions"`
+	Frames        int            `json:"frames,omitempty"`
+	Promotions    int            `json:"promotions,omitempty"`
+	NonAssertive  int            `json:"non_assertive_skipped,omitempty"`
+	Provisional   int            `json:"provisional_frames,omitempty"` // frames auto-registered from references without a declaration
 	Quarantined   int            `json:"quarantined"`
 	Conflicts     int            `json:"conflicts"`
 	Duplicates    int            `json:"duplicates"`
@@ -172,6 +224,18 @@ type Pipeline struct {
 	Store     *Store
 	Vocab     Vocabulary
 	Extractor Extractor
+
+	// FrameNames maps canonical frame IDs to the surface names the episode
+	// TEXT uses (tier M bans raw frame IDs; handles come from the dataset's
+	// naturalize report — a naming affordance, not frame detection: which
+	// LINE belongs to which frame stays entirely the extractor's problem).
+	// Empty/missing entries mean the surface name IS the canonical ID
+	// (tier E). Normalization happens at commit; the store always keys
+	// frames by canonical ID, so query frames resolve directly.
+	FrameNames map[string]string
+
+	// surfaceToID is the inverted FrameNames map, built lazily.
+	surfaceToID map[string]string
 
 	// Workers parallelizes EXTRACTION only (LLM calls are independent);
 	// commits always happen in episode order so consistency verdicts are
@@ -270,6 +334,7 @@ func (p *Pipeline) commitCandidate(episodeID string, cand Candidate, rep *Compil
 		EpisodeIDs: []string{episodeID},
 		Confidence: cand.Confidence,
 		Extractor:  p.Extractor.Name(),
+		Span:       cand.SourceSpan,
 	}
 	switch cand.Kind {
 	case CandFact:
@@ -278,13 +343,141 @@ func (p *Pipeline) commitCandidate(episodeID string, cand Candidate, rep *Compil
 		return p.commitRuleCand(cand, prov, rep)
 	case CandSupersession:
 		return p.commitSupCand(cand, prov, rep)
+	case CandFrame:
+		return p.commitFrameCand(cand, prov, rep)
+	case CandPromotion:
+		return p.commitPromoCand(cand, prov, rep)
 	}
 	return ItemTrace{Kind: cand.Kind, Verdict: VDropped, Detail: "unknown candidate kind"}
+}
+
+// resolveFrame maps a surface frame name from extracted text to the
+// canonical frame ID. Tier E surfaces raw IDs (identity); tier M surfaces
+// handles (inverted FrameNames). Unmapped names pass through unchanged —
+// they become extractor-invented frames, unreachable by queries but stored
+// (visible extraction loss, never silent).
+func (p *Pipeline) resolveFrame(surface string) string {
+	s := strings.TrimSpace(surface)
+	if s == "" || s == world.ActualFrame {
+		return ""
+	}
+	if p.surfaceToID == nil {
+		p.surfaceToID = map[string]string{}
+		for id, name := range p.FrameNames {
+			p.surfaceToID[name] = id
+		}
+	}
+	if id, ok := p.surfaceToID[s]; ok {
+		return id
+	}
+	return s
+}
+
+// ensureFrame guarantees a frame ID exists in the store before an item homes
+// there. When the declaration was missed (or arrives later), a PROVISIONAL
+// frame is registered with the kind guessed from the canonical ID prefix and
+// the safety default otherwise (perspective — frame-assignment uncertainty
+// must fail as stored-but-not-believed, never silently-believed, §9.6.1).
+func (p *Pipeline) ensureFrame(frameID, episodeID string, rep *CompileReport) {
+	if frameID == "" || frameID == world.ActualFrame || p.Store.frameIDs[frameID] {
+		return
+	}
+	kind := world.FramePerspective
+	switch {
+	case strings.HasPrefix(frameID, "fic_"):
+		kind = world.FrameFiction
+	case strings.HasPrefix(frameID, "scn_"):
+		kind = world.FrameScenario
+	case strings.HasPrefix(frameID, "psp_"):
+		kind = world.FramePerspective
+	}
+	f := world.Frame{ID: frameID, Kind: kind}
+	prov := Provenance{EpisodeIDs: []string{episodeID}, Confidence: 0.5, Extractor: p.Extractor.Name()}
+	if err := p.Store.CommitFrame(f, prov); err == nil {
+		rep.Provisional++
+		rep.Hygiene = append(rep.Hygiene, fmt.Sprintf("frame %s auto-registered provisionally (kind %s) — no declaration extracted before first use", frameID, kind))
+	}
+}
+
+func (p *Pipeline) commitFrameCand(cand Candidate, prov Provenance, rep *CompileReport) ItemTrace {
+	fc := cand.Frame
+	id := p.resolveFrame(fc.Name)
+	it := ItemTrace{Kind: CandFrame, ID: id}
+	var kind world.FrameKind
+	switch fc.Kind {
+	case "fiction":
+		kind = world.FrameFiction
+	case "scenario":
+		kind = world.FrameScenario
+	case "perspective":
+		kind = world.FramePerspective
+	default:
+		it.Verdict, it.Detail = VDropped, fmt.Sprintf("unknown frame kind %q (span: %s)", fc.Kind, firstSpan(cand.SourceSpan))
+		return it
+	}
+	f := world.Frame{ID: id, Kind: kind, CreatedDay: fc.CreatedDay}
+	if kind == world.FrameScenario {
+		switch fc.Basis {
+		case "pinned":
+			f.Basis = world.FramePinned
+			f.PinDay = fc.PinDay
+		default:
+			f.Basis = world.FrameLive
+		}
+	}
+	// A provisional frame created by an earlier reference upgrades to the
+	// declared shape (the declaration is authoritative).
+	if p.Store.frameIDs[id] {
+		for i := range p.Store.Frames {
+			if p.Store.Frames[i].Frame.ID == id {
+				p.Store.Frames[i].Frame = f
+				p.Store.Frames[i].Provenance.EpisodeIDs = mergeIDs(p.Store.Frames[i].Provenance.EpisodeIDs, prov.EpisodeIDs)
+				p.Store.invalidate()
+				break
+			}
+		}
+		it.Verdict, it.Detail = VDuplicate, "frame already known (provisional upgraded or restated)"
+		rep.Duplicates++
+		return it
+	}
+	if err := p.Store.CommitFrame(f, prov); err != nil {
+		it.Verdict, it.Detail = VDropped, err.Error()
+		return it
+	}
+	rep.Frames++
+	it.Verdict = VCommitted
+	return it
+}
+
+func (p *Pipeline) commitPromoCand(cand Candidate, prov Provenance, rep *CompileReport) ItemTrace {
+	pc := cand.Promo
+	it := ItemTrace{Kind: CandPromotion, ID: pc.PredictionFactID}
+	ev := gen.PromotionEvent{
+		PredictionFactID: pc.PredictionFactID,
+		ActualFactID:     pc.ActualFactID,
+		FromFrame:        p.resolveFrame(pc.FromFrame),
+		Day:              pc.Day,
+	}
+	if err := p.Store.CommitPromotion(ev, prov); err != nil {
+		it.Verdict, it.Detail = VDropped, err.Error()
+		return it
+	}
+	rep.Promotions++
+	it.Verdict = VCommitted
+	return it
 }
 
 func (p *Pipeline) commitFactCand(cand Candidate, prov Provenance, rep *CompileReport) ItemTrace {
 	fc := cand.Fact
 	it := ItemTrace{Kind: CandFact, ID: fc.FactID}
+	// Non-assertive speech (sarcasm/irony): the literal content is asserted
+	// in NO frame — committing it anywhere would be the literalist failure
+	// mode. Skipping IS the correct compilation (mirrors structured ingest).
+	if fc.Assertion == AssertionNonAssertive {
+		rep.NonAssertive++
+		it.Verdict = VNonAssertive
+		return it
+	}
 	rv, ok := p.Vocab.byName(fc.Relation)
 	if !ok {
 		it.Verdict, it.Detail = VDropped, fmt.Sprintf("unknown relation %q (span: %s)", fc.Relation, firstSpan(cand.SourceSpan))
@@ -295,12 +488,23 @@ func (p *Pipeline) commitFactCand(cand Candidate, prov Provenance, rep *CompileR
 		it.Verdict, it.Detail = VDropped, err.Error()
 		return it
 	}
+	frameID := p.resolveFrame(fc.Frame)
+	// Block facts are frame-delta mechanics; a block homed in actual is a
+	// schema violation the evaluator would reject — quarantineable content
+	// doesn't exist for facts, so drop loudly.
+	if fc.Block && frameID == "" {
+		it.Verdict, it.Detail = VDropped, "block fact homed in actual (blocks are frame-delta mechanics)"
+		return it
+	}
+	p.ensureFrame(frameID, prov.EpisodeIDs[0], rep)
 	f := world.BaseFact{
 		ID:        fc.FactID,
 		Atom:      world.Atom{Relation: rv.ID, Args: args},
 		From:      fc.From,
 		To:        fc.To,
 		Source:    fc.Source,
+		FrameID:   frameID,
+		Block:     fc.Block,
 		EpisodeID: prov.EpisodeIDs[0],
 	}
 	// consistency: exact duplicate (atom+interval) merges provenance inside
@@ -341,6 +545,8 @@ func (p *Pipeline) commitRuleCand(cand Candidate, prov Provenance, rep *CompileR
 		it.Verdict, it.Detail = VDropped, "exceptions: "+err.Error()
 		return it
 	}
+	frameID := p.resolveFrame(rc.Frame)
+	p.ensureFrame(frameID, prov.EpisodeIDs[0], rep)
 	r := world.Rule{
 		ID:            rc.RuleID,
 		Name:          rc.Name,
@@ -352,6 +558,7 @@ func (p *Pipeline) commitRuleCand(cand Candidate, prov Provenance, rep *CompileR
 		IssuedAt:      rc.IssuedAt,
 		EffectiveFrom: rc.EffectiveFrom,
 		EffectiveTo:   rc.EffectiveTo,
+		FrameID:       frameID,
 		EpisodeID:     prov.EpisodeIDs[0],
 	}
 
@@ -397,11 +604,14 @@ func (p *Pipeline) commitRuleCand(cand Candidate, prov Provenance, rep *CompileR
 func (p *Pipeline) commitSupCand(cand Candidate, prov Provenance, rep *CompileReport) ItemTrace {
 	sc := cand.Sup
 	it := ItemTrace{Kind: CandSupersession, ID: sc.NoticeID}
+	frameID := p.resolveFrame(sc.Frame)
+	p.ensureFrame(frameID, prov.EpisodeIDs[0], rep)
 	sp := world.Supersession{
 		ID:        sc.NoticeID,
 		OldRule:   sc.OldRule,
 		NewRule:   sc.NewRule,
 		From:      sc.From,
+		FrameID:   frameID,
 		EpisodeID: prov.EpisodeIDs[0],
 	}
 	// The referenced rules may arrive in later episodes; the evaluator
@@ -589,24 +799,36 @@ func (p *Pipeline) hygieneGate(rep *CompileReport) error {
 	// commits); on JoinExplosionError quarantine the offending rule and
 	// retry. Bounded by rule count.
 	evalDay := p.Store.maxKnownDay()
-	for attempts := 0; attempts <= len(p.Store.Rules); attempts++ {
-		w, err := p.Store.worldView()
-		if err != nil {
-			// schema error that slipped past trials (shouldn't happen —
-			// trialRule guards commits) — surface loudly.
-			return fmt.Errorf("hygiene: world view: %w", err)
+	// Probe actual plus every ingested frame: a frame-homed rule can explode
+	// a frame closure without ever firing in actual (same per-frame probe
+	// the generator runs). Quarantining is global — an explosive rule is
+	// explosive wherever it fires.
+	probeFrames := []string{world.ActualFrame}
+	for i := range p.Store.Frames {
+		if p.Store.Frames[i].Lifecycle == Active {
+			probeFrames = append(probeFrames, p.Store.Frames[i].Frame.ID)
 		}
-		_, err = oracle.Eval(w, evalDay, oracle.Options{})
-		if err == nil {
-			break
+	}
+	for _, fid := range probeFrames {
+		for attempts := 0; attempts <= len(p.Store.Rules); attempts++ {
+			w, err := p.Store.worldView()
+			if err != nil {
+				// schema error that slipped past trials (shouldn't happen —
+				// trialRule guards commits) — surface loudly.
+				return fmt.Errorf("hygiene: world view: %w", err)
+			}
+			_, err = oracle.Eval(w, evalDay, oracle.Options{Frame: fid})
+			if err == nil {
+				break
+			}
+			if je, ok := err.(*oracle.JoinExplosionError); ok {
+				p.Store.setRuleLifecycle(je.RuleID, Quarantined)
+				rep.Quarantined++
+				rep.Hygiene = append(rep.Hygiene, fmt.Sprintf("rule %s quarantined: join explosion during %s (frame %s)", je.RuleID, je.Phase, fid))
+				continue
+			}
+			return fmt.Errorf("hygiene: eval (frame %s): %w", fid, err)
 		}
-		if je, ok := err.(*oracle.JoinExplosionError); ok {
-			p.Store.setRuleLifecycle(je.RuleID, Quarantined)
-			rep.Quarantined++
-			rep.Hygiene = append(rep.Hygiene, fmt.Sprintf("rule %s quarantined: join explosion during %s", je.RuleID, je.Phase))
-			continue
-		}
-		return fmt.Errorf("hygiene: eval: %w", err)
 	}
 
 	// Firing-ratio measurement per active rule (see FiringRatioThreshold

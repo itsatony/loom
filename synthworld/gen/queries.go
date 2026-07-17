@@ -38,6 +38,12 @@ type Query struct {
 
 	Text  string `json:"text"`
 	Notes string `json:"notes,omitempty"`
+
+	// CueClass is a SCORING-ONLY, in-memory annotation ("content" |
+	// "metadata") computed by cmd/harness for contamination trap/control
+	// pairs on frames datasets (F-E2's cued partition). Never persisted to
+	// queries.jsonl and never visible to conditions (sanitize drops it).
+	CueClass string `json:"-"`
 }
 
 type QuerySet struct {

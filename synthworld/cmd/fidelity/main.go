@@ -35,6 +35,7 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strings"
 	"time"
 
 	"github.com/vaudience/synthworld/gen"
@@ -65,16 +66,19 @@ type fidelityReport struct {
 	Facts         typeScore           `json:"facts"`
 	Rules         typeScore           `json:"rules"`
 	Supersessions typeScore           `json:"supersessions"`
+	Frames        *framesFidelity     `json:"frames,omitempty"` // F-E3; nil on v0 datasets
 	Compile       *loom.CompileReport `json:"-"`
 }
 
 func main() {
 	dir := flag.String("dir", "dataset", "dataset directory")
-	extractor := flag.String("extractor", "det", "det | llm")
+	extractor := flag.String("extractor", "det", "det | llm | det-frames | llm-frames")
 	jsonOut := flag.String("json", "", "optional JSON report path")
 	traceOut := flag.String("trace", "", "optional compilation trace JSON path")
 	episodesFile := flag.String("episodes", "episodes.jsonl",
 		"episodes file relative to -dir (e.g. episodes_paraphrased.jsonl)")
+	handlesPath := flag.String("handles", "",
+		"naturalize-report.json with the frame handle table (\"auto\" = resolve next to -dir when -episodes contains \"natural\")")
 	flag.Parse()
 
 	var w world.World
@@ -99,17 +103,26 @@ func main() {
 	switch *extractor {
 	case "det":
 		ex = loom.DeterministicExtractor{}
+	case "det-frames":
+		ex = loom.FramesDeterministicExtractor{}
 	case "llm":
 		llm := llmFromEnv()
 		if llm == nil {
 			must(fmt.Errorf("-extractor llm requires HARNESS_LLM_BASE_URL (or a replay cache); see cmd/harness env docs"))
 		}
 		ex = loom.NewLLMExtractor(llm, vocab)
+	case "llm-frames":
+		llm := llmFromEnv()
+		if llm == nil {
+			must(fmt.Errorf("-extractor llm-frames requires HARNESS_LLM_BASE_URL (or a replay cache); see cmd/harness env docs"))
+		}
+		ex = loom.NewFramesLLMExtractor(llm, vocab)
 	default:
-		must(fmt.Errorf("unknown extractor %q (det|llm)", *extractor))
+		must(fmt.Errorf("unknown extractor %q (det|llm|det-frames|llm-frames)", *extractor))
 	}
 
 	p := loom.NewPipeline(vocab, ex)
+	p.FrameNames = loadFrameHandles(*handlesPath, *dir, *episodesFile, &w)
 	if v := os.Getenv("HARNESS_CONCURRENCY"); v != "" {
 		fmt.Sscanf(v, "%d", &p.Workers)
 	}
@@ -118,6 +131,9 @@ func main() {
 
 	out := score(&w, p, rep)
 	out.Dataset = *dir
+	if len(w.Frames) > 0 {
+		out.Frames = scoreFrames(&w, episodes, p)
+	}
 
 	fmt.Printf("compilation fidelity (%s extractor) — dataset %s\n\n", rep.Extractor, *dir)
 	fmt.Printf("%-14s %6s %9s %6s %8s %8s %7s %13s %10s %8s\n",
@@ -129,6 +145,9 @@ func main() {
 		fmt.Printf("%-14s %6d %9d %6d %8d %8d %7d %13d %10.3f %8.3f\n",
 			row.name, row.s.World, row.s.Committed, row.s.Exact, row.s.Mangled,
 			row.s.Dropped, row.s.Missed, row.s.Hallucinated, row.s.Precision, row.s.Recall)
+	}
+	if out.Frames != nil {
+		printFramesFidelity(out.Frames)
 	}
 	if len(rep.Hygiene) > 0 {
 		fmt.Println("\nhygiene gate:")
@@ -164,8 +183,18 @@ func score(w *world.World, p *loom.Pipeline, rep *loom.CompileReport) *fidelityR
 	outcomes := rep.OutcomeByID()
 
 	// ---- facts ----
+	// Content identity includes the home frame and block polarity (an atom
+	// filed in the wrong frame is different knowledge). Source counts only
+	// for actual-frame facts: frame-homed lines deliberately do not render
+	// their payload source (INSTRUMENT amendment 2026-07-12 — the names
+	// were type-revealing), so no text extractor can recover it and the
+	// evaluator never reads it.
 	factContent := func(f *world.BaseFact) string {
-		return fmt.Sprintf("%s|%d|%d|%s", f.Atom.Key(), f.From, f.To, f.Source)
+		src := f.Source
+		if world.NormFrame(f.FrameID) != world.ActualFrame {
+			src = ""
+		}
+		return fmt.Sprintf("%s|%d|%d|%s|%s|%v", f.Atom.Key(), f.From, f.To, src, world.NormFrame(f.FrameID), f.Block)
 	}
 	worldFactByID := map[string]*world.BaseFact{}
 	worldFactContent := map[string]string{} // content -> id
@@ -275,7 +304,8 @@ func score(w *world.World, p *loom.Pipeline, rep *loom.CompileReport) *fidelityR
 		sp := &p.Store.Supersessions[i]
 		ss.Committed++
 		if wsup, ok := worldSupByID[sp.Supersession.ID]; ok {
-			if wsup.OldRule == sp.Supersession.OldRule && wsup.NewRule == sp.Supersession.NewRule && wsup.From == sp.Supersession.From {
+			if wsup.OldRule == sp.Supersession.OldRule && wsup.NewRule == sp.Supersession.NewRule && wsup.From == sp.Supersession.From &&
+				world.NormFrame(wsup.FrameID) == world.NormFrame(sp.Supersession.FrameID) {
 				ss.Exact++
 			} else {
 				ss.Mangled++
@@ -326,6 +356,42 @@ func printIDs(label string, ids []string) {
 		ids = ids[:10]
 	}
 	fmt.Printf("  %-14s %v\n", label, ids)
+}
+
+// loadFrameHandles mirrors cmd/harness: explicit path, "auto" next to the
+// dataset for naturalized streams, or identity from the world's frame table
+// (tier-E text carries raw IDs; the scorer may read world.json freely).
+func loadFrameHandles(spec, dir, episodesFile string, w *world.World) map[string]string {
+	path := spec
+	if spec == "auto" {
+		if !strings.Contains(episodesFile, "natural") {
+			path = ""
+		} else {
+			path = filepath.Join(dir, "naturalize-report.json")
+		}
+	}
+	if path == "" {
+		out := map[string]string{}
+		for _, f := range w.Frames {
+			out[f.ID] = f.ID
+		}
+		return out
+	}
+	var rep struct {
+		Handles []struct {
+			FrameID string `json:"frame_id"`
+			Handle  string `json:"handle"`
+		} `json:"handles"`
+	}
+	mustReadJSON(path, &rep)
+	if len(rep.Handles) == 0 {
+		must(fmt.Errorf("%s: no frame handles found — wrong report file?", path))
+	}
+	out := map[string]string{}
+	for _, h := range rep.Handles {
+		out[h.FrameID] = h.Handle
+	}
+	return out
 }
 
 // llmFromEnv mirrors cmd/harness's client construction (same env vars).

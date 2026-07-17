@@ -199,6 +199,25 @@ cassettes committed. Moonshot recharge pending (Toni). Next: tier-H
 (first 5 locked seeds, ~100-event human audit by Toni), then C2b frames
 extraction (F-E1..F-E4).
 
+**Frames C2b machinery (2026-07-17, build step 9):** the S2 pipeline is
+frame-aware behind the same Commit path — frame/promotion candidates,
+frame+block+assertion on facts, frame on rules/sups, non-assertive skip,
+quote homing, provisional frames for missed declarations (declaration
+upgrades them), per-frame join-explosion hygiene. New pieces:
+`loom.FramesDeterministicExtractor` (tier-E control), `loom.FramesLLMExtractor`
+(the condition under test), `harness.C2bProvCondition` (the §9.6.3 null:
+frame-blind extraction + span-metadata query-time filtering),
+`loom-c2b-frames`/`c2b-prov`/`loom-c2b`(FrameBlind) registrations, frame-name
+handle plumbing (`-handles auto`, query text presented in handle vocabulary,
+uniform for all conditions), F-E2 cue partition (scorer-side, fixed lexical
+rule set shared with the null), cmd/fidelity F-E3 frame confusion, cmd/aggregate
+`-frames` (F-E1/F-E2/F-E4 arithmetic), scripts/frames-e-run.sh driver. All
+operational definitions registered in MASTERPLAN §10 (2026-07-17) BEFORE any
+measured LLM run. VERIFIED LLM-free: `loom-c2b-frames-det == frame-oracle` in
+every cell on ALL 20 locked seeds (tier E), fresh frame-oracle == frozen
+§9.6.5 per cell, v0 sample-dataset diagnostics byte-identical, fidelity
+1.000/1.000 + frame macro-F1 1.000 on dev seed 99.
+
 **S2 hooks that exist but are intentionally dormant (don't mistake for bugs):**
 lifecycle states `proposed`/`retracted`/`quarantined` are defined and honored
 by `worldView`/`StatsAt`, but nothing sets them yet — structured ingest

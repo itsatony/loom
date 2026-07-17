@@ -183,7 +183,7 @@ func (s *Store) firingRatios(t int) map[string]float64 {
 func RulesEquivalent(a, b *world.Rule) bool {
 	if a.Name != b.Name || a.Authority != b.Authority || a.IssuedAt != b.IssuedAt ||
 		a.EffectiveFrom != b.EffectiveFrom || a.EffectiveTo != b.EffectiveTo ||
-		a.Assert != b.Assert {
+		a.Assert != b.Assert || world.NormFrame(a.FrameID) != world.NormFrame(b.FrameID) {
 		return false
 	}
 	return patternsEqual(a.Conditions, b.Conditions) &&

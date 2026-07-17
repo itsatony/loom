@@ -1037,3 +1037,64 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   results/tierH/human-audit-score.json (full per-item breakdown)
   committed. Next: C2b frames extraction (F-E1..F-E4) on the certified
   tier-M corpus — no further gates block it.
+- 2026-07-17 (Frames build step 9 — C2b frames machinery + operational
+  registrations, logged BEFORE any measured frames LLM run) — the S2
+  pipeline is now frame-aware behind the same Commit path (spec §5):
+  candidates gain frame/block/assertion fields plus frame-declaration and
+  promotion kinds; non-assertive content is skipped at commit (counted,
+  mirroring C2a); quotes commit as assertions homed in the speaker's
+  perspective frame; missed declarations auto-register PROVISIONAL frames
+  (kind from the canonical-ID prefix, else the §9.6.1 safety default
+  perspective) and a later declaration upgrades them; the hygiene gate
+  probes every ingested frame's closure for join explosions. Verified
+  LLM-free: loom-c2b-frames-det (tier-E template inverse, a CONTROL) ==
+  frame-oracle in every cell on dev seed 99, and compilation fidelity
+  1.000/1.000 on facts/rules/supersessions with frame-assignment macro-F1
+  1.000; full locked-batch equality sweep running. Operational
+  registrations decided and locked now:
+  (1) FRAME-NAME AFFORDANCE. Tier-M text bans raw frame IDs (§9.6.6), but
+  queries carry them. The naturalize report's ID↔handle table is provided
+  UNIFORMLY to every text-mode condition (C2b-frames, C2b-prov null, and
+  query text itself is presented in handle vocabulary for all conditions,
+  IDs kept in structured fields and scoring). Rationale: frames have
+  user-visible names in any production deployment, the judges and the
+  human auditor likewise read the declarations; naming is not frame
+  detection — WHICH LINE belongs to which frame remains entirely the
+  system-under-test's problem. On tier E the table is identity.
+  (2) C2b-prov NULL POLICY (the §9.6.3 registered null, now concrete):
+  same frame-BLIND extraction as loom-c2b (v0 prompt; cassettes shared),
+  frameless store, per-item metadata = exact source span; query-time
+  lexical filtering: item tagged with a fiction/scenario frame iff its
+  span mentions that frame's handle; a quoted atom expression is speech
+  (excluded from actual, attributed to the first mentioned narrator
+  entity); scenario query = actual-tagged + own-tagged (no pin, no block
+  overlays); fiction/perspective query = own-tagged only.
+  (3) F-E2 CUED PARTITION (operational): a contamination trap is
+  METADATA-CUED iff every episode line asserting its atom outside actual
+  (or non-assertively) is filed out of actual by that same registered
+  lexical filter; CONTENT-CUED otherwise; paired controls inherit their
+  trap's class. The partition is computed by the scorer from ground truth
+  + text, fixed by the registered rule set, never by any measured
+  condition's output.
+  (4) FRAMES ENDPOINT ARITHMETIC (cmd/aggregate -frames): CI machinery
+  identical to §1.1 (10k resamples, RNG 42, nearest-rank percentiles).
+  F-E1 bounds are single-condition bootstraps of per-seed balanced
+  accuracies (contamination, isolation; pass both CI-lower ≥.85, kill
+  either <.70, between = INDETERMINATE; gap sub-line mandatory
+  reporting). F-E2: paired diffs vs the null — content-cued CI-lower
+  ≥+.15 else KILL; non-inferiority (CI-lower ≥ −.02) on metadata-cued
+  and every v0 slice (repetition, composition, flip, retain, find-F1).
+  F-E4: ideation micro-F1 (frame-labeled pair sets), gate mean ≥.90,
+  secondary. F-E3 via cmd/fidelity: frame confusion over world facts
+  matched by ID-then-content, macro-F1 over frames, fiction→actual
+  leakage /all fiction items (<2%), exile + abstention/coverage reported;
+  content identity now includes home frame + block polarity and drops
+  Source for frame-homed facts (not recoverable from text BY DESIGN since
+  the 2026-07-12 instrument amendment — scorer definition fixed before
+  any LLM fidelity run).
+  (5) Frame-blind loom-c2b keeps mono-world answering semantics
+  (FrameBlind flag) so the frozen §9.6.5 row "loom-c2b-det == v0 oracle"
+  stays reproducible, and doubles as the §9.6.3 contamination
+  confirmation condition. No endpoint, threshold, or kill-criterion
+  change; v0 sample-dataset diagnostics reproduced byte-identical after
+  all of the above.

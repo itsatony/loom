@@ -102,12 +102,16 @@ type RevisionScore struct {
 type FrameReport struct {
 	Contamination    SliceScore             `json:"contamination"`
 	ContaminationSub map[string]*SliceScore `json:"contamination_sub,omitempty"`
-	Isolation        SliceScore             `json:"isolation"`
-	IsolationChain   SliceScore             `json:"isolation_chain"`
-	Pinning          SliceScore             `json:"pinning"`
-	Promotion        SliceScore             `json:"promotion"`
-	Misattribution   FindScore              `json:"misattribution"` // exact frame-set + micro over frame labels
-	Ideation         FindScore              `json:"ideation"`       // exact (value,frame) pair-set + micro (F-E4)
+	// CueSub buckets contamination trap/control pairs by cue class
+	// ("content" | "metadata", from gen.Query.CueClass — the F-E2
+	// partition; empty when cmd/harness had no cue table to classify with).
+	CueSub         map[string]*SliceScore `json:"cue_sub,omitempty"`
+	Isolation      SliceScore             `json:"isolation"`
+	IsolationChain SliceScore             `json:"isolation_chain"`
+	Pinning        SliceScore             `json:"pinning"`
+	Promotion      SliceScore             `json:"promotion"`
+	Misattribution FindScore              `json:"misattribution"` // exact frame-set + micro over frame labels
+	Ideation       FindScore              `json:"ideation"`       // exact (value,frame) pair-set + micro (F-E4)
 }
 
 type Report struct {
@@ -275,6 +279,17 @@ func RunWorkers(cond Condition, episodes []gen.Episode, queries []gen.Query, wor
 					fr.ContaminationSub[sub] = ss
 				}
 				tally(ss, want, correct)
+				if q.CueClass != "" {
+					if fr.CueSub == nil {
+						fr.CueSub = map[string]*SliceScore{}
+					}
+					cs, ok := fr.CueSub[q.CueClass]
+					if !ok {
+						cs = &SliceScore{}
+						fr.CueSub[q.CueClass] = cs
+					}
+					tally(cs, want, correct)
+				}
 			case "isolation":
 				fr := rep.frames()
 				tally(&fr.Isolation, want, correct)

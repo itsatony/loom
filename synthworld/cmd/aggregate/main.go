@@ -42,6 +42,7 @@ func main() {
 	condA := flag.String("a", "", "condition A (the challenger, e.g. loom-C2b)")
 	condB := flag.String("b", "", "condition B (the baseline, e.g. strongest C1)")
 	jsonOut := flag.String("json", "", "optional path for the JSON result")
+	framesMode := flag.Bool("frames", false, "frames-v1 endpoint arithmetic (F-E1/F-E2/F-E4, MASTERPLAN §9.6.7): -a = frames condition, -b = C2b-prov null")
 	flag.Parse()
 
 	if *reportsFlag == "" || *condA == "" || *condB == "" {
@@ -57,11 +58,22 @@ func main() {
 	if err != nil {
 		fatal(err)
 	}
-	res, err := Analyze(seeds, *condA, *condB)
-	if err != nil {
-		fatal(err)
+	var render string
+	var result any
+	if *framesMode {
+		res, err := AnalyzeFrames(seeds, *condA, *condB)
+		if err != nil {
+			fatal(err)
+		}
+		render, result = res.Render(), res
+	} else {
+		res, err := Analyze(seeds, *condA, *condB)
+		if err != nil {
+			fatal(err)
+		}
+		render, result = res.Render(), res
 	}
-	fmt.Print(res.Render())
+	fmt.Print(render)
 
 	if *jsonOut != "" {
 		f, err := os.Create(*jsonOut)
@@ -70,7 +82,7 @@ func main() {
 		}
 		enc := json.NewEncoder(f)
 		enc.SetIndent("", " ")
-		if err := enc.Encode(res); err != nil {
+		if err := enc.Encode(result); err != nil {
 			fatal(err)
 		}
 		f.Close()

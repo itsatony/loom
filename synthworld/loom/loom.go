@@ -38,6 +38,11 @@ type Provenance struct {
 	EpisodeIDs []string `json:"episode_ids"`
 	Confidence float64  `json:"confidence"` // 1.0 for structured ingest
 	Extractor  string   `json:"extractor"`  // "structured" | "llm:<model>" | "operator"
+	// Span is the exact source text line the item was extracted from (S2
+	// text mode only; empty for structured ingest). Audit trail — and the
+	// only metadata a frameless query-time-filtering null (C2b-prov,
+	// MASTERPLAN §9.6.3) is allowed to filter on.
+	Span string `json:"span,omitempty"`
 }
 
 type StoredFact struct {
@@ -194,6 +199,16 @@ func (s *Store) CommitFrame(f world.Frame, prov Provenance) error {
 	s.Frames = append(s.Frames, StoredFrame{Frame: f, Lifecycle: Active, Provenance: prov})
 	s.invalidate()
 	return nil
+}
+
+// HasFrame reports whether a frame ID is known to the store (actual always
+// is). Text-mode conditions use it to answer queries about frames whose
+// declaration the extractor missed entirely: an unknown frame holds nothing,
+// which must be an ANSWER (false/empty), never an evaluation error — errored
+// queries void a seed under the aggregate's data-quality guard.
+func (s *Store) HasFrame(id string) bool {
+	id = world.NormFrame(id)
+	return id == world.ActualFrame || s.frameIDs[id]
 }
 
 // CommitPromotion records a promotion notice. No closure impact in easy
@@ -571,13 +586,16 @@ func Load(path string) (*Store, error) {
 		return nil, err
 	}
 	for _, sf := range s.Facts {
-		s.factKeys[fmt.Sprintf("%s|%d|%d", sf.Fact.Atom.Key(), sf.Fact.From, sf.Fact.To)] = true
+		s.factKeys[factKey(sf.Fact)] = true
 	}
 	for _, sr := range s.Rules {
 		s.ruleIDs[sr.Rule.ID] = true
 	}
 	for _, sp := range s.Supersessions {
 		s.supIDs[sp.Supersession.ID] = true
+	}
+	for _, fr := range s.Frames {
+		s.frameIDs[fr.Frame.ID] = true
 	}
 	return s, nil
 }

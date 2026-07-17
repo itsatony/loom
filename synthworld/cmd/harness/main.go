@@ -28,6 +28,8 @@ func main() {
 		"episodes file relative to -dir (e.g. episodes_paraphrased.jsonl for the hard-mode paraphrase tier)")
 	condFilter := flag.String("conditions", "",
 		"comma-separated condition names to run (default: all registered); lets one driver run C1 and C2 passes under different LLM request shapes")
+	handlesPath := flag.String("handles", "",
+		"naturalize-report.json carrying the frame ID→handle table for a naturalized episode stream; \"auto\" resolves it next to -dir when -episodes contains \"natural\". Query text is rewritten to handle vocabulary (uniform for every condition); structured Frame fields keep canonical IDs")
 	flag.Parse()
 
 	var w world.World
@@ -45,6 +47,32 @@ func main() {
 		must(json.Unmarshal(raw, &q))
 		queries = append(queries, q)
 	})
+
+	// Frame handles (tier-M naturalized streams): the naturalize report maps
+	// canonical frame IDs to the surface names the TEXT uses (raw frame IDs
+	// are banned from tier-M text, §9.6.6). Presenting queries in the text's
+	// own vocabulary is a naming affordance applied uniformly to every
+	// condition — which LINE belongs to which frame remains entirely the
+	// system-under-test's problem. Structured Frame fields keep canonical
+	// IDs; scoring is unchanged.
+	frameNames := loadFrameHandles(*handlesPath, *dir, *episodesFile)
+	if len(frameNames) > 0 {
+		rewriteQueryText(queries, frameNames)
+	}
+	// Conditions always receive a frame-name table on frames datasets: the
+	// tier-M handle map when naturalized, otherwise identity (tier-E text
+	// carries raw frame IDs). The frame ID list is already public to every
+	// condition via query text (misattribution queries enumerate it).
+	condFrameNames := frameNames
+	if len(condFrameNames) == 0 && len(w.Frames) > 0 {
+		condFrameNames = map[string]string{}
+		for _, f := range w.Frames {
+			condFrameNames[f.ID] = f.ID
+		}
+	}
+	if len(w.Frames) > 0 {
+		classifyCues(queries, episodes, condFrameNames)
+	}
 
 	// Seeded relation vocabulary for S2 compilation (spec §4): relation
 	// IDs, names, and slot NAMES from the dataset's relation table — the
@@ -73,8 +101,11 @@ func main() {
 		harness.NewLoomCondition(),
 		// c2b-det: pipeline CONTROL (template-inverse extractor). Oracle-
 		// equal scores validate the compile path, never the thesis.
+		// FrameBlind: a v0 store answers every query from its one world
+		// (frozen §9.6.5 row: loom-c2b-det == v0 oracle in every cell).
 		&harness.LoomC2bCondition{Label: "loom-c2b-det", Vocab: vocab,
-			Extractor: loom.DeterministicExtractor{}, Workers: pipelineWorkers},
+			Extractor: loom.DeterministicExtractor{}, Workers: pipelineWorkers,
+			FrameBlind: true},
 	}
 	// Frame diagnostics (MASTERPLAN §9.6.5): registered only on frames
 	// datasets; each breaks frame semantics in exactly one way.
@@ -84,6 +115,13 @@ func main() {
 			&harness.MonoWorldCondition{W: &w},
 			&harness.IsolationistCondition{W: &w},
 			&harness.LiteralistCondition{W: &w},
+			// c2b-frames-det: frame-aware pipeline CONTROL (tier-E template
+			// inverse). frame-oracle-equal scores prove the frame-aware
+			// compile path is lossless; expected (and pre-registered) to
+			// collapse on naturalized text.
+			&harness.LoomC2bCondition{Label: "loom-c2b-frames-det", Vocab: vocab,
+				Extractor: loom.FramesDeterministicExtractor{}, Workers: pipelineWorkers,
+				FrameNames: condFrameNames},
 		)
 	}
 
@@ -240,8 +278,23 @@ func main() {
 		// episode text into the store; extraction spend is metered like any
 		// query-time condition (it is the compile-once cost, H7).
 		c2b := &harness.LoomC2bCondition{Label: "loom-c2b", Vocab: vocab,
-			Extractor: loom.NewLLMExtractor(metered("loom-c2b"), vocab), Workers: pipelineWorkers}
+			Extractor: loom.NewLLMExtractor(metered("loom-c2b"), vocab), Workers: pipelineWorkers,
+			FrameBlind: true}
 		conditions = append(conditions, c0, rag, c1c, d6, c2b)
+		if len(w.Frames) > 0 {
+			// loom-c2b-frames: THE frames condition under test (F-E1..F-E4).
+			// c2b-prov: the registered honest null — same frame-blind
+			// extraction as loom-c2b (cassettes shared), frameless store,
+			// query-time metadata filtering. loom-c2b above doubles as the
+			// frame-blind contamination confirmation (§9.6.3).
+			c2bf := &harness.LoomC2bCondition{Label: "loom-c2b-frames", Vocab: vocab,
+				Extractor: loom.NewFramesLLMExtractor(metered("loom-c2b-frames"), vocab),
+				Workers:   pipelineWorkers, FrameNames: condFrameNames}
+			prov := &harness.C2bProvCondition{Label: "c2b-prov", Vocab: vocab,
+				Extractor: loom.NewLLMExtractor(metered("c2b-prov"), vocab),
+				Workers:   pipelineWorkers, FrameNames: condFrameNames}
+			conditions = append(conditions, c2bf, prov)
+		}
 	}
 
 	if *condFilter != "" {
@@ -332,6 +385,111 @@ func main() {
 		enc.SetIndent("", "  ")
 		must(enc.Encode(reports))
 		fmt.Printf("\nJSON report: %s\n", *jsonOut)
+	}
+}
+
+// classifyCues assigns the F-E2 cued partition (SCORING-ONLY, in-memory;
+// conditions never see it): a contamination trap is METADATA-CUED iff every
+// episode line asserting its atom outside actual (or non-assertively) is
+// filed out of actual by the registered lexical filter (harness.SpanFrameTag
+// — the exact rule set the C2b-prov null uses at query time); CONTENT-CUED
+// iff at least one such line would leak into a lexical filter's actual.
+// Paired controls inherit their trap's class (emission adjacency).
+func classifyCues(queries []gen.Query, episodes []gen.Episode, frameNames map[string]string) {
+	lastClass := ""
+	for i := range queries {
+		q := &queries[i]
+		if q.Slice != "contamination" {
+			continue
+		}
+		if strings.HasSuffix(q.Subpop, "-control") {
+			q.CueClass = lastClass
+			continue
+		}
+		lines := 0
+		metadata := true
+		for _, ep := range episodes {
+			for _, ev := range ep.Events {
+				if ev.Kind != gen.EvFact || ev.Fact == nil {
+					continue
+				}
+				if ev.Fact.Atom.Key() != q.Atom.Key() {
+					continue
+				}
+				if world.NormFrame(ev.Fact.FrameID) == world.ActualFrame && ev.AssertionType == "" {
+					continue
+				}
+				lines++
+				if harness.SpanFrameTag(ev.Text, frameNames) == "" {
+					metadata = false
+				}
+			}
+		}
+		if lines == 0 {
+			// no locatable trap line (should not happen): leave unclassified
+			q.CueClass = ""
+			lastClass = ""
+			continue
+		}
+		if metadata {
+			q.CueClass = "metadata"
+		} else {
+			q.CueClass = "content"
+		}
+		lastClass = q.CueClass
+	}
+}
+
+// loadFrameHandles resolves the frame ID→handle table for a naturalized
+// episode stream. spec "" = none (tier E: text carries raw IDs); "auto" =
+// look for naturalize-report.json in the dataset dir when the episodes file
+// looks naturalized; any other value = explicit report path.
+func loadFrameHandles(spec, dir, episodesFile string) map[string]string {
+	path := spec
+	if spec == "auto" {
+		if !strings.Contains(episodesFile, "natural") {
+			return nil
+		}
+		path = filepath.Join(dir, "naturalize-report.json")
+	}
+	if path == "" {
+		return nil
+	}
+	var rep struct {
+		Handles []struct {
+			FrameID string `json:"frame_id"`
+			Handle  string `json:"handle"`
+		} `json:"handles"`
+	}
+	mustReadJSON(path, &rep)
+	if len(rep.Handles) == 0 {
+		must(fmt.Errorf("%s: no frame handles found — wrong report file?", path))
+	}
+	out := map[string]string{}
+	for _, h := range rep.Handles {
+		out[h.FrameID] = h.Handle
+	}
+	return out
+}
+
+// rewriteQueryText replaces canonical frame IDs in query text with the
+// handles the episode text uses. Longest-first so psp_<entity> rewrites
+// before any embedded token could match.
+func rewriteQueryText(queries []gen.Query, frameNames map[string]string) {
+	ids := make([]string, 0, len(frameNames))
+	for id := range frameNames {
+		ids = append(ids, id)
+	}
+	sort.Slice(ids, func(i, j int) bool {
+		if len(ids[i]) != len(ids[j]) {
+			return len(ids[i]) > len(ids[j])
+		}
+		return ids[i] < ids[j]
+	})
+	for i := range queries {
+		for _, id := range ids {
+			queries[i].Text = strings.ReplaceAll(queries[i].Text, id, frameNames[id])
+		}
 	}
 }
 
