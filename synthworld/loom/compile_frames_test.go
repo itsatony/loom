@@ -91,6 +91,31 @@ func TestDeclarationUpgradesProvisional(t *testing.T) {
 	}
 }
 
+// A declared frame is immutable: a conflicting re-declaration must not
+// overwrite it (caught live: a story-flavored line alias-resolved onto the
+// pinned scenario and flipped its kind to fiction).
+func TestRedeclarationDoesNotOverwrite(t *testing.T) {
+	names := map[string]string{"scn_pin": "Coldharbor"}
+	p, rep := compileStub(t, names,
+		Candidate{Kind: CandFrame, Confidence: 1, SourceSpan: "decl", Frame: &FrameCand{
+			Name: "Coldharbor", Kind: "scenario", Basis: "pinned", PinDay: 120, CreatedDay: 130,
+		}},
+		Candidate{Kind: CandFrame, Confidence: 1, SourceSpan: "spurious", Frame: &FrameCand{
+			Name: "the Coldharbor tale", Kind: "fiction", CreatedDay: 140,
+		}},
+	)
+	if len(p.Store.Frames) != 1 {
+		t.Fatalf("want 1 frame, got %d", len(p.Store.Frames))
+	}
+	f := p.Store.Frames[0].Frame
+	if f.Kind != world.FrameScenario || f.Basis != world.FramePinned || f.PinDay != 120 {
+		t.Fatalf("declared frame overwritten: %+v", f)
+	}
+	if rep.Conflicts != 1 {
+		t.Fatalf("Conflicts = %d, want 1", rep.Conflicts)
+	}
+}
+
 // Block facts in actual are schema violations and must be dropped loudly.
 func TestBlockInActualDropped(t *testing.T) {
 	p, rep := compileStub(t, nil, frameFactCand("", "", true))

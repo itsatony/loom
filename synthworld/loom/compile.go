@@ -236,6 +236,11 @@ type Pipeline struct {
 
 	// surfaceToID is the inverted FrameNames map, built lazily.
 	surfaceToID map[string]string
+	// provisionalFrames tracks frames auto-registered from a reference
+	// without a declaration; only these may be upgraded by a later
+	// declaration (a DECLARED frame is immutable — basis/kind are set at
+	// creation, §9.6.1; a second declaration is a conflict, kept first).
+	provisionalFrames map[string]bool
 
 	// Workers parallelizes EXTRACTION only (LLM calls are independent);
 	// commits always happen in episode order so consistency verdicts are
@@ -370,7 +375,43 @@ func (p *Pipeline) resolveFrame(surface string) string {
 	if id, ok := p.surfaceToID[s]; ok {
 		return id
 	}
+	// Alias fallback (spec §5 normalization): extractors sometimes decorate
+	// a handle ("the Copperfield drill" for handle "Copperfield"). If exactly
+	// ONE known handle appears as a word inside the surface name, resolve to
+	// it; ambiguity falls through (unknown frame, visible in the report).
+	var hit string
+	n := 0
+	for name, id := range p.surfaceToID {
+		if name != "" && containsWord(s, name) {
+			if n == 0 || id != hit {
+				hit = id
+				n++
+			}
+		}
+	}
+	if n == 1 {
+		return hit
+	}
 	return s
+}
+
+// containsWord reports whether sub occurs in s on word boundaries.
+func containsWord(s, sub string) bool {
+	for i := 0; i+len(sub) <= len(s); i++ {
+		if s[i:i+len(sub)] != sub {
+			continue
+		}
+		beforeOK := i == 0 || !isWordByte(s[i-1])
+		afterOK := i+len(sub) == len(s) || !isWordByte(s[i+len(sub)])
+		if beforeOK && afterOK {
+			return true
+		}
+	}
+	return false
+}
+
+func isWordByte(b byte) bool {
+	return b == '_' || (b >= '0' && b <= '9') || (b >= 'a' && b <= 'z') || (b >= 'A' && b <= 'Z')
 }
 
 // ensureFrame guarantees a frame ID exists in the store before an item homes
@@ -394,6 +435,10 @@ func (p *Pipeline) ensureFrame(frameID, episodeID string, rep *CompileReport) {
 	f := world.Frame{ID: frameID, Kind: kind}
 	prov := Provenance{EpisodeIDs: []string{episodeID}, Confidence: 0.5, Extractor: p.Extractor.Name()}
 	if err := p.Store.CommitFrame(f, prov); err == nil {
+		if p.provisionalFrames == nil {
+			p.provisionalFrames = map[string]bool{}
+		}
+		p.provisionalFrames[frameID] = true
 		rep.Provisional++
 		rep.Hygiene = append(rep.Hygiene, fmt.Sprintf("frame %s auto-registered provisionally (kind %s) — no declaration extracted before first use", frameID, kind))
 	}
@@ -426,18 +471,29 @@ func (p *Pipeline) commitFrameCand(cand Candidate, prov Provenance, rep *Compile
 		}
 	}
 	// A provisional frame created by an earlier reference upgrades to the
-	// declared shape (the declaration is authoritative).
+	// declared shape (the first real declaration is authoritative). A frame
+	// that was already DECLARED is immutable — kind/basis are set at
+	// creation (§9.6.1); a conflicting re-declaration keeps the first and
+	// is flagged, never silently overwrites (caught live on dev seed 99: a
+	// story-flavored line alias-resolved onto the pinned scenario and
+	// flipped its kind to fiction, severing inheritance).
 	if p.Store.frameIDs[id] {
-		for i := range p.Store.Frames {
-			if p.Store.Frames[i].Frame.ID == id {
-				p.Store.Frames[i].Frame = f
-				p.Store.Frames[i].Provenance.EpisodeIDs = mergeIDs(p.Store.Frames[i].Provenance.EpisodeIDs, prov.EpisodeIDs)
-				p.Store.invalidate()
-				break
+		if p.provisionalFrames[id] {
+			for i := range p.Store.Frames {
+				if p.Store.Frames[i].Frame.ID == id {
+					p.Store.Frames[i].Frame = f
+					p.Store.Frames[i].Provenance.EpisodeIDs = mergeIDs(p.Store.Frames[i].Provenance.EpisodeIDs, prov.EpisodeIDs)
+					p.Store.invalidate()
+					break
+				}
 			}
+			delete(p.provisionalFrames, id)
+			it.Verdict, it.Detail = VDuplicate, "provisional frame upgraded by declaration"
+			rep.Duplicates++
+			return it
 		}
-		it.Verdict, it.Detail = VDuplicate, "frame already known (provisional upgraded or restated)"
-		rep.Duplicates++
+		it.Verdict, it.Detail = VConflict, "frame already declared; re-declaration ignored (kind/basis are immutable at creation)"
+		rep.Conflicts++
 		return it
 	}
 	if err := p.Store.CommitFrame(f, prov); err != nil {
