@@ -1098,3 +1098,44 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   confirmation condition. No endpoint, threshold, or kill-criterion
   change; v0 sample-dataset diagnostics reproduced byte-identical after
   all of the above.
+- 2026-07-17 (later — OPEN INTERPRETATION QUESTION for F-E2, flagged from
+  DEV-seed evidence only, decided by no one yet; locked-seed F-E2 verdicts
+  are HELD until Toni ratifies, exactly like the 2026-07-12 §9.6.6
+  ratification) — first frames LLM tokens (qwen, dev seed 99 tier-M)
+  exposed an instrument-level tension between §9.6.6 and §9.6.7: the
+  tier-M mechanical validator REQUIRES a handle/entity mention on every
+  frame-homed line (that is how content preservation is enforced), so the
+  registered lexical filter files nearly every contamination trap line
+  correctly from its span alone — the "content-cued" contamination subset
+  collapses to ~5 sarcasm pairs/seed, and the §9.6.3 null is near-ceiling
+  on the rest (dev 99: null contamination 50/51). "Unmarked narrative",
+  which §9.6.3 names as a predicted content-cued failure, cannot exist in
+  a §9.6.6-certified corpus by construction. Meanwhile the frames
+  condition beats the null exactly where the §9.6.3 prediction named
+  STRUCTURAL failures of query-time filtering (dev 99: promotion 13/14 vs
+  4/14 pos and 10/10 vs 0/10 neg, misattribution 14/20 vs 4/20, ideation
+  18/20 vs 5/20, isolation traps 27/28 vs 20/28, pinning 19/32 vs 16/32
+  cells) — plus fully intact v0 slices. Note also: the implemented null
+  (registered earlier today, §10 build-step-9 entry, point 2) is the
+  STRONG reading of "query-time metadata filtering" — it re-derives a
+  filtered closure per query frame, so scenario chains DERIVE for it,
+  which is stronger than §9.6.3's "cannot apply delta-override overlays
+  along a derivation chain" prediction anticipated (blocks and pinning
+  still structurally fail). Readings for ratification:
+  (a) keep the build-step-9 operationalization (content-cued =
+  contamination traps whose line the lexical filter cannot file): F-E2
+  then gates on a ~5-pair-per-seed sarcasm subset — statistically fragile
+  and arguably kill-by-construction given the §9.6.6 validator, with the
+  structural advantages relegated to ungated reporting;
+  (b) content-cued trap subset := the frame-slice trap queries whose
+  deciding cue is STRUCTURALLY absent from lexical metadata — the
+  build-step-9 content-cued contamination traps PLUS isolation
+  override/chain-control traps, pinning pairs, promotion pairs,
+  misattribution, and ideation (each already paired/balanced); metadata-
+  cued := the complement (handle-marked contamination + inherited/chain
+  isolation positives); same ±15pp/-2pp arithmetic;
+  (c) report both, gate on (b).
+  No verdict is computed under any reading before ratification; all
+  measurements (extraction, reports, per-seed metrics) proceed — they are
+  reading-independent. Nothing here touches F-E1, F-E3, F-E4, or any v0
+  endpoint.
