@@ -289,14 +289,20 @@ func AnalyzeFrames(seeds []SeedReports, condA, condB, condB2 string) (*FramesRes
 			col(res.MetricsB, func(m FrameSeedMetrics) float64 { return m.IsolationBA })),
 	}
 	contentLo := float64(res.FE2Content.CILower)
-	nonInfFail := ""
+	// v0Fail: the first v0 non-inferiority leg that fails (shared by both
+	// readings). metaFail is reading (a)'s extra leg only — the ratified
+	// filterability verdict must NOT gate on it (its analog is
+	// filter-decidable).
+	v0Fail := ""
+	for _, e := range res.FE2V0 {
+		if len(e.Diffs) > 0 && float64(e.CILower) < fe2NonInf {
+			v0Fail = e.Name
+			break
+		}
+	}
+	nonInfFail := v0Fail // reading (a): metadata-cued OR a v0 leg
 	if float64(res.FE2Metadata.CILower) < fe2NonInf {
 		nonInfFail = res.FE2Metadata.Name
-	}
-	for _, e := range res.FE2V0 {
-		if len(e.Diffs) > 0 && float64(e.CILower) < fe2NonInf && nonInfFail == "" {
-			nonInfFail = e.Name
-		}
 	}
 	switch {
 	case len(res.FE2Content.Diffs) < minSeedsForVerdict:
@@ -331,7 +337,7 @@ func AnalyzeFrames(seeds []SeedReports, condA, condB, condB2 string) (*FramesRes
 		}
 	}
 	decNonInf := float64(res.FE2Decidable.CILower) >= fe2NonInf
-	v0NonInf := nonInfFail == "" // reuses the v0 legs computed above (vs B)
+	v0NonInf := v0Fail == "" // ratified non-inf legs are filter-decidable + v0 ONLY (not reading-(a) metadata-cued)
 	nEval := len(res.FE2Resistant.Diffs)
 	if condB2 != "" && len(res.FE2ResistantB2.Diffs) < nEval {
 		nEval = len(res.FE2ResistantB2.Diffs)
@@ -349,8 +355,8 @@ func AnalyzeFrames(seeds []SeedReports, condA, condB, condB2 string) (*FramesRes
 	default:
 		res.FE2ResistVerdict = VerdictFail
 		leg := res.FE2Decidable.Name
-		if !v0NonInf && nonInfFail != "" {
-			leg = nonInfFail
+		if !v0NonInf {
+			leg = v0Fail
 		}
 		res.FE2ResistWhy = fmt.Sprintf("superiority met (CI lower %.4f vs %s) but non-inferiority violated on %q", harderLo, harderWhich, leg)
 	}
