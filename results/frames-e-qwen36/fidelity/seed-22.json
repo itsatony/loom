@@ -1,0 +1,189 @@
+{
+  "dataset": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-22",
+  "extractor": "llm-frames:qwen36-nvfp4",
+  "facts": {
+    "world": 902,
+    "committed": 893,
+    "exact": 860,
+    "mangled": 33,
+    "dropped": 1,
+    "missed": 8,
+    "hallucinated": 0,
+    "precision": 0.9630459126539753,
+    "recall": 0.9534368070953437,
+    "mangled_ids": [
+      "fct_0114",
+      "fct_0564",
+      "fct_0789",
+      "fct_0793",
+      "fct_0794",
+      "fct_0796",
+      "fct_0799",
+      "fct_0801",
+      "fct_0802",
+      "fct_0803",
+      "fct_0804",
+      "fct_0805",
+      "fct_0806",
+      "fct_0807",
+      "fct_0808",
+      "fct_0810",
+      "fct_0811",
+      "fct_0812",
+      "fct_0813",
+      "fct_0815",
+      "fct_0816",
+      "fct_0818",
+      "fct_0820",
+      "fct_0821",
+      "fct_0825",
+      "fct_0826",
+      "fct_0827",
+      "fct_0828",
+      "fct_0834",
+      "fct_0835",
+      "fct_0837",
+      "fct_0848",
+      "fct_0864"
+    ],
+    "dropped_ids": [
+      "fct_0850"
+    ],
+    "missed_ids": [
+      "fct_0046",
+      "fct_0086",
+      "fct_0344",
+      "fct_0542",
+      "fct_0644",
+      "fct_0651",
+      "fct_0734",
+      "fct_0822"
+    ]
+  },
+  "rules": {
+    "world": 40,
+    "committed": 40,
+    "exact": 40,
+    "mangled": 0,
+    "dropped": 0,
+    "missed": 0,
+    "hallucinated": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "supersessions": {
+    "world": 18,
+    "committed": 18,
+    "exact": 18,
+    "mangled": 0,
+    "dropped": 0,
+    "missed": 0,
+    "hallucinated": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "frames": {
+    "confusion": {
+      "actual": {
+        "actual": 785
+      },
+      "fic_01": {
+        "actual": 18,
+        "fic_01": 6
+      },
+      "fic_02": {
+        "actual": 10,
+        "fic_02": 13
+      },
+      "psp_customer_15": {
+        "psp_customer_15": 11
+      },
+      "psp_partner_05": {
+        "psp_partner_05": 12
+      },
+      "psp_partner_17": {
+        "psp_partner_17": 11
+      },
+      "scn_live": {
+        "actual": 1,
+        "scn_live": 12
+      },
+      "scn_pin": {
+        "scn_pin": 14
+      }
+    },
+    "macro_f1": 0.8830107358765895,
+    "per_frame": {
+      "actual": {
+        "tp": 785,
+        "fp": 29,
+        "fn": 0,
+        "f1": 0.981863664790494
+      },
+      "fic_01": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 18,
+        "f1": 0.4
+      },
+      "fic_02": {
+        "tp": 13,
+        "fp": 0,
+        "fn": 10,
+        "f1": 0.7222222222222222
+      },
+      "psp_customer_15": {
+        "tp": 11,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1
+      },
+      "psp_partner_05": {
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1
+      },
+      "psp_partner_17": {
+        "tp": 11,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1
+      },
+      "scn_live": {
+        "tp": 12,
+        "fp": 0,
+        "fn": 1,
+        "f1": 0.96
+      },
+      "scn_pin": {
+        "tp": 14,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1
+      }
+    },
+    "world_facts": 902,
+    "matched_facts": 893,
+    "coverage": 0.9900221729490022,
+    "abstention_rate": 0.009977827050997812,
+    "fiction_items": 48,
+    "fiction_to_actual": 28,
+    "fiction_to_actual_rate": 0.5833333333333334,
+    "actual_items": 792,
+    "actual_exiled": 0,
+    "actual_exile_rate": 0,
+    "sarcasm_events": 4,
+    "sarcasm_believed": 0,
+    "frames_declared": 7,
+    "frames_recovered": 7,
+    "frames_exact_meta": 6,
+    "frame_table_notes": [
+      "frame scn_pin: basis/pin live/0, want pinned/180"
+    ],
+    "rule_frame_correct": 40,
+    "rule_frame_wrong": 0,
+    "sup_frame_correct": 18,
+    "sup_frame_wrong": 0
+  }
+}

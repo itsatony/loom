@@ -1,0 +1,167 @@
+{
+  "dataset": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-21",
+  "extractor": "llm-frames:qwen36-nvfp4",
+  "facts": {
+    "world": 1020,
+    "committed": 1016,
+    "exact": 1005,
+    "mangled": 10,
+    "dropped": 1,
+    "missed": 4,
+    "hallucinated": 1,
+    "precision": 0.9891732283464567,
+    "recall": 0.9852941176470589,
+    "mangled_ids": [
+      "fct_0531",
+      "fct_0728",
+      "fct_0928",
+      "fct_0944",
+      "fct_0947",
+      "fct_0951",
+      "fct_0958",
+      "fct_0970",
+      "fct_0971",
+      "fct_1011"
+    ],
+    "dropped_ids": [
+      "fct_0976"
+    ],
+    "missed_ids": [
+      "fct_0684",
+      "fct_0793",
+      "fct_0893",
+      "fct_0990"
+    ],
+    "hallucinated_ids": [
+      ""
+    ]
+  },
+  "rules": {
+    "world": 42,
+    "committed": 41,
+    "exact": 41,
+    "mangled": 0,
+    "dropped": 0,
+    "missed": 1,
+    "hallucinated": 0,
+    "precision": 1,
+    "recall": 0.9761904761904762,
+    "missed_ids": [
+      "rul_027"
+    ]
+  },
+  "supersessions": {
+    "world": 18,
+    "committed": 18,
+    "exact": 18,
+    "mangled": 0,
+    "dropped": 0,
+    "missed": 0,
+    "hallucinated": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "frames": {
+    "confusion": {
+      "actual": {
+        "actual": 905
+      },
+      "fic_01": {
+        "actual": 1,
+        "fic_01": 23
+      },
+      "fic_02": {
+        "Coastline in Amber": 1,
+        "actual": 2,
+        "fic_02": 21
+      },
+      "psp_asset_00": {
+        "actual": 1,
+        "psp_asset_00": 11
+      },
+      "psp_partner_05": {
+        "psp_partner_05": 11
+      },
+      "psp_partner_09": {
+        "psp_partner_09": 11
+      },
+      "scn_live": {
+        "actual": 1,
+        "scn_live": 14
+      },
+      "scn_pin": {
+        "scn_pin": 14
+      }
+    },
+    "macro_f1": 0.9789176121452198,
+    "per_frame": {
+      "actual": {
+        "tp": 905,
+        "fp": 5,
+        "fn": 0,
+        "f1": 0.9972451790633609
+      },
+      "fic_01": {
+        "tp": 23,
+        "fp": 0,
+        "fn": 1,
+        "f1": 0.9787234042553191
+      },
+      "fic_02": {
+        "tp": 21,
+        "fp": 0,
+        "fn": 3,
+        "f1": 0.9333333333333333
+      },
+      "psp_asset_00": {
+        "tp": 11,
+        "fp": 0,
+        "fn": 1,
+        "f1": 0.9565217391304348
+      },
+      "psp_partner_05": {
+        "tp": 11,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1
+      },
+      "psp_partner_09": {
+        "tp": 11,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1
+      },
+      "scn_live": {
+        "tp": 14,
+        "fp": 0,
+        "fn": 1,
+        "f1": 0.9655172413793104
+      },
+      "scn_pin": {
+        "tp": 14,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1
+      }
+    },
+    "world_facts": 1020,
+    "matched_facts": 1016,
+    "coverage": 0.996078431372549,
+    "abstention_rate": 0.0039215686274509665,
+    "fiction_items": 48,
+    "fiction_to_actual": 3,
+    "fiction_to_actual_rate": 0.0625,
+    "actual_items": 908,
+    "actual_exiled": 0,
+    "actual_exile_rate": 0,
+    "sarcasm_events": 6,
+    "sarcasm_believed": 0,
+    "frames_declared": 7,
+    "frames_recovered": 7,
+    "frames_exact_meta": 7,
+    "rule_frame_correct": 41,
+    "rule_frame_wrong": 0,
+    "sup_frame_correct": 18,
+    "sup_frame_wrong": 0
+  }
+}

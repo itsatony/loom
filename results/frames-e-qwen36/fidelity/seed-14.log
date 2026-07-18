@@ -1,0 +1,24 @@
+compilation fidelity (llm-frames:qwen36-nvfp4 extractor) — dataset /home/itsatony/code/loom/datasets/frames-batch-v1/seed-14
+
+type            world committed  exact  mangled  dropped  missed  hallucinated  precision   recall
+facts             790       791    770       18        0       4             3      0.973    0.975
+rules              38        38     37        1        0       0             0      0.974    0.974
+supersessions      18        18     18        0        0       0             0      1.000    1.000
+
+frame-assignment fidelity (F-E3):
+  macro-F1 0.955 | coverage 0.999 (abstention 0.001) | fiction→actual leakage 6/48 (0.125, gate <0.02) | actual exile 0/684 (0.000)
+  sarcasm believed 0/6 | frames recovered 7/7 (exact meta 7) | rule frames 38✓/0✗ | sup frames 18✓/0✗
+  confusion (true → assigned: count):
+    actual                 actual:684
+    fic_01                 actual:3 fic_01:21
+    fic_02                 actual:3 fic_02:21
+    psp_jurisdiction_00    actual:4 psp_jurisdiction_00:7
+    psp_partner_08         psp_partner_08:11
+    psp_product_06         psp_product_06:11
+    scn_live               scn_live:11
+    scn_pin                scn_pin:13
+
+worst offenders (IDs, first 10 per class):
+  facts mangled  [fct_0019 fct_0051 fct_0090 fct_0141 fct_0467 fct_0522 fct_0572 fct_0661 fct_0689 fct_0695]
+  facts missed   [fct_0762 fct_0765 fct_0766 fct_0774]
+  rules mangled  [rul_038]

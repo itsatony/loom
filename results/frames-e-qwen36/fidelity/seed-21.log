@@ -1,0 +1,25 @@
+compilation fidelity (llm-frames:qwen36-nvfp4 extractor) — dataset /home/itsatony/code/loom/datasets/frames-batch-v1/seed-21
+
+type            world committed  exact  mangled  dropped  missed  hallucinated  precision   recall
+facts            1020      1016   1005       10        1       4             1      0.989    0.985
+rules              42        41     41        0        0       1             0      1.000    0.976
+supersessions      18        18     18        0        0       0             0      1.000    1.000
+
+frame-assignment fidelity (F-E3):
+  macro-F1 0.979 | coverage 0.996 (abstention 0.004) | fiction→actual leakage 3/48 (0.062, gate <0.02) | actual exile 0/908 (0.000)
+  sarcasm believed 0/6 | frames recovered 7/7 (exact meta 7) | rule frames 41✓/0✗ | sup frames 18✓/0✗
+  confusion (true → assigned: count):
+    actual                 actual:905
+    fic_01                 actual:1 fic_01:23
+    fic_02                 Coastline in Amber:1 actual:2 fic_02:21
+    psp_asset_00           actual:1 psp_asset_00:11
+    psp_partner_05         psp_partner_05:11
+    psp_partner_09         psp_partner_09:11
+    scn_live               actual:1 scn_live:14
+    scn_pin                scn_pin:14
+
+worst offenders (IDs, first 10 per class):
+  facts mangled  [fct_0531 fct_0728 fct_0928 fct_0944 fct_0947 fct_0951 fct_0958 fct_0970 fct_0971 fct_1011]
+  facts missed   [fct_0684 fct_0793 fct_0893 fct_0990]
+  facts dropped  [fct_0976]
+  rules missed   [rul_027]

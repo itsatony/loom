@@ -1139,3 +1139,77 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   measurements (extraction, reports, per-seed metrics) proceed — they are
   reading-independent. Nothing here touches F-E1, F-E3, F-E4, or any v0
   endpoint.
+- 2026-07-18 (FRAMES BUILD STEP 10 — first full F-E1..F-E4 run, qwen
+  primary leg, 20 locked seeds; NEGATIVE/MIXED and reported as such, no
+  softening) — loom-c2b-frames (self-hosted qwen36-nvfp4, thinking-off
+  extraction) vs the registered c2b-prov null on the CERTIFIED tier-M
+  corpus, all 20 locked seeds, 0 API errors (data-integrity clean;
+  artifacts results/frames-e-qwen36/, verdict JSONs committed).
+  RESULTS:
+  * F-E1 (safety, both directions) — PASS. Contamination balanced-acc
+    0.912 (CI-lower 0.882), isolation 0.956 (CI-lower 0.936), both ≥0.85;
+    neither near the 0.70 kill line. Gap-trap sub-line 0.892 (CI-lower
+    0.854). Sarcasm discipline PERFECT: 0/113 non-assertive literals
+    believed in any frame across all seeds.
+  * F-E4 (cross-frame ideation attribution) — PASS. micro-F1 0.928
+    (CI-lower 0.904) ≥ 0.90; exact-set 0.753.
+  * F-E3 (frame-assignment fidelity, SECONDARY/diagnostic) — MIXED, one
+    named gate FAILED. macro-F1 0.942 (min 0.874; 3 seeds dip below the
+    0.90 gate), rule-frame 0.996, coverage 0.997, sarcasm believed 0/113
+    — BUT fiction→actual leakage 0.21 mean / 0.58 max, badly above the
+    <0.02 gate. Mechanism confirmed genuine (not a scorer/handle bug):
+    both fiction frames are recovered, but the free qwen extractor
+    inconsistently homes UNMARKED naturalized story prose — some lines to
+    the story frame, some to actual (e.g. seed-16 fic_01 13✓/11 leaked).
+    This is precisely the §9.6.6-predicted "unmarked narrative" hard case,
+    and it is the mechanism behind the reading-(a) contamination weakness
+    below. It is an EXTRACTOR-QUALITY finding about a small free model, not
+    a substrate-architecture finding (the store homes exactly what the
+    extractor assigns; loom-c2b-frames-det on the same corpus is
+    frame-oracle-exact).
+  * F-E2 (superiority over the null, co-primary) — VERDICT HELD pending
+    Toni's ratification of the cued-partition reading (registered
+    2026-07-17), because the two readings point OPPOSITE directions and
+    the split is the exact kill-by-construction risk flagged then:
+      – reading (a) [registered default]: KILL. Content-cued balanced-acc
+        A−B +0.139 (CI-lower +0.108 < +0.15), and non-inferiority also
+        fails on metadata-cued (−0.097). Driven entirely by the §9.6.6
+        validator forcing a handle onto every frame-bearing line: the
+        null's lexical filter therefore aces contamination (0.968 trap
+        acc) and the "content-cued" partition collapses to ~5 sarcasm
+        pairs/seed. Under (a) the compile-time-frames bet is falsified on
+        this leg.
+      – reading (b) [structural traps query-time filtering architecturally
+        cannot reach]: DECISIVE WIN. Per-seed A−B (n=20): promotion +0.776,
+        misattribution micro-F1 +0.482, pinning +0.456, ideation +0.261,
+        isolation +0.173 — every one a §9.6.3-predicted structural failure
+        of the null, none reachable by lexical/provenance filtering. v0
+        slices non-inferior to the null (composition −0.007, repetition
+        −0.000, find −0.007; flip −0.019 the only sub-−2pp leg, on a
+        ≤6-flip-per-seed base). Frame-blind loom-c2b confirms the §9.6.3
+        contamination prediction: 0.082 trap acc (≈92% fiction believed).
+    No verdict is adopted, no threshold or kill-criterion is touched; the
+    reading is Toni's to ratify exactly as the §9.6.6 certificate reading
+    was (2026-07-12). BOTH readings' numbers are on record here and in the
+    committed per-seed reports (which now carry isolation/pinning/promotion
+    per-subpop + cue_sub decompositions, so any ratified reading is
+    computable without re-running).
+  INTERPRETATION (for the ratification memo, not a verdict): the null was
+  built to be beaten on content-cued frames (sarcasm, unmarked narrative,
+  mid-episode switches) AND on scenario composition. The §9.6.6 tier-M
+  certificate — which requires a recoverable handle on every frame line —
+  is in tension with "content-cued": a corpus a judge panel decodes at
+  ≥95% cannot contain much lexically-unmarked frame content by
+  construction, so reading (a)'s content-cued subset is nearly empty and
+  fragile. The substrate's advantage showed up exactly where the design
+  notes said query-time filtering must fail STRUCTURALLY (promotion,
+  pinning, misattribution, cross-frame ideation), not where it must fail
+  LEXICALLY. Open questions this raises for Toni (none decided here):
+  (1) ratify the F-E2 reading; (2) whether the F-E3 leakage warrants the
+  swap-model legs (gpt-5-mini, haiku-4-5 — stronger extractors, cheap on
+  the same cassette protocol) before any F-E2 verdict, since leakage is a
+  model-capability artifact; (3) whether "content-cued" should be
+  re-scoped to the structural slices given the certificate tension.
+  Swap-model legs + F-E3-driven extractor iteration are the obvious next
+  moves but are NOT started autonomously — they change what the primary
+  verdict is measured on.
