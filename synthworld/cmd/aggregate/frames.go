@@ -10,12 +10,14 @@
 //	  CI lower >= 0.85 (traps pooled with paired controls). KILL if either
 //	  CI lower < 0.70. Between the bands: INDETERMINATE (no pass, no kill).
 //	  The gap-trap sub-line is mandatory reporting, not a gate.
-//	F-E2 (co-primary, superiority over the null; paired A-B):
-//	  content-cued contamination balanced-acc diff CI lower >= +0.15, at
-//	  non-inferiority (CI lower >= -0.02) on metadata-cued traps AND every
-//	  v0 slice (repetition, composition, revision flip+retain, find F1).
-//	  KILL if the content-cued CI lower < +0.15 (query-time provenance
-//	  filtering suffices).
+//	F-E2 (co-primary, superiority over the null; paired A-B) — GOVERNING
+//	  reading ratified §10 2026-07-18 = FILTERABILITY: filtering-resistant
+//	  balanced-acc diff CI lower >= +0.15 vs the HARDER of {primary null,
+//	  ceiling null -b2}, at non-inferiority (CI lower >= -0.02) on
+//	  filter-decidable AND every v0 slice. KILL if filtering-resistant CI
+//	  lower < +0.15 (query-time filtering suffices). The original reading
+//	  (a) content-cued/metadata-cued (lexical markedness) is still computed
+//	  and printed as a superseded diagnostic.
 //	F-E4 (secondary): ideation micro-F1 (per-satisfier frame attribution),
 //	  gate mean >= 0.90; reported with CI, no kill semantics.
 //
@@ -140,9 +142,11 @@ func singleEndpoint(name string, seeds []string, vals []float64) Endpoint {
 type FramesResult struct {
 	CondA     string             `json:"condition_a"`
 	CondB     string             `json:"condition_b"`
+	CondB2    string             `json:"condition_b2,omitempty"` // second (ceiling) null; F-E2 must beat the HARDER of B, B2
 	SeedCount int                `json:"seed_count"`
 	MetricsA  []FrameSeedMetrics `json:"metrics_a"`
 	MetricsB  []FrameSeedMetrics `json:"metrics_b"`
+	MetricsB2 []FrameSeedMetrics `json:"metrics_b2,omitempty"`
 
 	// F-E1 (condition A alone)
 	FE1Contamination Endpoint `json:"fe1_contamination"`
@@ -152,11 +156,12 @@ type FramesResult struct {
 	FE1Why           string   `json:"fe1_why"`
 
 	// F-E2 (paired A-B)
-	FE2Content       Endpoint   `json:"fe2_content_cued"`        // reading (a), lexical markedness
-	FE2Metadata      Endpoint   `json:"fe2_metadata_cued"`       // reading (a)
-	FE2Resistant     Endpoint   `json:"fe2_filtering_resistant"` // re-spec (§10 2026-07-18)
-	FE2Decidable     Endpoint   `json:"fe2_filter_decidable"`    // re-spec non-inferiority leg
-	FE2ResistVerdict string     `json:"fe2_resistant_verdict"`
+	FE2Content       Endpoint   `json:"fe2_content_cued"`                     // reading (a), lexical markedness
+	FE2Metadata      Endpoint   `json:"fe2_metadata_cued"`                    // reading (a)
+	FE2Resistant     Endpoint   `json:"fe2_filtering_resistant"`              // vs primary null B
+	FE2ResistantB2   Endpoint   `json:"fe2_filtering_resistant_b2,omitempty"` // vs ceiling null B2
+	FE2Decidable     Endpoint   `json:"fe2_filter_decidable"`                 // non-inferiority leg (vs B)
+	FE2ResistVerdict string     `json:"fe2_resistant_verdict"`                // GOVERNING F-E2 (ratified 2026-07-18)
 	FE2ResistWhy     string     `json:"fe2_resistant_why"`
 	FE2V0            []Endpoint `json:"fe2_v0_noninferiority"`
 	FE2Verdict       string     `json:"fe2_verdict"`
@@ -173,9 +178,11 @@ type FramesResult struct {
 }
 
 // AnalyzeFrames computes F-E1/F-E2/F-E4 for A (frames condition) vs B (the
-// C2b-prov null).
-func AnalyzeFrames(seeds []SeedReports, condA, condB string) (*FramesResult, error) {
-	res := &FramesResult{CondA: condA, CondB: condB, SeedCount: len(seeds)}
+// primary null). condB2 (optional, "" to skip) is the ceiling null: the
+// ratified F-E2 (§10 2026-07-18) requires A to beat the HARDER of {B, B2}
+// on the filtering-resistant pool.
+func AnalyzeFrames(seeds []SeedReports, condA, condB, condB2 string) (*FramesResult, error) {
+	res := &FramesResult{CondA: condA, CondB: condB, CondB2: condB2, SeedCount: len(seeds)}
 	var labels []string
 	for _, sr := range seeds {
 		ra, okA := sr.Reports[condA]
@@ -199,6 +206,18 @@ func AnalyzeFrames(seeds []SeedReports, condA, condB string) (*FramesResult, err
 		labels = append(labels, sr.Seed)
 		res.MetricsA = append(res.MetricsA, ma)
 		res.MetricsB = append(res.MetricsB, mb)
+		if condB2 != "" {
+			rb2, okB2 := sr.Reports[condB2]
+			if !okB2 {
+				return nil, fmt.Errorf("seed %s: ceiling null %q missing (have: %s)",
+					sr.Seed, condB2, strings.Join(conditionNames(sr.Reports), ", "))
+			}
+			mb2, err := frameMetricsFor(sr.Seed, rb2)
+			if err != nil {
+				return nil, err
+			}
+			res.MetricsB2 = append(res.MetricsB2, mb2)
+		}
 	}
 	col := func(ms []FrameSeedMetrics, f func(FrameSeedMetrics) float64) []float64 {
 		out := make([]float64, len(ms))
@@ -294,32 +313,46 @@ func AnalyzeFrames(seeds []SeedReports, condA, condB string) (*FramesResult, err
 		res.FE2Why = fmt.Sprintf("content-cued CI lower %.4f >= +%.2f and all non-inferiority legs hold (margin %.2f)", contentLo, fe2Margin, fe2NonInf)
 	}
 
-	// ---- F-E2' (re-specified, filterability; §10 2026-07-18) ----
-	// PROPOSED reading pending Toni's ratification. Same ±15pp / -2pp
-	// arithmetic as reading (a), but on the filtering-resistant pool with
-	// filter-decidable as the non-inferiority leg.
+	// ---- F-E2 GOVERNING (filterability; ratified §10 2026-07-18) ----
+	// Superiority on the filtering-resistant pool by >=15pp CI-lower against
+	// the HARDER of {primary null B, ceiling null B2}; non-inferiority (-2pp)
+	// on filter-decidable and every v0 slice (vs the primary null B, the
+	// same-store-family opponent for which "did frames damage frame-free
+	// competence" is meaningful).
 	resistLo := float64(res.FE2Resistant.CILower)
+	harderLo := resistLo
+	harderWhich := condB
+	if condB2 != "" {
+		res.FE2ResistantB2 = pairedEndpoint("F-E2 filtering-resistant vs ceiling null (A-B2)", labels,
+			col(res.MetricsA, func(m FrameSeedMetrics) float64 { return float64(m.FilterResistBA) }),
+			col(res.MetricsB2, func(m FrameSeedMetrics) float64 { return float64(m.FilterResistBA) }))
+		if lo2 := float64(res.FE2ResistantB2.CILower); lo2 < harderLo {
+			harderLo, harderWhich = lo2, condB2
+		}
+	}
 	decNonInf := float64(res.FE2Decidable.CILower) >= fe2NonInf
-	v0NonInf := nonInfFail == "" // reuses the v0 legs computed above
+	v0NonInf := nonInfFail == "" // reuses the v0 legs computed above (vs B)
+	nEval := len(res.FE2Resistant.Diffs)
+	if condB2 != "" && len(res.FE2ResistantB2.Diffs) < nEval {
+		nEval = len(res.FE2ResistantB2.Diffs)
+	}
 	switch {
-	case len(res.FE2Resistant.Diffs) < minSeedsForVerdict:
+	case nEval < minSeedsForVerdict:
 		res.FE2ResistVerdict = VerdictNotEvaluable
 		res.FE2ResistWhy = fmt.Sprintf("filtering-resistant evaluable seeds < %d", minSeedsForVerdict)
-	case resistLo < fe2Margin:
+	case harderLo < fe2Margin:
 		res.FE2ResistVerdict = "KILL"
-		res.FE2ResistWhy = fmt.Sprintf("filtering-resistant CI lower %.4f < +%.2f", resistLo, fe2Margin)
+		res.FE2ResistWhy = fmt.Sprintf("filtering-resistant CI lower %.4f (vs harder null %s) < +%.2f — query-time filtering suffices; the compile-time-frames bet is falsified", harderLo, harderWhich, fe2Margin)
 	case decNonInf && v0NonInf:
 		res.FE2ResistVerdict = VerdictPass
-		res.FE2ResistWhy = fmt.Sprintf("filtering-resistant CI lower %.4f >= +%.2f, non-inferior on filter-decidable and v0", resistLo, fe2Margin)
+		res.FE2ResistWhy = fmt.Sprintf("filtering-resistant CI lower %.4f (vs harder null %s) >= +%.2f, non-inferior on filter-decidable and v0", harderLo, harderWhich, fe2Margin)
 	default:
 		res.FE2ResistVerdict = VerdictFail
-		leg := "filter-decidable"
-		if v0NonInf {
-			leg = res.FE2Decidable.Name
-		} else if nonInfFail != "" {
+		leg := res.FE2Decidable.Name
+		if !v0NonInf && nonInfFail != "" {
 			leg = nonInfFail
 		}
-		res.FE2ResistWhy = fmt.Sprintf("superiority met (CI lower %.4f) but non-inferiority violated on %q", resistLo, leg)
+		res.FE2ResistWhy = fmt.Sprintf("superiority met (CI lower %.4f vs %s) but non-inferiority violated on %q", harderLo, harderWhich, leg)
 	}
 
 	// ---- F-E4 ----
@@ -376,7 +409,11 @@ func (res *FramesResult) Render() string {
 	}
 
 	b.WriteString("\nendpoints (95% bootstrap CI, 10k resamples, RNG seed 42):\n")
-	all := []Endpoint{res.FE1Contamination, res.FE1Isolation, res.FE1Gap, res.FE2Content, res.FE2Metadata, res.FE2Resistant, res.FE2Decidable}
+	all := []Endpoint{res.FE1Contamination, res.FE1Isolation, res.FE1Gap, res.FE2Resistant}
+	if res.CondB2 != "" {
+		all = append(all, res.FE2ResistantB2)
+	}
+	all = append(all, res.FE2Decidable, res.FE2Content, res.FE2Metadata)
 	all = append(all, res.FE2V0...)
 	all = append(all, res.FE2Additional...)
 	all = append(all, res.FE4Ideation, res.FE4Exact)
@@ -395,8 +432,8 @@ func (res *FramesResult) Render() string {
 
 	b.WriteString("\n==== REGISTERED VERDICTS (MASTERPLAN §9.6.7) ====\n")
 	fmt.Fprintf(&b, "  F-E1 (safety, both directions):    %s — %s\n", res.FE1Verdict, res.FE1Why)
-	fmt.Fprintf(&b, "  F-E2  reading (a) lexical-markedness: %s — %s\n", res.FE2Verdict, res.FE2Why)
-	fmt.Fprintf(&b, "  F-E2' reading (b) filterability [PROPOSED, §10 2026-07-18, pending ratification]: %s — %s\n", res.FE2ResistVerdict, res.FE2ResistWhy)
+	fmt.Fprintf(&b, "  F-E2 (superiority over the null) [GOVERNING, filterability; ratified §10 2026-07-18]: %s — %s\n", res.FE2ResistVerdict, res.FE2ResistWhy)
+	fmt.Fprintf(&b, "  F-E2 reading (a) lexical-markedness [diagnostic, superseded]: %s — %s\n", res.FE2Verdict, res.FE2Why)
 	fmt.Fprintf(&b, "  F-E4 (ideation attribution):       %s — %s\n", res.FE4Verdict, res.FE4Why)
 	for _, w := range res.Warnings {
 		fmt.Fprintf(&b, "  WARNING: %s\n", w)

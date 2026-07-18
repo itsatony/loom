@@ -42,7 +42,8 @@ func main() {
 	condA := flag.String("a", "", "condition A (the challenger, e.g. loom-C2b)")
 	condB := flag.String("b", "", "condition B (the baseline, e.g. strongest C1)")
 	jsonOut := flag.String("json", "", "optional path for the JSON result")
-	framesMode := flag.Bool("frames", false, "frames-v1 endpoint arithmetic (F-E1/F-E2/F-E4, MASTERPLAN §9.6.7): -a = frames condition, -b = C2b-prov null")
+	framesMode := flag.Bool("frames", false, "frames-v1 endpoint arithmetic (F-E1/F-E2/F-E4, MASTERPLAN §9.6.7): -a = frames condition, -b = primary null")
+	condB2 := flag.String("b2", "", "frames mode: optional ceiling null (e.g. frame-rag); ratified F-E2 requires -a to beat the HARDER of -b and -b2 on filtering-resistant")
 	flag.Parse()
 
 	if *reportsFlag == "" || *condA == "" || *condB == "" {
@@ -61,7 +62,7 @@ func main() {
 	var render string
 	var result any
 	if *framesMode {
-		res, err := AnalyzeFrames(seeds, *condA, *condB)
+		res, err := AnalyzeFrames(seeds, *condA, *condB, *condB2)
 		if err != nil {
 			fatal(err)
 		}

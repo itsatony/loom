@@ -1267,3 +1267,16 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   free-model extraction weakness that drove reading (a)'s qwen KILL
   largely closes with a frontier extractor, as predicted. The locked
   20-seed gpt-5 run is the confirmatory test.
+- 2026-07-18 (F-E2 RE-SPEC RATIFIED — Toni) — Toni ratified the
+  filterability re-specification of F-E2 (previous entry). The GOVERNING
+  F-E2 is now: C2b-frames beats the HARDER of {c2b-prov, frame-rag ceiling
+  null} on the filtering-resistant pool by >=15pp balanced-acc CI-lower, at
+  non-inferiority (-2pp) on filter-decidable and every v0 slice. Reading (a)
+  (lexical content-cued/metadata-cued) is retained as a REPORTED, SUPERSEDED
+  diagnostic — never gates. cmd/aggregate -frames now prints the governing
+  filterability verdict first and reading (a) beneath it labeled superseded;
+  the -b2 flag supplies the ceiling null. Thresholds (±15pp/-2pp,
+  seed-bootstrap CI, RNG 42) unchanged; F-E1/F-E3/F-E4 unchanged. The
+  gpt-5 20-seed run (in flight) is the confirmatory test under this
+  ratified endpoint. The qwen run is retained as the exploratory first
+  leg that generated the re-spec hypothesis and is reported as such.
