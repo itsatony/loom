@@ -1,0 +1,12 @@
+{
+  "key": "f1d979d8d00e2f83d525aa53e2a9ea60dd82de207cc0c3f385e10e3eac1c6e93",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, across frames [actual], list every asset value X such that member_of(sector=sector_15, asset=?X, product=product_12) holds, labeling each value with the frame it holds in. Answer as (value, frame) pairs (possibly empty).\nStructured form: {\"at_day\":360,\"find_slot\":\"asset\",\"pattern\":{\"relation\":\"rel_b09_member_of\",\"args\":{\"asset\":{\"var\":\"X\"},\"product\":{\"const\":\"product_12\"},\"sector\":{\"const\":\"sector_15\"}}}}",
+  "response": "\n\n[]",
+  "usage": {
+    "prompt_tokens": 223,
+    "completion_tokens": 768
+  },
+  "recorded_at": "2026-07-18T00:15:21Z"
+}

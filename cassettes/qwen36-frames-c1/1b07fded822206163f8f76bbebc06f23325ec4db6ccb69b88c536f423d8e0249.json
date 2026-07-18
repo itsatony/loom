@@ -1,0 +1,12 @@
+{
+  "key": "1b07fded822206163f8f76bbebc06f23325ec4db6ccb69b88c536f423d8e0249",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, in which frames does classified_as(sector=sector_08, asset=asset_18) hold? Answer with a subset of [actual, A Coastline in Amber, The Cartographer's Debt, jurisdiction_00, jurisdiction_28, product_12, Greenfield, Foxglove] (possibly empty).\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b02_classified_as\",\"args\":{\"asset\":\"asset_18\",\"sector\":\"sector_08\"}}}",
+  "response": "\n\n[\"actual\"]",
+  "usage": {
+    "prompt_tokens": 221,
+    "completion_tokens": 1248
+  },
+  "recorded_at": "2026-07-17T20:56:55Z"
+}

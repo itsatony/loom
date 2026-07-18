@@ -1,0 +1,12 @@
+{
+  "key": "229edd5ffea4b87d72d4309d25e8f68936c511d0611df036ec6022c9b94f61f9",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Blueline, does operates_in(sector=sector_11, customer=customer_02) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b01_operates_in\",\"args\":{\"customer\":\"customer_02\",\"sector\":\"sector_11\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 183,
+    "completion_tokens": 509
+  },
+  "recorded_at": "2026-07-17T13:53:51Z"
+}

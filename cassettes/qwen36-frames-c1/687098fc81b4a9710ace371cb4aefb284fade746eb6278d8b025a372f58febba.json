@@ -1,0 +1,12 @@
+{
+  "key": "687098fc81b4a9710ace371cb4aefb284fade746eb6278d8b025a372f58febba",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, does restricted_in(sector=sector_15, partner=partner_17, asset=asset_11) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d101_restricted_in\",\"args\":{\"asset\":\"asset_11\",\"partner\":\"partner_17\",\"sector\":\"sector_15\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 192,
+    "completion_tokens": 611
+  },
+  "recorded_at": "2026-07-17T22:40:37Z"
+}

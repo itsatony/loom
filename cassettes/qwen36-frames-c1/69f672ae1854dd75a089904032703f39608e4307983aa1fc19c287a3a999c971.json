@@ -1,0 +1,12 @@
+{
+  "key": "69f672ae1854dd75a089904032703f39608e4307983aa1fc19c287a3a999c971",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, in which frames does registered_in(customer=customer_08, asset=asset_13, product=product_08) hold? Answer with a subset of [actual, The Second Auditor, Nightferry, jurisdiction_16, product_03, product_06, Oakhaven, Goldcrest] (possibly empty).\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b00_registered_in\",\"args\":{\"asset\":\"asset_13\",\"customer\":\"customer_08\",\"product\":\"product_08\"}}}",
+  "response": "\n\n[\"actual\"]",
+  "usage": {
+    "prompt_tokens": 228,
+    "completion_tokens": 1969
+  },
+  "recorded_at": "2026-07-18T00:15:09Z"
+}

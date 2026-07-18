@@ -1,0 +1,12 @@
+{
+  "key": "ac90d863ef222e24349917b75e74e003ec48ff23a0b93f1c10c9c25ea5f8eedb",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Nettlebed, does rated_as(asset=asset_04, asset2=asset_11) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b08_rated_as\",\"args\":{\"asset\":\"asset_04\",\"asset2\":\"asset_11\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 184,
+    "completion_tokens": 558
+  },
+  "recorded_at": "2026-07-17T14:47:32Z"
+}

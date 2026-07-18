@@ -1,0 +1,12 @@
+{
+  "key": "3a6aba2bc214dad416d47b5bce345d6ffc49599a60b8ad84182ee46015d42f61",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Saffron, does priority_case(product=product_15, asset=asset_28, jurisdiction=jurisdiction_02) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d301_priority_case\",\"args\":{\"asset\":\"asset_28\",\"jurisdiction\":\"jurisdiction_02\",\"product\":\"product_15\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 199,
+    "completion_tokens": 399
+  },
+  "recorded_at": "2026-07-17T18:30:05Z"
+}

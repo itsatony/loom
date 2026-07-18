@@ -1,0 +1,12 @@
+{
+  "key": "b97352668f2109402314fee683aa5c6811e156095b416093b90a6cb55a398274",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Larkspur, does priority_case(customer=customer_20, sector=sector_09, jurisdiction=jurisdiction_13) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d301_priority_case\",\"args\":{\"customer\":\"customer_20\",\"jurisdiction\":\"jurisdiction_13\",\"sector\":\"sector_09\"}}}",
+  "response": "\n\ntrue",
+  "usage": {
+    "prompt_tokens": 199,
+    "completion_tokens": 360
+  },
+  "recorded_at": "2026-07-17T22:42:06Z"
+}

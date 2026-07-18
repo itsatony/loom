@@ -1,0 +1,12 @@
+{
+  "key": "7ee7a9688a7ab3f207e43085f58272c5c7006f21e37fc60951c637c5d01eff03",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Foxglove, does rated_as(partner=partner_12, customer=customer_12) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b08_rated_as\",\"args\":{\"customer\":\"customer_12\",\"partner\":\"partner_12\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 183,
+    "completion_tokens": 763
+  },
+  "recorded_at": "2026-07-17T20:30:58Z"
+}

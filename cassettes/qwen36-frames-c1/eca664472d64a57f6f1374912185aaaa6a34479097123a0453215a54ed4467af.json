@@ -1,0 +1,12 @@
+{
+  "key": "eca664472d64a57f6f1374912185aaaa6a34479097123a0453215a54ed4467af",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, across frames [actual, Hazelwood], list every asset2 value X such that rated_as(asset=asset_15, asset2=?X) holds, labeling each value with the frame it holds in. Answer as (value, frame) pairs (possibly empty).\nStructured form: {\"at_day\":360,\"find_slot\":\"asset2\",\"pattern\":{\"relation\":\"rel_b08_rated_as\",\"args\":{\"asset\":{\"const\":\"asset_15\"},\"asset2\":{\"var\":\"X\"}}}}",
+  "response": "\n\n[]",
+  "usage": {
+    "prompt_tokens": 214,
+    "completion_tokens": 1698
+  },
+  "recorded_at": "2026-07-17T14:48:17Z"
+}

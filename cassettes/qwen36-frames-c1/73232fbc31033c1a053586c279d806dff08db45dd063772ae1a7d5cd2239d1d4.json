@@ -1,0 +1,12 @@
+{
+  "key": "73232fbc31033c1a053586c279d806dff08db45dd063772ae1a7d5cd2239d1d4",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Oakhaven, does cleared_for(sector=sector_24, customer=customer_22, jurisdiction=jurisdiction_08) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d300_cleared_for\",\"args\":{\"customer\":\"customer_22\",\"jurisdiction\":\"jurisdiction_08\",\"sector\":\"sector_24\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 200,
+    "completion_tokens": 840
+  },
+  "recorded_at": "2026-07-17T17:13:12Z"
+}

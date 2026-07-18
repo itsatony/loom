@@ -1,0 +1,12 @@
+{
+  "key": "9096dd589793db6a6d5e28a23d372e143a9edff1f6805932527dfe6011360cc2",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Tallgrass, does eligible_for_1(customer=customer_07, jurisdiction=jurisdiction_07, sector=sector_12) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d302_eligible_for_1\",\"args\":{\"customer\":\"customer_07\",\"jurisdiction\":\"jurisdiction_07\",\"sector\":\"sector_12\"}}}",
+  "response": "\n\ntrue",
+  "usage": {
+    "prompt_tokens": 204,
+    "completion_tokens": 295
+  },
+  "recorded_at": "2026-07-17T15:25:51Z"
+}

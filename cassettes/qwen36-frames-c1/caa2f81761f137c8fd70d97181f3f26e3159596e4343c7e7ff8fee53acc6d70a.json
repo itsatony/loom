@@ -1,0 +1,12 @@
+{
+  "key": "caa2f81761f137c8fd70d97181f3f26e3159596e4343c7e7ff8fee53acc6d70a",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Coldharbor, does holds(sector=sector_20, partner=partner_08) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b05_holds\",\"args\":{\"partner\":\"partner_08\",\"sector\":\"sector_20\"}}}",
+  "response": "\n\ntrue",
+  "usage": {
+    "prompt_tokens": 181,
+    "completion_tokens": 637
+  },
+  "recorded_at": "2026-07-17T23:07:56Z"
+}

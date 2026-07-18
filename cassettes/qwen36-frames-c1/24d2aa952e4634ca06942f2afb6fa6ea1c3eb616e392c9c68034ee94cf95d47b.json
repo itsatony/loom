@@ -1,0 +1,12 @@
+{
+  "key": "24d2aa952e4634ca06942f2afb6fa6ea1c3eb616e392c9c68034ee94cf95d47b",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Nettlebed, does cleared_for(jurisdiction=jurisdiction_10, sector=sector_06, asset=asset_15) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d300_cleared_for\",\"args\":{\"asset\":\"asset_15\",\"jurisdiction\":\"jurisdiction_10\",\"sector\":\"sector_06\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 202,
+    "completion_tokens": 777
+  },
+  "recorded_at": "2026-07-17T14:47:33Z"
+}

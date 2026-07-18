@@ -1,0 +1,12 @@
+{
+  "key": "b0ef35b921279344626df335df2b30d40ab0496ee7da77fdf04fb00522185b67",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, does cleared_for(jurisdiction=jurisdiction_15, jurisdiction2=jurisdiction_18, partner=partner_06) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d300_cleared_for\",\"args\":{\"jurisdiction\":\"jurisdiction_15\",\"jurisdiction2\":\"jurisdiction_18\",\"partner\":\"partner_06\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 201,
+    "completion_tokens": 806
+  },
+  "recorded_at": "2026-07-17T13:19:31Z"
+}

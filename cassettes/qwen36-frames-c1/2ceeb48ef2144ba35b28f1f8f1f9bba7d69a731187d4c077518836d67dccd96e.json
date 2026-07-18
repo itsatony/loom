@@ -1,0 +1,12 @@
+{
+  "key": "2ceeb48ef2144ba35b28f1f8f1f9bba7d69a731187d4c077518836d67dccd96e",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, does registered_in(jurisdiction=jurisdiction_27, asset=asset_00) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b00_registered_in\",\"args\":{\"asset\":\"asset_00\",\"jurisdiction\":\"jurisdiction_27\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 180,
+    "completion_tokens": 865
+  },
+  "recorded_at": "2026-07-17T20:27:57Z"
+}

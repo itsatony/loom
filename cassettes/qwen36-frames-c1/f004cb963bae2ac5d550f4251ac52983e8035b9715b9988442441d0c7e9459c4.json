@@ -1,0 +1,12 @@
+{
+  "key": "f004cb963bae2ac5d550f4251ac52983e8035b9715b9988442441d0c7e9459c4",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Goldcrest, does approved_for(partner=partner_05, asset=asset_10, asset2=asset_08) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d200_approved_for\",\"args\":{\"asset\":\"asset_10\",\"asset2\":\"asset_08\",\"partner\":\"partner_05\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 198,
+    "completion_tokens": 896
+  },
+  "recorded_at": "2026-07-18T00:14:28Z"
+}

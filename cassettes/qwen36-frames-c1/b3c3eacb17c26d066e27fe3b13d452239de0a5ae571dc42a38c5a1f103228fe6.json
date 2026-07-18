@@ -1,0 +1,12 @@
+{
+  "key": "b3c3eacb17c26d066e27fe3b13d452239de0a5ae571dc42a38c5a1f103228fe6",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, in which frames does partnered_with(jurisdiction=jurisdiction_16, partner=partner_16, jurisdiction2=jurisdiction_02) hold? Answer with a subset of [actual, The Second Auditor, Nightferry, jurisdiction_00, jurisdiction_19, partner_02, Foxglove, Longview] (possibly empty).\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b06_partnered_with\",\"args\":{\"jurisdiction\":\"jurisdiction_16\",\"jurisdiction2\":\"jurisdiction_02\",\"partner\":\"partner_16\"}}}",
+  "response": "\n\n[\"actual\"]",
+  "usage": {
+    "prompt_tokens": 240,
+    "completion_tokens": 1659
+  },
+  "recorded_at": "2026-07-17T20:31:53Z"
+}

@@ -1,0 +1,12 @@
+{
+  "key": "b6567f4d93ff684384732dd2985d477419faf6c98ce219211e76a2c582c62566",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Tallgrass, does exempt_from(customer=customer_13, product=product_14) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d201_exempt_from\",\"args\":{\"customer\":\"customer_13\",\"product\":\"product_14\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 181,
+    "completion_tokens": 753
+  },
+  "recorded_at": "2026-07-17T19:33:43Z"
+}

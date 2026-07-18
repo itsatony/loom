@@ -1,0 +1,12 @@
+{
+  "key": "87d45f083be79137cfd35beb4af6c0eef4177a51361b13188659a424ca81f33b",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, across frames [actual, Silvergate], list every asset value X such that located_in(asset=?X, jurisdiction=jurisdiction_11) holds, labeling each value with the frame it holds in. Answer as (value, frame) pairs (possibly empty).\nStructured form: {\"at_day\":360,\"find_slot\":\"asset\",\"pattern\":{\"relation\":\"rel_b07_located_in\",\"args\":{\"asset\":{\"var\":\"X\"},\"jurisdiction\":{\"const\":\"jurisdiction_11\"}}}}",
+  "response": "\n\n[]",
+  "usage": {
+    "prompt_tokens": 213,
+    "completion_tokens": 1624
+  },
+  "recorded_at": "2026-07-17T18:04:44Z"
+}

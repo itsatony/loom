@@ -1,0 +1,12 @@
+{
+  "key": "a3447804fbf74ae2bc0957488ca20a4e83b4609332582300f12922907b90eca4",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Ivybridge, does partnered_with(product=product_14, sector=sector_20) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b06_partnered_with\",\"args\":{\"product\":\"product_14\",\"sector\":\"sector_20\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 181,
+    "completion_tokens": 736
+  },
+  "recorded_at": "2026-07-17T21:28:24Z"
+}

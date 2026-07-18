@@ -1,0 +1,12 @@
+{
+  "key": "55070a3088a3b6440fa1691e76c94423936d0fc2c9243998304794743b1a2da7",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, in which frames does supplies(partner=partner_11, jurisdiction=jurisdiction_20) hold? Answer with a subset of [actual, The Marble Index, Winter in the Annex, jurisdiction_00, jurisdiction_09, jurisdiction_13, Saffron, Blueline] (possibly empty).\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b04_supplies\",\"args\":{\"jurisdiction\":\"jurisdiction_20\",\"partner\":\"partner_11\"}}}",
+  "response": "\n\n[]",
+  "usage": {
+    "prompt_tokens": 220,
+    "completion_tokens": 1283
+  },
+  "recorded_at": "2026-07-17T13:54:26Z"
+}

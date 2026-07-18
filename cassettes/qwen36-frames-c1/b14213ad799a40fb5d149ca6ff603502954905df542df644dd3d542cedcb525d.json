@@ -1,0 +1,12 @@
+{
+  "key": "b14213ad799a40fb5d149ca6ff603502954905df542df644dd3d542cedcb525d",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, list every product value X such that priority_case(product=?X, jurisdiction=jurisdiction_13, jurisdiction2=jurisdiction_18) holds. Answer with a list of entity IDs (possibly empty).\nStructured form: {\"at_day\":360,\"find_slot\":\"product\",\"pattern\":{\"relation\":\"rel_d301_priority_case\",\"args\":{\"jurisdiction\":{\"const\":\"jurisdiction_13\"},\"jurisdiction2\":{\"const\":\"jurisdiction_18\"},\"product\":{\"var\":\"X\"}}}}",
+  "response": "\n\n[]",
+  "usage": {
+    "prompt_tokens": 215,
+    "completion_tokens": 550
+  },
+  "recorded_at": "2026-07-18T00:12:42Z"
+}

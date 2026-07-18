@@ -1,0 +1,12 @@
+{
+  "key": "4c3350ed94771a98db7809ca3cfbc1673e0d09ffb02dd42672c7b5c5bffa2221",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, in which frames does operates_in(customer=customer_01, partner=partner_05, customer2=customer_13) hold? Answer with a subset of [actual, A Coastline in Amber, The Cartographer's Debt, customer_06, jurisdiction_20, partner_12, Eastgate, Oakhaven] (possibly empty).\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b01_operates_in\",\"args\":{\"customer\":\"customer_01\",\"customer2\":\"customer_13\",\"partner\":\"partner_05\"}}}",
+  "response": "\n\n[\"actual\"]",
+  "usage": {
+    "prompt_tokens": 235,
+    "completion_tokens": 1506
+  },
+  "recorded_at": "2026-07-17T23:45:20Z"
+}

@@ -1,0 +1,12 @@
+{
+  "key": "79b170518307f976e08bcae11cdfd50c9c2af2c49af6d898ecde6db74bed9227",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Tallgrass, does cleared_for(partner=partner_02, sector=sector_01, customer=customer_22) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d300_cleared_for\",\"args\":{\"customer\":\"customer_22\",\"partner\":\"partner_02\",\"sector\":\"sector_01\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 197,
+    "completion_tokens": 824
+  },
+  "recorded_at": "2026-07-17T19:32:59Z"
+}

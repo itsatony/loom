@@ -1,0 +1,12 @@
+{
+  "key": "b940b68d5f86334edc27f6bf806e9b6f3f6523f5e10d461b4038c97e1c9b67d1",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Coldharbor, does operates_in(sector=sector_18, jurisdiction=jurisdiction_03, jurisdiction2=jurisdiction_13) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b01_operates_in\",\"args\":{\"jurisdiction\":\"jurisdiction_03\",\"jurisdiction2\":\"jurisdiction_13\",\"sector\":\"sector_18\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 205,
+    "completion_tokens": 1004
+  },
+  "recorded_at": "2026-07-17T13:21:43Z"
+}

@@ -1,0 +1,12 @@
+{
+  "key": "60cb9e0018374c3b76c70d312bfc4aa4b29d61368acbffdaba99d76cd75dc9ec",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Longview, does partnered_with(jurisdiction=jurisdiction_15, partner=partner_15, jurisdiction2=jurisdiction_19) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b06_partnered_with\",\"args\":{\"jurisdiction\":\"jurisdiction_15\",\"jurisdiction2\":\"jurisdiction_19\",\"partner\":\"partner_15\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 205,
+    "completion_tokens": 471
+  },
+  "recorded_at": "2026-07-17T20:31:01Z"
+}

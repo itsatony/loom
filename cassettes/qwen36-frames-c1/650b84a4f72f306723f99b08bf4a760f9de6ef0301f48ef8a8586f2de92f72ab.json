@@ -1,0 +1,12 @@
+{
+  "key": "650b84a4f72f306723f99b08bf4a760f9de6ef0301f48ef8a8586f2de92f72ab",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, across frames [actual, Foxglove], list every jurisdiction2 value X such that partnered_with(jurisdiction=jurisdiction_27, partner=partner_06, jurisdiction2=?X) holds, labeling each value with the frame it holds in. Answer as (value, frame) pairs (possibly empty).\nStructured form: {\"at_day\":360,\"find_slot\":\"jurisdiction2\",\"pattern\":{\"relation\":\"rel_b06_partnered_with\",\"args\":{\"jurisdiction\":{\"const\":\"jurisdiction_27\"},\"jurisdiction2\":{\"var\":\"X\"},\"partner\":{\"const\":\"partner_06\"}}}}",
+  "response": "\n\n[]",
+  "usage": {
+    "prompt_tokens": 238,
+    "completion_tokens": 764
+  },
+  "recorded_at": "2026-07-17T20:32:18Z"
+}

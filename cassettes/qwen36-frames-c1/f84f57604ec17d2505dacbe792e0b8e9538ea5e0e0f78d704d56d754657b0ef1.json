@@ -1,0 +1,12 @@
+{
+  "key": "f84f57604ec17d2505dacbe792e0b8e9538ea5e0e0f78d704d56d754657b0ef1",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Nettlebed, does offered_in(customer=customer_04, asset=asset_17) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b03_offered_in\",\"args\":{\"asset\":\"asset_17\",\"customer\":\"customer_04\"}}}",
+  "response": "\n\ntrue",
+  "usage": {
+    "prompt_tokens": 182,
+    "completion_tokens": 352
+  },
+  "recorded_at": "2026-07-17T14:46:59Z"
+}

@@ -1,0 +1,12 @@
+{
+  "key": "fd2011867fad46cd2a4cf740deda1d7bc1298bbb5c122ec0867dec8aeca8abaa",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Hazelwood, does eligible_for_1(customer=customer_10, partner=partner_00, asset=asset_11) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d302_eligible_for_1\",\"args\":{\"asset\":\"asset_11\",\"customer\":\"customer_10\",\"partner\":\"partner_00\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 201,
+    "completion_tokens": 655
+  },
+  "recorded_at": "2026-07-17T14:46:47Z"
+}

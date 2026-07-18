@@ -1,0 +1,12 @@
+{
+  "key": "076f37f9f91b46ebcf6d0af1028e92c8b7239f18fd9cf8247cb3267813bdf788",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Tallgrass, does registered_in(jurisdiction=jurisdiction_17, asset=asset_12, customer=customer_14) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b00_registered_in\",\"args\":{\"asset\":\"asset_12\",\"customer\":\"customer_14\",\"jurisdiction\":\"jurisdiction_17\"}}}",
+  "response": "\n\ntrue",
+  "usage": {
+    "prompt_tokens": 199,
+    "completion_tokens": 557
+  },
+  "recorded_at": "2026-07-17T15:25:48Z"
+}

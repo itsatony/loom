@@ -1,0 +1,12 @@
+{
+  "key": "a6cdb9e1321705c9b6348e02a2c601c68af7a7bc6a240ed927e9a3371ead3f2e",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, across frames [actual, Hazelwood], list every customer2 value X such that supplies(customer=customer_06, customer2=?X, jurisdiction=jurisdiction_07) holds, labeling each value with the frame it holds in. Answer as (value, frame) pairs (possibly empty).\nStructured form: {\"at_day\":360,\"find_slot\":\"customer2\",\"pattern\":{\"relation\":\"rel_b04_supplies\",\"args\":{\"customer\":{\"const\":\"customer_06\"},\"customer2\":{\"var\":\"X\"},\"jurisdiction\":{\"const\":\"jurisdiction_07\"}}}}",
+  "response": "\n\n[]",
+  "usage": {
+    "prompt_tokens": 231,
+    "completion_tokens": 1441
+  },
+  "recorded_at": "2026-07-17T14:48:18Z"
+}

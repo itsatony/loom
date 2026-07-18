@@ -1,0 +1,12 @@
+{
+  "key": "9cff76d97c1b2ecc9171a84098f66073faa575e938b72f62119a40997d60b8d1",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, across frames [actual, Greenfield], list every asset value X such that operates_in(sector=sector_05, asset=?X, asset2=asset_17) holds, labeling each value with the frame it holds in. Answer as (value, frame) pairs (possibly empty).\nStructured form: {\"at_day\":360,\"find_slot\":\"asset\",\"pattern\":{\"relation\":\"rel_b01_operates_in\",\"args\":{\"asset\":{\"var\":\"X\"},\"asset2\":{\"const\":\"asset_17\"},\"sector\":{\"const\":\"sector_05\"}}}}",
+  "response": "\n\n[]",
+  "usage": {
+    "prompt_tokens": 229,
+    "completion_tokens": 941
+  },
+  "recorded_at": "2026-07-17T20:57:17Z"
+}

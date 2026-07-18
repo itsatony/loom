@@ -1,0 +1,12 @@
+{
+  "key": "a74b1a2cfc6e916b14861c54607dcd4074f4c57ddaf2d498026ef841f99a06af",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, does flagged_for(sector=sector_03, customer=customer_01, product=product_17) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d202_flagged_for\",\"args\":{\"customer\":\"customer_01\",\"product\":\"product_17\",\"sector\":\"sector_03\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 192,
+    "completion_tokens": 639
+  },
+  "recorded_at": "2026-07-17T23:05:11Z"
+}

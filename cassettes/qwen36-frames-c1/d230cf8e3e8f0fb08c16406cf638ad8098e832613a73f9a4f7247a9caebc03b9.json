@@ -1,0 +1,12 @@
+{
+  "key": "d230cf8e3e8f0fb08c16406cf638ad8098e832613a73f9a4f7247a9caebc03b9",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Whitewater, does offered_in(product=product_07, asset=asset_08) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b03_offered_in\",\"args\":{\"asset\":\"asset_08\",\"product\":\"product_07\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 181,
+    "completion_tokens": 936
+  },
+  "recorded_at": "2026-07-17T22:41:35Z"
+}

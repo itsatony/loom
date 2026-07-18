@@ -1,0 +1,12 @@
+{
+  "key": "6360d7b543e6269c7492556fe06ffa4d7e6b5211ca1f3066b994fec32268b244",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, does supplies(customer=customer_07, sector=sector_03, partner=partner_10) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b04_supplies\",\"args\":{\"customer\":\"customer_07\",\"partner\":\"partner_10\",\"sector\":\"sector_03\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 188,
+    "completion_tokens": 826
+  },
+  "recorded_at": "2026-07-17T12:23:09Z"
+}

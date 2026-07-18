@@ -1,0 +1,12 @@
+{
+  "key": "2a1041ae4ea939f22e819db437bf20780a1efecf5d1ac8e9e92d19c5ef220836",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Larkspur, does exempt_from(jurisdiction=jurisdiction_06, sector=sector_01, jurisdiction2=jurisdiction_15) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d201_exempt_from\",\"args\":{\"jurisdiction\":\"jurisdiction_06\",\"jurisdiction2\":\"jurisdiction_15\",\"sector\":\"sector_01\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 206,
+    "completion_tokens": 399
+  },
+  "recorded_at": "2026-07-17T22:41:58Z"
+}

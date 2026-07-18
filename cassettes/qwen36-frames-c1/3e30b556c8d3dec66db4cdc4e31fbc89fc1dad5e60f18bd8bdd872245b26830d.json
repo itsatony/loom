@@ -1,0 +1,12 @@
+{
+  "key": "3e30b556c8d3dec66db4cdc4e31fbc89fc1dad5e60f18bd8bdd872245b26830d",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Kestrel, does member_of(product=product_29, partner=partner_02) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b09_member_of\",\"args\":{\"partner\":\"partner_02\",\"product\":\"product_29\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 181,
+    "completion_tokens": 724
+  },
+  "recorded_at": "2026-07-17T12:25:07Z"
+}

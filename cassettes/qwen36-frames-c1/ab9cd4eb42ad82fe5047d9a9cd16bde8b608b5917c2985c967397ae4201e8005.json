@@ -1,0 +1,12 @@
+{
+  "key": "ab9cd4eb42ad82fe5047d9a9cd16bde8b608b5917c2985c967397ae4201e8005",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Eastgate, does priority_case(jurisdiction=jurisdiction_10, partner=partner_08, partner2=partner_04) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d301_priority_case\",\"args\":{\"jurisdiction\":\"jurisdiction_10\",\"partner\":\"partner_08\",\"partner2\":\"partner_04\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 202,
+    "completion_tokens": 831
+  },
+  "recorded_at": "2026-07-17T23:44:27Z"
+}

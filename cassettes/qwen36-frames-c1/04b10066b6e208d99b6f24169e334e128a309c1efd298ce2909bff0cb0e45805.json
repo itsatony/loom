@@ -1,0 +1,12 @@
+{
+  "key": "04b10066b6e208d99b6f24169e334e128a309c1efd298ce2909bff0cb0e45805",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, does supplies(asset=asset_19, jurisdiction=jurisdiction_17) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b04_supplies\",\"args\":{\"asset\":\"asset_19\",\"jurisdiction\":\"jurisdiction_17\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 177,
+    "completion_tokens": 353
+  },
+  "recorded_at": "2026-07-17T16:15:26Z"
+}

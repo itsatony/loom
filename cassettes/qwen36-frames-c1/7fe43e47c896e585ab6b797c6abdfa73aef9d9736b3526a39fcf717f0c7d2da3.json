@@ -1,0 +1,12 @@
+{
+  "key": "7fe43e47c896e585ab6b797c6abdfa73aef9d9736b3526a39fcf717f0c7d2da3",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, in which frames does partnered_with(partner=partner_03, partner2=partner_00) hold? Answer with a subset of [actual, The Lantern Rooms, Low Tide at Vantage, asset_00, product_03, sector_07, Oakhaven, Goldcrest] (possibly empty).\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b06_partnered_with\",\"args\":{\"partner\":\"partner_03\",\"partner2\":\"partner_00\"}}}",
+  "response": "\n\n[\"Goldcrest\"]",
+  "usage": {
+    "prompt_tokens": 220,
+    "completion_tokens": 1568
+  },
+  "recorded_at": "2026-07-17T17:13:31Z"
+}

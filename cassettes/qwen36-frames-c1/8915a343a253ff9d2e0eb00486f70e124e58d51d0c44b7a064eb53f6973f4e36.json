@@ -1,0 +1,12 @@
+{
+  "key": "8915a343a253ff9d2e0eb00486f70e124e58d51d0c44b7a064eb53f6973f4e36",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Northstar, does offered_in(product=product_12, sector=sector_07) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b03_offered_in\",\"args\":{\"product\":\"product_12\",\"sector\":\"sector_07\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 181,
+    "completion_tokens": 635
+  },
+  "recorded_at": "2026-07-17T18:55:26Z"
+}

@@ -1,0 +1,12 @@
+{
+  "key": "9f294b669c1f6aed9dd9596d2c784ab068e6c3384c7445c8bb4a072364b978f7",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, across frames [actual, Foxglove], list every asset value X such that registered_in(jurisdiction=jurisdiction_09, asset=?X) holds, labeling each value with the frame it holds in. Answer as (value, frame) pairs (possibly empty).\nStructured form: {\"at_day\":360,\"find_slot\":\"asset\",\"pattern\":{\"relation\":\"rel_b00_registered_in\",\"args\":{\"asset\":{\"var\":\"X\"},\"jurisdiction\":{\"const\":\"jurisdiction_09\"}}}}",
+  "response": "\n\n[]",
+  "usage": {
+    "prompt_tokens": 215,
+    "completion_tokens": 1583
+  },
+  "recorded_at": "2026-07-17T20:32:21Z"
+}

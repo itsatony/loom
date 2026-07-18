@@ -1,0 +1,12 @@
+{
+  "key": "ebcf11657a84f0e26ae4513e15a81f81cfa3c1cc842fef83c7d0ba4d44f63a7a",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, across frames [actual], list every product value X such that partnered_with(partner=partner_19, product=?X, sector=sector_17) holds, labeling each value with the frame it holds in. Answer as (value, frame) pairs (possibly empty).\nStructured form: {\"at_day\":360,\"find_slot\":\"product\",\"pattern\":{\"relation\":\"rel_b06_partnered_with\",\"args\":{\"partner\":{\"const\":\"partner_19\"},\"product\":{\"var\":\"X\"},\"sector\":{\"const\":\"sector_17\"}}}}",
+  "response": "\n\n[]",
+  "usage": {
+    "prompt_tokens": 224,
+    "completion_tokens": 1306
+  },
+  "recorded_at": "2026-07-17T22:43:01Z"
+}

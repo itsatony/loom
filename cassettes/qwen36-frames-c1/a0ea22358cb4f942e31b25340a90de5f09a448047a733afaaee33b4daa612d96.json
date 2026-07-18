@@ -1,0 +1,12 @@
+{
+  "key": "a0ea22358cb4f942e31b25340a90de5f09a448047a733afaaee33b4daa612d96",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Foxglove, does priority_case(partner=partner_11, customer=customer_02) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d301_priority_case\",\"args\":{\"customer\":\"customer_02\",\"partner\":\"partner_11\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 183,
+    "completion_tokens": 764
+  },
+  "recorded_at": "2026-07-17T20:56:09Z"
+}

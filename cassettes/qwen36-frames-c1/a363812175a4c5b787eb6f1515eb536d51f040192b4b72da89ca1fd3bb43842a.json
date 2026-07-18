@@ -1,0 +1,12 @@
+{
+  "key": "a363812175a4c5b787eb6f1515eb536d51f040192b4b72da89ca1fd3bb43842a",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Kestrel, does cleared_for(asset=asset_08, asset2=asset_06, partner=partner_01) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d300_cleared_for\",\"args\":{\"asset\":\"asset_08\",\"asset2\":\"asset_06\",\"partner\":\"partner_01\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 199,
+    "completion_tokens": 870
+  },
+  "recorded_at": "2026-07-18T00:46:31Z"
+}

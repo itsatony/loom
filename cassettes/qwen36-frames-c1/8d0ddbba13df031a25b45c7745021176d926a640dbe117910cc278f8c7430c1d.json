@@ -1,0 +1,12 @@
+{
+  "key": "8d0ddbba13df031a25b45c7745021176d926a640dbe117910cc278f8c7430c1d",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Stonemere, does exempt_from(partner=partner_02, partner2=partner_14, asset=asset_09) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d201_exempt_from\",\"args\":{\"asset\":\"asset_09\",\"partner\":\"partner_02\",\"partner2\":\"partner_14\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 199,
+    "completion_tokens": 610
+  },
+  "recorded_at": "2026-07-17T23:08:05Z"
+}

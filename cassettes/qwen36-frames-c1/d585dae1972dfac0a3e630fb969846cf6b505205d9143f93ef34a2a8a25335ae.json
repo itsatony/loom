@@ -1,0 +1,12 @@
+{
+  "key": "d585dae1972dfac0a3e630fb969846cf6b505205d9143f93ef34a2a8a25335ae",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Longview, does member_of(asset=asset_01, product=product_06) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b09_member_of\",\"args\":{\"asset\":\"asset_01\",\"product\":\"product_06\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 180,
+    "completion_tokens": 968
+  },
+  "recorded_at": "2026-07-17T20:31:30Z"
+}

@@ -1,0 +1,12 @@
+{
+  "key": "4cb80be651a4ba6089a97bc5eaa105745e90360daa06e0140d7491cb324cfa8a",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, list every product value X such that flagged_for(sector=sector_13, customer=customer_00, product=?X) holds. Answer with a list of entity IDs (possibly empty).\nStructured form: {\"at_day\":360,\"find_slot\":\"product\",\"pattern\":{\"relation\":\"rel_d202_flagged_for\",\"args\":{\"customer\":{\"const\":\"customer_00\"},\"product\":{\"var\":\"X\"},\"sector\":{\"const\":\"sector_13\"}}}}",
+  "response": "\n\n[]",
+  "usage": {
+    "prompt_tokens": 209,
+    "completion_tokens": 732
+  },
+  "recorded_at": "2026-07-17T23:06:12Z"
+}

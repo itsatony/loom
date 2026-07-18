@@ -1,0 +1,12 @@
+{
+  "key": "7e981c3a95dce5ffb3f453a9551f2d59197f41647bf00e94ae70a9cb76aa5b65",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Northstar, does member_of(customer=customer_21, sector=sector_00) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b09_member_of\",\"args\":{\"customer\":\"customer_21\",\"sector\":\"sector_00\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 180,
+    "completion_tokens": 767
+  },
+  "recorded_at": "2026-07-17T19:33:25Z"
+}

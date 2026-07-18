@@ -1,0 +1,12 @@
+{
+  "key": "7612f8929c199d25cf1869dc3c973299b6f97b254f37ce284a629ca8ee0fd5a2",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, in which frames does member_of(partner=partner_12, partner2=partner_02, asset=asset_18) hold? Answer with a subset of [actual, The Quiet Tariff, Greenhouse Standing, asset_08, customer_14, product_17, Silvergate, Greenfield] (possibly empty).\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b09_member_of\",\"args\":{\"asset\":\"asset_18\",\"partner\":\"partner_12\",\"partner2\":\"partner_02\"}}}",
+  "response": "\n\n[]",
+  "usage": {
+    "prompt_tokens": 232,
+    "completion_tokens": 1234
+  },
+  "recorded_at": "2026-07-17T18:04:17Z"
+}

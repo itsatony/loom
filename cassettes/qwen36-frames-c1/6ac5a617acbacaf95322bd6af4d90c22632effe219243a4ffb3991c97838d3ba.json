@@ -1,0 +1,12 @@
+{
+  "key": "6ac5a617acbacaf95322bd6af4d90c22632effe219243a4ffb3991c97838d3ba",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Stonemere, does partnered_with(partner=partner_16, jurisdiction=jurisdiction_13) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b06_partnered_with\",\"args\":{\"jurisdiction\":\"jurisdiction_13\",\"partner\":\"partner_16\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 186,
+    "completion_tokens": 931
+  },
+  "recorded_at": "2026-07-17T23:08:02Z"
+}

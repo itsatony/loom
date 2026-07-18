@@ -1,0 +1,12 @@
+{
+  "key": "0841f1f81bd9247b18706e6b5ea5609c36f5567a9ed33a5b6c2597a0430f5f6a",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, does requires_review(sector=sector_10, jurisdiction=jurisdiction_12, customer=customer_19) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d102_requires_review\",\"args\":{\"customer\":\"customer_19\",\"jurisdiction\":\"jurisdiction_12\",\"sector\":\"sector_10\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 194,
+    "completion_tokens": 689
+  },
+  "recorded_at": "2026-07-18T00:44:40Z"
+}

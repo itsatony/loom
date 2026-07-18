@@ -1,0 +1,12 @@
+{
+  "key": "e93d2456909d4557f128aff4bdcb8c134b425b8efce59938de2cdf95858a23a7",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, does member_of(sector=sector_08, sector2=sector_06, asset=asset_01) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b09_member_of\",\"args\":{\"asset\":\"asset_01\",\"sector\":\"sector_08\",\"sector2\":\"sector_06\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 192,
+    "completion_tokens": 678
+  },
+  "recorded_at": "2026-07-17T15:22:48Z"
+}

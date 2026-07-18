@@ -1,0 +1,12 @@
+{
+  "key": "d1cfba77f0f0b46612f03f29f4ded285ef4dd805bc40d077306a538c38394cde",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Longview, does registered_in(jurisdiction=jurisdiction_02, asset=asset_12) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b00_registered_in\",\"args\":{\"asset\":\"asset_12\",\"jurisdiction\":\"jurisdiction_02\"}}}",
+  "response": "\n\ntrue",
+  "usage": {
+    "prompt_tokens": 185,
+    "completion_tokens": 901
+  },
+  "recorded_at": "2026-07-17T20:31:03Z"
+}

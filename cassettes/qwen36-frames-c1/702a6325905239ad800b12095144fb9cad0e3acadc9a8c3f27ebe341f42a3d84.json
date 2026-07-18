@@ -1,0 +1,12 @@
+{
+  "key": "702a6325905239ad800b12095144fb9cad0e3acadc9a8c3f27ebe341f42a3d84",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Coldharbor, does flagged_for(asset=asset_02, customer=customer_18) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d202_flagged_for\",\"args\":{\"asset\":\"asset_02\",\"customer\":\"customer_18\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 183,
+    "completion_tokens": 529
+  },
+  "recorded_at": "2026-07-18T00:46:13Z"
+}

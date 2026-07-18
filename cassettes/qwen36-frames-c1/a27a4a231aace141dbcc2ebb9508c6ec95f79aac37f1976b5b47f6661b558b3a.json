@@ -1,0 +1,12 @@
+{
+  "key": "a27a4a231aace141dbcc2ebb9508c6ec95f79aac37f1976b5b47f6661b558b3a",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, does eligible_for(sector=sector_09, sector2=sector_20) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d100_eligible_for\",\"args\":{\"sector\":\"sector_09\",\"sector2\":\"sector_20\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 181,
+    "completion_tokens": 838
+  },
+  "recorded_at": "2026-07-17T23:06:45Z"
+}

@@ -1,0 +1,12 @@
+{
+  "key": "abc42d6f1bb3bf01a6b0b3d6675fd12f73697d73f857b713f7f0f5e06ca94280",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Foxglove, does operates_in(sector=sector_09, asset=asset_26, asset2=asset_04) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b01_operates_in\",\"args\":{\"asset\":\"asset_26\",\"asset2\":\"asset_04\",\"sector\":\"sector_09\"}}}",
+  "response": "\n\ntrue",
+  "usage": {
+    "prompt_tokens": 199,
+    "completion_tokens": 320
+  },
+  "recorded_at": "2026-07-17T20:55:59Z"
+}

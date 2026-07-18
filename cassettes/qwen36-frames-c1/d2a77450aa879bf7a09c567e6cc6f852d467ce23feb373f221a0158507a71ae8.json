@@ -1,0 +1,12 @@
+{
+  "key": "d2a77450aa879bf7a09c567e6cc6f852d467ce23feb373f221a0158507a71ae8",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, list every sector value X such that exempt_from(product=product_00, sector=?X) holds. Answer with a list of entity IDs (possibly empty).\nStructured form: {\"at_day\":360,\"find_slot\":\"sector\",\"pattern\":{\"relation\":\"rel_d201_exempt_from\",\"args\":{\"product\":{\"const\":\"product_00\"},\"sector\":{\"var\":\"X\"}}}}",
+  "response": "\n\n[]",
+  "usage": {
+    "prompt_tokens": 191,
+    "completion_tokens": 1181
+  },
+  "recorded_at": "2026-07-17T12:23:42Z"
+}

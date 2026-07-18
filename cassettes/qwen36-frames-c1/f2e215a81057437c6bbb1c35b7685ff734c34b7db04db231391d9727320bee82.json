@@ -1,0 +1,12 @@
+{
+  "key": "f2e215a81057437c6bbb1c35b7685ff734c34b7db04db231391d9727320bee82",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, across frames [actual, customer_14, asset_08, product_17], list every customer value X such that offered_in(partner=partner_22, jurisdiction=jurisdiction_01, customer=?X) holds, labeling each value with the frame it holds in. Answer as (value, frame) pairs (possibly empty).\nStructured form: {\"at_day\":360,\"find_slot\":\"customer\",\"pattern\":{\"relation\":\"rel_b03_offered_in\",\"args\":{\"customer\":{\"var\":\"X\"},\"jurisdiction\":{\"const\":\"jurisdiction_01\"},\"partner\":{\"const\":\"partner_22\"}}}}",
+  "response": "\n\n[]",
+  "usage": {
+    "prompt_tokens": 242,
+    "completion_tokens": 1275
+  },
+  "recorded_at": "2026-07-17T18:04:36Z"
+}

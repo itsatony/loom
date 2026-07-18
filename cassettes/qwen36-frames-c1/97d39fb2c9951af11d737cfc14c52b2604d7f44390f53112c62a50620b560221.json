@@ -1,0 +1,12 @@
+{
+  "key": "97d39fb2c9951af11d737cfc14c52b2604d7f44390f53112c62a50620b560221",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Northstar, does priority_case(asset=asset_00, customer=customer_01) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d301_priority_case\",\"args\":{\"asset\":\"asset_00\",\"customer\":\"customer_01\"}}}",
+  "response": "\n\ntrue",
+  "usage": {
+    "prompt_tokens": 181,
+    "completion_tokens": 710
+  },
+  "recorded_at": "2026-07-17T18:55:22Z"
+}

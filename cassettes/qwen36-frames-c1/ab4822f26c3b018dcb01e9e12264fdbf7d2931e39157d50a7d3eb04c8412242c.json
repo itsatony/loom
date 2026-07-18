@@ -1,0 +1,12 @@
+{
+  "key": "ab4822f26c3b018dcb01e9e12264fdbf7d2931e39157d50a7d3eb04c8412242c",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Oakhaven, does operates_in(jurisdiction=jurisdiction_05, jurisdiction2=jurisdiction_05, sector=sector_05) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b01_operates_in\",\"args\":{\"jurisdiction\":\"jurisdiction_05\",\"jurisdiction2\":\"jurisdiction_05\",\"sector\":\"sector_05\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 205,
+    "completion_tokens": 1334
+  },
+  "recorded_at": "2026-07-17T17:12:50Z"
+}

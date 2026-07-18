@@ -1,0 +1,12 @@
+{
+  "key": "a75d9c28ce20296d3d05e49eba9de8f1ed136991acc12b09eedd1bceed2ea488",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Silvergate, does registered_in(asset=asset_17, jurisdiction=jurisdiction_10, sector=sector_11) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b00_registered_in\",\"args\":{\"asset\":\"asset_17\",\"jurisdiction\":\"jurisdiction_10\",\"sector\":\"sector_11\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 197,
+    "completion_tokens": 475
+  },
+  "recorded_at": "2026-07-17T18:03:20Z"
+}

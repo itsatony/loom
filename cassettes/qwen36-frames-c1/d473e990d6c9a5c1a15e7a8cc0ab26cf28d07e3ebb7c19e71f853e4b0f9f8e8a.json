@@ -1,0 +1,12 @@
+{
+  "key": "d473e990d6c9a5c1a15e7a8cc0ab26cf28d07e3ebb7c19e71f853e4b0f9f8e8a",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Coldharbor, does restricted_in(sector=sector_14, jurisdiction=jurisdiction_12, jurisdiction2=jurisdiction_01) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d101_restricted_in\",\"args\":{\"jurisdiction\":\"jurisdiction_12\",\"jurisdiction2\":\"jurisdiction_01\",\"sector\":\"sector_14\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 206,
+    "completion_tokens": 1453
+  },
+  "recorded_at": "2026-07-17T23:08:27Z"
+}

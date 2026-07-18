@@ -1,0 +1,12 @@
+{
+  "key": "553ec5720ecc14a9b8c298ddfc3bef0d4df6f14eca3288f8cfb14f2b0e1904c5",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Blueline, does eligible_for(sector=sector_06, product=product_17) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d100_eligible_for\",\"args\":{\"product\":\"product_17\",\"sector\":\"sector_06\"}}}",
+  "response": "\n\ntrue",
+  "usage": {
+    "prompt_tokens": 185,
+    "completion_tokens": 887
+  },
+  "recorded_at": "2026-07-17T13:54:05Z"
+}

@@ -1,0 +1,12 @@
+{
+  "key": "46ae0059c8409ea4ea1167aa776b444f726cfd323f580aa09aa7185fafc2d457",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, in which frames does rated_as(jurisdiction=jurisdiction_07, sector=sector_21, asset=asset_27) hold? Answer with a subset of [actual, Aster and Flint, The Visiting Clerk, asset_02, asset_15, asset_16, Tallgrass, Northstar] (possibly empty).\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b08_rated_as\",\"args\":{\"asset\":\"asset_27\",\"jurisdiction\":\"jurisdiction_07\",\"sector\":\"sector_21\"}}}",
+  "response": "\n\n[]",
+  "usage": {
+    "prompt_tokens": 235,
+    "completion_tokens": 1143
+  },
+  "recorded_at": "2026-07-17T19:33:53Z"
+}

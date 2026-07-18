@@ -1,0 +1,12 @@
+{
+  "key": "9cd29f5bfd72a015987404c50ce39d62b1355bb53c58db166cc9a2e0fa33e8d4",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Kestrel, does located_in(partner=partner_11, partner2=partner_08, sector=sector_00) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b07_located_in\",\"args\":{\"partner\":\"partner_11\",\"partner2\":\"partner_08\",\"sector\":\"sector_00\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 199,
+    "completion_tokens": 884
+  },
+  "recorded_at": "2026-07-18T00:46:05Z"
+}

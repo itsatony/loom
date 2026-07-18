@@ -1,0 +1,12 @@
+{
+  "key": "9f83fc546b0afc7e1710fdc9a84fdf5e1dd554af3002bbbda96e3ab4bb75d69b",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, does priority_case(sector=sector_24, partner=partner_00, sector2=sector_17) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d301_priority_case\",\"args\":{\"partner\":\"partner_00\",\"sector\":\"sector_24\",\"sector2\":\"sector_17\"}}}",
+  "response": "\n\ntrue",
+  "usage": {
+    "prompt_tokens": 193,
+    "completion_tokens": 316
+  },
+  "recorded_at": "2026-07-17T18:00:33Z"
+}

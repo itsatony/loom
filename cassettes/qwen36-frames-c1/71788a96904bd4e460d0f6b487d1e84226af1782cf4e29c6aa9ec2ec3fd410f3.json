@@ -1,0 +1,12 @@
+{
+  "key": "71788a96904bd4e460d0f6b487d1e84226af1782cf4e29c6aa9ec2ec3fd410f3",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Ivybridge, does restricted_in(partner=partner_01, partner2=partner_11, asset=asset_02) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_d101_restricted_in\",\"args\":{\"asset\":\"asset_02\",\"partner\":\"partner_01\",\"partner2\":\"partner_11\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 199,
+    "completion_tokens": 1119
+  },
+  "recorded_at": "2026-07-17T21:29:17Z"
+}

@@ -1,0 +1,12 @@
+{
+  "key": "e0d004db0d3b7d57602f44a5ef2aff2f20c013a05a26819cc36abc71774e8229",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Greenfield, does operates_in(sector=sector_05, asset=asset_04, asset2=asset_17) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b01_operates_in\",\"args\":{\"asset\":\"asset_04\",\"asset2\":\"asset_17\",\"sector\":\"sector_05\"}}}",
+  "response": "\n\nfalse",
+  "usage": {
+    "prompt_tokens": 198,
+    "completion_tokens": 812
+  },
+  "recorded_at": "2026-07-17T20:55:55Z"
+}

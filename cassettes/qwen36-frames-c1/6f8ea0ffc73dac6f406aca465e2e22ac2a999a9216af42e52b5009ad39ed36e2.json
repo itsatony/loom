@@ -1,0 +1,12 @@
+{
+  "key": "6f8ea0ffc73dac6f406aca465e2e22ac2a999a9216af42e52b5009ad39ed36e2",
+  "model": "qwen36-nvfp4",
+  "system": "You are asked questions about a synthetic world. You are given NO background material — only the question itself. If you cannot know the answer, give your best guess in the required format anyway.\nAnswer format: for true/false questions reply with exactly one word, true or false. For list questions reply with a JSON array of entity IDs, e.g. [\"customer_03\",\"customer_07\"], or [] if none.",
+  "user": "Question: On day 360, within frame Northstar, does classified_as(product=product_01, jurisdiction=jurisdiction_04) hold? Answer true or false.\nStructured form: {\"at_day\":360,\"atom\":{\"relation\":\"rel_b02_classified_as\",\"args\":{\"jurisdiction\":\"jurisdiction_04\",\"product\":\"product_01\"}}}",
+  "response": "\n\ntrue",
+  "usage": {
+    "prompt_tokens": 184,
+    "completion_tokens": 734
+  },
+  "recorded_at": "2026-07-17T19:33:14Z"
+}
