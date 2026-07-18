@@ -1213,3 +1213,57 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   Swap-model legs + F-E3-driven extractor iteration are the obvious next
   moves but are NOT started autonomously — they change what the primary
   verdict is measured on.
+- 2026-07-18 (F-E2 RE-SPECIFICATION — PROPOSED, pre-registered BEFORE the
+  gpt-5 swap extraction; pending Toni's ratification exactly as the
+  §9.6.6 certificate reading was) — the qwen run (previous entry) exposed
+  that the pre-registered F-E2 "content-cued" partition (reading (a),
+  lexical markedness) is near-empty on ANY §9.6.6-certified corpus: the
+  certificate REQUIRES a judge-recoverable handle on every frame-bearing
+  line, so all contamination except sarcasm is lexically marked and the
+  null's substring filter aces it, collapsing "content-cued" to ~5
+  sarcasm pairs/seed. This is a design-level tension flagged 2026-07-17,
+  not a post-hoc excuse — but the specific re-spec below IS informed by
+  qwen data, so it is treated as a HYPOTHESIS and the gpt-5 swap run is
+  its CONFIRMATORY, out-of-sample test (different extractor, partition
+  fixed before its first token). Two changes, both built and committed
+  before the swap extraction:
+  (1) RE-AXIS on FILTERABILITY, not lexical markedness. The thesis is
+  that a compiled substrate answers what query-time filtering CANNOT —
+  composition/structural reasoning, per §1 and the design notes' own
+  taxonomy (which classes sarcasm as an extraction-layer problem, NOT a
+  storage category). New partition, keyed PURELY on ground-truth
+  slice+subpop (cmd/harness classifyFilterability — independent of any
+  condition's output, so the system under test cannot game it):
+    - FILTERING-RESISTANT (answer needs closure computation no per-item
+      metadata carries): promotion (pre/post-resolution + unresolved:
+      time-gated belief), pinning (all: pin-day inheritance arithmetic),
+      isolation override-blocked/override-active/chain/chain-control
+      (delta overlay + derivation), contamination sarcasm (non-assertive:
+      no item to filter on). ~88 balanced trap+control queries/seed.
+    - FILTER-DECIDABLE (frame membership + cone lookup suffices):
+      contamination contradiction/gap/quote + controls, isolation
+      inherited + override-actual controls, promotion source-frame.
+  (2) STRENGTHEN THE NULL to the ceiling of query-time reasoning
+      (harness.FrameRAGCondition, "frame-rag"): frameless RAG over FULL
+      naturalized episode text + complete frame semantics in-prompt + the
+      SAME model, deciding frames PER QUERY. Handed strictly MORE than
+      c2b-prov (whole episodes, not just extracted items), so any
+      C2b-frames win over it is conservative. This removes the
+      "reading (b) only beats our regex" circularity: the re-specified
+      F-E2 gate is C2b-frames beating the HARDER of {c2b-prov, frame-rag}
+      on the filtering-resistant pool by >=15pp CI-lower, at
+      non-inferiority (-2pp) on filter-decidable AND every v0 slice.
+  Integrity ledger: the re-axis LOOSENS vs reading (a) (which was
+  near-unpassable by construction), so it genuinely requires ratification
+  and is NOT adopted unilaterally; cmd/aggregate prints reading (a) AND
+  the proposed reading (b') side by side, both computable from the
+  committed per-seed reports (FilterSub decomposition). Strengthening the
+  null only makes the test HARDER, so it is integrity-safe. F-E1, F-E3,
+  F-E4 unchanged. Kill thresholds (±15pp/-2pp, seed-bootstrap CI)
+  unchanged. Dev-seed-99 gpt-5 sanity BEFORE the locked run (not
+  evidence, just a smoke): frame slices near frame-oracle
+  (contamination 51/51+51/51, isolation 47/47+28/28, misattribution
+  20/20, ideation 20/20), F-E3 leakage 0.21(qwen)->0.042(gpt-5) — the
+  free-model extraction weakness that drove reading (a)'s qwen KILL
+  largely closes with a frontier extractor, as predicted. The locked
+  20-seed gpt-5 run is the confirmatory test.

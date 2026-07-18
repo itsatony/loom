@@ -105,7 +105,13 @@ type FrameReport struct {
 	// CueSub buckets contamination trap/control pairs by cue class
 	// ("content" | "metadata", from gen.Query.CueClass — the F-E2
 	// partition; empty when cmd/harness had no cue table to classify with).
-	CueSub         map[string]*SliceScore `json:"cue_sub,omitempty"`
+	CueSub map[string]*SliceScore `json:"cue_sub,omitempty"`
+	// FilterSub buckets holds-type frame traps by the FILTERABILITY axis
+	// ("resistant" | "decidable", from gen.Query.FilterClass — the
+	// re-specified F-E2 partition, §10 2026-07-18). Pools across
+	// contamination/isolation/pinning/promotion, so it is the endpoint the
+	// re-specified F-E2 reads.
+	FilterSub      map[string]*SliceScore `json:"filter_sub,omitempty"`
 	Isolation      SliceScore             `json:"isolation"`
 	IsolationChain SliceScore             `json:"isolation_chain"`
 	// Per-subpopulation decompositions (subpop → score): committed reports
@@ -285,17 +291,8 @@ func RunWorkers(cond Condition, episodes []gen.Episode, queries []gen.Query, wor
 					fr.ContaminationSub[sub] = ss
 				}
 				tally(ss, want, correct)
-				if q.CueClass != "" {
-					if fr.CueSub == nil {
-						fr.CueSub = map[string]*SliceScore{}
-					}
-					cs, ok := fr.CueSub[q.CueClass]
-					if !ok {
-						cs = &SliceScore{}
-						fr.CueSub[q.CueClass] = cs
-					}
-					tally(cs, want, correct)
-				}
+				tallySub(&fr.CueSub, q.CueClass, want, correct)
+				tallySub(&fr.FilterSub, q.FilterClass, want, correct)
 			case "isolation":
 				fr := rep.frames()
 				tally(&fr.Isolation, want, correct)
@@ -303,14 +300,17 @@ func RunWorkers(cond Condition, episodes []gen.Episode, queries []gen.Query, wor
 					tally(&fr.IsolationChain, want, correct)
 				}
 				tallySub(&fr.IsolationSub, q.Subpop, want, correct)
+				tallySub(&fr.FilterSub, q.FilterClass, want, correct)
 			case "pinning":
 				fr := rep.frames()
 				tally(&fr.Pinning, want, correct)
 				tallySub(&fr.PinningSub, q.Subpop, want, correct)
+				tallySub(&fr.FilterSub, q.FilterClass, want, correct)
 			case "promotion":
 				fr := rep.frames()
 				tally(&fr.Promotion, want, correct)
 				tallySub(&fr.PromotionSub, q.Subpop, want, correct)
+				tallySub(&fr.FilterSub, q.FilterClass, want, correct)
 			default:
 				// a query scored nowhere is a silent hole in the campaign;
 				// count it loudly instead of vanishing it (D7-adjacent).

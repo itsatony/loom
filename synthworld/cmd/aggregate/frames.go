@@ -46,6 +46,8 @@ type FrameSeedMetrics struct {
 	GapBA            NFloat  `json:"gap_balanced_acc"`
 	ContentCuedBA    NFloat  `json:"content_cued_balanced_acc"`
 	MetadataCuedBA   NFloat  `json:"metadata_cued_balanced_acc"`
+	FilterResistBA   NFloat  `json:"filtering_resistant_balanced_acc"`
+	FilterDecideBA   NFloat  `json:"filter_decidable_balanced_acc"`
 	IsolationBA      float64 `json:"isolation_balanced_acc"`
 	ChainBA          NFloat  `json:"isolation_chain_balanced_acc"`
 	PinningBA        NFloat  `json:"pinning_balanced_acc"`
@@ -92,6 +94,8 @@ func frameMetricsFor(seed string, r *harness.Report) (FrameSeedMetrics, error) {
 		GapBA:            sub(fr.ContaminationSub, "gap"),
 		ContentCuedBA:    sub(fr.CueSub, "content"),
 		MetadataCuedBA:   sub(fr.CueSub, "metadata"),
+		FilterResistBA:   sub(fr.FilterSub, "resistant"),
+		FilterDecideBA:   sub(fr.FilterSub, "decidable"),
 		IsolationBA:      balancedAcc(fr.Isolation),
 		ChainBA:          NFloat(balancedAcc(fr.IsolationChain)),
 		PinningBA:        NFloat(balancedAcc(fr.Pinning)),
@@ -148,12 +152,16 @@ type FramesResult struct {
 	FE1Why           string   `json:"fe1_why"`
 
 	// F-E2 (paired A-B)
-	FE2Content    Endpoint   `json:"fe2_content_cued"`
-	FE2Metadata   Endpoint   `json:"fe2_metadata_cued"`
-	FE2V0         []Endpoint `json:"fe2_v0_noninferiority"`
-	FE2Verdict    string     `json:"fe2_verdict"`
-	FE2Why        string     `json:"fe2_why"`
-	FE2Additional []Endpoint `json:"fe2_context,omitempty"` // contamination/isolation A-B, context only
+	FE2Content       Endpoint   `json:"fe2_content_cued"`        // reading (a), lexical markedness
+	FE2Metadata      Endpoint   `json:"fe2_metadata_cued"`       // reading (a)
+	FE2Resistant     Endpoint   `json:"fe2_filtering_resistant"` // re-spec (§10 2026-07-18)
+	FE2Decidable     Endpoint   `json:"fe2_filter_decidable"`    // re-spec non-inferiority leg
+	FE2ResistVerdict string     `json:"fe2_resistant_verdict"`
+	FE2ResistWhy     string     `json:"fe2_resistant_why"`
+	FE2V0            []Endpoint `json:"fe2_v0_noninferiority"`
+	FE2Verdict       string     `json:"fe2_verdict"`
+	FE2Why           string     `json:"fe2_why"`
+	FE2Additional    []Endpoint `json:"fe2_context,omitempty"` // contamination/isolation A-B, context only
 
 	// F-E4 (condition A alone)
 	FE4Ideation Endpoint `json:"fe4_ideation_f1"`
@@ -230,6 +238,12 @@ func AnalyzeFrames(seeds []SeedReports, condA, condB string) (*FramesResult, err
 	res.FE2Metadata = pairedEndpoint("F-E2 metadata-cued balanced acc (A-B)", labels,
 		col(res.MetricsA, func(m FrameSeedMetrics) float64 { return float64(m.MetadataCuedBA) }),
 		col(res.MetricsB, func(m FrameSeedMetrics) float64 { return float64(m.MetadataCuedBA) }))
+	res.FE2Resistant = pairedEndpoint("F-E2' filtering-resistant balanced acc (A-B)", labels,
+		col(res.MetricsA, func(m FrameSeedMetrics) float64 { return float64(m.FilterResistBA) }),
+		col(res.MetricsB, func(m FrameSeedMetrics) float64 { return float64(m.FilterResistBA) }))
+	res.FE2Decidable = pairedEndpoint("F-E2' filter-decidable balanced acc (A-B, non-inf)", labels,
+		col(res.MetricsA, func(m FrameSeedMetrics) float64 { return float64(m.FilterDecideBA) }),
+		col(res.MetricsB, func(m FrameSeedMetrics) float64 { return float64(m.FilterDecideBA) }))
 	res.FE2V0 = []Endpoint{
 		pairedEndpoint("v0 repetition balanced acc (A-B)", labels,
 			col(res.MetricsA, func(m FrameSeedMetrics) float64 { return m.RepBA }),
@@ -278,6 +292,34 @@ func AnalyzeFrames(seeds []SeedReports, condA, condB string) (*FramesResult, err
 	default:
 		res.FE2Verdict = VerdictPass
 		res.FE2Why = fmt.Sprintf("content-cued CI lower %.4f >= +%.2f and all non-inferiority legs hold (margin %.2f)", contentLo, fe2Margin, fe2NonInf)
+	}
+
+	// ---- F-E2' (re-specified, filterability; §10 2026-07-18) ----
+	// PROPOSED reading pending Toni's ratification. Same ±15pp / -2pp
+	// arithmetic as reading (a), but on the filtering-resistant pool with
+	// filter-decidable as the non-inferiority leg.
+	resistLo := float64(res.FE2Resistant.CILower)
+	decNonInf := float64(res.FE2Decidable.CILower) >= fe2NonInf
+	v0NonInf := nonInfFail == "" // reuses the v0 legs computed above
+	switch {
+	case len(res.FE2Resistant.Diffs) < minSeedsForVerdict:
+		res.FE2ResistVerdict = VerdictNotEvaluable
+		res.FE2ResistWhy = fmt.Sprintf("filtering-resistant evaluable seeds < %d", minSeedsForVerdict)
+	case resistLo < fe2Margin:
+		res.FE2ResistVerdict = "KILL"
+		res.FE2ResistWhy = fmt.Sprintf("filtering-resistant CI lower %.4f < +%.2f", resistLo, fe2Margin)
+	case decNonInf && v0NonInf:
+		res.FE2ResistVerdict = VerdictPass
+		res.FE2ResistWhy = fmt.Sprintf("filtering-resistant CI lower %.4f >= +%.2f, non-inferior on filter-decidable and v0", resistLo, fe2Margin)
+	default:
+		res.FE2ResistVerdict = VerdictFail
+		leg := "filter-decidable"
+		if v0NonInf {
+			leg = res.FE2Decidable.Name
+		} else if nonInfFail != "" {
+			leg = nonInfFail
+		}
+		res.FE2ResistWhy = fmt.Sprintf("superiority met (CI lower %.4f) but non-inferiority violated on %q", resistLo, leg)
 	}
 
 	// ---- F-E4 ----
@@ -334,7 +376,7 @@ func (res *FramesResult) Render() string {
 	}
 
 	b.WriteString("\nendpoints (95% bootstrap CI, 10k resamples, RNG seed 42):\n")
-	all := []Endpoint{res.FE1Contamination, res.FE1Isolation, res.FE1Gap, res.FE2Content, res.FE2Metadata}
+	all := []Endpoint{res.FE1Contamination, res.FE1Isolation, res.FE1Gap, res.FE2Content, res.FE2Metadata, res.FE2Resistant, res.FE2Decidable}
 	all = append(all, res.FE2V0...)
 	all = append(all, res.FE2Additional...)
 	all = append(all, res.FE4Ideation, res.FE4Exact)
@@ -353,7 +395,8 @@ func (res *FramesResult) Render() string {
 
 	b.WriteString("\n==== REGISTERED VERDICTS (MASTERPLAN §9.6.7) ====\n")
 	fmt.Fprintf(&b, "  F-E1 (safety, both directions):    %s — %s\n", res.FE1Verdict, res.FE1Why)
-	fmt.Fprintf(&b, "  F-E2 (superiority over the null):  %s — %s\n", res.FE2Verdict, res.FE2Why)
+	fmt.Fprintf(&b, "  F-E2  reading (a) lexical-markedness: %s — %s\n", res.FE2Verdict, res.FE2Why)
+	fmt.Fprintf(&b, "  F-E2' reading (b) filterability [PROPOSED, §10 2026-07-18, pending ratification]: %s — %s\n", res.FE2ResistVerdict, res.FE2ResistWhy)
 	fmt.Fprintf(&b, "  F-E4 (ideation attribution):       %s — %s\n", res.FE4Verdict, res.FE4Why)
 	for _, w := range res.Warnings {
 		fmt.Fprintf(&b, "  WARNING: %s\n", w)

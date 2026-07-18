@@ -44,6 +44,8 @@ fi
 [ -n "$HARNESS_LLM_BASE_URL" ] || { echo "missing LLM endpoint"; exit 1; }
 
 C2B_EXTRA=${FRAMES_C2B_EXTRA:-'{"chat_template_kwargs":{"enable_thinking":false}}'}
+C2B_TEMP=${FRAMES_C2B_TEMP:-}
+C1_EXTRA=${FRAMES_C1_EXTRA:-}
 C1_TEMP=${FRAMES_C1_TEMP:-none}
 CASS=${FRAMES_CASSETTES:-$HOME/code/loom/cassettes}
 mkdir -p "$CASS"
@@ -69,21 +71,24 @@ for SEED in "$@"; do
     >"$OUT/base.log" 2>&1
 
   echo "=== seed-$SEED c2b-frames extraction ($(date +%H:%M:%S))"
-  HARNESS_LLM_TEMPERATURE=${FRAMES_C2B_TEMP:-} HARNESS_LLM_EXTRA_PARAMS="$C2B_EXTRA" \
+  HARNESS_LLM_TEMPERATURE="$C2B_TEMP" HARNESS_LLM_EXTRA_PARAMS="$C2B_EXTRA" \
     HARNESS_LLM_CACHE="$CASS/$TAG-frames-c2bf" \
     go run ./cmd/harness "${COMMON[@]}" -json "$OUT/report-c2bf.json" \
     -conditions loom-c2b-frames >"$OUT/c2bf.log" 2>&1
 
   echo "=== seed-$SEED null + frame-blind ($(date +%H:%M:%S))"
-  HARNESS_LLM_TEMPERATURE=${FRAMES_C2B_TEMP:-} HARNESS_LLM_EXTRA_PARAMS="$C2B_EXTRA" \
+  HARNESS_LLM_TEMPERATURE="$C2B_TEMP" HARNESS_LLM_EXTRA_PARAMS="$C2B_EXTRA" \
     HARNESS_LLM_CACHE="$CASS/$TAG-frames-null" \
     go run ./cmd/harness "${COMMON[@]}" -json "$OUT/report-null.json" \
     -conditions loom-c2b,c2b-prov >"$OUT/null.log" 2>&1
 
-  echo "=== seed-$SEED c1 baselines ($(date +%H:%M:%S))"
-  HARNESS_LLM_TEMPERATURE="$C1_TEMP" HARNESS_LLM_CACHE="$CASS/$TAG-frames-c1" \
+  # Answering pass (reasoning ON): C1 baselines + the frame-rag CEILING null,
+  # which is a per-query reasoner, not an extractor.
+  echo "=== seed-$SEED c1 + frame-rag ceiling ($(date +%H:%M:%S))"
+  HARNESS_LLM_TEMPERATURE="$C1_TEMP" HARNESS_LLM_EXTRA_PARAMS="$C1_EXTRA" \
+    HARNESS_LLM_CACHE="$CASS/$TAG-frames-c1" \
     go run ./cmd/harness "${COMMON[@]}" -json "$OUT/report-c1.json" \
-    -conditions c0-no-memory,rag-bm25 >"$OUT/c1.log" 2>&1
+    -conditions c0-no-memory,rag-bm25,frame-rag >"$OUT/c1.log" 2>&1
 
   python3 - "$OUT" <<'EOF'
 import json, sys, os

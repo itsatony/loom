@@ -72,6 +72,7 @@ func main() {
 	}
 	if len(w.Frames) > 0 {
 		classifyCues(queries, episodes, condFrameNames)
+		classifyFilterability(queries)
 	}
 
 	// Seeded relation vocabulary for S2 compilation (spec §4): relation
@@ -293,7 +294,12 @@ func main() {
 			prov := &harness.C2bProvCondition{Label: "c2b-prov", Vocab: vocab,
 				Extractor: loom.NewLLMExtractor(metered("c2b-prov"), vocab),
 				Workers:   pipelineWorkers, FrameNames: condFrameNames}
-			conditions = append(conditions, c2bf, prov)
+			// frame-rag: the CEILING null (§10 2026-07-18) — strongest
+			// query-time frame reasoning: frameless RAG over full episode
+			// text + frame semantics, deciding frames per query.
+			framerag := &harness.FrameRAGCondition{Label: "frame-rag", Retriever: ret,
+				LLM: metered("frame-rag"), K: k, FrameNames: condFrameNames}
+			conditions = append(conditions, c2bf, prov, framerag)
 		}
 	}
 
@@ -437,6 +443,46 @@ func classifyCues(queries []gen.Query, episodes []gen.Episode, frameNames map[st
 			q.CueClass = "content"
 		}
 		lastClass = q.CueClass
+	}
+}
+
+// classifyFilterability assigns the re-specified F-E2 filterability class
+// (SCORING-ONLY, in-memory) to every holds-type frame-slice query, purely
+// from ground-truth slice+subpop — never from any condition's output, so
+// the partition cannot be gamed by the system under test (MASTERPLAN §10
+// 2026-07-18). "resistant": the correct answer needs closure computation no
+// per-item metadata carries. "decidable": frame-membership + cone lookup
+// suffices. Query types other than holds (misattribution/ideation finds)
+// are reported on their own metrics, not pooled here.
+func classifyFilterability(queries []gen.Query) {
+	for i := range queries {
+		q := &queries[i]
+		if q.Type != "holds" {
+			continue
+		}
+		switch q.Slice {
+		case "contamination":
+			if q.Subpop == "sarcasm" {
+				q.FilterClass = "resistant" // non-assertive: no item to filter on
+			} else {
+				q.FilterClass = "decidable" // fiction/quote membership + controls
+			}
+		case "isolation":
+			switch q.Subpop {
+			case "override-blocked", "override-active", "chain", "chain-control":
+				q.FilterClass = "resistant" // delta overlay / derivation
+			case "inherited", "override-actual":
+				q.FilterClass = "decidable" // actual-fact membership via the cone
+			}
+		case "pinning":
+			q.FilterClass = "resistant" // pin-day inheritance arithmetic, both polarities
+		case "promotion":
+			if q.Subpop == "source-frame" {
+				q.FilterClass = "decidable" // the claim IS asserted in its source frame
+			} else {
+				q.FilterClass = "resistant" // pre/post-resolution + unresolved: time-gated belief
+			}
+		}
 	}
 }
 

@@ -41,9 +41,23 @@ type Query struct {
 
 	// CueClass is a SCORING-ONLY, in-memory annotation ("content" |
 	// "metadata") computed by cmd/harness for contamination trap/control
-	// pairs on frames datasets (F-E2's cued partition). Never persisted to
-	// queries.jsonl and never visible to conditions (sanitize drops it).
+	// pairs on frames datasets (F-E2's original lexical-markedness
+	// partition, reading (a)). Never persisted; never visible to conditions.
 	CueClass string `json:"-"`
+
+	// FilterClass is a SCORING-ONLY, in-memory annotation ("resistant" |
+	// "decidable") computed by cmd/harness for holds-type frame-slice
+	// queries (F-E2's re-specified FILTERABILITY partition, MASTERPLAN §10
+	// 2026-07-18). "resistant" = the correct answer needs closure
+	// computation no per-item metadata carries (promotion time-gating,
+	// pin-day inheritance, scenario delta overlay / chains, non-assertive
+	// sarcasm); "decidable" = frame-membership + cone lookup suffices
+	// (fiction/quote contamination + controls, inherited-isolation
+	// positives, override-actual controls). Keyed purely on slice+subpop
+	// ground truth — independent of any condition's output, so the
+	// partition cannot be gamed by the system under test. Never persisted;
+	// never visible to conditions.
+	FilterClass string `json:"-"`
 }
 
 type QuerySet struct {
