@@ -1330,3 +1330,25 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   None started autonomously. Full numbers: MASTERPLAN + verdict JSON;
   reading (a) also printed (FAIL, superseded diagnostic). qwen leg remains
   the exploratory first pass; gpt-5 is the confirmatory result.
+- 2026-07-18 (F-E3 gpt-5 LOCKED-BATCH — CORRECTION to the dev-seed
+  optimism in the entries above) — the 20-seed F-E3 fidelity sweep
+  (gpt-5, extraction reasoning minimal, cassette replay;
+  results/frames-e-gpt5/fidelity/) contradicts the dev-99 sanity number.
+  LOCKED-BATCH fiction->actual leakage: mean 0.189, max 0.688, only 4/20
+  seeds under the <0.02 gate (worst: seed-16 33/48=0.69, seed-22
+  30/48=0.62, seeds 20/29/8 all 0.38). This is BARELY better than qwen's
+  0.21 — the dev-99 value (0.042) I reported as "leakage largely closes
+  with a frontier extractor" was an EASY-SEED ARTIFACT and does NOT
+  generalize. Correcting it explicitly so the over-optimistic dev number
+  is not left as the headline. macro-F1 0.947 (min 0.852) and sarcasm
+  discipline 2/113 both remain strong — the weakness is SPECIFICALLY
+  fiction-frame assignment on naturalized narrative prose, concentrated on
+  the same seeds that fail the F-E2 filter-decidable leg (16,22,8,20,15
+  overlap almost exactly), confirming one mechanism drives both the F-E3
+  gate miss and the F-E2 co-primary FAIL. Implication for the open
+  question already flagged for Toni: a frontier extractor at minimal
+  reasoning does NOT solve fiction homing on the locked seeds, so the
+  spec-preserving paths (higher extraction reasoning effort, leakage-
+  targeted prompt, or confidence-gated fiction quarantine) are the real
+  levers to test before any F-E2 verdict is treated as final — none
+  started autonomously (new direction + spend = Toni's call).
