@@ -82,13 +82,16 @@ for SEED in "$@"; do
     go run ./cmd/harness "${COMMON[@]}" -json "$OUT/report-null.json" \
     -conditions loom-c2b,c2b-prov >"$OUT/null.log" 2>&1
 
-  # Answering pass (reasoning ON): C1 baselines + the frame-rag CEILING null,
-  # which is a per-query reasoner, not an extractor.
-  echo "=== seed-$SEED c1 + frame-rag ceiling ($(date +%H:%M:%S))"
+  # Answering pass (reasoning ON): the frame-rag CEILING null (a per-query
+  # reasoner, not an extractor) plus, by default, the C1 v0 baselines. The
+  # v0 baselines feed no frames endpoint (F-E1/E2/E4) — set
+  # FRAMES_C1_CONDITIONS=frame-rag to run frames-only and skip their cost.
+  C1_CONDS=${FRAMES_C1_CONDITIONS:-c0-no-memory,rag-bm25,frame-rag}
+  echo "=== seed-$SEED answering ($C1_CONDS) ($(date +%H:%M:%S))"
   HARNESS_LLM_TEMPERATURE="$C1_TEMP" HARNESS_LLM_EXTRA_PARAMS="$C1_EXTRA" \
     HARNESS_LLM_CACHE="$CASS/$TAG-frames-c1" \
     go run ./cmd/harness "${COMMON[@]}" -json "$OUT/report-c1.json" \
-    -conditions c0-no-memory,rag-bm25,frame-rag >"$OUT/c1.log" 2>&1
+    -conditions "$C1_CONDS" >"$OUT/c1.log" 2>&1
 
   python3 - "$OUT" <<'EOF'
 import json, sys, os
