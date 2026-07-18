@@ -1280,3 +1280,53 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   gpt-5 20-seed run (in flight) is the confirmatory test under this
   ratified endpoint. The qwen run is retained as the exploratory first
   leg that generated the re-spec hypothesis and is reported as such.
+- 2026-07-18 (FRAMES F-E1..F-E4 — gpt-5 CONFIRMATORY 20-seed run, under
+  the RATIFIED filterability endpoint; reported honestly, NEGATIVE on the
+  co-primary) — loom-c2b-frames (gpt-5, extraction reasoning_effort
+  minimal) vs the two nulls (c2b-prov + frame-rag ceiling), all 20 locked
+  seeds, certified tier-M corpus, 0 API errors, frames-only answering pass
+  (c0/rag dropped as non-endpoint baselines — cost correction, previous
+  entries). Verdicts (results/frames-e-gpt5/verdict-governing.json):
+  * F-E1 (safety, both directions) — PASS. Contamination 0.923 (CI-lo
+    0.887), isolation 0.991 (CI-lo 0.982); both >=0.85. Sarcasm discipline
+    intact.
+  * F-E4 (ideation) — PASS. micro-F1 0.925 (CI-lo 0.902).
+  * F-E2 (co-primary, GOVERNING filterability reading) — FAIL, and the
+    failure is precise and informative:
+      – SUPERIORITY overwhelmingly MET: filtering-resistant balanced-acc
+        A-B = +0.335 CI-lo vs the CEILING null frame-rag (+0.354 vs
+        c2b-prov) — >2x the +0.15 bar, against a full gpt-5 reasoner with
+        all the episode text. The compile-time-frames advantage on
+        structural traps (promotion/pinning/scenario-overlay/sarcasm) is
+        real, large, and robust against the strongest query-time opponent.
+      – NON-INFERIORITY on filter-decidable FAILS: A-B = -0.025 mean, CI
+        [-0.065, +0.011], CI-lo below the -0.02 margin. v0 slices all
+        non-inferior (composition +0.001, repetition 0, retain 0, find
+        +0.019; flip +0.058). So the co-primary fails ONLY on the
+        decidable-trap non-inferiority leg.
+  MECHANISM (measured, not asserted): the filter-decidable miss is
+  CONCENTRATED, not uniform — 9/20 seeds non-inferior-or-positive (4 at
+  46/46 perfect), but ~5 seeds leak fiction heavily (seed-16 -0.227,
+  seed-22 -0.219: gpt-5 homes only 20/46 fiction contamination traps to
+  their frame, ~26 leaking to actual). This is the SAME residual
+  fiction->actual leakage F-E3 measures; on the traps a lexical filter
+  handles perfectly BY CONSTRUCTION (they are defined as
+  membership-decidable), any extraction leakage shows as inferiority to
+  the near-optimal null. gpt-5 cut mean leakage vs qwen (0.21->~0.04 on
+  dev-99) but did not eliminate it, and the tail seeds bite the CI.
+  OBSERVATION FLAGGED FOR TONI (NOT acted on — re-specing a failing
+  endpoint after seeing it fail is exactly what pre-registration forbids,
+  so this is reported, not fixed by moving the bar): the filter-decidable
+  non-inferiority leg has the same "null is optimal-by-construction on its
+  own partition" structure that sank reading (a) — a definitionally-perfect
+  lexical filter will tie-or-beat any real extractor on the traps defined
+  as filterable, so a -2pp non-inferiority bar there penalizes ANY
+  leakage. Whether that is a fair gate is a genuine question, but it is
+  Toni's to decide, not mine to re-spec post-hoc. The SPEC-PRESERVING path
+  to a PASS is to reduce extraction leakage (a SYSTEM improvement, not a
+  bar move): higher extraction reasoning effort, a leakage-targeted
+  extraction-prompt fix, or a confidence-gated quarantine of low-confidence
+  fiction assignments (the §9.6.1 safety-routing hook, currently dormant).
+  None started autonomously. Full numbers: MASTERPLAN + verdict JSON;
+  reading (a) also printed (FAIL, superseded diagnostic). qwen leg remains
+  the exploratory first pass; gpt-5 is the confirmatory result.
