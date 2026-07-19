@@ -1,0 +1,64 @@
+dataset: /home/itsatony/code/loom/datasets/frames-batch-v1/seed-8 (328 episodes, 619 queries)
+
+condition                 rep+      rep-     comp+     comp-  rev.flip   rev.ret   find=
+loom-C2a                 60/60     59/59     80/80     79/79     24/24     24/24   20/20
+frame-oracle             60/60     59/59     80/80     79/79     24/24     24/24   20/20
+mono-world               60/60     59/59     78/80     76/79     23/24     24/24   11/20
+isolationist             60/60     59/59     80/80     79/79     24/24     24/24   20/20
+literalist               60/60     59/59     80/80     78/79     24/24     24/24   14/20
+loom-c2b-frames-det       2/60     59/59      0/80     79/79     24/24      0/24    0/20
+
+frame slices (traps are negatives, paired controls positives):
+condition                cont+     cont-      iso+      iso-      pin+      pin-     prom+     prom-    mis=   idea=
+loom-C2a                 51/51     51/51     47/47     27/27     16/16     16/16     15/15     10/10   20/20   20/20
+frame-oracle             51/51     51/51     47/47     27/27     16/16     16/16     15/15     10/10   20/20   20/20
+mono-world               51/51      5/51     43/47      4/27      8/16      8/16     15/15      0/10    0/20    0/20
+isolationist             51/51     51/51     15/47     27/27      0/16     16/16     15/15     10/10   16/20   17/20
+literalist               51/51     40/51     47/47     27/27     16/16     16/16     15/15     10/10   20/20   20/20
+loom-c2b-frames-det       0/51     51/51      0/47     27/27      0/16     16/16      0/15     10/10    0/20    6/20
+
+contamination by sub-population (trap-/control+ correct):
+condition               contradiction              gap            quote          sarcasm
+loom-C2a                  20/20/20/20      20/20/20/20          6/6/6/6          5/5/5/5
+frame-oracle              20/20/20/20      20/20/20/20          6/6/6/6          5/5/5/5
+mono-world                 0/20/20/20       0/20/20/20          0/6/6/6          5/5/5/5
+isolationist              20/20/20/20      20/20/20/20          6/6/6/6          5/5/5/5
+literalist                20/20/20/20      20/20/20/20          0/6/6/6          0/5/5/5
+loom-c2b-frames-det        20/20/0/20       20/20/0/20          6/6/0/6          5/5/0/5
+
+composition accuracy by derivation depth:
+condition                  d2       d3
+loom-C2a                 1.00     1.00
+frame-oracle             1.00     1.00
+mono-world               0.98     0.91
+isolationist             1.00     1.00
+literalist               1.00     0.95
+loom-c2b-frames-det      0.50     0.50
+
+retrieval provenance probe (upper bound for RAG conditions):
+
+[bm25]
+retriever        k  slice         full-coverage   episode-recall
+bm25             4  composition           0/100           36/697
+bm25             4  contamination          47/51            47/51
+bm25             4  isolation             20/47           41/194
+bm25             4  pinning                1/16            8/108
+bm25             4  promotion             14/15            14/15
+bm25             4  repetition            51/60            51/60
+bm25             4  revision               0/48           27/325
+bm25             8  composition           0/100           82/697
+bm25             8  contamination          51/51            51/51
+bm25             8  isolation             25/47           52/194
+bm25             8  pinning                1/16            9/108
+bm25             8  promotion             15/15            15/15
+bm25             8  repetition            60/60            60/60
+bm25             8  revision               0/48           60/325
+bm25            16  composition           0/100          204/697
+bm25            16  contamination          51/51            51/51
+bm25            16  isolation             27/47           70/194
+bm25            16  pinning                1/16           18/108
+bm25            16  promotion             15/15            15/15
+bm25            16  repetition            60/60            60/60
+bm25            16  revision               1/48           98/325
+
+JSON report: /home/itsatony/code/loom/results/frames-e-gpt5mini/seed-8/report-base.json

@@ -1,0 +1,24 @@
+compilation fidelity (llm-frames:gpt-5 extractor) — dataset /home/itsatony/code/loom/datasets/frames-batch-v1/seed-1
+
+type            world committed  exact  mangled  dropped  missed  hallucinated  precision   recall
+facts             994       995    985        6        0       3             4      0.990    0.991
+rules              40        40     39        1        0       0             0      0.975    0.975
+supersessions      18        18     17        1        0       0             0      0.944    0.944
+
+frame-assignment fidelity (F-E3):
+  macro-F1 0.970 | coverage 1.000 (abstention 0.000) | fiction→actual leakage 2/48 (0.042, gate <0.02) | actual exile 0/890 (0.000)
+  sarcasm believed 0/5 | frames recovered 7/7 (exact meta 7) | rule frames 39✓/1✗ | sup frames 17✓/1✗
+  confusion (true → assigned: count):
+    actual                 actual:890
+    fic_01                 actual:2 fic_01:22
+    fic_02                 fic_02:24
+    psp_asset_15           actual:3 psp_asset_15:9
+    psp_jurisdiction_16    actual:1 psp_jurisdiction_16:10
+    psp_product_16         psp_product_16:11
+    scn_live               scn_live:10
+    scn_pin                scn_pin:12
+
+worst offenders (IDs, first 10 per class):
+  facts mangled  [fct_0079 fct_0892 fct_0896 fct_0922 fct_0948 fct_0988]
+  facts missed   [fct_0972 fct_0973 fct_0976]
+  rules mangled  [rul_025]

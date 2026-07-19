@@ -218,6 +218,31 @@ every cell on ALL 20 locked seeds (tier E), fresh frame-oracle == frozen
 §9.6.5 per cell, v0 sample-dataset diagnostics byte-identical, fidelity
 1.000/1.000 + frame macro-F1 1.000 on dev seed 99.
 
+**Frames v1 C2b endpoints — CAMPAIGN CLOSED (2026-07-19, reading (a)
+accepted by Toni).** The LLM C2b-frames campaign ran on the certified
+tier-M corpus, 20 locked seeds, across three extractor legs (exploratory
+qwen36 free; frontier gpt-5 confirmatory; gpt-5-mini leakage-fixed — the
+accepted result). F-E2 was re-specified onto FILTERABILITY (filtering-
+resistant vs filter-decidable) and ratified (§10 2026-07-18) after the
+original lexical-markedness partition proved near-empty on a §9.6.6-
+certified corpus; a `frame-rag` CEILING null (frameless RAG over full
+episode text + frame semantics + frontier reasoner) was added as the
+strongest query-time opponent. Outcome (accepted near-pass, §10 2026-07-19):
+compile-time-frames bet NOT falsified (superiority +0.32 CI-lo vs the
+ceiling null — query-time filtering decisively refuted); **F-E1 PASS**
+(0.999/0.996), **F-E4 PASS** (1.000), F-E3 leakage cured 0.19→0.000 by the
+leakage-fix extraction (frame-context two-pass + §9.6.1 confidence-gated
+actual-quarantine + episode-header strip). F-E2 co-primary reported as a
+near-pass: it trips ONLY on the v0-composition non-inferiority leg
+(CI-lo −0.03), a single-seed (seed-7) frame-free rule-extraction outlier —
+honest negative on that one leg, not chased with a re-run. Results tables
+in `synthworld/README.md`; per-seed evidence + verdict JSONs under
+`results/frames-e-{qwen36,gpt5,gpt5mini}/`; extraction cassettes local
+(large). Key new code: `loom.FramesLLMExtractor` (frame-context two-pass +
+quarantine), `harness.FrameRAGCondition` (ceiling null), `cmd/aggregate
+-frames` (`-b2` ceiling null; governing filterability verdict + reading (a)
+diagnostic).
+
 **S2 hooks that exist but are intentionally dormant (don't mistake for bugs):**
 lifecycle states `proposed`/`retracted`/`quarantined` are defined and honored
 by `worldView`/`StatsAt`, but nothing sets them yet — structured ingest

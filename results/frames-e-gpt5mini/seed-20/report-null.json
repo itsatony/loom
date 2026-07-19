@@ -1,0 +1,488 @@
+[
+  {
+    "condition": "loom-c2b",
+    "repetition": {
+      "pos_correct": 60,
+      "pos_total": 60,
+      "neg_correct": 60,
+      "neg_total": 60
+    },
+    "composition": {
+      "pos_correct": 80,
+      "pos_total": 80,
+      "neg_correct": 70,
+      "neg_total": 73
+    },
+    "find": {
+      "exact_matches": 12,
+      "total": 20,
+      "micro_p": 0.9459459459459459,
+      "micro_r": 1,
+      "micro_f1": 0.9722222222222222
+    },
+    "revision": {
+      "flip_correct": 24,
+      "flip_total": 24,
+      "retain_correct": 24,
+      "retain_total": 24,
+      "stale_agreements": 0
+    },
+    "frames": {
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 1,
+        "neg_total": 52
+      },
+      "contamination_sub": {
+        "contradiction": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 0,
+          "neg_total": 20
+        },
+        "gap": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 0,
+          "neg_total": 20
+        },
+        "quote": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 0,
+          "neg_total": 6
+        },
+        "sarcasm": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 1,
+          "neg_total": 6
+        }
+      },
+      "cue_sub": {
+        "content": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 1,
+          "neg_total": 6
+        },
+        "metadata": {
+          "pos_correct": 46,
+          "pos_total": 46,
+          "neg_correct": 0,
+          "neg_total": 46
+        }
+      },
+      "filter_sub": {
+        "decidable": {
+          "pos_correct": 82,
+          "pos_total": 82,
+          "neg_correct": 0,
+          "neg_total": 46
+        },
+        "resistant": {
+          "pos_correct": 35,
+          "pos_total": 49,
+          "neg_correct": 15,
+          "neg_total": 59
+        }
+      },
+      "isolation": {
+        "pos_correct": 41,
+        "pos_total": 48,
+        "neg_correct": 7,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 13,
+        "pos_total": 20,
+        "neg_correct": 7,
+        "neg_total": 19
+      },
+      "isolation_sub": {
+        "chain": {
+          "pos_correct": 13,
+          "pos_total": 20,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "chain-control": {
+          "pos_correct": 0,
+          "pos_total": 0,
+          "neg_correct": 7,
+          "neg_total": 19
+        },
+        "inherited": {
+          "pos_correct": 12,
+          "pos_total": 12,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "override-active": {
+          "pos_correct": 8,
+          "pos_total": 8,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "override-actual": {
+          "pos_correct": 8,
+          "pos_total": 8,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "override-blocked": {
+          "pos_correct": 0,
+          "pos_total": 0,
+          "neg_correct": 0,
+          "neg_total": 8
+        }
+      },
+      "pinning_sub": {
+        "pin-frozen": {
+          "pos_correct": 1,
+          "pos_total": 8,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "pin-frozen-live": {
+          "pos_correct": 0,
+          "pos_total": 0,
+          "neg_correct": 7,
+          "neg_total": 8
+        },
+        "pin-late": {
+          "pos_correct": 8,
+          "pos_total": 8,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "pin-late-pinned": {
+          "pos_correct": 0,
+          "pos_total": 0,
+          "neg_correct": 0,
+          "neg_total": 8
+        }
+      },
+      "promotion_sub": {
+        "post-resolution": {
+          "pos_correct": 5,
+          "pos_total": 5,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "pre-resolution": {
+          "pos_correct": 0,
+          "pos_total": 0,
+          "neg_correct": 0,
+          "neg_total": 6
+        },
+        "source-frame": {
+          "pos_correct": 10,
+          "pos_total": 10,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "unresolved": {
+          "pos_correct": 0,
+          "pos_total": 0,
+          "neg_correct": 0,
+          "neg_total": 4
+        }
+      },
+      "pinning": {
+        "pos_correct": 9,
+        "pos_total": 16,
+        "neg_correct": 7,
+        "neg_total": 16
+      },
+      "promotion": {
+        "pos_correct": 15,
+        "pos_total": 15,
+        "neg_correct": 0,
+        "neg_total": 10
+      },
+      "misattribution": {
+        "exact_matches": 0,
+        "total": 20,
+        "micro_p": 0.2,
+        "micro_r": 0.14814814814814814,
+        "micro_f1": 0.1702127659574468
+      },
+      "ideation": {
+        "exact_matches": 0,
+        "total": 20,
+        "micro_p": 0.4523809523809524,
+        "micro_r": 0.5,
+        "micro_f1": 0.47500000000000003
+      }
+    },
+    "errors": 0,
+    "per_depth": {
+      "2": {
+        "pos_correct": 36,
+        "pos_total": 36,
+        "neg_correct": 29,
+        "neg_total": 30
+      },
+      "3": {
+        "pos_correct": 44,
+        "pos_total": 44,
+        "neg_correct": 41,
+        "neg_total": 43
+      }
+    },
+    "usage": {
+      "calls": 347,
+      "errors": 0,
+      "cache_hits": 0,
+      "spent_prompt_tokens": 404190,
+      "spent_completion_tokens": 993134,
+      "replayed_prompt_tokens": 0,
+      "replayed_completion_tokens": 0
+    }
+  },
+  {
+    "condition": "c2b-prov",
+    "repetition": {
+      "pos_correct": 60,
+      "pos_total": 60,
+      "neg_correct": 60,
+      "neg_total": 60
+    },
+    "composition": {
+      "pos_correct": 80,
+      "pos_total": 80,
+      "neg_correct": 73,
+      "neg_total": 73
+    },
+    "find": {
+      "exact_matches": 19,
+      "total": 20,
+      "micro_p": 0.9929078014184397,
+      "micro_r": 1,
+      "micro_f1": 0.9964412811387899
+    },
+    "revision": {
+      "flip_correct": 24,
+      "flip_total": 24,
+      "retain_correct": 24,
+      "retain_total": 24,
+      "stale_agreements": 0
+    },
+    "frames": {
+      "contamination": {
+        "pos_correct": 52,
+        "pos_total": 52,
+        "neg_correct": 47,
+        "neg_total": 52
+      },
+      "contamination_sub": {
+        "contradiction": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "gap": {
+          "pos_correct": 20,
+          "pos_total": 20,
+          "neg_correct": 20,
+          "neg_total": 20
+        },
+        "quote": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 6,
+          "neg_total": 6
+        },
+        "sarcasm": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 1,
+          "neg_total": 6
+        }
+      },
+      "cue_sub": {
+        "content": {
+          "pos_correct": 6,
+          "pos_total": 6,
+          "neg_correct": 1,
+          "neg_total": 6
+        },
+        "metadata": {
+          "pos_correct": 46,
+          "pos_total": 46,
+          "neg_correct": 46,
+          "neg_total": 46
+        }
+      },
+      "filter_sub": {
+        "decidable": {
+          "pos_correct": 72,
+          "pos_total": 82,
+          "neg_correct": 46,
+          "neg_total": 46
+        },
+        "resistant": {
+          "pos_correct": 35,
+          "pos_total": 49,
+          "neg_correct": 26,
+          "neg_total": 59
+        }
+      },
+      "isolation": {
+        "pos_correct": 41,
+        "pos_total": 48,
+        "neg_correct": 18,
+        "neg_total": 27
+      },
+      "isolation_chain": {
+        "pos_correct": 13,
+        "pos_total": 20,
+        "neg_correct": 18,
+        "neg_total": 19
+      },
+      "isolation_sub": {
+        "chain": {
+          "pos_correct": 13,
+          "pos_total": 20,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "chain-control": {
+          "pos_correct": 0,
+          "pos_total": 0,
+          "neg_correct": 18,
+          "neg_total": 19
+        },
+        "inherited": {
+          "pos_correct": 12,
+          "pos_total": 12,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "override-active": {
+          "pos_correct": 8,
+          "pos_total": 8,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "override-actual": {
+          "pos_correct": 8,
+          "pos_total": 8,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "override-blocked": {
+          "pos_correct": 0,
+          "pos_total": 0,
+          "neg_correct": 0,
+          "neg_total": 8
+        }
+      },
+      "pinning_sub": {
+        "pin-frozen": {
+          "pos_correct": 1,
+          "pos_total": 8,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "pin-frozen-live": {
+          "pos_correct": 0,
+          "pos_total": 0,
+          "neg_correct": 7,
+          "neg_total": 8
+        },
+        "pin-late": {
+          "pos_correct": 8,
+          "pos_total": 8,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "pin-late-pinned": {
+          "pos_correct": 0,
+          "pos_total": 0,
+          "neg_correct": 0,
+          "neg_total": 8
+        }
+      },
+      "promotion_sub": {
+        "post-resolution": {
+          "pos_correct": 5,
+          "pos_total": 5,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "pre-resolution": {
+          "pos_correct": 0,
+          "pos_total": 0,
+          "neg_correct": 0,
+          "neg_total": 6
+        },
+        "source-frame": {
+          "pos_correct": 0,
+          "pos_total": 10,
+          "neg_correct": 0,
+          "neg_total": 0
+        },
+        "unresolved": {
+          "pos_correct": 0,
+          "pos_total": 0,
+          "neg_correct": 0,
+          "neg_total": 4
+        }
+      },
+      "pinning": {
+        "pos_correct": 9,
+        "pos_total": 16,
+        "neg_correct": 7,
+        "neg_total": 16
+      },
+      "promotion": {
+        "pos_correct": 5,
+        "pos_total": 15,
+        "neg_correct": 0,
+        "neg_total": 10
+      },
+      "misattribution": {
+        "exact_matches": 2,
+        "total": 20,
+        "micro_p": 0.16666666666666666,
+        "micro_r": 0.37037037037037035,
+        "micro_f1": 0.2298850574712644
+      },
+      "ideation": {
+        "exact_matches": 4,
+        "total": 20,
+        "micro_p": 0.5757575757575758,
+        "micro_r": 0.75,
+        "micro_f1": 0.6514285714285716
+      }
+    },
+    "errors": 0,
+    "per_depth": {
+      "2": {
+        "pos_correct": 36,
+        "pos_total": 36,
+        "neg_correct": 30,
+        "neg_total": 30
+      },
+      "3": {
+        "pos_correct": 44,
+        "pos_total": 44,
+        "neg_correct": 43,
+        "neg_total": 43
+      }
+    },
+    "usage": {
+      "calls": 347,
+      "errors": 0,
+      "cache_hits": 347,
+      "spent_prompt_tokens": 0,
+      "spent_completion_tokens": 0,
+      "replayed_prompt_tokens": 404190,
+      "replayed_completion_tokens": 993134
+    }
+  }
+]

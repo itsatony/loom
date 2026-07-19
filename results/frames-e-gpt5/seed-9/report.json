@@ -1,0 +1,2792 @@
+[
+ {
+  "condition": "loom-C2a",
+  "repetition": {
+   "pos_correct": 60,
+   "pos_total": 60,
+   "neg_correct": 60,
+   "neg_total": 60
+  },
+  "composition": {
+   "pos_correct": 80,
+   "pos_total": 80,
+   "neg_correct": 78,
+   "neg_total": 78
+  },
+  "find": {
+   "exact_matches": 20,
+   "total": 20,
+   "micro_p": 1,
+   "micro_r": 1,
+   "micro_f1": 1
+  },
+  "revision": {
+   "flip_correct": 24,
+   "flip_total": 24,
+   "retain_correct": 24,
+   "retain_total": 24,
+   "stale_agreements": 0
+  },
+  "frames": {
+   "contamination": {
+    "pos_correct": 52,
+    "pos_total": 52,
+    "neg_correct": 52,
+    "neg_total": 52
+   },
+   "contamination_sub": {
+    "contradiction": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "gap": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "quote": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "sarcasm": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    }
+   },
+   "cue_sub": {
+    "content": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "metadata": {
+     "pos_correct": 46,
+     "pos_total": 46,
+     "neg_correct": 46,
+     "neg_total": 46
+    }
+   },
+   "filter_sub": {
+    "decidable": {
+     "pos_correct": 82,
+     "pos_total": 82,
+     "neg_correct": 46,
+     "neg_total": 46
+    },
+    "resistant": {
+     "pos_correct": 50,
+     "pos_total": 50,
+     "neg_correct": 60,
+     "neg_total": 60
+    }
+   },
+   "isolation": {
+    "pos_correct": 48,
+    "pos_total": 48,
+    "neg_correct": 28,
+    "neg_total": 28
+   },
+   "isolation_chain": {
+    "pos_correct": 20,
+    "pos_total": 20,
+    "neg_correct": 20,
+    "neg_total": 20
+   },
+   "isolation_sub": {
+    "chain": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "chain-control": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "inherited": {
+     "pos_correct": 12,
+     "pos_total": 12,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-active": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-actual": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-blocked": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "pinning_sub": {
+    "pin-frozen": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-frozen-live": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    },
+    "pin-late": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-late-pinned": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "promotion_sub": {
+    "post-resolution": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pre-resolution": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "source-frame": {
+     "pos_correct": 10,
+     "pos_total": 10,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "unresolved": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 4,
+     "neg_total": 4
+    }
+   },
+   "pinning": {
+    "pos_correct": 16,
+    "pos_total": 16,
+    "neg_correct": 16,
+    "neg_total": 16
+   },
+   "promotion": {
+    "pos_correct": 16,
+    "pos_total": 16,
+    "neg_correct": 10,
+    "neg_total": 10
+   },
+   "misattribution": {
+    "exact_matches": 20,
+    "total": 20,
+    "micro_p": 1,
+    "micro_r": 1,
+    "micro_f1": 1
+   },
+   "ideation": {
+    "exact_matches": 20,
+    "total": 20,
+    "micro_p": 1,
+    "micro_r": 1,
+    "micro_f1": 1
+   }
+  },
+  "errors": 0,
+  "per_depth": {
+   "1": {
+    "pos_correct": 80,
+    "pos_total": 80,
+    "neg_correct": 78,
+    "neg_total": 78
+   }
+  }
+ },
+ {
+  "condition": "frame-oracle",
+  "repetition": {
+   "pos_correct": 60,
+   "pos_total": 60,
+   "neg_correct": 60,
+   "neg_total": 60
+  },
+  "composition": {
+   "pos_correct": 80,
+   "pos_total": 80,
+   "neg_correct": 78,
+   "neg_total": 78
+  },
+  "find": {
+   "exact_matches": 20,
+   "total": 20,
+   "micro_p": 1,
+   "micro_r": 1,
+   "micro_f1": 1
+  },
+  "revision": {
+   "flip_correct": 24,
+   "flip_total": 24,
+   "retain_correct": 24,
+   "retain_total": 24,
+   "stale_agreements": 0
+  },
+  "frames": {
+   "contamination": {
+    "pos_correct": 52,
+    "pos_total": 52,
+    "neg_correct": 52,
+    "neg_total": 52
+   },
+   "contamination_sub": {
+    "contradiction": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "gap": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "quote": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "sarcasm": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    }
+   },
+   "cue_sub": {
+    "content": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "metadata": {
+     "pos_correct": 46,
+     "pos_total": 46,
+     "neg_correct": 46,
+     "neg_total": 46
+    }
+   },
+   "filter_sub": {
+    "decidable": {
+     "pos_correct": 82,
+     "pos_total": 82,
+     "neg_correct": 46,
+     "neg_total": 46
+    },
+    "resistant": {
+     "pos_correct": 50,
+     "pos_total": 50,
+     "neg_correct": 60,
+     "neg_total": 60
+    }
+   },
+   "isolation": {
+    "pos_correct": 48,
+    "pos_total": 48,
+    "neg_correct": 28,
+    "neg_total": 28
+   },
+   "isolation_chain": {
+    "pos_correct": 20,
+    "pos_total": 20,
+    "neg_correct": 20,
+    "neg_total": 20
+   },
+   "isolation_sub": {
+    "chain": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "chain-control": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "inherited": {
+     "pos_correct": 12,
+     "pos_total": 12,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-active": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-actual": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-blocked": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "pinning_sub": {
+    "pin-frozen": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-frozen-live": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    },
+    "pin-late": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-late-pinned": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "promotion_sub": {
+    "post-resolution": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pre-resolution": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "source-frame": {
+     "pos_correct": 10,
+     "pos_total": 10,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "unresolved": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 4,
+     "neg_total": 4
+    }
+   },
+   "pinning": {
+    "pos_correct": 16,
+    "pos_total": 16,
+    "neg_correct": 16,
+    "neg_total": 16
+   },
+   "promotion": {
+    "pos_correct": 16,
+    "pos_total": 16,
+    "neg_correct": 10,
+    "neg_total": 10
+   },
+   "misattribution": {
+    "exact_matches": 20,
+    "total": 20,
+    "micro_p": 1,
+    "micro_r": 1,
+    "micro_f1": 1
+   },
+   "ideation": {
+    "exact_matches": 20,
+    "total": 20,
+    "micro_p": 1,
+    "micro_r": 1,
+    "micro_f1": 1
+   }
+  },
+  "errors": 0,
+  "per_depth": {
+   "1": {
+    "pos_correct": 80,
+    "pos_total": 80,
+    "neg_correct": 78,
+    "neg_total": 78
+   }
+  }
+ },
+ {
+  "condition": "mono-world",
+  "repetition": {
+   "pos_correct": 60,
+   "pos_total": 60,
+   "neg_correct": 60,
+   "neg_total": 60
+  },
+  "composition": {
+   "pos_correct": 80,
+   "pos_total": 80,
+   "neg_correct": 72,
+   "neg_total": 78
+  },
+  "find": {
+   "exact_matches": 15,
+   "total": 20,
+   "micro_p": 0.9519230769230769,
+   "micro_r": 1,
+   "micro_f1": 0.9753694581280787
+  },
+  "revision": {
+   "flip_correct": 24,
+   "flip_total": 24,
+   "retain_correct": 24,
+   "retain_total": 24,
+   "stale_agreements": 0
+  },
+  "frames": {
+   "contamination": {
+    "pos_correct": 52,
+    "pos_total": 52,
+    "neg_correct": 6,
+    "neg_total": 52
+   },
+   "contamination_sub": {
+    "contradiction": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 20
+    },
+    "gap": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 20
+    },
+    "quote": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 6
+    },
+    "sarcasm": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    }
+   },
+   "cue_sub": {
+    "content": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "metadata": {
+     "pos_correct": 46,
+     "pos_total": 46,
+     "neg_correct": 0,
+     "neg_total": 46
+    }
+   },
+   "filter_sub": {
+    "decidable": {
+     "pos_correct": 82,
+     "pos_total": 82,
+     "neg_correct": 0,
+     "neg_total": 46
+    },
+    "resistant": {
+     "pos_correct": 34,
+     "pos_total": 50,
+     "neg_correct": 22,
+     "neg_total": 60
+    }
+   },
+   "isolation": {
+    "pos_correct": 40,
+    "pos_total": 48,
+    "neg_correct": 8,
+    "neg_total": 28
+   },
+   "isolation_chain": {
+    "pos_correct": 12,
+    "pos_total": 20,
+    "neg_correct": 8,
+    "neg_total": 20
+   },
+   "isolation_sub": {
+    "chain": {
+     "pos_correct": 12,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "chain-control": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 20
+    },
+    "inherited": {
+     "pos_correct": 12,
+     "pos_total": 12,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-active": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-actual": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-blocked": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 0,
+     "neg_total": 8
+    }
+   },
+   "pinning_sub": {
+    "pin-frozen": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-frozen-live": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    },
+    "pin-late": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-late-pinned": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 0,
+     "neg_total": 8
+    }
+   },
+   "promotion_sub": {
+    "post-resolution": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pre-resolution": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 0,
+     "neg_total": 6
+    },
+    "source-frame": {
+     "pos_correct": 10,
+     "pos_total": 10,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "unresolved": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 0,
+     "neg_total": 4
+    }
+   },
+   "pinning": {
+    "pos_correct": 8,
+    "pos_total": 16,
+    "neg_correct": 8,
+    "neg_total": 16
+   },
+   "promotion": {
+    "pos_correct": 16,
+    "pos_total": 16,
+    "neg_correct": 0,
+    "neg_total": 10
+   },
+   "misattribution": {
+    "exact_matches": 0,
+    "total": 20,
+    "micro_p": 0.2,
+    "micro_r": 0.14285714285714285,
+    "micro_f1": 0.16666666666666666
+   },
+   "ideation": {
+    "exact_matches": 0,
+    "total": 20,
+    "micro_p": 0.425,
+    "micro_r": 0.4927536231884058,
+    "micro_f1": 0.4563758389261745
+   }
+  },
+  "errors": 0,
+  "per_depth": {
+   "1": {
+    "pos_correct": 80,
+    "pos_total": 80,
+    "neg_correct": 72,
+    "neg_total": 78
+   }
+  }
+ },
+ {
+  "condition": "isolationist",
+  "repetition": {
+   "pos_correct": 60,
+   "pos_total": 60,
+   "neg_correct": 60,
+   "neg_total": 60
+  },
+  "composition": {
+   "pos_correct": 80,
+   "pos_total": 80,
+   "neg_correct": 78,
+   "neg_total": 78
+  },
+  "find": {
+   "exact_matches": 20,
+   "total": 20,
+   "micro_p": 1,
+   "micro_r": 1,
+   "micro_f1": 1
+  },
+  "revision": {
+   "flip_correct": 24,
+   "flip_total": 24,
+   "retain_correct": 24,
+   "retain_total": 24,
+   "stale_agreements": 0
+  },
+  "frames": {
+   "contamination": {
+    "pos_correct": 52,
+    "pos_total": 52,
+    "neg_correct": 52,
+    "neg_total": 52
+   },
+   "contamination_sub": {
+    "contradiction": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "gap": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "quote": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "sarcasm": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    }
+   },
+   "cue_sub": {
+    "content": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "metadata": {
+     "pos_correct": 46,
+     "pos_total": 46,
+     "neg_correct": 46,
+     "neg_total": 46
+    }
+   },
+   "filter_sub": {
+    "decidable": {
+     "pos_correct": 70,
+     "pos_total": 82,
+     "neg_correct": 46,
+     "neg_total": 46
+    },
+    "resistant": {
+     "pos_correct": 14,
+     "pos_total": 50,
+     "neg_correct": 60,
+     "neg_total": 60
+    }
+   },
+   "isolation": {
+    "pos_correct": 16,
+    "pos_total": 48,
+    "neg_correct": 28,
+    "neg_total": 28
+   },
+   "isolation_chain": {
+    "pos_correct": 0,
+    "pos_total": 20,
+    "neg_correct": 20,
+    "neg_total": 20
+   },
+   "isolation_sub": {
+    "chain": {
+     "pos_correct": 0,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "chain-control": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "inherited": {
+     "pos_correct": 0,
+     "pos_total": 12,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-active": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-actual": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-blocked": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "pinning_sub": {
+    "pin-frozen": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-frozen-live": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    },
+    "pin-late": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-late-pinned": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "promotion_sub": {
+    "post-resolution": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pre-resolution": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "source-frame": {
+     "pos_correct": 10,
+     "pos_total": 10,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "unresolved": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 4,
+     "neg_total": 4
+    }
+   },
+   "pinning": {
+    "pos_correct": 0,
+    "pos_total": 16,
+    "neg_correct": 16,
+    "neg_total": 16
+   },
+   "promotion": {
+    "pos_correct": 16,
+    "pos_total": 16,
+    "neg_correct": 10,
+    "neg_total": 10
+   },
+   "misattribution": {
+    "exact_matches": 16,
+    "total": 20,
+    "micro_p": 1,
+    "micro_r": 0.7142857142857143,
+    "micro_f1": 0.8333333333333333
+   },
+   "ideation": {
+    "exact_matches": 16,
+    "total": 20,
+    "micro_p": 1,
+    "micro_r": 0.8115942028985508,
+    "micro_f1": 0.896
+   }
+  },
+  "errors": 0,
+  "per_depth": {
+   "1": {
+    "pos_correct": 80,
+    "pos_total": 80,
+    "neg_correct": 78,
+    "neg_total": 78
+   }
+  }
+ },
+ {
+  "condition": "literalist",
+  "repetition": {
+   "pos_correct": 60,
+   "pos_total": 60,
+   "neg_correct": 60,
+   "neg_total": 60
+  },
+  "composition": {
+   "pos_correct": 80,
+   "pos_total": 80,
+   "neg_correct": 78,
+   "neg_total": 78
+  },
+  "find": {
+   "exact_matches": 20,
+   "total": 20,
+   "micro_p": 1,
+   "micro_r": 1,
+   "micro_f1": 1
+  },
+  "revision": {
+   "flip_correct": 24,
+   "flip_total": 24,
+   "retain_correct": 24,
+   "retain_total": 24,
+   "stale_agreements": 0
+  },
+  "frames": {
+   "contamination": {
+    "pos_correct": 52,
+    "pos_total": 52,
+    "neg_correct": 40,
+    "neg_total": 52
+   },
+   "contamination_sub": {
+    "contradiction": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "gap": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "quote": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 6
+    },
+    "sarcasm": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 6
+    }
+   },
+   "cue_sub": {
+    "content": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 6
+    },
+    "metadata": {
+     "pos_correct": 46,
+     "pos_total": 46,
+     "neg_correct": 40,
+     "neg_total": 46
+    }
+   },
+   "filter_sub": {
+    "decidable": {
+     "pos_correct": 82,
+     "pos_total": 82,
+     "neg_correct": 40,
+     "neg_total": 46
+    },
+    "resistant": {
+     "pos_correct": 50,
+     "pos_total": 50,
+     "neg_correct": 54,
+     "neg_total": 60
+    }
+   },
+   "isolation": {
+    "pos_correct": 48,
+    "pos_total": 48,
+    "neg_correct": 28,
+    "neg_total": 28
+   },
+   "isolation_chain": {
+    "pos_correct": 20,
+    "pos_total": 20,
+    "neg_correct": 20,
+    "neg_total": 20
+   },
+   "isolation_sub": {
+    "chain": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "chain-control": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "inherited": {
+     "pos_correct": 12,
+     "pos_total": 12,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-active": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-actual": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-blocked": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "pinning_sub": {
+    "pin-frozen": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-frozen-live": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    },
+    "pin-late": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-late-pinned": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "promotion_sub": {
+    "post-resolution": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pre-resolution": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "source-frame": {
+     "pos_correct": 10,
+     "pos_total": 10,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "unresolved": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 4,
+     "neg_total": 4
+    }
+   },
+   "pinning": {
+    "pos_correct": 16,
+    "pos_total": 16,
+    "neg_correct": 16,
+    "neg_total": 16
+   },
+   "promotion": {
+    "pos_correct": 16,
+    "pos_total": 16,
+    "neg_correct": 10,
+    "neg_total": 10
+   },
+   "misattribution": {
+    "exact_matches": 20,
+    "total": 20,
+    "micro_p": 1,
+    "micro_r": 1,
+    "micro_f1": 1
+   },
+   "ideation": {
+    "exact_matches": 20,
+    "total": 20,
+    "micro_p": 1,
+    "micro_r": 1,
+    "micro_f1": 1
+   }
+  },
+  "errors": 0,
+  "per_depth": {
+   "1": {
+    "pos_correct": 80,
+    "pos_total": 80,
+    "neg_correct": 78,
+    "neg_total": 78
+   }
+  }
+ },
+ {
+  "condition": "loom-c2b-frames-det",
+  "repetition": {
+   "pos_correct": 0,
+   "pos_total": 60,
+   "neg_correct": 60,
+   "neg_total": 60
+  },
+  "composition": {
+   "pos_correct": 0,
+   "pos_total": 80,
+   "neg_correct": 78,
+   "neg_total": 78
+  },
+  "find": {
+   "exact_matches": 0,
+   "total": 20,
+   "micro_p": 0,
+   "micro_r": 0,
+   "micro_f1": 0
+  },
+  "revision": {
+   "flip_correct": 24,
+   "flip_total": 24,
+   "retain_correct": 0,
+   "retain_total": 24,
+   "stale_agreements": 0
+  },
+  "frames": {
+   "contamination": {
+    "pos_correct": 1,
+    "pos_total": 52,
+    "neg_correct": 52,
+    "neg_total": 52
+   },
+   "contamination_sub": {
+    "contradiction": {
+     "pos_correct": 1,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "gap": {
+     "pos_correct": 0,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "quote": {
+     "pos_correct": 0,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "sarcasm": {
+     "pos_correct": 0,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    }
+   },
+   "cue_sub": {
+    "content": {
+     "pos_correct": 0,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "metadata": {
+     "pos_correct": 1,
+     "pos_total": 46,
+     "neg_correct": 46,
+     "neg_total": 46
+    }
+   },
+   "filter_sub": {
+    "decidable": {
+     "pos_correct": 1,
+     "pos_total": 82,
+     "neg_correct": 46,
+     "neg_total": 46
+    },
+    "resistant": {
+     "pos_correct": 0,
+     "pos_total": 50,
+     "neg_correct": 60,
+     "neg_total": 60
+    }
+   },
+   "isolation": {
+    "pos_correct": 0,
+    "pos_total": 48,
+    "neg_correct": 28,
+    "neg_total": 28
+   },
+   "isolation_chain": {
+    "pos_correct": 0,
+    "pos_total": 20,
+    "neg_correct": 20,
+    "neg_total": 20
+   },
+   "isolation_sub": {
+    "chain": {
+     "pos_correct": 0,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "chain-control": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "inherited": {
+     "pos_correct": 0,
+     "pos_total": 12,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-active": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-actual": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-blocked": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "pinning_sub": {
+    "pin-frozen": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-frozen-live": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    },
+    "pin-late": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-late-pinned": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "promotion_sub": {
+    "post-resolution": {
+     "pos_correct": 0,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pre-resolution": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "source-frame": {
+     "pos_correct": 0,
+     "pos_total": 10,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "unresolved": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 4,
+     "neg_total": 4
+    }
+   },
+   "pinning": {
+    "pos_correct": 0,
+    "pos_total": 16,
+    "neg_correct": 16,
+    "neg_total": 16
+   },
+   "promotion": {
+    "pos_correct": 0,
+    "pos_total": 16,
+    "neg_correct": 10,
+    "neg_total": 10
+   },
+   "misattribution": {
+    "exact_matches": 0,
+    "total": 20,
+    "micro_p": 0,
+    "micro_r": 0,
+    "micro_f1": 0
+   },
+   "ideation": {
+    "exact_matches": 6,
+    "total": 20,
+    "micro_p": 0,
+    "micro_r": 0,
+    "micro_f1": 0
+   }
+  },
+  "errors": 0,
+  "per_depth": {
+   "1": {
+    "pos_correct": 0,
+    "pos_total": 80,
+    "neg_correct": 78,
+    "neg_total": 78
+   }
+  }
+ },
+ {
+  "condition": "loom-c2b-frames",
+  "repetition": {
+   "pos_correct": 60,
+   "pos_total": 60,
+   "neg_correct": 60,
+   "neg_total": 60
+  },
+  "composition": {
+   "pos_correct": 80,
+   "pos_total": 80,
+   "neg_correct": 78,
+   "neg_total": 78
+  },
+  "find": {
+   "exact_matches": 18,
+   "total": 20,
+   "micro_p": 1,
+   "micro_r": 0.9797979797979798,
+   "micro_f1": 0.989795918367347
+  },
+  "revision": {
+   "flip_correct": 24,
+   "flip_total": 24,
+   "retain_correct": 24,
+   "retain_total": 24,
+   "stale_agreements": 0
+  },
+  "frames": {
+   "contamination": {
+    "pos_correct": 52,
+    "pos_total": 52,
+    "neg_correct": 52,
+    "neg_total": 52
+   },
+   "contamination_sub": {
+    "contradiction": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "gap": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "quote": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "sarcasm": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    }
+   },
+   "cue_sub": {
+    "content": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "metadata": {
+     "pos_correct": 46,
+     "pos_total": 46,
+     "neg_correct": 46,
+     "neg_total": 46
+    }
+   },
+   "filter_sub": {
+    "decidable": {
+     "pos_correct": 82,
+     "pos_total": 82,
+     "neg_correct": 46,
+     "neg_total": 46
+    },
+    "resistant": {
+     "pos_correct": 50,
+     "pos_total": 50,
+     "neg_correct": 60,
+     "neg_total": 60
+    }
+   },
+   "isolation": {
+    "pos_correct": 48,
+    "pos_total": 48,
+    "neg_correct": 28,
+    "neg_total": 28
+   },
+   "isolation_chain": {
+    "pos_correct": 20,
+    "pos_total": 20,
+    "neg_correct": 20,
+    "neg_total": 20
+   },
+   "isolation_sub": {
+    "chain": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "chain-control": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "inherited": {
+     "pos_correct": 12,
+     "pos_total": 12,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-active": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-actual": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-blocked": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "pinning_sub": {
+    "pin-frozen": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-frozen-live": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    },
+    "pin-late": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-late-pinned": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "promotion_sub": {
+    "post-resolution": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pre-resolution": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "source-frame": {
+     "pos_correct": 10,
+     "pos_total": 10,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "unresolved": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 4,
+     "neg_total": 4
+    }
+   },
+   "pinning": {
+    "pos_correct": 16,
+    "pos_total": 16,
+    "neg_correct": 16,
+    "neg_total": 16
+   },
+   "promotion": {
+    "pos_correct": 16,
+    "pos_total": 16,
+    "neg_correct": 10,
+    "neg_total": 10
+   },
+   "misattribution": {
+    "exact_matches": 17,
+    "total": 20,
+    "micro_p": 0.7352941176470589,
+    "micro_r": 0.8928571428571429,
+    "micro_f1": 0.806451612903226
+   },
+   "ideation": {
+    "exact_matches": 16,
+    "total": 20,
+    "micro_p": 0.9166666666666666,
+    "micro_r": 0.9565217391304348,
+    "micro_f1": 0.9361702127659574
+   }
+  },
+  "errors": 0,
+  "per_depth": {
+   "1": {
+    "pos_correct": 80,
+    "pos_total": 80,
+    "neg_correct": 78,
+    "neg_total": 78
+   }
+  },
+  "usage": {
+   "calls": 295,
+   "errors": 0,
+   "cache_hits": 0,
+   "spent_prompt_tokens": 842785,
+   "spent_completion_tokens": 179558,
+   "replayed_prompt_tokens": 0,
+   "replayed_completion_tokens": 0
+  }
+ },
+ {
+  "condition": "loom-c2b",
+  "repetition": {
+   "pos_correct": 60,
+   "pos_total": 60,
+   "neg_correct": 60,
+   "neg_total": 60
+  },
+  "composition": {
+   "pos_correct": 80,
+   "pos_total": 80,
+   "neg_correct": 72,
+   "neg_total": 78
+  },
+  "find": {
+   "exact_matches": 15,
+   "total": 20,
+   "micro_p": 0.9519230769230769,
+   "micro_r": 1,
+   "micro_f1": 0.9753694581280787
+  },
+  "revision": {
+   "flip_correct": 24,
+   "flip_total": 24,
+   "retain_correct": 24,
+   "retain_total": 24,
+   "stale_agreements": 0
+  },
+  "frames": {
+   "contamination": {
+    "pos_correct": 52,
+    "pos_total": 52,
+    "neg_correct": 2,
+    "neg_total": 52
+   },
+   "contamination_sub": {
+    "contradiction": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 20
+    },
+    "gap": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 20
+    },
+    "quote": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 6
+    },
+    "sarcasm": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 2,
+     "neg_total": 6
+    }
+   },
+   "cue_sub": {
+    "content": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 2,
+     "neg_total": 6
+    },
+    "metadata": {
+     "pos_correct": 46,
+     "pos_total": 46,
+     "neg_correct": 0,
+     "neg_total": 46
+    }
+   },
+   "filter_sub": {
+    "decidable": {
+     "pos_correct": 79,
+     "pos_total": 82,
+     "neg_correct": 0,
+     "neg_total": 46
+    },
+    "resistant": {
+     "pos_correct": 33,
+     "pos_total": 50,
+     "neg_correct": 23,
+     "neg_total": 60
+    }
+   },
+   "isolation": {
+    "pos_correct": 39,
+    "pos_total": 48,
+    "neg_correct": 8,
+    "neg_total": 28
+   },
+   "isolation_chain": {
+    "pos_correct": 12,
+    "pos_total": 20,
+    "neg_correct": 8,
+    "neg_total": 20
+   },
+   "isolation_sub": {
+    "chain": {
+     "pos_correct": 12,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "chain-control": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 20
+    },
+    "inherited": {
+     "pos_correct": 12,
+     "pos_total": 12,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-active": {
+     "pos_correct": 7,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-actual": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-blocked": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 0,
+     "neg_total": 8
+    }
+   },
+   "pinning_sub": {
+    "pin-frozen": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-frozen-live": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    },
+    "pin-late": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-late-pinned": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 0,
+     "neg_total": 8
+    }
+   },
+   "promotion_sub": {
+    "post-resolution": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pre-resolution": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 2,
+     "neg_total": 6
+    },
+    "source-frame": {
+     "pos_correct": 7,
+     "pos_total": 10,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "unresolved": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 3,
+     "neg_total": 4
+    }
+   },
+   "pinning": {
+    "pos_correct": 8,
+    "pos_total": 16,
+    "neg_correct": 8,
+    "neg_total": 16
+   },
+   "promotion": {
+    "pos_correct": 13,
+    "pos_total": 16,
+    "neg_correct": 5,
+    "neg_total": 10
+   },
+   "misattribution": {
+    "exact_matches": 0,
+    "total": 20,
+    "micro_p": 0.21052631578947367,
+    "micro_r": 0.14285714285714285,
+    "micro_f1": 0.1702127659574468
+   },
+   "ideation": {
+    "exact_matches": 1,
+    "total": 20,
+    "micro_p": 0.4594594594594595,
+    "micro_r": 0.4927536231884058,
+    "micro_f1": 0.4755244755244755
+   }
+  },
+  "errors": 0,
+  "per_depth": {
+   "1": {
+    "pos_correct": 80,
+    "pos_total": 80,
+    "neg_correct": 72,
+    "neg_total": 78
+   }
+  },
+  "usage": {
+   "calls": 295,
+   "errors": 0,
+   "cache_hits": 0,
+   "spent_prompt_tokens": 340105,
+   "spent_completion_tokens": 149760,
+   "replayed_prompt_tokens": 0,
+   "replayed_completion_tokens": 0
+  }
+ },
+ {
+  "condition": "c2b-prov",
+  "repetition": {
+   "pos_correct": 60,
+   "pos_total": 60,
+   "neg_correct": 60,
+   "neg_total": 60
+  },
+  "composition": {
+   "pos_correct": 80,
+   "pos_total": 80,
+   "neg_correct": 78,
+   "neg_total": 78
+  },
+  "find": {
+   "exact_matches": 20,
+   "total": 20,
+   "micro_p": 1,
+   "micro_r": 1,
+   "micro_f1": 1
+  },
+  "revision": {
+   "flip_correct": 24,
+   "flip_total": 24,
+   "retain_correct": 24,
+   "retain_total": 24,
+   "stale_agreements": 0
+  },
+  "frames": {
+   "contamination": {
+    "pos_correct": 52,
+    "pos_total": 52,
+    "neg_correct": 48,
+    "neg_total": 52
+   },
+   "contamination_sub": {
+    "contradiction": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "gap": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "quote": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "sarcasm": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 2,
+     "neg_total": 6
+    }
+   },
+   "cue_sub": {
+    "content": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 2,
+     "neg_total": 6
+    },
+    "metadata": {
+     "pos_correct": 46,
+     "pos_total": 46,
+     "neg_correct": 46,
+     "neg_total": 46
+    }
+   },
+   "filter_sub": {
+    "decidable": {
+     "pos_correct": 72,
+     "pos_total": 82,
+     "neg_correct": 46,
+     "neg_total": 46
+    },
+    "resistant": {
+     "pos_correct": 33,
+     "pos_total": 50,
+     "neg_correct": 27,
+     "neg_total": 60
+    }
+   },
+   "isolation": {
+    "pos_correct": 39,
+    "pos_total": 48,
+    "neg_correct": 12,
+    "neg_total": 28
+   },
+   "isolation_chain": {
+    "pos_correct": 12,
+    "pos_total": 20,
+    "neg_correct": 12,
+    "neg_total": 20
+   },
+   "isolation_sub": {
+    "chain": {
+     "pos_correct": 12,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "chain-control": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 12,
+     "neg_total": 20
+    },
+    "inherited": {
+     "pos_correct": 12,
+     "pos_total": 12,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-active": {
+     "pos_correct": 7,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-actual": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-blocked": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 0,
+     "neg_total": 8
+    }
+   },
+   "pinning_sub": {
+    "pin-frozen": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-frozen-live": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    },
+    "pin-late": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-late-pinned": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 0,
+     "neg_total": 8
+    }
+   },
+   "promotion_sub": {
+    "post-resolution": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pre-resolution": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 2,
+     "neg_total": 6
+    },
+    "source-frame": {
+     "pos_correct": 0,
+     "pos_total": 10,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "unresolved": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 3,
+     "neg_total": 4
+    }
+   },
+   "pinning": {
+    "pos_correct": 8,
+    "pos_total": 16,
+    "neg_correct": 8,
+    "neg_total": 16
+   },
+   "promotion": {
+    "pos_correct": 6,
+    "pos_total": 16,
+    "neg_correct": 5,
+    "neg_total": 10
+   },
+   "misattribution": {
+    "exact_matches": 4,
+    "total": 20,
+    "micro_p": 0.21052631578947367,
+    "micro_r": 0.42857142857142855,
+    "micro_f1": 0.2823529411764706
+   },
+   "ideation": {
+    "exact_matches": 4,
+    "total": 20,
+    "micro_p": 0.5813953488372093,
+    "micro_r": 0.7246376811594203,
+    "micro_f1": 0.6451612903225806
+   }
+  },
+  "errors": 0,
+  "per_depth": {
+   "1": {
+    "pos_correct": 80,
+    "pos_total": 80,
+    "neg_correct": 78,
+    "neg_total": 78
+   }
+  },
+  "usage": {
+   "calls": 295,
+   "errors": 0,
+   "cache_hits": 295,
+   "spent_prompt_tokens": 0,
+   "spent_completion_tokens": 0,
+   "replayed_prompt_tokens": 340105,
+   "replayed_completion_tokens": 149760
+  }
+ },
+ {
+  "condition": "c0-no-memory",
+  "repetition": {
+   "pos_correct": 1,
+   "pos_total": 60,
+   "neg_correct": 60,
+   "neg_total": 60
+  },
+  "composition": {
+   "pos_correct": 1,
+   "pos_total": 80,
+   "neg_correct": 76,
+   "neg_total": 78
+  },
+  "find": {
+   "exact_matches": 0,
+   "total": 20,
+   "micro_p": 0,
+   "micro_r": 0,
+   "micro_f1": 0
+  },
+  "revision": {
+   "flip_correct": 24,
+   "flip_total": 24,
+   "retain_correct": 0,
+   "retain_total": 24,
+   "stale_agreements": 0
+  },
+  "frames": {
+   "contamination": {
+    "pos_correct": 0,
+    "pos_total": 52,
+    "neg_correct": 52,
+    "neg_total": 52
+   },
+   "contamination_sub": {
+    "contradiction": {
+     "pos_correct": 0,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "gap": {
+     "pos_correct": 0,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "quote": {
+     "pos_correct": 0,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "sarcasm": {
+     "pos_correct": 0,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    }
+   },
+   "cue_sub": {
+    "content": {
+     "pos_correct": 0,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "metadata": {
+     "pos_correct": 0,
+     "pos_total": 46,
+     "neg_correct": 46,
+     "neg_total": 46
+    }
+   },
+   "filter_sub": {
+    "decidable": {
+     "pos_correct": 0,
+     "pos_total": 82,
+     "neg_correct": 46,
+     "neg_total": 46
+    },
+    "resistant": {
+     "pos_correct": 1,
+     "pos_total": 50,
+     "neg_correct": 60,
+     "neg_total": 60
+    }
+   },
+   "isolation": {
+    "pos_correct": 1,
+    "pos_total": 48,
+    "neg_correct": 28,
+    "neg_total": 28
+   },
+   "isolation_chain": {
+    "pos_correct": 1,
+    "pos_total": 20,
+    "neg_correct": 20,
+    "neg_total": 20
+   },
+   "isolation_sub": {
+    "chain": {
+     "pos_correct": 1,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "chain-control": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "inherited": {
+     "pos_correct": 0,
+     "pos_total": 12,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-active": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-actual": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-blocked": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "pinning_sub": {
+    "pin-frozen": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-frozen-live": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    },
+    "pin-late": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-late-pinned": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "promotion_sub": {
+    "post-resolution": {
+     "pos_correct": 0,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pre-resolution": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "source-frame": {
+     "pos_correct": 0,
+     "pos_total": 10,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "unresolved": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 4,
+     "neg_total": 4
+    }
+   },
+   "pinning": {
+    "pos_correct": 0,
+    "pos_total": 16,
+    "neg_correct": 16,
+    "neg_total": 16
+   },
+   "promotion": {
+    "pos_correct": 0,
+    "pos_total": 16,
+    "neg_correct": 10,
+    "neg_total": 10
+   },
+   "misattribution": {
+    "exact_matches": 0,
+    "total": 0,
+    "micro_p": 0,
+    "micro_r": 0,
+    "micro_f1": 0
+   },
+   "ideation": {
+    "exact_matches": 6,
+    "total": 19,
+    "micro_p": 0,
+    "micro_r": 0,
+    "micro_f1": 0
+   }
+  },
+  "errors": 21,
+  "per_depth": {
+   "1": {
+    "pos_correct": 1,
+    "pos_total": 80,
+    "neg_correct": 76,
+    "neg_total": 78
+   }
+  },
+  "usage": {
+   "calls": 624,
+   "errors": 0,
+   "cache_hits": 0,
+   "spent_prompt_tokens": 106928,
+   "spent_completion_tokens": 103342,
+   "replayed_prompt_tokens": 0,
+   "replayed_completion_tokens": 0
+  }
+ },
+ {
+  "condition": "rag-bm25",
+  "repetition": {
+   "pos_correct": 60,
+   "pos_total": 60,
+   "neg_correct": 60,
+   "neg_total": 60
+  },
+  "composition": {
+   "pos_correct": 0,
+   "pos_total": 80,
+   "neg_correct": 78,
+   "neg_total": 78
+  },
+  "find": {
+   "exact_matches": 0,
+   "total": 20,
+   "micro_p": 0,
+   "micro_r": 0,
+   "micro_f1": 0
+  },
+  "revision": {
+   "flip_correct": 24,
+   "flip_total": 24,
+   "retain_correct": 0,
+   "retain_total": 24,
+   "stale_agreements": 0
+  },
+  "frames": {
+   "contamination": {
+    "pos_correct": 52,
+    "pos_total": 52,
+    "neg_correct": 2,
+    "neg_total": 52
+   },
+   "contamination_sub": {
+    "contradiction": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 20
+    },
+    "gap": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 20
+    },
+    "quote": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 1,
+     "neg_total": 6
+    },
+    "sarcasm": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 1,
+     "neg_total": 6
+    }
+   },
+   "cue_sub": {
+    "content": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 1,
+     "neg_total": 6
+    },
+    "metadata": {
+     "pos_correct": 46,
+     "pos_total": 46,
+     "neg_correct": 1,
+     "neg_total": 46
+    }
+   },
+   "filter_sub": {
+    "decidable": {
+     "pos_correct": 73,
+     "pos_total": 82,
+     "neg_correct": 1,
+     "neg_total": 46
+    },
+    "resistant": {
+     "pos_correct": 14,
+     "pos_total": 50,
+     "neg_correct": 54,
+     "neg_total": 60
+    }
+   },
+   "isolation": {
+    "pos_correct": 23,
+    "pos_total": 48,
+    "neg_correct": 27,
+    "neg_total": 28
+   },
+   "isolation_chain": {
+    "pos_correct": 0,
+    "pos_total": 20,
+    "neg_correct": 20,
+    "neg_total": 20
+   },
+   "isolation_sub": {
+    "chain": {
+     "pos_correct": 0,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "chain-control": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "inherited": {
+     "pos_correct": 10,
+     "pos_total": 12,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-active": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-actual": {
+     "pos_correct": 5,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-blocked": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 7,
+     "neg_total": 8
+    }
+   },
+   "pinning_sub": {
+    "pin-frozen": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-frozen-live": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    },
+    "pin-late": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-late-pinned": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "promotion_sub": {
+    "post-resolution": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pre-resolution": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "source-frame": {
+     "pos_correct": 6,
+     "pos_total": 10,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "unresolved": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 4,
+     "neg_total": 4
+    }
+   },
+   "pinning": {
+    "pos_correct": 0,
+    "pos_total": 16,
+    "neg_correct": 16,
+    "neg_total": 16
+   },
+   "promotion": {
+    "pos_correct": 12,
+    "pos_total": 16,
+    "neg_correct": 10,
+    "neg_total": 10
+   },
+   "misattribution": {
+    "exact_matches": 0,
+    "total": 0,
+    "micro_p": 0,
+    "micro_r": 0,
+    "micro_f1": 0
+   },
+   "ideation": {
+    "exact_matches": 2,
+    "total": 5,
+    "micro_p": 0,
+    "micro_r": 0,
+    "micro_f1": 0
+   }
+  },
+  "errors": 35,
+  "per_depth": {
+   "1": {
+    "pos_correct": 0,
+    "pos_total": 80,
+    "neg_correct": 78,
+    "neg_total": 78
+   }
+  },
+  "usage": {
+   "calls": 624,
+   "errors": 0,
+   "cache_hits": 0,
+   "spent_prompt_tokens": 1290290,
+   "spent_completion_tokens": 883925,
+   "replayed_prompt_tokens": 0,
+   "replayed_completion_tokens": 0
+  }
+ },
+ {
+  "condition": "frame-rag",
+  "repetition": {
+   "pos_correct": 60,
+   "pos_total": 60,
+   "neg_correct": 60,
+   "neg_total": 60
+  },
+  "composition": {
+   "pos_correct": 0,
+   "pos_total": 80,
+   "neg_correct": 78,
+   "neg_total": 78
+  },
+  "find": {
+   "exact_matches": 0,
+   "total": 20,
+   "micro_p": 0,
+   "micro_r": 0,
+   "micro_f1": 0
+  },
+  "revision": {
+   "flip_correct": 24,
+   "flip_total": 24,
+   "retain_correct": 0,
+   "retain_total": 24,
+   "stale_agreements": 0
+  },
+  "frames": {
+   "contamination": {
+    "pos_correct": 52,
+    "pos_total": 52,
+    "neg_correct": 52,
+    "neg_total": 52
+   },
+   "contamination_sub": {
+    "contradiction": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "gap": {
+     "pos_correct": 20,
+     "pos_total": 20,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "quote": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "sarcasm": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    }
+   },
+   "cue_sub": {
+    "content": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "metadata": {
+     "pos_correct": 46,
+     "pos_total": 46,
+     "neg_correct": 46,
+     "neg_total": 46
+    }
+   },
+   "filter_sub": {
+    "decidable": {
+     "pos_correct": 75,
+     "pos_total": 82,
+     "neg_correct": 46,
+     "neg_total": 46
+    },
+    "resistant": {
+     "pos_correct": 14,
+     "pos_total": 50,
+     "neg_correct": 60,
+     "neg_total": 60
+    }
+   },
+   "isolation": {
+    "pos_correct": 25,
+    "pos_total": 48,
+    "neg_correct": 28,
+    "neg_total": 28
+   },
+   "isolation_chain": {
+    "pos_correct": 0,
+    "pos_total": 20,
+    "neg_correct": 20,
+    "neg_total": 20
+   },
+   "isolation_sub": {
+    "chain": {
+     "pos_correct": 0,
+     "pos_total": 20,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "chain-control": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 20,
+     "neg_total": 20
+    },
+    "inherited": {
+     "pos_correct": 10,
+     "pos_total": 12,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-active": {
+     "pos_correct": 8,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-actual": {
+     "pos_correct": 7,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "override-blocked": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "pinning_sub": {
+    "pin-frozen": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-frozen-live": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    },
+    "pin-late": {
+     "pos_correct": 0,
+     "pos_total": 8,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pin-late-pinned": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 8,
+     "neg_total": 8
+    }
+   },
+   "promotion_sub": {
+    "post-resolution": {
+     "pos_correct": 6,
+     "pos_total": 6,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "pre-resolution": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 6,
+     "neg_total": 6
+    },
+    "source-frame": {
+     "pos_correct": 6,
+     "pos_total": 10,
+     "neg_correct": 0,
+     "neg_total": 0
+    },
+    "unresolved": {
+     "pos_correct": 0,
+     "pos_total": 0,
+     "neg_correct": 4,
+     "neg_total": 4
+    }
+   },
+   "pinning": {
+    "pos_correct": 0,
+    "pos_total": 16,
+    "neg_correct": 16,
+    "neg_total": 16
+   },
+   "promotion": {
+    "pos_correct": 12,
+    "pos_total": 16,
+    "neg_correct": 10,
+    "neg_total": 10
+   },
+   "misattribution": {
+    "exact_matches": 9,
+    "total": 20,
+    "micro_p": 1,
+    "micro_r": 0.32142857142857145,
+    "micro_f1": 0.4864864864864865
+   },
+   "ideation": {
+    "exact_matches": 5,
+    "total": 20,
+    "micro_p": 0.9545454545454546,
+    "micro_r": 0.30434782608695654,
+    "micro_f1": 0.46153846153846156
+   }
+  },
+  "errors": 0,
+  "per_depth": {
+   "1": {
+    "pos_correct": 0,
+    "pos_total": 80,
+    "neg_correct": 78,
+    "neg_total": 78
+   }
+  },
+  "usage": {
+   "calls": 624,
+   "errors": 0,
+   "cache_hits": 0,
+   "spent_prompt_tokens": 1588565,
+   "spent_completion_tokens": 875999,
+   "replayed_prompt_tokens": 0,
+   "replayed_completion_tokens": 0
+  }
+ }
+]

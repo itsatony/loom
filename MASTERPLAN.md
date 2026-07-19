@@ -1460,3 +1460,21 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   seed-7 specifically. The compile-time-frames bet is NOT falsified (the
   kill trigger, superiority <15pp, is nowhere near); query-time filtering
   is decisively refuted (+0.32 vs the ceiling reasoner).
+- 2026-07-19 (READING (a) ACCEPTED — Toni) — Toni accepted the honest
+  near-pass reading of the frames-v1 campaign. RECORDED CONCLUSION:
+  * Compile-time-frames bet NOT falsified (kill trigger — superiority
+    <15pp — nowhere near; +0.32 CI-lo vs the frontier ceiling null).
+  * F-E1 PASS (0.999/0.996), F-E4 PASS (1.000), F-E3 leakage cured
+    (0.19->0.000), F-E2 superiority huge + both prior non-inf failures
+    (filter-decidable, metadata-cued) fixed by the leakage-fix extraction.
+  * F-E2 co-primary reported as a NEAR-PASS: trips only on the v0
+    composition non-inferiority leg (CI-lo -0.03), a single-seed (seed-7)
+    frame-free rule-extraction outlier — reported as an honest negative on
+    that one leg, NOT chased with a re-run (would be test-set fitting).
+  Frames-v1 campaign CLOSED on this reading; documented in synthworld
+  README (Frames v1 — results) and CLAUDE.md. No endpoint, threshold, or
+  kill arithmetic changed at any point; every re-spec (F-E2 filterability,
+  2026-07-18) and every model/extraction change was pre-registered before
+  the run it governed. Reproducibility: per-seed reports + verdict JSONs +
+  fidelity under results/frames-e-{qwen36,gpt5,gpt5mini}/ (committed);
+  extraction cassettes retained locally (large; commit on request).

@@ -1,0 +1,53 @@
+dataset: /home/itsatony/code/loom/datasets/frames-batch-v1/seed-22 (276 episodes, 615 queries)
+
+condition                 rep+      rep-     comp+     comp-  rev.flip   rev.ret   find=
+loom-c2b                 60/60     59/59     80/80     67/75     24/24     20/24   14/20
+c2b-prov                 60/60     59/59     80/80     73/75     24/24     24/24   20/20
+
+frame slices (traps are negatives, paired controls positives):
+condition                cont+     cont-      iso+      iso-      pin+      pin-     prom+     prom-    mis=   idea=
+loom-c2b                 50/50      1/50     39/47      7/28      7/16      9/16     15/16      3/10    0/20    1/20
+c2b-prov                 50/50     47/50     39/47     17/28      8/16      8/16      6/16      3/10    4/20    4/20
+
+contamination by sub-population (trap-/control+ correct):
+condition               contradiction              gap            quote          sarcasm
+loom-c2b                   0/20/20/20       0/20/20/20          0/6/6/6          1/4/4/4
+c2b-prov                  20/20/20/20      20/20/20/20          6/6/6/6          1/4/4/4
+
+composition accuracy by derivation depth:
+condition                  d2
+loom-c2b                 0.95
+c2b-prov                 0.99
+
+llm token usage (spent = live network; replayed = cassettes):
+condition                calls    hits   errs  spent-prompt   spent-compl  replayed-prompt   replayed-compl
+loom-c2b                   276       0      0        319328        140339                0                0
+c2b-prov                   276     276      0             0             0           319328           140339
+
+retrieval provenance probe (upper bound for RAG conditions):
+
+[bm25]
+retriever        k  slice         full-coverage   episode-recall
+bm25             4  composition           0/100           89/689
+bm25             4  contamination          46/50            46/50
+bm25             4  isolation             19/47           34/159
+bm25             4  pinning                1/16             4/84
+bm25             4  promotion             15/16            15/16
+bm25             4  repetition            53/60            53/60
+bm25             4  revision               0/48           27/284
+bm25             8  composition           0/100          190/689
+bm25             8  contamination          50/50            50/50
+bm25             8  isolation             23/47           57/159
+bm25             8  pinning                1/16            10/84
+bm25             8  promotion             16/16            16/16
+bm25             8  repetition            58/60            58/60
+bm25             8  revision               0/48           54/284
+bm25            16  composition           0/100          293/689
+bm25            16  contamination          50/50            50/50
+bm25            16  isolation             27/47           77/159
+bm25            16  pinning                1/16            26/84
+bm25            16  promotion             16/16            16/16
+bm25            16  repetition            60/60            60/60
+bm25            16  revision               0/48           84/284
+
+JSON report: /home/itsatony/code/loom/results/frames-e-gpt5/seed-22/report-null.json
