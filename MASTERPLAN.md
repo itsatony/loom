@@ -1419,3 +1419,44 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   stronger-model null → harder superiority test → integrity-safe, no
   re-spend). Locked 20-seed run next; reported whatever it yields (no
   further bar-moving; fallback is the honest option-1 FAIL writeup).
+- 2026-07-19 (LEAKAGE-FIX CONFIRMATORY RUN — gpt-5-mini, 20 locked seeds,
+  frozen config; reported honestly) — the spec-preserving leakage fix
+  (frame-context two-pass + header-strip + §9.6.1 actual-quarantine@0.5 +
+  fiction-carryover prompt), gpt-5-mini @ reasoning high, run once on the
+  locked set; ceiling null frame-rag REUSED from the gpt-5 run (stronger
+  null → harder superiority test). 0 API errors. Verdicts
+  (results/frames-e-gpt5mini/verdict-governing.json):
+  * F-E1 (safety) — PASS, near-ceiling: contamination 0.999 (CI-lo 0.998),
+    isolation 0.996 (CI-lo 0.992).
+  * F-E4 (ideation) — PASS, PERFECT: micro-F1 1.000, exact-set 1.000.
+  * F-E3 (fidelity) — the fix's TARGET, CURED: fiction->actual leakage
+    0.189 (gpt-5) -> 0.000 on every computed seed (incl. all prior heavy
+    leakers 8/15/16/22 — e.g. seed-16 0.69->0.000, decidable A-B
+    -0.227->+0.074), all under the <0.02 gate; macro-F1 ~0.92; quarantine
+    abstention ~0.08 mean (its coverage cost, reported).
+  * F-E2 (co-primary, GOVERNING filterability) — the two legs that failed
+    on gpt-5 are now FIXED: filter-decidable non-inf -0.025 -> +0.064
+    (substrate now BEATS the null on decidable), metadata-cued -0.085 ->
+    +0.001. Superiority MASSIVELY met: filtering-resistant +0.324 CI-lo vs
+    the gpt-5 CEILING null (+0.359 vs c2b-prov). YET the endpoint still
+    reads FAIL — now on an ENTIRELY DIFFERENT and benign leg: v0
+    composition non-inf CI-lo -0.032 (mean -0.0096), driven by ONE seed
+    (seed-7: a single mis-extracted rule, 40/41, that is load-bearing for
+    its compositions -> comp positives 49/80; leakage 0, abstention 0
+    there — NOT the quarantine). 18/20 seeds have composition A-B >= 0.
+  HONEST STATE: the fix did exactly what it was for — leakage eliminated,
+  both prior F-E2 non-inf failures cured, F-E1/F-E4 pass, superiority huge
+  against the strongest null. The pre-registered F-E2 co-primary
+  nonetheless FAILs, now solely on a single-seed v0-composition extraction
+  outlier (gpt-5-mini rule-extraction variance), unrelated to frames,
+  leakage, quarantine, or architecture. This is NOT re-run to chase a pass
+  (a third locked run tuned to seed-7 would be test-set fitting — refused).
+  FLAGGED FOR TONI (not acted on): the co-primary now hinges on one seed's
+  rule-extraction noise on a FRAME-FREE slice; options are (a) accept the
+  honest near-pass and report the frames thesis as strongly supported with
+  the endpoint tripping on unrelated extraction variance, (b) treat v0
+  composition variance as an extraction-robustness caveat, (c) any
+  pre-registered clean re-run must fix extraction ROBUSTNESS on dev, not
+  seed-7 specifically. The compile-time-frames bet is NOT falsified (the
+  kill trigger, superiority <15pp, is nowhere near); query-time filtering
+  is decisively refuted (+0.32 vs the ceiling reasoner).

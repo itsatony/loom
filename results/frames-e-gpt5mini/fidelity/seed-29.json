@@ -1,0 +1,150 @@
+{
+  "dataset": "/home/itsatony/code/loom/datasets/frames-batch-v1/seed-29",
+  "extractor": "llm-frames:gpt-5-mini",
+  "facts": {
+    "world": 1007,
+    "committed": 1012,
+    "exact": 1005,
+    "mangled": 2,
+    "dropped": 0,
+    "missed": 0,
+    "hallucinated": 5,
+    "precision": 0.9930830039525692,
+    "recall": 0.9980139026812314,
+    "mangled_ids": [
+      "fct_0106",
+      "fct_0690"
+    ],
+    "hallucinated_ids": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "rules": {
+    "world": 41,
+    "committed": 41,
+    "exact": 39,
+    "mangled": 2,
+    "dropped": 0,
+    "missed": 0,
+    "hallucinated": 0,
+    "precision": 0.9512195121951219,
+    "recall": 0.9512195121951219,
+    "mangled_ids": [
+      "rul_005",
+      "rul_018"
+    ]
+  },
+  "supersessions": {
+    "world": 18,
+    "committed": 18,
+    "exact": 18,
+    "mangled": 0,
+    "dropped": 0,
+    "missed": 0,
+    "hallucinated": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "frames": {
+    "confusion": {
+      "actual": {
+        "actual": 895
+      },
+      "fic_01": {
+        "fic_01": 24
+      },
+      "fic_02": {
+        "fic_02": 24
+      },
+      "psp_customer_10": {
+        "psp_customer_10": 11
+      },
+      "psp_jurisdiction_17": {
+        "psp_jurisdiction_17": 12
+      },
+      "psp_sector_01": {
+        "psp_sector_01": 11
+      },
+      "scn_live": {
+        "scn_live": 14
+      },
+      "scn_pin": {
+        "scn_pin": 16
+      }
+    },
+    "macro_f1": 1,
+    "per_frame": {
+      "actual": {
+        "tp": 895,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1
+      },
+      "fic_01": {
+        "tp": 24,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1
+      },
+      "fic_02": {
+        "tp": 24,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1
+      },
+      "psp_customer_10": {
+        "tp": 11,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1
+      },
+      "psp_jurisdiction_17": {
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1
+      },
+      "psp_sector_01": {
+        "tp": 11,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1
+      },
+      "scn_live": {
+        "tp": 14,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1
+      },
+      "scn_pin": {
+        "tp": 16,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1
+      }
+    },
+    "world_facts": 1007,
+    "matched_facts": 1007,
+    "coverage": 1,
+    "abstention_rate": 0,
+    "fiction_items": 48,
+    "fiction_to_actual": 0,
+    "fiction_to_actual_rate": 0,
+    "actual_items": 895,
+    "actual_exiled": 0,
+    "actual_exile_rate": 0,
+    "sarcasm_events": 6,
+    "sarcasm_believed": 5,
+    "frames_declared": 7,
+    "frames_recovered": 7,
+    "frames_exact_meta": 7,
+    "rule_frame_correct": 41,
+    "rule_frame_wrong": 0,
+    "sup_frame_correct": 18,
+    "sup_frame_wrong": 0
+  }
+}
