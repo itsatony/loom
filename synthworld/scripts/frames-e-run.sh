@@ -87,11 +87,16 @@ for SEED in "$@"; do
   # v0 baselines feed no frames endpoint (F-E1/E2/E4) — set
   # FRAMES_C1_CONDITIONS=frame-rag to run frames-only and skip their cost.
   C1_CONDS=${FRAMES_C1_CONDITIONS:-c0-no-memory,rag-bm25,frame-rag}
-  echo "=== seed-$SEED answering ($C1_CONDS) ($(date +%H:%M:%S))"
-  HARNESS_LLM_TEMPERATURE="$C1_TEMP" HARNESS_LLM_EXTRA_PARAMS="$C1_EXTRA" \
-    HARNESS_LLM_CACHE="$CASS/$TAG-frames-c1" \
-    go run ./cmd/harness "${COMMON[@]}" -json "$OUT/report-c1.json" \
-    -conditions "$C1_CONDS" >"$OUT/c1.log" 2>&1
+  if [ "$C1_CONDS" = "skip" ]; then
+    echo "=== seed-$SEED answering pass SKIPPED (reusing prior ceiling null) ($(date +%H:%M:%S))"
+    echo "[]" > "$OUT/report-c1.json"
+  else
+    echo "=== seed-$SEED answering ($C1_CONDS) ($(date +%H:%M:%S))"
+    HARNESS_LLM_TEMPERATURE="$C1_TEMP" HARNESS_LLM_EXTRA_PARAMS="$C1_EXTRA" \
+      HARNESS_LLM_CACHE="$CASS/$TAG-frames-c1" \
+      go run ./cmd/harness "${COMMON[@]}" -json "$OUT/report-c1.json" \
+      -conditions "$C1_CONDS" >"$OUT/c1.log" 2>&1
+  fi
 
   python3 - "$OUT" <<'EOF'
 import json, sys, os
