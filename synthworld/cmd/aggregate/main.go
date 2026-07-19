@@ -44,7 +44,17 @@ func main() {
 	jsonOut := flag.String("json", "", "optional path for the JSON result")
 	framesMode := flag.Bool("frames", false, "frames-v1 endpoint arithmetic (F-E1/F-E2/F-E4, MASTERPLAN §9.6.7): -a = frames condition, -b = primary null")
 	condB2 := flag.String("b2", "", "frames mode: optional ceiling null (e.g. frame-rag); ratified F-E2 requires -a to beat the HARDER of -b and -b2 on filtering-resistant")
+	swapMode := flag.Bool("swap", false, "H6 extraction-portability arithmetic (MASTERPLAN §176-190): retention of each -legs leg vs -ref")
+	legsFlag := flag.String("legs", "", "swap mode: comma-separated label=glob extractor legs, e.g. 'qwen36=results/frames-e-qwen36/seed-*/report.json,gpt5mini=...'")
+	refFlag := flag.String("ref", "", "swap mode: reference leg label (retention denominator; the accepted extractor)")
+	swapCond := flag.String("cond", "loom-c2b-frames", "swap mode: condition to compare across legs")
+	c0Flag := flag.String("c0", "", "swap mode: optional C0 condition name for substrate lift (cond - C0), e.g. c0-no-memory")
 	flag.Parse()
+
+	if *swapMode {
+		runSwap(*legsFlag, *refFlag, *swapCond, *c0Flag, *jsonOut)
+		return
+	}
 
 	if *reportsFlag == "" || *condA == "" || *condB == "" {
 		fmt.Fprintln(os.Stderr, "usage: aggregate -reports <glob-or-list> -a <conditionA> -b <conditionB> [-json out.json]")
@@ -88,6 +98,58 @@ func main() {
 		}
 		f.Close()
 		fmt.Printf("\nJSON result: %s\n", *jsonOut)
+	}
+}
+
+// runSwap loads each extractor leg, computes H6 extraction-portability
+// retention vs the reference leg, prints the table, and optionally writes JSON.
+func runSwap(legsSpec, ref, cond, c0, jsonOut string) {
+	if legsSpec == "" || ref == "" {
+		fmt.Fprintln(os.Stderr, "usage: aggregate -swap -legs 'label=glob,...' -ref <label> [-cond loom-c2b-frames] [-c0 c0-no-memory] [-json out.json]")
+		os.Exit(2)
+	}
+	legs, err := parseLegs(legsSpec)
+	if err != nil {
+		fatal(err)
+	}
+	var order []string
+	legSeeds := map[string][]SeedReports{}
+	refSeen := false
+	for _, l := range legs {
+		paths, err := resolveReportPaths(l.Glob)
+		if err != nil {
+			fatal(fmt.Errorf("leg %q: %w", l.Label, err))
+		}
+		seeds, err := loadSeedReports(paths)
+		if err != nil {
+			fatal(fmt.Errorf("leg %q: %w", l.Label, err))
+		}
+		order = append(order, l.Label)
+		legSeeds[l.Label] = seeds
+		if l.Label == ref {
+			refSeen = true
+		}
+	}
+	if !refSeen {
+		fatal(fmt.Errorf("reference leg %q not among -legs labels %v", ref, order))
+	}
+	res, err := AnalyzeSwap(order, legSeeds, cond, ref, c0)
+	if err != nil {
+		fatal(err)
+	}
+	fmt.Print(res.Render())
+	if jsonOut != "" {
+		f, err := os.Create(jsonOut)
+		if err != nil {
+			fatal(err)
+		}
+		enc := json.NewEncoder(f)
+		enc.SetIndent("", " ")
+		if err := enc.Encode(res); err != nil {
+			fatal(err)
+		}
+		f.Close()
+		fmt.Printf("\nJSON result: %s\n", jsonOut)
 	}
 }
 

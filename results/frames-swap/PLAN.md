@@ -1,8 +1,21 @@
 # Frames substrate — swap / portability experiment (H6 for frames)
 
-**Status: PROPOSAL, pending Toni's decisions (marked ▶ below). Nothing here is
-run yet.** Grounded in the v0 E5 precedent (MASTERPLAN §E5, H6) and the three
-frames extractor legs already on disk. Date: 2026-07-19.
+**Status: LEG A DONE (2026-07-19). Legs B/C deferred pending go-ahead.**
+Grounded in the v0 E5 precedent (MASTERPLAN §E5, H6) and the three frames
+extractor legs already on disk. Date: 2026-07-19.
+
+> **Update 2026-07-19 — Leg A executed.** Decisions taken (delegated authority,
+> following the recommendation below): (1) **scope = Leg A now** (B/C need real
+> LLM spend + explicit go-ahead); (2) **all three legs reported as a spectrum**,
+> reference = accepted gpt-5-mini; (3) **no self-consistency column** (defer —
+> needs new runs + dev validation); (4) **reusable `cmd/aggregate -swap`
+> kernel** (unit-tested) over a one-off script. Registered arithmetic in
+> MASTERPLAN §10 2026-07-19 BEFORE reporting numbers. **Result + honest two-part
+> reading in `RESULTS.md`**; artifact `retention.json`. Headline: H6 as
+> registered (compositional + revision transfer) PASSES on both cross-vendor
+> legs (retention ≥ 0.98); frame-homing slices carry the promised measured
+> loss (misattribution-F1 0.86/0.88 trips the literal <0.90 vs the ceiling
+> reference — flagged for Toni's interpretation, not softened, not overclaimed).
 
 Thesis leg being closed (CLAUDE.md §1): *"transfers across LLM swaps with
 measured, small loss."* v0 closed this via E5; this is the frames analog — the

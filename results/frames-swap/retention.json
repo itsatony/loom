@@ -1,0 +1,380 @@
+{
+ "condition": "loom-c2b-frames",
+ "ref_leg": "gpt5mini",
+ "legs": [
+  {
+   "label": "gpt5",
+   "shared_seeds": [
+    "1",
+    "10",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "18",
+    "19",
+    "2",
+    "20",
+    "21",
+    "22",
+    "24",
+    "25",
+    "29",
+    "3",
+    "7",
+    "8",
+    "9"
+   ],
+   "slices": [
+    {
+     "slice": "repetition",
+     "ref_mean": 0.9995833333333334,
+     "leg_mean": 1,
+     "retention": 1.0004168403501459,
+     "ci_lower": 1,
+     "ci_upper": 1.0012515644555693,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "composition",
+     "ref_mean": 0.9881249999999999,
+     "leg_mean": 0.9986417436520943,
+     "retention": 1.0106431308307091,
+     "ci_lower": 0.9979519216914108,
+     "ci_upper": 1.0335433139662658,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "revision flip",
+     "ref_mean": 1,
+     "leg_mean": 0.99375,
+     "retention": 0.99375,
+     "ci_lower": 0.9874999999999998,
+     "ci_upper": 1,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "revision retain",
+     "ref_mean": 0.9854166666666666,
+     "leg_mean": 0.9979166666666666,
+     "retention": 1.0126849894291754,
+     "ci_lower": 0.9958333333333333,
+     "ci_upper": 1.0367965367965368,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "find micro-F1",
+     "ref_mean": 0.9940808166289417,
+     "leg_mean": 0.9931490449740716,
+     "retention": 0.9990626801772217,
+     "ci_lower": 0.9888081834426262,
+     "ci_upper": 1.009957686838805,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "contamination",
+     "ref_mean": 0.9990290346907994,
+     "leg_mean": 0.9227466063348416,
+     "retention": 0.9236434320654482,
+     "ci_lower": 0.8876903488668195,
+     "ci_upper": 0.9555604250295159,
+     "n": 20,
+     "verdict": "SMALL-LOSS"
+    },
+    {
+     "slice": "isolation",
+     "ref_mean": 0.9962876773049645,
+     "leg_mean": 0.990790343915344,
+     "retention": 0.9944821826919599,
+     "ci_lower": 0.9842148148148147,
+     "ci_upper": 1.003541149751642,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "pinning",
+     "ref_mean": 0.9984375,
+     "leg_mean": 0.9984375,
+     "retention": 1,
+     "ci_lower": 0.9953125,
+     "ci_upper": 1.0047095761381475,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "promotion",
+     "ref_mean": 1,
+     "leg_mean": 0.9801602564102563,
+     "retention": 0.9801602564102563,
+     "ci_lower": 0.9671955128205129,
+     "ci_upper": 0.9913621794871794,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "misattribution F1",
+     "ref_mean": 1,
+     "leg_mean": 0.8623204169848403,
+     "retention": 0.8623204169848403,
+     "ci_lower": 0.8234977666069329,
+     "ci_upper": 0.8977271491443719,
+     "n": 20,
+     "verdict": "KILL"
+    },
+    {
+     "slice": "ideation F1",
+     "ref_mean": 1,
+     "leg_mean": 0.9245490831009997,
+     "retention": 0.9245490831009997,
+     "ci_lower": 0.9018082863540254,
+     "ci_upper": 0.945623101392034,
+     "n": 20,
+     "verdict": "SMALL-LOSS"
+    }
+   ],
+   "min_retention_slice": "misattribution F1",
+   "min_retention": 0.8623204169848403,
+   "verdict": "KILL",
+   "lift": [
+    {
+     "slice": "repetition",
+     "cond_mean": 1,
+     "c0_mean": 0.5052083333333333,
+     "lift": 0.4947916666666667,
+     "ci_lower": 0.4885416666666667,
+     "ci_upper": 0.49895833333333334,
+     "n": 8
+    },
+    {
+     "slice": "composition",
+     "cond_mean": 0.9982516627543035,
+     "c0_mean": 0.4973112849103166,
+     "lift": 0.500940377843987,
+     "ci_lower": 0.49847756410256405,
+     "ci_upper": 0.5035211267605634,
+     "n": 8
+    },
+    {
+     "slice": "revision flip",
+     "cond_mean": 0.9947916666666667,
+     "c0_mean": 0.9947916666666667,
+     "lift": 0,
+     "ci_lower": -0.015624999999999986,
+     "ci_upper": 0.015624999999999986,
+     "n": 8
+    },
+    {
+     "slice": "revision retain",
+     "cond_mean": 1,
+     "c0_mean": 0.005208333333333333,
+     "lift": 0.9947916666666667,
+     "ci_lower": 0.984375,
+     "ci_upper": 1,
+     "n": 8
+    },
+    {
+     "slice": "find micro-F1",
+     "cond_mean": 0.9862509908135575,
+     "c0_mean": 0,
+     "lift": 0.9862509908135575,
+     "ci_lower": 0.9713391169731123,
+     "ci_upper": 0.9974489795918368,
+     "n": 8
+    }
+   ]
+  },
+  {
+   "label": "qwen36",
+   "shared_seeds": [
+    "1",
+    "10",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "18",
+    "19",
+    "2",
+    "20",
+    "21",
+    "22",
+    "24",
+    "25",
+    "29",
+    "3",
+    "7",
+    "8",
+    "9"
+   ],
+   "slices": [
+    {
+     "slice": "repetition",
+     "ref_mean": 0.9995833333333334,
+     "leg_mean": 0.99875,
+     "retention": 0.9991663192997082,
+     "ci_lower": 0.9962500000000001,
+     "ci_upper": 1.0012515644555693,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "composition",
+     "ref_mean": 0.9881249999999999,
+     "leg_mean": 0.9921059530538037,
+     "retention": 1.0040287949943618,
+     "ci_lower": 0.9824456757026818,
+     "ci_upper": 1.0308736063289516,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "revision flip",
+     "ref_mean": 1,
+     "leg_mean": 0.98125,
+     "retention": 0.98125,
+     "ci_lower": 0.9645833333333333,
+     "ci_upper": 0.99375,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "revision retain",
+     "ref_mean": 0.9854166666666666,
+     "leg_mean": 0.9875,
+     "retention": 1.0021141649048626,
+     "ci_lower": 0.9748427672955975,
+     "ci_upper": 1.0323275862068966,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "find micro-F1",
+     "ref_mean": 0.9940808166289417,
+     "leg_mean": 0.9879009838630513,
+     "retention": 0.9937833698603631,
+     "ci_lower": 0.9737254880886451,
+     "ci_upper": 1.0078323527866309,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "contamination",
+     "ref_mean": 0.9990290346907994,
+     "leg_mean": 0.9116900452488685,
+     "retention": 0.9125761250082562,
+     "ci_lower": 0.8826079903421735,
+     "ci_upper": 0.9407971753332578,
+     "n": 20,
+     "verdict": "SMALL-LOSS"
+    },
+    {
+     "slice": "isolation",
+     "ref_mean": 0.9962876773049645,
+     "leg_mean": 0.9558678473306133,
+     "retention": 0.9594295594584789,
+     "ci_lower": 0.9386985285331069,
+     "ci_upper": 0.9794842018984161,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "pinning",
+     "ref_mean": 0.9984375,
+     "leg_mean": 0.9734375,
+     "retention": 0.974960876369327,
+     "ci_lower": 0.9263322884012539,
+     "ci_upper": 1,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "promotion",
+     "ref_mean": 1,
+     "leg_mean": 0.9607142857142857,
+     "retention": 0.9607142857142857,
+     "ci_lower": 0.9350744047619048,
+     "ci_upper": 0.9825892857142856,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "misattribution F1",
+     "ref_mean": 1,
+     "leg_mean": 0.8801847222047725,
+     "retention": 0.8801847222047725,
+     "ci_lower": 0.8458535156946831,
+     "ci_upper": 0.9139439944033041,
+     "n": 20,
+     "verdict": "KILL"
+    },
+    {
+     "slice": "ideation F1",
+     "ref_mean": 1,
+     "leg_mean": 0.927538220601219,
+     "retention": 0.927538220601219,
+     "ci_lower": 0.904010196496252,
+     "ci_upper": 0.9478214179684313,
+     "n": 20,
+     "verdict": "SMALL-LOSS"
+    }
+   ],
+   "min_retention_slice": "misattribution F1",
+   "min_retention": 0.8801847222047725,
+   "verdict": "KILL",
+   "lift": [
+    {
+     "slice": "repetition",
+     "cond_mean": 0.99875,
+     "c0_mean": 0.4873969900642899,
+     "lift": 0.5113530099357101,
+     "ci_lower": 0.5008209136956945,
+     "ci_upper": 0.5212675336060782,
+     "n": 20
+    },
+    {
+     "slice": "composition",
+     "cond_mean": 0.9921059530538037,
+     "c0_mean": 0.4985340780035493,
+     "lift": 0.49357187505025435,
+     "ci_lower": 0.47895748478186295,
+     "ci_upper": 0.5055547808380086,
+     "n": 20
+    },
+    {
+     "slice": "revision flip",
+     "cond_mean": 0.98125,
+     "c0_mean": 0.9270833333333334,
+     "lift": 0.054166666666666675,
+     "ci_lower": 0.029166666666666667,
+     "ci_upper": 0.07916666666666668,
+     "n": 20
+    },
+    {
+     "slice": "revision retain",
+     "cond_mean": 0.9875,
+     "c0_mean": 0.07083333333333333,
+     "lift": 0.916666666666667,
+     "ci_lower": 0.8854166666666667,
+     "ci_upper": 0.9416666666666667,
+     "n": 20
+    },
+    {
+     "slice": "find micro-F1",
+     "cond_mean": 0.9879009838630513,
+     "c0_mean": 0.0009523809523809525,
+     "lift": 0.9869486029106703,
+     "ci_lower": 0.9695318139243746,
+     "ci_upper": 0.9973835867811612,
+     "n": 20
+    }
+   ]
+  }
+ ]
+}

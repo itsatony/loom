@@ -1507,3 +1507,49 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
     logged as a pre-registered design candidate for any FUTURE campaign, to
     be validated on dev (99, 7-as-dev), never selected because it fixes
     seed-7. ~8% is this episode's single-draw rate, not a global one.
+- 2026-07-19 (SWAP / PORTABILITY — H6 for frames, Leg A; REGISTERS new
+  arithmetic BEFORE reporting measured retention). Closes the frames
+  portability leg over data already on disk (three cross-vendor extractor
+  legs, 20 locked seeds each; ZERO new LLM spend).
+  * REGISTRATION (retention statistic + CI). Per-slice transfer retention =
+    perf_B / perf_A = ratio of per-slice seed MEANS (A = reference leg,
+    B = swapped leg), reusing the registered definitions of §176-190. CI =
+    ratio-of-means bootstrap: 10,000 PAIRED resamples over the shared seeds
+    (draw n seed-indices with replacement, ratio = sum_B/sum_A), RNG seed 42,
+    nearest-rank 2.5th/97.5th percentiles — identical resample count / seed /
+    percentile rule as §1.1, applied to the ratio. VERDICT keys off the
+    POINT retention against the registered H6 bands (§40): >=0.95 PASS,
+    <0.90 KILL, between = SMALL-LOSS; the CI is reported for honesty. Kernel:
+    cmd/aggregate -swap (swap.go, unit-tested); answering-swap retention is
+    1.000 by CONSTRUCTION (op-planner LLM-free) and is NOT measured — reported
+    as a structural ceiling per §187. Only the EXTRACTION surface is measured.
+  * RESULT (reference leg = the accepted gpt-5-mini store; B legs = gpt-5,
+    qwen36). Reproduces the hand-computed PLAN §2 table. Two-part reading,
+    both reported (results/frames-swap/RESULTS.md + retention.json):
+    (i) H6 AS REGISTERED — "compositional and revision performance survives a
+    model swap" (§1 honest boundary). On exactly those slices retention is
+    DECISIVELY above target on BOTH B legs: repetition ~1.000, composition
+    1.004/1.011, revision-flip 0.981/0.994, revision-retain 1.002/1.013,
+    find 0.994/0.999 — all >=0.98, CI-lower mostly >0.95. The registered H6
+    subject PASSES; extraction-swap loss on logical competence ~= 0.
+    (ii) FRAME-HOMING slices (frames-v1 diagnostic surface, no pre-registered
+    H6 band): a spectrum. contamination/isolation/pinning/promotion retain
+    0.91-1.00; misattribution-F1 and ideation-F1 carry the largest measured
+    loss (0.86-0.93) on the non-accepted extractors. Under the LITERAL H6
+    band applied to these slices, misattribution-F1 (0.862 gpt-5 / 0.880
+    qwen, CI-lower 0.82/0.85) trips the <0.90 kill line. HONEST framing: this
+    is the "measured, small loss" the thesis promised, localized to (a) the
+    extraction surface and (b) frame-HOMING specifically, and it is ASYMMETRIC
+    — it appears only because the reference is the ceiling extractor (mini
+    hit misattribution-F1 1.000; the ABSOLUTE frame-attribution F1 of the
+    other legs is 0.86-0.93, not a substrate collapse). Same lever as the
+    2026-07-19 robustness diagnostic: frame-homing is exactly where a weaker
+    extractor slips, and K=3-5 self-consistency extraction is the pre-
+    registered candidate to lift it.
+  * OPEN (Toni): does the registered H6 band (>=0.95/<0.90) EXTEND to the
+    frames-v1 diagnostic slices, or only to the v0 logical slices H6 was
+    written for (§1 boundary = compositional+revision)? Not decided
+    unilaterally — reported both ways; Leg A does NOT claim a clean frames-H6
+    PASS on the frame-homing slices. Leg B (answering-swap baseline
+    degradation contrast) + optional self-consistency column remain deferred
+    pending go-ahead (real LLM spend).
