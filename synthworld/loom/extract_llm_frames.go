@@ -149,7 +149,7 @@ func (e *FramesLLMExtractor) Extract(ep gen.Episode) ([]Candidate, []string, err
 		ctxBlock = "\n" + e.frameCtx + "\n"
 	}
 	user := fmt.Sprintf("Relation vocabulary (name: slots):\n%s\n%sEpisode text:\n%s\n\nExtract all items as JSON.",
-		vocabPromptLines(e.vocabRef), ctxBlock, ep.Text)
+		vocabPromptLines(e.vocabRef), ctxBlock, stripEpisodeHeader(ep.Text))
 	out, err := e.LLM.Complete(context.Background(), framesExtractSystemPrompt, user)
 	if err != nil {
 		return nil, nil, fmt.Errorf("episode %s: %w", ep.ID, err)
@@ -191,6 +191,23 @@ func (e *FramesLLMExtractor) Extract(ep gen.Episode) ([]Candidate, []string, err
 		problems = append(problems, fmt.Sprintf("%s: %d event lines but %d candidates extracted", ep.ID, nLines, len(cands)))
 	}
 	return cands, problems, nil
+}
+
+// stripEpisodeHeader removes the harness scaffolding header lines
+// ("=== Episode ep_003 (day N) ===") from the text shown to the LLM: they
+// are not world content, and a frames-primed model otherwise mis-reads the
+// episode ID as a frame name (dev-99: 455 actual facts exiled to spurious
+// ep_NNN frames). The deterministic extractors already skip these lines.
+func stripEpisodeHeader(text string) string {
+	lines := strings.Split(text, "\n")
+	out := lines[:0]
+	for _, l := range lines {
+		if strings.HasPrefix(strings.TrimSpace(l), "=== Episode") {
+			continue
+		}
+		out = append(out, l)
+	}
+	return strings.Join(out, "\n")
 }
 
 // parseEnvelopeJSON accepts the raw model reply, tolerating code fences and

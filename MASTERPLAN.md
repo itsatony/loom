@@ -1352,3 +1352,70 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   targeted prompt, or confidence-gated fiction quarantine) are the real
   levers to test before any F-E2 verdict is treated as final — none
   started autonomously (new direction + spend = Toni's call).
+- 2026-07-18 (LEAKAGE-FIX RE-RUN — pre-registered BEFORE any locked run;
+  spec-preserving, endpoint UNCHANGED) — Toni approved the option-2 path
+  (fix extraction leakage to meet the ratified F-E2, do NOT move the bar),
+  with constraints: no second frontier run — use a CHEAP model at HIGHER
+  reasoning effort, add the §9.6.1 quarantine, improve prompting/setup.
+  Diagnosis (mechanism, from reading leaked-line PHRASING only — not tuned
+  to seed content): the §9.6.6 certificate keeps a handle on every fiction
+  line, but the handle is a BARE PROPER NOUN ("In Millwater, day 76 has it
+  that registered_in(...)") indistinguishable from an entity/source name
+  UNLESS the reader knows Millwater was declared a story — and the
+  per-episode extractor at minimal reasoning often lacks that declaration
+  context (declared in an earlier episode). The frame-rag ceiling null
+  already received a frame directory; the substrate extractor did not — it
+  was under-provisioned. Fixes, all developed on DEV seeds {99,7} and
+  frozen before the single locked run (locked = held-out; no tuning to the
+  seeds already seen to leak):
+  (1) FRAME-CONTEXT extraction (two-pass): pass 1 extracts frame
+      DECLARATIONS across all episodes; a directory (handle → kind) is
+      built from the MODEL'S OWN declaration readings (NOT world.json — no
+      ground-truth kind leak); pass 2 extracts facts with the directory
+      injected, so "In Millwater" resolves as story content. Consistent
+      with the ratified naming affordance and with what the null already
+      had. WHICH line belongs to which frame remains the model's problem.
+  (2) CONFIDENCE-GATED ACTUAL-QUARANTINE (§9.6.1 safety hook, previously
+      dormant): a fact the extractor would home to ACTUAL with frame-
+      confidence below threshold is committed Quarantined (not in the
+      actual closure) instead of silently believed — "misclassification
+      fails as stored-but-not-believed." Abstention/coverage reported
+      alongside (a substrate may not ace fidelity by quarantining
+      everything — existing F-E3 guard).
+  (3) PROMPT: fiction-carryover ("once a story opens, later lines about it
+      stay in it, even without the title"), directory use, and calibrated
+      confidence for actual-homing.
+  (4) MODEL: gpt-5-mini, reasoning_effort HIGH (cheap + more reasoning; the
+      registered swap-B family). Extraction conditions (loom-c2b-frames,
+      loom-c2b→c2b-prov) re-run on it. The ceiling null frame-rag is KEPT
+      as the existing gpt-5 result — a STRONGER (frontier) null than the
+      mini substrate, which only makes the superiority test HARDER
+      (integrity-safe) and avoids re-spend. F-E2 governing = beat the
+      harder of {mini c2b-prov, gpt-5 frame-rag} on filtering-resistant,
+      non-inferior on filter-decidable (vs mini c2b-prov) + v0.
+  Endpoint, thresholds, partition, kill arithmetic ALL unchanged. If this
+  still fails, it is reported as an honest FAIL (fallback to option 1);
+  no further bar-moving. Dev results + frozen config logged before the
+  locked run; locked run reported whatever it yields.
+- 2026-07-19 (LEAKAGE-FIX DEV-VALIDATED + FROZEN; one dev iteration logged)
+  — the pre-registered leakage fix was validated on DEV seed 99 (held-out
+  locked seeds untouched). First dev run OVERCORRECTED: leakage 0.21->0.000
+  but a NEW failure — 455/775 actual facts EXILED to spurious frames named
+  after the episode-header scaffolding ("=== Episode ep_003 ==="), which the
+  frames-primed model mis-read as frame declarations (facts recall 0.99->
+  0.49). The dev gate caught it before any locked spend. Fix: strip the
+  "=== Episode ... ===" header lines from the LLM extractor's input (harness
+  scaffolding, not world content; the deterministic extractors already skip
+  them). Dev-99 v2 (frozen config): leakage 0.000 (fic_01 24/24, fic_02
+  24/24), actual-exile 0.000, frame macro-F1 1.000, coverage 1.000
+  (quarantine did NOT over-fire — abstention 0), facts recall 0.995. One
+  honest blemish reported: sarcasm-believed 2/5 (gpt-5-mini @ high reasoning
+  is slightly weaker than gpt-5 at non-assertive detection; small
+  population, will surface in the filtering-resistant sarcasm sub-slice).
+  FROZEN CONFIG for the locked run: gpt-5-mini, reasoning_effort high,
+  temperature omitted; frame-context two-pass (directory from the model's
+  own declarations, header-stripped); actual-quarantine threshold 0.5;
+  frames-only. Ceiling null frame-rag is REUSED from the gpt-5 run (a
+  stronger-model null → harder superiority test → integrity-safe, no
+  re-spend). Locked 20-seed run next; reported whatever it yields (no
+  further bar-moving; fallback is the honest option-1 FAIL writeup).
