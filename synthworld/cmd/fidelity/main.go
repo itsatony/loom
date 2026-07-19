@@ -123,6 +123,9 @@ func main() {
 
 	p := loom.NewPipeline(vocab, ex)
 	p.FrameNames = loadFrameHandles(*handlesPath, *dir, *episodesFile, &w)
+	if v := os.Getenv("HARNESS_C2B_QUARANTINE_CONF"); v != "" {
+		fmt.Sscanf(v, "%g", &p.QuarantineActualBelowConfidence)
+	}
 	if v := os.Getenv("HARNESS_CONCURRENCY"); v != "" {
 		fmt.Sscanf(v, "%d", &p.Workers)
 	}

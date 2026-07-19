@@ -33,6 +33,10 @@ type LoomC2bCondition struct {
 	// a naming affordance shared by every text-mode condition, never
 	// frame detection (see loom.Pipeline.FrameNames).
 	FrameNames map[string]string
+	// QuarantineActualBelowConfidence, when >0, routes low-confidence
+	// actual-homed facts to quarantine (§9.6.1 safety gate); passed to the
+	// pipeline. 0 = disabled.
+	QuarantineActualBelowConfidence float64
 	// FrameBlind answers every query from the actual closure, ignoring the
 	// query frame — the honest behavior of a v0-extractor store on a frames
 	// dataset (mono-world style). Required for the frozen §9.6.5 row
@@ -51,6 +55,7 @@ func (l *LoomC2bCondition) Ingest(episodes []gen.Episode) error {
 	l.pipeline = loom.NewPipeline(l.Vocab, l.Extractor)
 	l.pipeline.Workers = l.Workers
 	l.pipeline.FrameNames = l.FrameNames
+	l.pipeline.QuarantineActualBelowConfidence = l.QuarantineActualBelowConfidence
 	rep, err := l.pipeline.Compile(episodes)
 	l.Compile_ = rep
 	if err != nil {

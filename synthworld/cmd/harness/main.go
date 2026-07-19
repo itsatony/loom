@@ -288,9 +288,17 @@ func main() {
 			// extraction as loom-c2b (cassettes shared), frameless store,
 			// query-time metadata filtering. loom-c2b above doubles as the
 			// frame-blind contamination confirmation (§9.6.3).
+			// Quarantine threshold (§9.6.1 safety gate) is off by default;
+			// HARNESS_C2B_QUARANTINE_CONF=<0..1> enables it for the
+			// leakage-fix leg (low-confidence actual-homing → quarantine).
+			quarConf := 0.0
+			if v := os.Getenv("HARNESS_C2B_QUARANTINE_CONF"); v != "" {
+				fmt.Sscanf(v, "%g", &quarConf)
+			}
 			c2bf := &harness.LoomC2bCondition{Label: "loom-c2b-frames", Vocab: vocab,
 				Extractor: loom.NewFramesLLMExtractor(metered("loom-c2b-frames"), vocab),
-				Workers:   pipelineWorkers, FrameNames: condFrameNames}
+				Workers:   pipelineWorkers, FrameNames: condFrameNames,
+				QuarantineActualBelowConfidence: quarConf}
 			prov := &harness.C2bProvCondition{Label: "c2b-prov", Vocab: vocab,
 				Extractor: loom.NewLLMExtractor(metered("c2b-prov"), vocab),
 				Workers:   pipelineWorkers, FrameNames: condFrameNames}

@@ -19,6 +19,7 @@ import (
 	"fmt"
 	"sort"
 	"strings"
+	"sync"
 
 	"github.com/vaudience/synthworld/gen"
 	"github.com/vaudience/synthworld/oracle"
@@ -154,6 +155,16 @@ type Extractor interface {
 	Extract(ep gen.Episode) ([]Candidate, []string, error) // candidates, problems
 }
 
+// FrameContextExtractor is an optional capability: an extractor that can be
+// primed with a directory of already-declared frames (built from a first
+// declaration-extraction pass) so per-episode fact extraction can resolve a
+// bare frame handle ("In Millwater …") as story/scenario content rather than
+// mis-homing it to actual. The directory carries only what the model itself
+// read from declaration lines — never world.json (no ground-truth leak).
+type FrameContextExtractor interface {
+	SetFrameContext(directory string)
+}
+
 // ---------- Compilation trace ----------
 
 type ItemVerdict string
@@ -225,6 +236,16 @@ type Pipeline struct {
 	Vocab     Vocabulary
 	Extractor Extractor
 
+	// QuarantineActualBelowConfidence: a fact the extractor homes to ACTUAL
+	// (frame "") with confidence strictly below this threshold is committed
+	// Quarantined instead of Active — it is stored for audit but never
+	// enters the actual closure (§9.6.1: frame-assignment uncertainty must
+	// fail as stored-but-not-believed, never silently-believed). 0 disables
+	// the gate (v0 behavior). Only ACTUAL-homed facts are gated: a fact
+	// homed to a non-actual frame is already not believed in actual, so
+	// there is nothing to protect against.
+	QuarantineActualBelowConfidence float64
+
 	// FrameNames maps canonical frame IDs to the surface names the episode
 	// TEXT uses (tier M bans raw frame IDs; handles come from the dataset's
 	// naturalize report — a naming affordance, not frame detection: which
@@ -273,6 +294,19 @@ func NewPipeline(vocab Vocabulary, ex Extractor) *Pipeline {
 // compilation trace. The store is usable afterwards via the normal ops.
 func (p *Pipeline) Compile(episodes []gen.Episode) (*CompileReport, error) {
 	rep := &CompileReport{Extractor: p.Extractor.Name(), Episodes: len(episodes)}
+
+	// Frame-context pre-pass (§10 2026-07-18): if the extractor supports it,
+	// run a first parallel extraction pass, collect the frame DECLARATIONS
+	// the model itself found, and prime the extractor with a directory of
+	// (handle → kind, as the MODEL read them) before the real pass. This
+	// resolves bare-proper-noun frame handles in later fact lines. Built
+	// from model output only — no world.json.
+	if fce, ok := p.Extractor.(FrameContextExtractor); ok {
+		if dir := p.buildFrameDirectory(episodes); dir != "" {
+			fce.SetFrameContext(dir)
+			rep.Hygiene = append(rep.Hygiene, "frame-context pre-pass: directory primed from extracted declarations")
+		}
+	}
 
 	type extracted struct {
 		cands    []Candidate
@@ -330,6 +364,85 @@ func (p *Pipeline) Compile(episodes []gen.Episode) (*CompileReport, error) {
 		return rep, err
 	}
 	return rep, nil
+}
+
+// buildFrameDirectory runs a declaration-only pre-pass: extract every
+// episode, keep the frame candidates, and render a directory of canonical
+// frame → surface handle + kind, using ONLY what the model read from
+// declaration lines. Parallel like the main pass; errors are tolerated
+// (a missed declaration just means that frame isn't in the directory, and
+// the quarantine gate catches the residual).
+func (p *Pipeline) buildFrameDirectory(episodes []gen.Episode) string {
+	type decl struct {
+		id, handle, kind, basis string
+		pin                     int
+	}
+	decls := map[string]decl{}
+	var mu sync.Mutex
+
+	workers := p.Workers
+	if workers < 1 {
+		workers = 1
+	}
+	if workers > len(episodes) && len(episodes) > 0 {
+		workers = len(episodes)
+	}
+	jobs := make(chan int)
+	done := make(chan struct{})
+	for w := 0; w < workers; w++ {
+		go func() {
+			for i := range jobs {
+				cands, _, err := p.Extractor.Extract(episodes[i])
+				if err != nil {
+					continue
+				}
+				mu.Lock()
+				for _, c := range cands {
+					if c.Kind != CandFrame || c.Frame == nil {
+						continue
+					}
+					id := p.resolveFrame(c.Frame.Name)
+					if id == "" || id == world.ActualFrame {
+						continue
+					}
+					if _, seen := decls[id]; !seen {
+						decls[id] = decl{id: id, handle: strings.TrimSpace(c.Frame.Name), kind: c.Frame.Kind, basis: c.Frame.Basis, pin: c.Frame.PinDay}
+					}
+				}
+				mu.Unlock()
+			}
+			done <- struct{}{}
+		}()
+	}
+	for i := range episodes {
+		jobs <- i
+	}
+	close(jobs)
+	for w := 0; w < workers; w++ {
+		<-done
+	}
+	if len(decls) == 0 {
+		return ""
+	}
+	ids := make([]string, 0, len(decls))
+	for id := range decls {
+		ids = append(ids, id)
+	}
+	sort.Strings(ids)
+	var b strings.Builder
+	b.WriteString("Known frames already declared in this world (name — kind). Use this to decide a line's context; a bare name below that appears in a later line refers to THIS frame, not an entity of the same name:\n")
+	for _, id := range ids {
+		d := decls[id]
+		kind := d.kind
+		if kind == "scenario" && d.basis != "" {
+			kind = d.basis + " scenario"
+		}
+		if d.handle == "" {
+			continue
+		}
+		fmt.Fprintf(&b, "- %q: %s frame\n", d.handle, kind)
+	}
+	return b.String()
 }
 
 // commitCandidate runs normalization + consistency + per-item hygiene for
@@ -562,6 +675,19 @@ func (p *Pipeline) commitFactCand(cand Candidate, prov Provenance, rep *CompileR
 		FrameID:   frameID,
 		Block:     fc.Block,
 		EpisodeID: prov.EpisodeIDs[0],
+	}
+	// Safety gate (§9.6.1): a low-confidence ACTUAL-homing is quarantined
+	// (stored, not believed) rather than silently entering the actual
+	// record. Frame-homed facts are exempt — they are already not believed
+	// in actual.
+	if frameID == "" && p.QuarantineActualBelowConfidence > 0 && cand.Confidence < p.QuarantineActualBelowConfidence {
+		if err := p.Store.commitFactWithLifecycle(f, prov, Quarantined); err != nil {
+			it.Verdict, it.Detail = VDropped, err.Error()
+			return it
+		}
+		rep.Quarantined++
+		it.Verdict, it.Detail = VQuarantined, fmt.Sprintf("actual-homed with confidence %.2f < %.2f — quarantined (not believed)", cand.Confidence, p.QuarantineActualBelowConfidence)
+		return it
 	}
 	// consistency: exact duplicate (atom+interval) merges provenance inside
 	// CommitFact; a narrower interval on a known atom is a refinement;

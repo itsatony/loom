@@ -116,6 +116,49 @@ func TestRedeclarationDoesNotOverwrite(t *testing.T) {
 	}
 }
 
+// The §9.6.1 quarantine gate: a low-confidence ACTUAL-homed fact is stored
+// but NOT believed (excluded from the actual closure); a frame-homed
+// low-confidence fact is exempt; a high-confidence actual fact commits.
+func TestActualQuarantineGate(t *testing.T) {
+	names := map[string]string{"fic_01": "The Glass Harbor"}
+	mk := func(id, frame string, conf float64) Candidate {
+		return Candidate{Kind: CandFact, Confidence: conf, SourceSpan: "l", Fact: &FactCand{
+			FactID: id, Relation: "certified", Args: map[string]string{"person": "p" + id}, From: 3, Frame: frame,
+		}}
+	}
+	p := NewPipeline(tinyVocab(), framesStubExtractor{cands: []Candidate{
+		mk("1", "", 0.4),                 // low-conf actual → quarantine
+		mk("2", "", 1.0),                 // high-conf actual → active
+		mk("3", "The Glass Harbor", 0.4), // low-conf fiction → committed (exempt)
+	}})
+	p.FrameNames = names
+	p.QuarantineActualBelowConfidence = 0.5
+	if _, err := p.Compile([]gen.Episode{{ID: "ep_001", Day: 1}}); err != nil {
+		t.Fatal(err)
+	}
+	lc := map[string]Lifecycle{}
+	for _, f := range p.Store.Facts {
+		lc[f.Fact.ID] = f.Lifecycle
+	}
+	if lc["1"] != Quarantined {
+		t.Errorf("low-conf actual fact_1: lifecycle %q, want quarantined", lc["1"])
+	}
+	if lc["2"] != Active {
+		t.Errorf("high-conf actual fact_2: lifecycle %q, want active", lc["2"])
+	}
+	if lc["3"] != Active {
+		t.Errorf("low-conf fiction fact_3: lifecycle %q, want active (frame-homed exempt)", lc["3"])
+	}
+	// the quarantined actual fact must NOT hold in the actual closure
+	ok, _, err := p.Store.Holds(world.Atom{Relation: "rel_certified", Args: map[string]string{"person": "p1"}}, 5)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if ok {
+		t.Errorf("quarantined fact_1 holds in actual closure — must not be believed")
+	}
+}
+
 // Block facts in actual are schema violations and must be dropped loudly.
 func TestBlockInActualDropped(t *testing.T) {
 	p, rep := compileStub(t, nil, frameFactCand("", "", true))

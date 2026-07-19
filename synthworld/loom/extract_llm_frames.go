@@ -36,6 +36,11 @@ import (
 type FramesLLMExtractor struct {
 	LLM      Completer
 	vocabRef Vocabulary
+	// frameCtx is a directory of already-declared frames (name → kind),
+	// primed by the pipeline's declaration pre-pass. Injected into the
+	// per-episode prompt so a bare frame handle resolves as story/scenario
+	// content. Built from the model's own declaration readings only.
+	frameCtx string
 }
 
 func NewFramesLLMExtractor(llm Completer, vocab Vocabulary) *FramesLLMExtractor {
@@ -43,6 +48,9 @@ func NewFramesLLMExtractor(llm Completer, vocab Vocabulary) *FramesLLMExtractor 
 }
 
 func (e *FramesLLMExtractor) Name() string { return "llm-frames:" + e.LLM.Model() }
+
+// SetFrameContext implements loom.FrameContextExtractor.
+func (e *FramesLLMExtractor) SetFrameContext(directory string) { e.frameCtx = directory }
 
 const framesExtractSystemPrompt = `You are a knowledge compiler for an intelligence desk. The desk's log mixes several KINDS of content, and your most important job — besides extracting every item — is to file each item in the right CONTEXT (called a frame):
 
@@ -80,6 +88,8 @@ Rules of extraction:
 - A story's introduction line, an exercise's launch line, and a line opening a separate claims log for a source are frame declarations, not facts. Deciding the KIND: anything that runs against the real world's state — a drill, exercise, planning session, what-if — is "scenario", even when described in playful or narrative language; its introduction says either that it tracks the live/unfolding world (basis "live") or that it uses the world as of an earlier stated day and later revisions do not enter it (basis "pinned"). "fiction" is reserved for invented tales/entertainments whose happenings are never observations about the world. A line announcing that a particular source's statements/claims will henceforth be filed separately (apart from the desk's own observations) declares a "perspective" frame for that entity — do not skip these.
 - A line reporting that a source's earlier forecast is confirmed by an observation and enters the record is a promotion notice, not a fact.
 - Frame NAMES must be copied EXACTLY and MINIMALLY: the bare codename or title as introduced ("Ridgeline", never "the Ridgeline drill" or "Under Ridgeline"), or the bare source entity id ("person_07"). The frame of an attributed claim/filing/forecast is the entity DOING the claiming (the subject attributing), never an entity that merely appears in the atom's arguments.
+- CRITICAL — story/scenario continuation: a story or exercise is introduced ONCE by name, then later lines report its contents by that name WITHOUT repeating that it is fiction/an exercise (e.g. "In Millwater, day 76 has it that <atom>", "Millwater has this, as of day 70: <atom>"). Those lines are STILL that frame's content, NOT the desk's observations. A bare capitalized name like "Millwater" or "The Orchard Ledger" at the start of a line is a STORY/EXERCISE name, not a place or source — if it names a known frame (see the frame directory above when provided), home the line to that frame. When a line's context is genuinely ambiguous between the desk's own record and a story/scenario/quote, it is NOT the desk's record.
+- CONFIDENCE is load-bearing for actual-homing: set confidence 1.0 only when you are sure a fact is the desk's OWN observation (an explicit feed/registry/report source, no story/exercise/quote framing). If you home a fact to "" (actual) but are NOT sure it is the desk's own observation rather than story/scenario/quoted content, set its confidence to 0.4 — it will be quarantined (stored, not believed) rather than wrongly entered into the record. Facts homed to a named non-actual frame keep normal confidence.
 - The frame field is NEVER a data source, feed, registry, or file name (field reports, registries, feeds, disclosures are the desk's own record: frame "" with that name in "source"). Only story titles, exercise codenames, and claiming entities are frames.
 - A pinned exercise has TWO days: the day it opens (created_day) and the earlier day whose state it freezes ("as of day X" / "as it stood on day X" = pin_day). Extract both; basis is "pinned" whenever later real revisions are said not to enter it, else "live".
 - Use only relation names from the provided vocabulary. Empty categories are empty arrays. Reply with the JSON object only.
@@ -134,8 +144,12 @@ type framesCandidateEnvelope struct {
 }
 
 func (e *FramesLLMExtractor) Extract(ep gen.Episode) ([]Candidate, []string, error) {
-	user := fmt.Sprintf("Relation vocabulary (name: slots):\n%s\nEpisode text:\n%s\n\nExtract all items as JSON.",
-		vocabPromptLines(e.vocabRef), ep.Text)
+	ctxBlock := ""
+	if e.frameCtx != "" {
+		ctxBlock = "\n" + e.frameCtx + "\n"
+	}
+	user := fmt.Sprintf("Relation vocabulary (name: slots):\n%s\n%sEpisode text:\n%s\n\nExtract all items as JSON.",
+		vocabPromptLines(e.vocabRef), ctxBlock, ep.Text)
 	out, err := e.LLM.Complete(context.Background(), framesExtractSystemPrompt, user)
 	if err != nil {
 		return nil, nil, fmt.Errorf("episode %s: %w", ep.ID, err)

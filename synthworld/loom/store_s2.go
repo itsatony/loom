@@ -80,6 +80,31 @@ func (s *Store) commitRuleWithLifecycle(r world.Rule, prov Provenance, lc Lifecy
 	return nil
 }
 
+// commitFactWithLifecycle stores a fact in a specific lifecycle state (used
+// by the S2 quarantine gate: a low-confidence actual-homed fact is committed
+// Quarantined — stored for audit, invisible to the evaluator — rather than
+// silently believed, §9.6.1). Same provenance + dedupe invariants as
+// CommitFact.
+func (s *Store) commitFactWithLifecycle(f world.BaseFact, prov Provenance, lc Lifecycle) error {
+	if len(prov.EpisodeIDs) == 0 {
+		return fmt.Errorf("fact %s: provenance is mandatory", f.ID)
+	}
+	key := factKey(f)
+	if s.factKeys[key] {
+		for i := range s.Facts {
+			if factKey(s.Facts[i].Fact) == key {
+				s.Facts[i].Provenance.EpisodeIDs = mergeIDs(s.Facts[i].Provenance.EpisodeIDs, prov.EpisodeIDs)
+				break
+			}
+		}
+		return nil
+	}
+	s.factKeys[key] = true
+	s.Facts = append(s.Facts, StoredFact{Fact: f, Lifecycle: lc, Provenance: prov})
+	s.invalidate()
+	return nil
+}
+
 // setRuleLifecycle transitions a stored rule and invalidates caches.
 func (s *Store) setRuleLifecycle(id string, lc Lifecycle) {
 	for i := range s.Rules {
