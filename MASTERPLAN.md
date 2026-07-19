@@ -1478,3 +1478,32 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   the run it governed. Reproducibility: per-seed reports + verdict JSONs +
   fidelity under results/frames-e-{qwen36,gpt5,gpt5mini}/ (committed);
   extraction cassettes retained locally (large; commit on request).
+- 2026-07-19 (EXTRACTION-ROBUSTNESS DIAGNOSTIC — seed-7, dev; changes NO
+  endpoint/verdict) — ran the pre-registered one-seed check ("does a second
+  extraction pass / self-consistency vote remove the seed-7-type miss?").
+  Findings (results/frames-robustness/, committed):
+  * ROOT CAUSE localized by cmd/fidelity (replay of the accepted gpt-5-mini
+    cassette, zero LLM cost): the whole F-E2 v0-composition trip is ONE
+    rule, rul_019, scored MANGLED — but its logic is PERFECT (correct
+    conditions/conclusion/authority/dates). The only error is FRAME
+    MIS-HOMING: the normal desk policy was filed into the fiction frame
+    "The Unsigned Page" (declared one line earlier in its episode ep_133).
+    Homed to fiction it never fires in actual → its rel_d301_priority_case
+    derivations vanish. Attribution is ~1:1: 32/80 composition positives
+    route through rul_019 (all depth-3), 31 failed (49+31=80); the other 48
+    all passed. So the "frame-free rule-extraction outlier" is really a
+    frame-CONTAMINATION slip (adjacent fiction declaration pulling in the
+    next policy line).
+  * STOCHASTIC, not deterministic: resampled ep_133's exact recorded prompt
+    live (gpt-5-mini, reasoning high, N=12) → rul_019 homed correctly to ""
+    in 11/12 draws, wrongly to "The Unsigned Page" in 1/12 (content correct
+    in all 12). The accepted cassette was one ~8% tail draw. A generic K=3–5
+    self-consistency vote on per-item frame homing removes it (majority-of-3
+    still-wrong ≈2%, of-5 ≈0.4%) → would restore seed-7 composition to
+    ≈80/80 and flip the F-E2 v0-composition leg to a pass WITHOUT touching
+    query/null/threshold/architecture.
+  * DISCIPLINE: diagnostic only. Reported verdicts unchanged; locked set NOT
+    re-run (refused as test-set fitting). Self-consistency extraction is
+    logged as a pre-registered design candidate for any FUTURE campaign, to
+    be validated on dev (99, 7-as-dev), never selected because it fixes
+    seed-7. ~8% is this episode's single-draw rate, not a global one.
