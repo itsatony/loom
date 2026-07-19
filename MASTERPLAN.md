@@ -1553,3 +1553,56 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
     PASS on the frame-homing slices. Leg B (answering-swap baseline
     degradation contrast) + optional self-consistency column remain deferred
     pending go-ahead (real LLM spend).
+  * RECOMMENDATION on the OPEN band question (Claude, for Toni): do NOT
+    retrofit the v0 >=0.95/<0.90 retention band onto the frames-v1 diagnostic
+    slices. (1) §1's honest boundary defines transfer-of-understanding as
+    compositional + revision performance — precisely the v0 logical slices H6
+    was registered for; on those it PASSES decisively. (2) Retrofitting a
+    pre-registered threshold to new slices post-hoc is goalpost-moving in
+    either direction; apply registered criteria to what they were registered
+    for. (3) The frame slices ALREADY carry their own pre-registered gates
+    (F-E1 contamination/isolation >=0.85; F-E4 ideation >=0.90). The natural,
+    non-arbitrary portability statement is "do the registered F-E gates
+    survive the extractor swap?" — and they DO: F-E1 PASS + F-E4 PASS on BOTH
+    the qwen36 AND gpt-5 legs (contamination CI-lo 0.882/0.887, isolation
+    0.936/0.982, ideation 0.928/0.925). (4) For frame-attribution fidelity
+    (misattribution/ideation F1) report the reference-INDEPENDENT absolute-F1
+    spectrum across extractors (0.86-1.00), not retention-vs-a-ceiling (a
+    high-variance artifact near 1.0). NET: H6 verdict scoped to logical slices
+    = PASS; frame-slice portability = "F-E gates survive the swap" (they do) +
+    absolute-F1 spectrum. No band retrofit. Awaiting Toni's ratification.
+- 2026-07-19 (SWAP Legs B + C — REGISTRATION, before the measured runs; go-
+  ahead given by Toni for real LLM spend). Both feed the same registered
+  `cmd/aggregate -swap` retention arithmetic (§10 2026-07-19 above).
+  * LEG B — answering-swap baseline-degradation contrast. The full H6 story
+    is "substrate lift survives the swap while LLM-BOUND baselines degrade."
+    C2b answering is LLM-free => its answering-swap retention is 1.000 by
+    construction; to exhibit the CONTRAST, swap the ANSWERING model for the
+    LLM-bound conditions {c0-no-memory, rag-bm25, frame-rag} between two
+    models over the 20 locked tier-M datasets and report their retention
+    perf_B/perf_A against C2b's flat 1.000. These conditions are
+    extractor-INDEPENDENT (no loom store), so Leg B is a standalone answering
+    experiment. Registered models: A = gpt-5 (frontier), B = qwen36-nvfp4
+    (self-hosted open-weights) — genuine cross-family/cross-deployment swap.
+    Reuse: gpt-5 frame-rag 20/20 + c0/rag 8/20 and qwen36 c0/rag 20/20 are on
+    disk (cassette-cached); new work = gpt-5 c0/rag on the 12 missing seeds +
+    qwen36 frame-rag 20/20 (self-hosted, compute-only). Retention computed per
+    condition via `-swap -cond {frame-rag|rag-bm25|c0-no-memory}` on the v0
+    logical slices (the reference-independent, well-defined ones); c0 is a
+    near-floor and reported as such. PREDICTION: rag-bm25 + frame-rag
+    retention drift measurably off 1.0 (model-sensitive), C2b stays 1.000.
+  * LEG C — fourth, independent-family extractor. Hardens "cross-family":
+    extractor legs to date span OpenAI (gpt-5, gpt-5-mini) + Alibaba (qwen36).
+    Registered 4th = Anthropic **claude-haiku-4-5-20251001** via the OpenAI-
+    compat endpoint (verified reachable + working). Independence: haiku did
+    NOT touch the tier-M corpus (naturalizers were mistral-medium-3.5 +
+    deepseek-v4-pro; judges gemini-3.5-flash / kimi-k2.6 / grok-4.20 — Claude
+    is none of them), so it is a clean held-out reader. Config: extraction
+    thinking standard (no reasoning-high; FRAMES_C2B_EXTRA='{}' — the qwen
+    thinking-off kwargs are qwen-specific), documented as a per-family config
+    difference inherent to cross-family swaps (qwen thinking-off, gpt-5-mini
+    reasoning-high, haiku standard were never config-matched). Run = the three
+    EXTRACTION passes (base LLM-free + c2bf + null); answering skipped
+    (LLM-free op-planner). Added to the retention spectrum as a 4th leg vs the
+    accepted gpt-5-mini reference. NO threshold/verdict arithmetic changed;
+    the registered retention statistic + H6 bands apply unchanged.
