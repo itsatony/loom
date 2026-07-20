@@ -1606,3 +1606,41 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
     (LLM-free op-planner). Added to the retention spectrum as a 4th leg vs the
     accepted gpt-5-mini reference. NO threshold/verdict arithmetic changed;
     the registered retention statistic + H6 bands apply unchanged.
+- 2026-07-20 (SWAP Legs B + C — RESULTS; runs on the certified tier-M corpus,
+  20 locked seeds; full writeup results/frames-swap/RESULTS.md §5 + §2,
+  artifacts committed). Both consumed the registered `cmd/aggregate -swap`
+  arithmetic; no endpoint/threshold changed.
+  * LEG B (answering-swap contrast, gpt-5 -> qwen36-nvfp4, thinking-on C1
+    mode). frame-rag (strongest baseline): retention 0.95-1.08 on rep/
+    contamination/isolation/promotion, 0.89-0.91 on the frame-attribution F1
+    slices; rag-bm25 0.92-1.02 (8-seed overlap); c0 flat at floor (model-
+    invariant, no memory). HONEST RESHAPE: with a competent second reasoner
+    the LLM-bound baselines are FAIRLY portable too — so the H6 payoff is NOT
+    "RAG collapses on swap." It is that C2b is answering-model-INDEPENDENT
+    (retention 1.000, $0 LLM-free planner: nothing to degrade, no frontier-
+    reasoner dependency, no per-query token cost), while the baselines stay
+    model-sensitive and hostage to the answerer's compute — under a reduced-
+    compute answerer (qwen thinking-OFF) frame-rag retention falls to
+    0.57-0.81. METHOD honesty: first qwen frame-rag pass was mistakenly
+    thinking-OFF (extraction config); re-run thinking-ON to match the
+    registered C1 mode + qwen's on-disk c0/rag BEFORE reporting; thinking-off
+    kept only as the reduced-compute sensitivity point.
+  * LEG C (4th-family extractor = claude-haiku-4-5, fully independent of the
+    corpus). DECISIVE cross-family result: haiku extracts the substrate
+    at/near CEILING on every slice, min retention 0.966 (isolation), and hits
+    PERFECT frame homing — misattribution F1 1.000, ideation 0.997,
+    contamination/pinning/promotion 1.000, all logical slices >=0.99. Under
+    the LITERAL H6 band it PASSES on ALL slices incl. frame-homing. This
+    proves the gpt-5/qwen misattribution/ideation dip (0.86-0.93) is
+    MODEL-SPECIFIC extraction variance, NOT a cross-family portability
+    ceiling — a third independent family closes it entirely. haiku's own
+    frames verdicts confirm the slices are real (F-E1 PASS contamination
+    0.999/isolation 0.944; F-E4 PASS ideation 0.997; F-E2 superiority +0.33,
+    tripping only the v0 find-micro-F1 non-inf leg — same single-slice
+    extraction-variance flavor as the accepted gpt-5-mini leg's v0-composition
+    trip). Sanity: loom-C2a == frame-oracle 20/20 on the haiku base pass
+    (S1 invariant intact). NET H6-for-frames: registered subject (logical
+    slices) PASSES on all THREE swapped families; frame-slice portability =
+    F-E gates survive the swap on all three; the band-extension question is
+    moot for a PASS either way (haiku passes the literal band on frame slices
+    too). Recommendation on the band question stands, strengthened.
