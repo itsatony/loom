@@ -160,11 +160,12 @@ Artifacts: `legB-{frame-rag,rag-bm25,c0-no-memory}.json` (thinking-on primary),
 
 Does the registered H6 band (≥0.95 PASS / <0.90 KILL) **extend to the frames-v1
 diagnostic slices**, or govern only the v0 logical slices it was written for
-(the §1 boundary: compositional + revision)? This is a registration
-interpretation, **not decided unilaterally**.
+(the §1 boundary: compositional + revision)?
 
-**Recommendation (unchanged, now strengthened by Legs B/C): do not retrofit the
-band onto the frames slices.** Grounds:
+**RATIFIED by Toni 2026-07-20: the recommendation is accepted — the band governs
+the v0 logical slices only; frame-slice portability is reported as "registered
+F-E gates survive the swap" + the reference-independent absolute-F1 spectrum. No
+band retrofit.** Grounds (now strengthened by Legs B/C):
 1. H6 was registered for compositional + revision performance — the v0 logical
    slices, where retention is ≥0.98 on all THREE swapped families → PASS.
 2. Retrofitting a pre-registered threshold post-hoc is goalpost-moving either way.

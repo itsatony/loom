@@ -1644,3 +1644,12 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
     F-E gates survive the swap on all three; the band-extension question is
     moot for a PASS either way (haiku passes the literal band on frame slices
     too). Recommendation on the band question stands, strengthened.
+- 2026-07-20 (H6-BAND READING — RATIFIED by Toni). The 2026-07-19/20
+  recommendation is ACCEPTED: the registered H6 retention band (>=0.95 PASS /
+  <0.90 KILL) governs the v0 LOGICAL slices only (the §1 boundary:
+  compositional + revision), where it PASSES on all three swapped families.
+  Frame-slice portability is reported as (i) the registered F-E gates
+  surviving the extractor swap (F-E1 + F-E4 PASS on qwen36, gpt-5, haiku-4-5)
+  and (ii) the reference-independent absolute-F1 spectrum. No band retrofit
+  onto the frames-v1 diagnostic slices. This closes the only open
+  interpretation question from the swap campaign.
