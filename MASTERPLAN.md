@@ -1673,3 +1673,26 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   available extraction mode for FUTURE campaigns (real-domain Phase 2), NOT a
   retroactive re-run of the closed frames-v1 locked verdicts. Cost: qwen36
   self-hosted (free) for dev; K=5 => ~5x extraction calls on 2 dev seeds.
+- 2026-07-20 (SELF-CONSISTENCY — DEV VALIDATION RESULT; seed-7; no locked
+  verdict changed). Ran loom-c2b-frames-sc (K=5) vs single-sample
+  loom-c2b-frames on seed-7 under gpt-5-mini (accepted-leg model) and qwen36
+  (weak). SC genuinely resampled (~3000 calls = 5x600/model, no cache
+  collapse). Full table: results/frames-swap/sc-dev/RESULTS.md.
+  * DECISIVE on the target: the gpt-5-mini single draw REPRODUCED the seed-7
+    F-E2 tail (composition 49/80 — the rul_019 stochastic mis-homing); the
+    K=5 vote FIXED it to 80/80, and improved isolation 0.968->1.000 + find
+    0.989->1.000, no regression. Criterion (ii) MET — exactly as the
+    2026-07-19 diagnostic predicted.
+  * HONEST LIMIT on the weak extractor (qwen36): SC lifted composition
+    (76->80), ideation (0.948->0.980), repetition; but REGRESSED isolation
+    (0.968->0.830) and slightly misattribution (0.863->0.844). Mechanistic
+    lesson: self-consistency cures VARIANCE (stochastic slips) not BIAS
+    (systematic mis-homing) — where the wrong home is already modal, voting
+    entrenches it. Criterion (i) only PARTIAL: SC is NOT a blanket weak-
+    extractor booster. Criterion (iii) MET: no v0 (comp/rep/find) regression
+    on either model.
+  * VERDICT: validated as a variance-reduction knob for a CAPABLE extractor
+    (removes the one frames-v1 F-E2 tail); a per-model/domain tool for Phase
+    2, never assumed. Caveat: single seed, single SC draw/model (n=1 draw).
+    Locked frames-v1 verdicts UNCHANGED (reading (a) stays the accepted
+    result); SC was not run on the locked set.
