@@ -1,0 +1,134 @@
+{
+ "condition": "rag-bm25",
+ "ref_leg": "gpt5",
+ "legs": [
+  {
+   "label": "qwen36",
+   "shared_seeds": [
+    "1",
+    "10",
+    "12",
+    "2",
+    "3",
+    "7",
+    "8",
+    "9"
+   ],
+   "slices": [
+    {
+     "slice": "repetition",
+     "ref_mean": 0.9894950564971752,
+     "leg_mean": 0.9863524011299436,
+     "retention": 0.9968239807297707,
+     "ci_lower": 0.9924488573451199,
+     "ci_upper": 1,
+     "n": 8,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "composition",
+     "ref_mean": 0.5046875,
+     "leg_mean": 0.5078125,
+     "retention": 1.0061919504643964,
+     "ci_lower": 1,
+     "ci_upper": 1.0154798761609907,
+     "n": 8,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "revision flip",
+     "ref_mean": 0.9791666666666666,
+     "leg_mean": 0.9739583333333333,
+     "retention": 0.9946808510638298,
+     "ci_lower": 0.983695652173913,
+     "ci_upper": 1,
+     "n": 8,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "revision retain",
+     "ref_mean": 0.020833333333333332,
+     "leg_mean": 0.020833333333333332,
+     "retention": 1,
+     "ci_lower": 0.5,
+     "ci_upper": 2,
+     "n": 8,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "find micro-F1",
+     "ref_mean": 0,
+     "leg_mean": 0,
+     "retention": null,
+     "ci_lower": null,
+     "ci_upper": null,
+     "n": 8,
+     "verdict": "NOT-EVALUABLE"
+    },
+    {
+     "slice": "contamination",
+     "ref_mean": 0.5303073152337858,
+     "leg_mean": 0.5387443438914027,
+     "retention": 1.0159096969158297,
+     "ci_lower": 0.9953049639335864,
+     "ci_upper": 1.0344378006563866,
+     "n": 8,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "isolation",
+     "ref_mean": 0.7358346568452953,
+     "leg_mean": 0.7044616638865309,
+     "retention": 0.9573640726664491,
+     "ci_lower": 0.9254801496557528,
+     "ci_upper": 0.9899196094631824,
+     "n": 8,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "pinning",
+     "ref_mean": 0.51171875,
+     "leg_mean": 0.5078125,
+     "retention": 0.9923664122137404,
+     "ci_lower": 0.9555555555555556,
+     "ci_upper": 1.0232558139534884,
+     "n": 8,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "promotion",
+     "ref_mean": 0.8462540064102564,
+     "leg_mean": 0.776963141025641,
+     "retention": 0.9181204876316724,
+     "ci_lower": 0.8728376327769347,
+     "ci_upper": 0.9645465004343641,
+     "n": 8,
+     "verdict": "SMALL-LOSS"
+    },
+    {
+     "slice": "misattribution F1",
+     "ref_mean": 0,
+     "leg_mean": 0,
+     "retention": null,
+     "ci_lower": null,
+     "ci_upper": null,
+     "n": 8,
+     "verdict": "NOT-EVALUABLE"
+    },
+    {
+     "slice": "ideation F1",
+     "ref_mean": 0.22516835016835018,
+     "leg_mean": 0.14481721981721982,
+     "retention": 0.643150867823765,
+     "ci_lower": 0.2943386243386244,
+     "ci_upper": 2.831538461538461,
+     "n": 8,
+     "verdict": "KILL"
+    }
+   ],
+   "min_retention_slice": "ideation F1",
+   "min_retention": 0.643150867823765,
+   "verdict": "KILL"
+  }
+ ]
+}

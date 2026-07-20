@@ -1,0 +1,146 @@
+{
+ "condition": "frame-rag",
+ "ref_leg": "gpt5",
+ "legs": [
+  {
+   "label": "qwen36to",
+   "shared_seeds": [
+    "1",
+    "10",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "18",
+    "19",
+    "2",
+    "20",
+    "21",
+    "22",
+    "24",
+    "25",
+    "29",
+    "3",
+    "7",
+    "8",
+    "9"
+   ],
+   "slices": [
+    {
+     "slice": "repetition",
+     "ref_mean": 0.9979166666666668,
+     "leg_mean": 0.649159604519774,
+     "retention": 0.650514843777644,
+     "ci_lower": 0.6350589151126993,
+     "ci_upper": 0.6681686992445035,
+     "n": 20,
+     "verdict": "KILL"
+    },
+    {
+     "slice": "composition",
+     "ref_mean": 0.5025000000000001,
+     "leg_mean": 0.5,
+     "retention": 0.9950248756218905,
+     "ci_lower": 0.9864364981504317,
+     "ci_upper": 1,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "revision flip",
+     "ref_mean": 0.9854166666666666,
+     "leg_mean": 1,
+     "retention": 1.0147991543340382,
+     "ci_lower": 1,
+     "ci_upper": 1.032258064516129,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "revision retain",
+     "ref_mean": 0.020833333333333336,
+     "leg_mean": 0,
+     "retention": 0,
+     "ci_lower": 0,
+     "ci_upper": 0,
+     "n": 20,
+     "verdict": "KILL"
+    },
+    {
+     "slice": "find micro-F1",
+     "ref_mean": 0.001176470588235294,
+     "leg_mean": 0.0012048192771084338,
+     "retention": 1.0240963855421688,
+     "ci_lower": null,
+     "ci_upper": 1.0240963855421688,
+     "n": 20,
+     "verdict": "PASS"
+    },
+    {
+     "slice": "contamination",
+     "ref_mean": 0.9936934389140273,
+     "leg_mean": 0.6189434389140269,
+     "retention": 0.6228716168141841,
+     "ci_lower": 0.6062724406899113,
+     "ci_upper": 0.6407661687770111,
+     "n": 20,
+     "verdict": "KILL"
+    },
+    {
+     "slice": "isolation",
+     "ref_mean": 0.7797030816497744,
+     "leg_mean": 0.5134741769819244,
+     "retention": 0.6585509138882252,
+     "ci_lower": 0.6402724182800814,
+     "ci_upper": 0.6764342082014341,
+     "n": 20,
+     "verdict": "KILL"
+    },
+    {
+     "slice": "pinning",
+     "ref_mean": 0.5515625,
+     "leg_mean": 0.5078125,
+     "retention": 0.9206798866855525,
+     "ci_lower": 0.8840970350404312,
+     "ci_upper": 0.9533527696793003,
+     "n": 20,
+     "verdict": "SMALL-LOSS"
+    },
+    {
+     "slice": "promotion",
+     "ref_mean": 0.915260989010989,
+     "leg_mean": 0.6089869505494505,
+     "retention": 0.6653697228016989,
+     "ci_lower": 0.6368231858009435,
+     "ci_upper": 0.6942496862906834,
+     "n": 20,
+     "verdict": "KILL"
+    },
+    {
+     "slice": "misattribution F1",
+     "ref_mean": 0.5639315058516478,
+     "leg_mean": 0.3196348836639703,
+     "retention": 0.5667973510032192,
+     "ci_lower": 0.5051834886382573,
+     "ci_upper": 0.6284468565018989,
+     "n": 20,
+     "verdict": "KILL"
+    },
+    {
+     "slice": "ideation F1",
+     "ref_mean": 0.6276324866964319,
+     "leg_mean": 0.5082700848575794,
+     "retention": 0.809821186173582,
+     "ci_lower": 0.7440519445354712,
+     "ci_upper": 0.8761413192815756,
+     "n": 20,
+     "verdict": "KILL"
+    }
+   ],
+   "min_retention_slice": "revision retain",
+   "min_retention": 0,
+   "verdict": "KILL"
+  }
+ ]
+}

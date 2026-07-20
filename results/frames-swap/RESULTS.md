@@ -84,9 +84,62 @@ composition **+0.49**, revision-retain **+0.92–0.99**, find **+0.99** over the
 no-memory floor. Repetition/flip lift is smaller because C0 can sometimes guess
 verbatim/unchanged facts. The full answering-swap **baseline-degradation
 contrast** (does C0/RAG/frame-rag degrade under a model swap while the substrate
-stays flat?) is **Leg B** — deferred, real LLM spend.
+stays flat?) is **Leg B** — see below.
 
-## 5. Open decision for Toni
+## 5. Leg B — answering-swap contrast (executed 2026-07-19/20)
+
+The extraction column (Legs A/C) is only half of H6. The other half: the
+substrate's *answering* is the LLM-free op-planner, so **C2b answering retention
+= 1.000 by construction**, whereas the LLM-bound baselines depend on the
+answering model. Leg B swaps the **answering** model gpt-5 → qwen36-nvfp4 for
+{c0-no-memory, rag-bm25, frame-rag} over the 20 locked datasets (registered
+thinking-on C1 mode) and reports retention `perf_qwen / perf_gpt5`. These
+conditions are extractor-independent (no loom store).
+
+**frame-rag (the strongest baseline — a per-query frontier reasoner), 20 seeds:**
+
+| slice | gpt-5 | qwen36 | retention |
+|---|---|---|---|
+| repetition | 0.998 | 0.998 | 1.000 |
+| contamination | 0.994 | 0.978 | 0.984 |
+| isolation | 0.780 | 0.758 | 0.973 |
+| pinning | 0.552 | 0.525 | 0.952 |
+| promotion | 0.915 | 0.991 | 1.082 |
+| misattribution F1 | 0.564 | 0.502 | 0.890 |
+| ideation F1 | 0.628 | 0.569 | 0.907 |
+
+(composition/revision/find are near-chance for frame-rag under *either* model —
+RAG cannot compose — so their retention is a chance/chance artifact, omitted.)
+
+**rag-bm25** (8-seed overlap): retention 0.92–1.02 across slices.
+**c0-no-memory** (8-seed): flat at floor (~0.96–1.04 where defined) — no memory,
+so the answering model barely matters. Both as predicted.
+
+### The honest reading (this reshapes, and strengthens, the story)
+
+With a **competent** second reasoner, frame-rag is *fairly portable too*
+(retention 0.95–1.08 on rep/contamination/isolation/promotion; 0.89–0.91 only on
+the frame-attribution F1 slices). So the H6 payoff is **not** "RAG collapses on
+swap." It is sharper: **C2b is answering-model-independent entirely** — retention
+1.000 with a $0 LLM-free planner, so there is *nothing to degrade*, no
+frontier-reasoner dependency, and no per-query token cost. The LLM-bound
+baselines remain model-sensitive (frame-rag still sheds ~10% on frame
+attribution even between two strong models) and, critically, **hostage to the
+answering model's reasoning budget**: under a reduced-compute answerer (qwen
+thinking-OFF) frame-rag retention falls to **0.57–0.81** on rep/contamination/
+isolation/promotion/ideation (`legB-frame-rag-thinkoff.json`). C2b is invariant
+to all of it.
+
+**Methodological note:** the first qwen frame-rag pass was mistakenly run
+thinking-OFF (extraction config); it was re-run thinking-ON to match the
+registered C1 answering mode and qwen's own on-disk c0/rag before any number
+above was reported. The thinking-off run is retained only as the reduced-compute
+sensitivity point.
+
+Artifacts: `legB-{frame-rag,rag-bm25,c0-no-memory}.json` (thinking-on primary),
+`legB-frame-rag-thinkoff.json` (sensitivity).
+
+## 6. Open decision for Toni
 
 Does the registered H6 band (≥0.95 PASS / <0.90 KILL) **extend to the frames-v1
 diagnostic slices**, or govern only the v0 logical slices it was written for
