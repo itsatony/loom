@@ -1,0 +1,514 @@
+{
+  "note": "Heads of government (P1313 office, P39 holders) for a handful of countries, with spouse (P26) and party (P102), plus each person's English Wikipedia REST summary. Fetched once from live Wikidata + Wikipedia; the build path reads this file only (no network).",
+  "countries": [
+    {
+      "qid": "Q145",
+      "name": "United Kingdom",
+      "office_qid": "Q14211",
+      "office_name": "Prime Minister of the United Kingdom",
+      "holders": [
+        {
+          "qid": "Q180589",
+          "name": "Boris Johnson",
+          "enwiki": "Boris Johnson",
+          "terms": [
+            {
+              "start": "2019-07-24",
+              "end": "2022-09-06"
+            }
+          ],
+          "spouse_qid": "Q64732854",
+          "spouse": "Carrie Johnson",
+          "party_qid": "Q9626",
+          "party": "Conservative Party",
+          "extract": "Alexander Boris de Pfeffel Johnson is a British politician and writer who was Prime Minister of the United Kingdom and Leader of the Conservative Party from 2019 to 2022. He was previously Foreign Secretary from 2016 to 2018 and Mayor of London from 2008 to 2016. He was Member of Parliament (MP) for Henley from 2001 to 2008 and for Uxbridge and South Ruislip from 2015 to 2023."
+        },
+        {
+          "qid": "Q20055561",
+          "name": "Rishi Sunak",
+          "enwiki": "Rishi Sunak",
+          "terms": [
+            {
+              "start": "2022-10-25",
+              "end": "2024-07-05"
+            }
+          ],
+          "spouse_qid": "Q22997426",
+          "spouse": "Akshata Murty",
+          "party_qid": "Q9626",
+          "party": "Conservative Party",
+          "extract": "Rishi Sunak is a British politician who served as Prime Minister of the United Kingdom and Leader of the Conservative Party from 2022 to 2024. Following his defeat to Keir Starmer's Labour Party in the 2024 general election, he became Leader of the Opposition, serving in this role from July to November 2024. He previously held two Cabinet positions under Boris Johnson, latterly as Chancellor of the Exchequer from 2020 to 2022. Sunak has been the Member of Parliament (MP) for Richmond and Northallerton, previously Richmond (Yorks), since 2015."
+        },
+        {
+          "qid": "Q264766",
+          "name": "Theresa May",
+          "enwiki": "Theresa May",
+          "terms": [
+            {
+              "start": "2016-07-13",
+              "end": "2019-07-24"
+            }
+          ],
+          "spouse_qid": "Q25194731",
+          "spouse": "Philip May",
+          "party_qid": "Q9626",
+          "party": "Conservative Party",
+          "extract": "Theresa Mary May, Baroness May of Maidenhead, is a British politician who served as Prime Minister of the United Kingdom and Leader of the Conservative Party from 2016 to 2019. She previously served as Home Secretary from 2010 to 2016. She was Member of Parliament (MP) for Maidenhead from 1997 to 2024, and has been a member of the House of Lords since August 2024. May was the second female British prime minister, after Margaret Thatcher, and the first woman to have held two of the Great Offices of State. May is a one-nation conservative."
+        },
+        {
+          "qid": "Q269909",
+          "name": "Andy Burnham",
+          "enwiki": "Andy Burnham",
+          "terms": [
+            {
+              "start": "2026-07-20"
+            }
+          ],
+          "spouse_qid": "Q140308951",
+          "spouse": "Marie-France van Heel",
+          "party_qid": "Q9630",
+          "party": "Labour Party",
+          "extract": "Andrew Murray Burnham is a British politician who has served as Prime Minister of the United Kingdom and Leader of the Labour Party since July 2026. He has been Member of Parliament (MP) for Makerfield since June 2026, and was Mayor of Greater Manchester from 2017 to 2026. From 2001 to 2017 he was MP for Leigh and held several cabinet positions, the most recent being Secretary of State for Health from 2009 to 2010 in Gordon Brown's government. A member of both Labour and the Co-operative Party, Burnham identifies as a socialist and is associated with Labour's \"soft left\" faction. His political ideology has been called \"Manchesterism\"."
+        },
+        {
+          "qid": "Q272201",
+          "name": "Liz Truss",
+          "enwiki": "Liz Truss",
+          "terms": [
+            {
+              "start": "2022-09-06",
+              "end": "2022-10-25"
+            }
+          ],
+          "spouse_qid": "Q113728852",
+          "spouse": "Hugh O'Leary",
+          "party_qid": "Q9626",
+          "party": "Conservative Party",
+          "extract": "Mary Elizabeth Truss is a British politician who was Prime Minister of the United Kingdom and Leader of the Conservative Party from September to October 2022. On her fiftieth day in office, she stepped down amid a government crisis, making her the shortest-serving prime minister in British history. The member of Parliament (MP) for South West Norfolk from 2010 to 2024, Truss held various Cabinet positions under three prime ministers – David Cameron, Theresa May and Boris Johnson – lastly as foreign secretary from 2021 to 2022."
+        },
+        {
+          "qid": "Q6383803",
+          "name": "Keir Starmer",
+          "enwiki": "Keir Starmer",
+          "terms": [
+            {
+              "start": "2024-07-05",
+              "end": "2026-07-20"
+            }
+          ],
+          "spouse_qid": "Q90033924",
+          "spouse": "Victoria Starmer",
+          "party_qid": "Q9630",
+          "party": "Labour Party",
+          "extract": "Sir Keir Rodney Starmer is a British politician and former practising lawyer who served as Prime Minister of the United Kingdom from 2024 to 2026. A member of the Labour Party, Starmer served as party leader from 2020 to 2026 and as Leader of the Opposition from 2020 to 2024. He has been Member of Parliament (MP) for Holborn and St Pancras since 2015. Before entering politics he was a barrister and served as Director of Public Prosecutions from 2008 to 2013."
+        }
+      ]
+    },
+    {
+      "qid": "Q16",
+      "name": "Canada",
+      "office_qid": "Q839078",
+      "office_name": "Prime Minister of Canada",
+      "holders": [
+        {
+          "qid": "Q128529",
+          "name": "Paul Martin",
+          "enwiki": "Paul Martin",
+          "terms": [
+            {
+              "start": "2003-12-12",
+              "end": "2006-02-06"
+            }
+          ],
+          "spouse_qid": "Q3481745",
+          "spouse": "Sheila Martin",
+          "party_qid": "Q138345",
+          "party": "Liberal Party of Canada",
+          "extract": "Paul Edgar Philippe Martin, also known as Paul Martin Jr., is a Canadian lawyer and retired politician who served as the 21st prime minister of Canada and the leader of the Liberal Party of Canada from 2003 to 2006."
+        },
+        {
+          "qid": "Q128543",
+          "name": "Jean Chrétien",
+          "enwiki": "Jean Chrétien",
+          "terms": [
+            {
+              "start": "1993-11-04",
+              "end": "2003-12-12"
+            }
+          ],
+          "spouse_qid": "Q2837024",
+          "spouse": "Aline Chrétien",
+          "party_qid": "Q138345",
+          "party": "Liberal Party of Canada",
+          "extract": "Joseph Jacques Jean Chrétien is a Canadian lawyer and former politician who served as the 20th prime minister of Canada from 1993 to 2003. He served as leader of the Liberal Party from 1990 to 2003 and as leader of the Official Opposition from 1990 to 1993."
+        },
+        {
+          "qid": "Q128553",
+          "name": "Kim Campbell",
+          "enwiki": "Kim Campbell",
+          "terms": [
+            {
+              "start": "1993-06-25",
+              "end": "1993-11-03"
+            }
+          ],
+          "spouse_qid": "Q5744516",
+          "spouse": "Hershey Felder",
+          "party_qid": "Q1292617",
+          "party": "Progressive Conservative Party of Canada",
+          "extract": "Avril Phaedra Douglas \"Kim\" Campbell is a Canadian politician who was the 19th prime minister of Canada from June to November 1993. Campbell is the first and only female prime minister of Canada. Prior to becoming the final Progressive Conservative (PC) prime minister, she was also the first woman to serve as minister of justice in Canadian history and the first woman to become minister of defence in a NATO member state."
+        },
+        {
+          "qid": "Q192533",
+          "name": "Mark Carney",
+          "enwiki": "Mark Carney",
+          "terms": [
+            {
+              "start": "2025-03-14"
+            }
+          ],
+          "spouse_qid": "Q75449953",
+          "spouse": "Diana Fox",
+          "party_qid": "Q138345",
+          "party": "Liberal Party of Canada",
+          "extract": "Mark Joseph Carney is a Canadian politician and economist who has served as the 24th prime minister of Canada since 2025. Carney was also elected as leader of the Liberal Party and the member of Parliament (MP) for Nepean in 2025. He was previously Governor of the Bank of Canada from 2008 to 2013 and Governor of the Bank of England from 2013 to 2020."
+        },
+        {
+          "qid": "Q206",
+          "name": "Stephen Harper",
+          "enwiki": "Stephen Harper",
+          "terms": [
+            {
+              "start": "2006-02-06",
+              "end": "2015-11-04"
+            }
+          ],
+          "spouse_qid": "Q3218812",
+          "spouse": "Laureen Harper",
+          "party_qid": "Q1292617",
+          "party": "Progressive Conservative Party of Canada",
+          "extract": "Stephen Joseph Harper is a Canadian politician who served as the 22nd prime minister of Canada from 2006 to 2015. He is to date the only prime minister to have come from the modern-day Conservative Party of Canada, being the party's co-founder and serving as its first leader from 2004 to 2015. Since 2018, he has been the chairman of the International Democracy Union."
+        },
+        {
+          "qid": "Q3099714",
+          "name": "Justin Trudeau",
+          "enwiki": "Justin Trudeau",
+          "terms": [
+            {
+              "start": "2015-11-04",
+              "end": "2025-03-14"
+            }
+          ],
+          "spouse_qid": "Q3788185",
+          "spouse": "Sophie Grégoire Trudeau",
+          "party_qid": "Q138345",
+          "party": "Liberal Party of Canada",
+          "extract": "Justin Pierre James Trudeau is a Canadian politician who served as the 23rd prime minister of Canada from 2015 to 2025. He led the Liberal Party from 2013 until his resignation in 2025 and was the member of Parliament (MP) for Papineau from 2008 until 2025."
+        }
+      ]
+    },
+    {
+      "qid": "Q183",
+      "name": "Germany",
+      "office_qid": "Q4970706",
+      "office_name": "Federal Chancellor of Germany",
+      "holders": [
+        {
+          "qid": "Q2516",
+          "name": "Helmut Schmidt",
+          "enwiki": "Helmut Schmidt",
+          "terms": [
+            {
+              "start": "1974-05-16",
+              "end": "1982-10-01"
+            }
+          ],
+          "spouse_qid": "Q69314",
+          "spouse": "Loki Schmidt",
+          "party_qid": "Q49768",
+          "party": "Social Democratic Party of Germany",
+          "extract": "Helmut Heinrich Waldemar Schmidt was a German politician and member of the Social Democratic Party of Germany (SPD), who served as the chancellor of West Germany from 1974 to 1982. He was the longest lived chancellor in German history and had the longest post-chancellorship, at over 33 years."
+        },
+        {
+          "qid": "Q2518",
+          "name": "Helmut Kohl",
+          "enwiki": "Helmut Kohl",
+          "terms": [
+            {
+              "start": "1982-10-01",
+              "end": "1998-10-26"
+            }
+          ],
+          "spouse_qid": "Q68743",
+          "spouse": "Hannelore Kohl",
+          "party_qid": "Q49762",
+          "party": "Christian Democratic Union",
+          "extract": "Helmut Josef Michael Kohl was a German politician who served as chancellor of Germany and governed the Federal Republic from 1982 to 1998. He was leader of the Christian Democratic Union (CDU) from 1973 to 1998 and oversaw the end of the Cold War, German reunification, and the creation of the European Union (EU). Kohl's 16-year tenure is the longest in German post-war history and is the longest for any democratically elected chancellor of Germany."
+        },
+        {
+          "qid": "Q2530",
+          "name": "Gerhard Schröder",
+          "enwiki": "Gerhard Schröder",
+          "terms": [
+            {
+              "start": "1998-10-27",
+              "end": "2005-11-22"
+            }
+          ],
+          "spouse_qid": "Q1618950",
+          "spouse": "Hiltrud Schwetje",
+          "party_qid": "Q49768",
+          "party": "Social Democratic Party of Germany",
+          "extract": "Gerhard Fritz Kurt \"Gerd\" Schröder is a German former politician and lobbyist who served as Chancellor of Germany from 1998 to 2005. From 1999 to 2004, he was also the Leader of the Social Democratic Party of Germany (SPD). As chancellor, he led a coalition government of the SPD and Alliance 90/The Greens. Since leaving public office, Schröder has worked for Russian state-owned energy companies, including Nord Stream AG, Rosneft, and Gazprom."
+        },
+        {
+          "qid": "Q566257",
+          "name": "Friedrich Merz",
+          "enwiki": "Friedrich Merz",
+          "terms": [
+            {
+              "start": "2025-05-06"
+            }
+          ],
+          "spouse_qid": "Q132801694",
+          "spouse": "Charlotte Merz",
+          "party_qid": "Q49762",
+          "party": "Christian Democratic Union",
+          "extract": "Joachim-Friedrich Martin Josef Merz is a German politician who has served as Chancellor of Germany since 6 May 2025. He has also served as Leader of the Christian Democratic Union (CDU) since January 2022, leading the CDU/CSU (Union) parliamentary group as Leader of the Opposition in the Bundestag from February 2022 to May 2025."
+        },
+        {
+          "qid": "Q567",
+          "name": "Q567",
+          "enwiki": "Angela Merkel",
+          "terms": [
+            {
+              "start": "2005-11-22",
+              "end": "2021-12-08"
+            }
+          ],
+          "spouse_qid": "Q13415350",
+          "spouse": "Ulrich Merkel",
+          "party_qid": "Q49762",
+          "party": "Christian Democratic Union",
+          "extract": "Angela Dorothea Merkel is a German stateswoman and retired politician who served as Chancellor of Germany from 2005 to 2021. She is the only woman to have held the office and the only former East German. She was Leader of the Opposition from 2002 to 2005 and Leader of the Christian Democratic Union (CDU) from 2000 to 2018."
+        },
+        {
+          "qid": "Q61053",
+          "name": "Olaf Scholz",
+          "enwiki": "Olaf Scholz",
+          "terms": [
+            {
+              "start": "2021-12-08",
+              "end": "2025-05-06"
+            }
+          ],
+          "spouse_qid": "Q920705",
+          "spouse": "Britta Ernst",
+          "party_qid": "Q49768",
+          "party": "Social Democratic Party of Germany",
+          "extract": "Olaf Scholz is a German politician who served as the chancellor of Germany from 2021 to 2025. A member of the Social Democratic Party (SPD), he previously served as Vice Chancellor in the fourth Merkel cabinet and as Federal Minister of Finance from 2018 to 2021. He was also First Mayor of Hamburg from 2011 to 2018, deputy leader of the SPD from 2009 to 2019, and Federal Minister of Labour and Social Affairs from 2007 to 2009."
+        }
+      ]
+    },
+    {
+      "qid": "Q38",
+      "name": "Italy",
+      "office_qid": "Q796897",
+      "office_name": "Prime Minister of Italy",
+      "holders": [
+        {
+          "qid": "Q1071031",
+          "name": "Paolo Gentiloni",
+          "enwiki": "Paolo Gentiloni",
+          "terms": [
+            {
+              "start": "2016-12-12",
+              "end": "2018-06-01"
+            }
+          ],
+          "party_qid": "Q47729",
+          "party": "Democratic Party",
+          "extract": "Paolo Gentiloni Silveri is an Italian politician who was European Commissioner for Economy in the von der Leyen Commission from 1 December 2019 to 30 November 2024. He had previously served as prime minister of Italy from December 2016 to June 2018."
+        },
+        {
+          "qid": "Q294460",
+          "name": "Mario Draghi",
+          "enwiki": "Mario Draghi",
+          "terms": [
+            {
+              "start": "2021-02-13",
+              "end": "2022-10-22"
+            }
+          ],
+          "party_qid": "Q327591",
+          "party": "independent politician",
+          "extract": "Mario Draghi is an Italian politician, economist, academic, banker, statesman, and civil servant, who served as the prime minister of Italy from 13 February 2021 to 22 October 2022. Prior to his appointment as prime minister, he served as the president of the European Central Bank (ECB) between 2011 and 2019. Draghi was also the chair of the Financial Stability Board between 2009 and 2011, and governor of the Bank of Italy between 2006 and 2011."
+        },
+        {
+          "qid": "Q451791",
+          "name": "Giorgia Meloni",
+          "enwiki": "Giorgia Meloni",
+          "terms": [
+            {
+              "start": "2022-10-22"
+            }
+          ],
+          "party_qid": "Q1757843",
+          "party": "Brothers of Italy",
+          "extract": "Giorgia Meloni is an Italian politician who has served as Prime Minister of Italy since October 2022. She is the first woman to hold the office and the head of the second-longest government in the history of the Italian Republic. A member of the Chamber of Deputies since 2006, she has been president of the right-wing to far-right party Brothers of Italy (FdI) since 2014, and was president of the European Conservatives and Reformists Party from 2020 to 2025."
+        },
+        {
+          "qid": "Q47563",
+          "name": "Matteo Renzi",
+          "enwiki": "Matteo Renzi",
+          "terms": [
+            {
+              "start": "2014-02-22",
+              "end": "2016-12-12"
+            }
+          ],
+          "spouse_qid": "Q18350440",
+          "spouse": "Agnese Landini",
+          "party_qid": "Q67785862",
+          "party": "Italy Alive",
+          "extract": "Matteo Renzi is an Italian politician who served as prime minister of Italy from 2014 to 2016. He has been a senator for Florence since 2018. Renzi has served as the leader of Italia Viva (IV) since 2019, having been the secretary of the Democratic Party (PD) from 2013 to 2018, with a brief interruption in 2017."
+        },
+        {
+          "qid": "Q53844829",
+          "name": "Giuseppe Conte",
+          "enwiki": "Giuseppe Conte",
+          "terms": [
+            {
+              "start": "2018-06-01",
+              "end": "2021-02-13"
+            }
+          ],
+          "party_qid": "Q327591",
+          "party": "independent politician",
+          "extract": "Giuseppe Conte is an Italian jurist, academic, and politician who served as prime minister of Italy from June 2018 to February 2021. He has been the president of the Five Star Movement (M5S) since August 2021."
+        },
+        {
+          "qid": "Q674957",
+          "name": "Enrico Letta",
+          "enwiki": "Enrico Letta",
+          "terms": [
+            {
+              "start": "2013-04-28",
+              "end": "2014-02-21"
+            }
+          ],
+          "spouse_qid": "Q113455512",
+          "spouse": "Gianna Fregonara",
+          "party_qid": "Q47729",
+          "party": "Democratic Party",
+          "extract": "Enrico Letta is an Italian politician who served as Prime Minister of Italy from April 2013 to February 2014, leading a grand coalition of centre-left and centre-right parties. He later was the leader of the Democratic Party (PD) from March 2021 to March 2023."
+        }
+      ]
+    },
+    {
+      "qid": "Q408",
+      "name": "Australia",
+      "office_qid": "Q319145",
+      "office_name": "Prime Minister of Australia",
+      "holders": [
+        {
+          "qid": "Q335697",
+          "name": "Anthony Albanese",
+          "enwiki": "Anthony Albanese",
+          "terms": [
+            {
+              "start": "2022-05-23"
+            }
+          ],
+          "spouse_qid": "Q5043327",
+          "spouse": "Carmel Tebbutt",
+          "party_qid": "Q216082",
+          "party": "Australian Labor Party",
+          "extract": "Anthony Norman Albanese is an Australian politician who has served as the 31st prime minister of Australia since 2022. He has been the leader of the Labor Party since 2019 and the member of parliament (MP) for the New South Wales division of Grayndler since 1996."
+        },
+        {
+          "qid": "Q348577",
+          "name": "Tony Abbott",
+          "enwiki": "Tony Abbott",
+          "terms": [
+            {
+              "start": "2013-09-18",
+              "end": "2015-09-15"
+            }
+          ],
+          "spouse_qid": "Q16148252",
+          "spouse": "Margie Abbott",
+          "party_qid": "Q241149",
+          "party": "Liberal Party of Australia",
+          "extract": "Anthony John Abbott is an Australian politician who served as the 28th prime minister of Australia from 2013 to 2015, holding office as the leader of the Liberal Party. He was the member of Parliament (MP) for the New South Wales division of Warringah from 1994 to 2019 and is the current president of the Liberal Party."
+        },
+        {
+          "qid": "Q41563",
+          "name": "Julia Gillard",
+          "enwiki": "Julia Gillard",
+          "terms": [
+            {
+              "start": "2010-06-24",
+              "end": "2013-06-27"
+            }
+          ],
+          "party_qid": "Q216082",
+          "party": "Australian Labor Party",
+          "extract": "Julia Eileen Gillard is an Australian former politician who served as the 27th prime minister of Australia from 2010 to 2013. She held office as the leader of the Labor Party (ALP), having previously served as the 13th deputy prime minister from 2007 to 2010. She is the first and only woman to hold either office."
+        },
+        {
+          "qid": "Q43135",
+          "name": "Kevin Rudd",
+          "enwiki": "Kevin Rudd",
+          "terms": [
+            {
+              "start": "2007-12-03",
+              "end": "2010-06-24"
+            },
+            {
+              "start": "2013-06-27",
+              "end": "2013-09-18"
+            }
+          ],
+          "spouse_qid": "Q7799907",
+          "spouse": "Thérèse Rein",
+          "party_qid": "Q216082",
+          "party": "Australian Labor Party",
+          "extract": "Kevin Michael Rudd is an Australian diplomat and former politician who served as the 26th prime minister of Australia from 2007 to 2010 and from June to September 2013, holding office as the leader of the Labor Party. From 2023 to 2026, Rudd was the ambassador of Australia to the United States."
+        },
+        {
+          "qid": "Q7436908",
+          "name": "Scott Morrison",
+          "enwiki": "Scott Morrison",
+          "terms": [
+            {
+              "start": "2018-08-24",
+              "end": "2022-05-23"
+            }
+          ],
+          "spouse_qid": "Q56249994",
+          "spouse": "Jenny Morrison",
+          "party_qid": "Q241149",
+          "party": "Liberal Party of Australia",
+          "extract": "Scott John Morrison is an Australian former politician who served as the 30th prime minister of Australia and the leader of the Liberal Party from 2018 to 2022. He was the member of parliament (MP) for the New South Wales division of Cook from 2007 to 2024."
+        },
+        {
+          "qid": "Q927550",
+          "name": "Malcolm Turnbull",
+          "enwiki": "Malcolm Turnbull",
+          "terms": [
+            {
+              "start": "2015-09-15",
+              "end": "2018-08-24"
+            }
+          ],
+          "spouse_qid": "Q6698540",
+          "spouse": "Lucy Turnbull",
+          "party_qid": "Q241149",
+          "party": "Liberal Party of Australia",
+          "extract": "Malcolm Bligh Turnbull is an Australian former politician, businessman and barrister who served as the 29th prime minister of Australia from 2015 to 2018. He held office as leader of the Liberal Party from 2008 to 2009 and again from 2015 to 2018, and was the member of parliament (MP) for the New South Wales division of Wentworth from 2004 to 2018."
+        }
+      ]
+    }
+  ]
+}

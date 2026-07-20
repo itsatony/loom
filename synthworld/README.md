@@ -273,3 +273,44 @@ retention 0.89–1.08 with a strong second reasoner, 0.57–0.81 under a reduced
 compute one) whereas C2b answering is model-independent at 1.000 — no reasoner,
 no per-query cost, nothing to degrade. Full analysis + the H6-band
 recommendation in `results/frames-swap/RESULTS.md`.
+
+## Phase 2 — real-domain extraction eval (`cmd/realimport`)
+
+Phase 2 tests the one thing the synthetic campaign is silent on: **does LLM
+extraction hold on genuinely real, messy, non-synthetic text?** `cmd/realimport`
+imports REAL external data into the standard dataset format so the whole
+toolchain (`cmd/validate`, `cmd/harness`, `cmd/fidelity`) runs unchanged — no
+existing package is modified. External sources are pinned to a snapshot so the
+build is network-free and byte-identical.
+
+```sh
+go run ./cmd/realimport -fetch -snapshot cmd/realimport/snapshot.json   # one live fetch → pinned
+go run ./cmd/realimport -snapshot cmd/realimport/snapshot.json -out /tmp/rung0
+go run ./cmd/validate -dir /tmp/rung0     # OK — oracle re-verifies the hand-built dataset
+go run ./cmd/harness  -dir /tmp/rung0     # diagnostic pattern on real prose
+```
+
+The program is **rung-structured** (pre-registered, MASTERPLAN §10 2026-07-20):
+
+- **Rung 0 (built, this cmd): office-holder / Wikidata + Wikipedia — a
+  NON-falsifying plumbing gate.** Proves the import → oracle → harness path on
+  real prose. Result: the §5 diagnostic pattern reproduces **exactly** on real
+  Wikipedia text (`loom-C2a == oracle` every cell; `stale-oracle` fails exactly
+  the revision flips; `episode-grep` caught by retained controls). The
+  provenance probe empirically confirms this domain is **RAG-friendly** (BM25
+  full comp+rev coverage by k=8 — the opposite of synthworld's revision 0/12),
+  which is *why* it is only a plumbing rung, not the falsification. A labeled
+  LLM-extraction smoke test (gpt-5-mini, 0 errors) surfaced the one real-corpus
+  pipeline gap: **entity grounding** — the extractor emits text surface forms
+  (`"Germany"`) that don't match opaque world IDs (`c_germany`), so C2b floors
+  for lack of an entity-linking/alias step. Actionable input to Rung 1, not a
+  thesis signal.
+- **Rung 1 (execution-ready, pending ratification): API version-history /
+  deprecations — THE falsification** (kill criterion §7). Resolves every threat
+  above: low salience on exact version boundaries, closed-world diffable
+  LLM-free ground truth, *stated* deprecation/replacement rules (rule-
+  composition in scope), changelog vocabulary disjoint from usage docs, and
+  symbol names that are surface-form-identical in text and ground truth (so the
+  Rung-0 entity-grounding gap largely dissolves).
+- **Rung 2 (later): hand-authored regulatory corpus** — highest product
+  generalization, hand-authored oracle.

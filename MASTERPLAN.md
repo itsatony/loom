@@ -1696,3 +1696,174 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
     2, never assumed. Caveat: single seed, single SC draw/model (n=1 draw).
     Locked frames-v1 verdicts UNCHANGED (reading (a) stays the accepted
     result); SC was not run on the locked set.
+
+- 2026-07-20 (PHASE 2 OPENS — REAL-DOMAIN EXTRACTION EVAL; DESIGN
+  PRE-REGISTRATION, before any real-corpus measurement. Awaiting Toni
+  ratification of the RUNG STRUCTURE + Rung-1 corpus choice + kill-criterion
+  placement.) Phase 1 (synthetic instrument-level validation of the bet) is
+  CLOSED: H5 PASS (+39pp vs strongest legitimate C1, 20 seeds), H6 retention
+  ratified on the logical slices across three swapped families, C3/LoRA the
+  clean portability negative, frames-v1 accepted near-pass, self-consistency
+  characterized. The #1 Phase-2 gap and the WHOLE remaining product risk:
+  **does LLM extraction hold on genuinely real, messy, non-synthetic text?**
+  Everything downstream is proven to CARRY BY CONSTRUCTION if extraction is
+  faithful (loom-C2a == oracle on the known KB; C2b answering is LLM-free
+  op-planner). So the real-domain eval reduces to: measure extraction on real
+  text against a TRUSTED reference, then run the same slices.
+  * REUSE (verified via code-surface map, 2026-07-20): no existing code needs
+    changing. A new `cmd/realimport` builds a `world.World` + `[]gen.Episode`
+    (real text in `.Text`) + `[]gen.Query` (ground truth computed via
+    `oracle.Eval` current + `IgnoreSupersessions` stale, gated by episode-day
+    `RevealedBy`) IN MEMORY and writes the standard 4-file dataset dir. Then
+    the ENTIRE existing toolchain runs unchanged: `cmd/validate`
+    (`gen.VerifyDataset` re-checks `w.Validate()` + oracle-reproduction +
+    composition-provenance >=2 episodes + no-future-knowledge — so the
+    importer is self-checking against the proven verifier), `cmd/harness`
+    (C0 floor / C1 RAG {bm25,embed,hybrid,tmr} / C1c long-context / D6
+    perfect-retrieval ceiling / C2a / C2b + provenance probe + per-slice
+    scoring), `cmd/fidelity`, `cmd/memoexport`. LLM wired via `HARNESS_LLM_*`
+    with cassette record/replay. C2b failures stay attributable to extraction
+    (scorer + substrate share the imported oracle) — the load-bearing design
+    invariant carries to real data.
+  * DETERMINISM (sacred, §2): all external sources are PINNED to dated
+    snapshot files committed with the dataset source; the importer reads the
+    snapshot, never the live network, so `same snapshot + same binary =
+    identical dataset`. No live SPARQL / live docs at dataset-build time.
+
+  RED-TEAM (adversarial design review, logged as the reasoning for the rung
+  structure; threats are why the naive design is NOT the falsification):
+  * (P0.1) DOMAIN-RIGGING. The office-holder/Wikidata domain makes RAG STRONG
+    exactly where synthworld showed it structurally weak: succession is
+    co-located and vocabulary-SHARED ("X served 2010-2015, succeeded by Y" in
+    one sentence — RAG retrieves it trivially; the synthworld
+    disjoint-supersession failure mode CANNOT occur), and multi-hop entity
+    joins on salient entities are the RAG-friendly HotpotQA regime. A FAIL
+    there is an artifact, a PASS does not generalize.
+  * (P0.2) C0 CANNOT SCRUB C1 LEAKAGE. Office-holder facts are heavily in
+    pretraining. C2b answering is immune (LLM-free planner), but C1 (the
+    kill-criterion baseline) sees context AND parametric memory; parametric
+    recall is CONTEXT-CUED, so C0 (no context) is only a LOWER BOUND on C1's
+    cheating — flagging C0-correct items does not clean C1. This biases toward
+    a FALSE FAIL and a non-generalizing PASS. In the real VR-Bank domain
+    (private policies) C1 is honest; office-holders are the ONE regime where
+    it is not.
+  * (P0.3) OPEN-WORLD SCORING BREAKS. Wikidata is open-world/incomplete;
+    "not in Wikidata" != false. This contaminates every perturbed-argument
+    NEGATIVE, every `find` gold set, and the retained controls — all of which
+    assume the synthworld CLOSED-WORLD complete oracle ("not derivable =>
+    false"). The diagnostic pattern (always-true/false/grep/stale) is only
+    interpretable under a complete oracle.
+  * (Q2) JOIN != RULE-COMPOSITION. Synthworld composition tested RULE
+    extraction + Horn-clause chaining (derived strata, depth 1-3) — the harder,
+    product-relevant half (VR-Bank sells rules/exceptions/effective-dates). A
+    multi-hop fact JOIN is a conjunctive query over BASE facts that C2a already
+    proves the planner does; it does NOT test rule extraction from real text.
+    Dropping stated rules quietly NARROWS the falsification. Rung 1 MUST keep
+    stated-rule composition in scope.
+  * (Q3) SPAN-GROUNDED FIDELITY IS CIRCULAR. Deciding "this fact is stated in
+    this passage" is itself an entailment/extraction problem (relation
+    paraphrase, interval-granularity mismatch "since 2010" vs `2010-05-03`,
+    coref). An LLM-free span match cannot adjudicate it; an LLM judge is
+    circular. => fidelity is DEMOTED to a coarse diagnostic (joint
+    extraction x coverage recall vs the full oracle; do NOT try to separate
+    "stated-but-missed" from "not-stated"), NOT a gate. The LLM-free slice
+    scores (planner + oracle) carry the falsification.
+
+  RUNG STRUCTURE (adopted; kill criterion binds RUNG 1 ONLY):
+  * RUNG 0 — office-holder / Wikidata+Wikipedia. DEMOTED to a NON-FALSIFYING
+    integration/plumbing gate: does the real-text -> importer -> imported-oracle
+    -> harness path run end-to-end on genuinely messy, non-templated prose and
+    REPRODUCE the diagnostic signatures (always-true/false/grep/stale/oracle/
+    C2a) on real data? Runs LLM-FREE (diagnostics cost nothing). Cheap insurance
+    for the new code path BEFORE spending on Rung 1. NO kill criterion attached.
+    Optional labeled C2b smoke test (cassette-recorded) = first look at the LLM
+    extractor on real prose; explicitly non-falsifying.
+  * RUNG 1 — API VERSION-HISTORY / DEPRECATIONS corpus. THE falsification.
+    Structural analog of synthworld that resolves every P0/Q above: version =
+    effective date; deprecation/removal = supersession; replaced-by chains =
+    composition; changelog/migration-note vocabulary is DISJOINT from usage
+    docs (reproduces the synthworld RAG-failure mechanism); STATED rules
+    (deprecation/replacement policies with effective dates) => rule-composition
+    stays in scope; low pretraining salience on EXACT version boundaries;
+    closed-world DIFFABLE LLM-free ground truth (tagged API surface / stubs /
+    @deprecated annotations over a PINNED package+version set); generalizes to
+    VR-Bank. SELECTION CRITERIA to lock before build (feasibility-gated): (a)
+    machine-readable cross-version API surface pullable in a session (stubs or
+    introspectable), (b) rich real deprecation/replacement history stated in
+    real changelog/migration prose, (c) low salience on exact version
+    boundaries, (d) closed-world over the pinned set, (e) composition queries
+    whose joined items come from DISJOINT passages (enforce the synthworld
+    ">=2 episodes, no single passage states both" invariant per query at
+    generation; guard against depth-1-in-disguise), (f) genuinely PAIRED
+    retained controls (versions/symbols the supersession does NOT affect).
+  * RUNG 2 — hand-authored regulatory/policy corpus (bounded; tier-H human
+    oracle). Highest generalization to the product, highest GT-labor cost;
+    only after the pipeline is proven on Rung 1.
+
+  KILL CRITERION (Rung 1, mirrors §7 unchanged): C2b (LLM-extracted substrate)
+  must beat the STRONGEST C1 on the composition slice by >=15pp at
+  equal-or-better repetition, else the v0 compiled-substrate bet is falsified
+  on real text. Negative result written up with the same care as a positive.
+  HYGIENE (both rungs, §11): re-run the diagnostic pattern on the real corpus
+  FIRST; if the expected signatures do not reproduce, the importer/oracle
+  mapping is broken and no measured number is trustworthy — fix the harness
+  before measuring.
+  STATUS: registered. This session executes Rung 0 (build `cmd/realimport` +
+  LLM-free validation on real prose). Rung 1 corpus selection + the falsifying
+  C2b-vs-C1 run deliberately NOT rushed (rushing the one experiment that can
+  falsify the thesis is the §11 anti-pattern). Awaiting Toni ratification of
+  the rung structure + Rung-1 domain before the falsifying run.
+
+- 2026-07-20 (RUNG 0 — RESULTS; NON-FALSIFYING plumbing gate; new code
+  `cmd/realimport`, no existing package touched; artifacts committed).
+  Real-domain instrument path PROVEN end-to-end on genuinely real, non-
+  templated prose. Corpus: national heads of government of 5 countries (DE,
+  UK, CA, AU, IT) — office/holders/spouse/party from Wikidata (P39/P26/P102),
+  person prose = the real Wikipedia REST `extract`; PINNED to
+  `cmd/realimport/snapshot.json` (build path is network-free → byte-identical
+  across runs, verified). Stratified rules head_of (depth 1) + first_spouse
+  (depth 2) drive composition; a SYNTHESIZED acting() marker + rule_head_of_v2
+  (adds acting exception) + a 2010 supersession drive revision (scaffolding,
+  labeled in the manifest). Size: 72 entities / 80 facts / 3 rules / 1
+  supersession / 34 episodes / 28 queries (12 rep, 10 comp, 6 rev).
+  * GATES (independently re-run, not just trusted): gofmt/vet clean;
+    `cmd/validate` OK (oracle reproduces every truth, revision flips/retains
+    as labeled, composition provenance >=2 episodes, no future knowledge);
+    determinism byte-identical. DIAGNOSTIC PATTERN reproduces EXACTLY on real
+    prose (§5 canonical): always-true/false + episode-grep + stale-oracle show
+    the textbook signatures; **loom-C2a == oracle on every cell** (S1 exit
+    criterion carries to real data); stale-oracle fails EXACTLY the 2 revision
+    flips; episode-grep right-for-wrong-reason on flips (2/2) caught by
+    retained controls (0/4). => importer + oracle mapping + scorer are sound
+    on real text.
+  * EMPIRICAL CONFIRMATION OF THE RED-TEAM P0.1 (domain-rigging): the
+    provenance probe shows BM25 reaching FULL composition+revision coverage by
+    k=8 (1/6→6/6 comp, 1/6→6/6 rev from k4→k16) — the OPPOSITE of synthworld
+    (revision 0/12 at every k). Office-holder succession is co-located /
+    vocabulary-shared, so RAG retrieval is near-ceiling here. This is measured
+    proof (not just argument) that office-holders is a RAG-friendly battle-
+    ground and correctly a NON-falsifying rung.
+  * FIRST REAL-PROSE LLM-EXTRACTION LOOK (loom-c2b, gpt-5-mini, 34 calls, 0
+    errors, cassettes local): the extraction path RUNS end-to-end on real
+    prose (JSON parses, store compiles, scores) — plumbing works. But C2b
+    FLOORS on positives (0/6 rep+, 0/4 comp+, always-false signature). ROOT
+    CAUSE (confirmed from cassettes): NO ENTITY-LINKING layer. The LLM emits
+    plausible surface-form entity refs from the text ("Germany",
+    "office_Federal_Chancellor_of_Germany") that do not match the oracle's
+    opaque slug IDs (c_germany, off_federal_chancellor_of_germany), so atoms
+    miss ground truth. This is a pipeline-GROUNDING gap, NOT an LLM-capability
+    result and NOT a thesis signal (Rung 0 is non-falsifying). It is the KEY
+    Rung-1 input: the extractor/normalizer must ground text surface forms to
+    the world's entity/symbol vocabulary (catalog/alias or entity-linking
+    step). NB the office-ID miss was near-identity (prefix+case only) → a
+    normalization pass bridges much of it; country names need a catalog.
+    STRONG additional point for the API version-history domain: symbol names
+    ARE the surface forms in BOTH changelog text and the diffable API-surface
+    ground truth (e.g. `pkg.mod.Foo.bar` verbatim), so entity linking is
+    near-identity there — the grounding gap Rung 0 surfaced largely dissolves
+    in Rung 1, but must still be handled deliberately (provide the symbol
+    catalog to the extractor/normalizer).
+  * NET: the reusable real-domain instrument (import → oracle → harness) is
+    built and validated on real text; the one pipeline gap for real corpora
+    (entity grounding) is localized and actionable. Rung 1 is execution-ready
+    pending domain ratification.
