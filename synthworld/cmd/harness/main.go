@@ -302,6 +302,20 @@ func main() {
 			prov := &harness.C2bProvCondition{Label: "c2b-prov", Vocab: vocab,
 				Extractor: loom.NewLLMExtractor(metered("c2b-prov"), vocab),
 				Workers:   pipelineWorkers, FrameNames: condFrameNames}
+			// Self-consistency extraction (§10 2026-07-20), opt-in via
+			// HARNESS_C2B_SC_K=<odd K>. K sampled extractions, majority-voted
+			// frame homing. Run with HARNESS_LLM_TEMPERATURE>0 so samples
+			// diverge. DEV-ONLY per pre-registration; never a locked-set rerun.
+			if v := os.Getenv("HARNESS_C2B_SC_K"); v != "" {
+				scK := 5
+				fmt.Sscanf(v, "%d", &scK)
+				scCond := &harness.LoomC2bCondition{Label: "loom-c2b-frames-sc", Vocab: vocab,
+					Extractor: loom.NewFramesSelfConsistExtractor(
+						loom.NewFramesLLMExtractor(metered("loom-c2b-frames-sc"), vocab), scK),
+					Workers: pipelineWorkers, FrameNames: condFrameNames,
+					QuarantineActualBelowConfidence: quarConf}
+				conditions = append(conditions, scCond)
+			}
 			// frame-rag: the CEILING null (§10 2026-07-18) — strongest
 			// query-time frame reasoning: frameless RAG over full episode
 			// text + frame semantics, deciding frames per query.

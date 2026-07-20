@@ -1653,3 +1653,23 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
   and (ii) the reference-independent absolute-F1 spectrum. No band retrofit
   onto the frames-v1 diagnostic slices. This closes the only open
   interpretation question from the swap campaign.
+- 2026-07-20 (SELF-CONSISTENCY EXTRACTION — PRE-REGISTRATION, dev-only). The
+  deferred robustness lever (logged 2026-07-19 seed-7 diagnostic). Mechanism:
+  wrap FramesLLMExtractor to draw K independent samples per episode (distinct
+  per-sample `seed` in ExtraParams + temperature>0 so cache keys differ and the
+  model genuinely resamples), align candidates by exact source line + kind +
+  relation/args, and MAJORITY-VOTE the frame-homing field (frame; ties broken
+  toward the modal, then highest-confidence variant); non-frame fields taken
+  from the modal variant. K registered = 5 (odd; §2 of the diagnostic:
+  majority-of-5 still-wrong ~0.4%).
+  VALIDATION IS DEV-ONLY (seeds 99 + 7-as-dev), NEVER the locked set — running
+  it on the locked seeds to move F-E2 would be test-set fitting and is refused.
+  SUCCESS CRITERIA (pre-registered, dev): (i) on the WEAK extractor (qwen36),
+  frame-homing fidelity (misattribution/ideation F1, contamination) rises toward
+  the strong-extractor ceiling vs the single-sample baseline; (ii) the seed-7
+  rul_019 mis-homing (the F-E2 v0-composition tail) is removed, i.e. rul_019
+  homes to "" (actual) under the K-vote; (iii) NO regression on the v0 logical
+  slices or F-E1/F-E4 on dev. If dev-validated, self-consistency becomes an
+  available extraction mode for FUTURE campaigns (real-domain Phase 2), NOT a
+  retroactive re-run of the closed frames-v1 locked verdicts. Cost: qwen36
+  self-hosted (free) for dev; K=5 => ~5x extraction calls on 2 dev seeds.

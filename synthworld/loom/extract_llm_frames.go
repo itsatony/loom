@@ -144,12 +144,23 @@ type framesCandidateEnvelope struct {
 }
 
 func (e *FramesLLMExtractor) Extract(ep gen.Episode) ([]Candidate, []string, error) {
+	return e.extractWith(ep, "")
+}
+
+// extractWith runs one extraction pass. nonce (when non-empty) is appended to
+// the user prompt so the self-consistency wrapper can force K DISTINCT requests
+// (distinct cache keys) from the same episode; with temperature>0 the model
+// then genuinely resamples. The nonce is an inert trailing tag.
+func (e *FramesLLMExtractor) extractWith(ep gen.Episode, nonce string) ([]Candidate, []string, error) {
 	ctxBlock := ""
 	if e.frameCtx != "" {
 		ctxBlock = "\n" + e.frameCtx + "\n"
 	}
 	user := fmt.Sprintf("Relation vocabulary (name: slots):\n%s\n%sEpisode text:\n%s\n\nExtract all items as JSON.",
 		vocabPromptLines(e.vocabRef), ctxBlock, stripEpisodeHeader(ep.Text))
+	if nonce != "" {
+		user += "\n\n[pass:" + nonce + "]"
+	}
 	out, err := e.LLM.Complete(context.Background(), framesExtractSystemPrompt, user)
 	if err != nil {
 		return nil, nil, fmt.Errorf("episode %s: %w", ep.ID, err)
