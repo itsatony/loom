@@ -72,17 +72,27 @@ type builder struct {
 	factEp   map[int]string
 	epDay    map[string]int
 	depProse map[string]string // per-symbol deprecation episode prose
-	remProse string            // shared removal-notice prose (real, concatenated)
+	// depVersion homes each deprecation episode under the version it was
+	// released in ("6.1", "5.2"). Real Django release notes publish each
+	// deprecation under a versioned heading ("Features deprecated in 6.1");
+	// the episode text restores that heading so the version — the deprecated_in
+	// fact's second argument — is LEXICALLY present, as it is in the real
+	// source. Without it the version lives only in the structured payload, and
+	// no text-consuming condition (C1 or C2b) can recover which release a
+	// deprecation belongs to.
+	depVersion map[string]string
+	remProse   string // shared removal-notice prose (real, concatenated)
 }
 
 func buildDataset(snap *Snapshot, outDir string) error {
 	b := &builder{
-		entities: map[string]world.Entity{},
-		nameOf:   map[string]string{},
-		verDay:   map[string]int{},
-		factEp:   map[int]string{},
-		epDay:    map[string]int{},
-		depProse: map[string]string{},
+		entities:   map[string]world.Entity{},
+		nameOf:     map[string]string{},
+		verDay:     map[string]int{},
+		factEp:     map[int]string{},
+		epDay:      map[string]int{},
+		depProse:   map[string]string{},
+		depVersion: map[string]string{},
 	}
 	b.types = []world.EntityType{tSymbol, tVersion}
 	b.defineRelations()
@@ -236,6 +246,7 @@ func (b *builder) ingestSymbols(snap *Snapshot) {
 				epID := "ep_dep_" + sid
 				b.factEp[di] = epID
 				b.depProse[epID] = s.DeprecationProse
+				b.depVersion[epID] = s.DeprecatedIn
 				b.epDay[epID] = b.verDayOr(s.DeprecatedIn, b.dayRemoval)
 				if tid != "" {
 					rb := b.addFact(world.BaseFact{
@@ -270,6 +281,7 @@ func (b *builder) ingestSymbols(snap *Snapshot) {
 				epID := "ep_dep_" + sid
 				b.factEp[di] = epID
 				b.depProse[epID] = s.DeprecationProse
+				b.depVersion[epID] = s.DeprecatedIn
 				b.epDay[epID] = b.verDayOr(s.DeprecatedIn, b.dayCatalog)
 			}
 			if tid != "" {
@@ -467,7 +479,7 @@ func (b *builder) buildEpisodes(snap *Snapshot) []gen.Episode {
 	}
 	sort.Strings(depIDs)
 	for _, id := range depIDs {
-		ensure(id, b.epDay[id], b.depProse[id])
+		ensure(id, b.epDay[id], depEpisodeText(b.depVersion[id], b.depProse[id]))
 	}
 
 	// Home every fact into its episode as a structured Event (so loom-C2a's
@@ -531,6 +543,20 @@ func policyEpisodeText(snap *Snapshot) string {
 		p = "Deprecated features are removed on a fixed schedule tied to the release series."
 	}
 	return "Django deprecation policy. " + p
+}
+
+// depEpisodeText restores the versioned release-note heading the real Django
+// docs publish deprecations under ("Django 6.1 release notes — features
+// deprecated in 6.1"), so the deprecated_in fact's version argument is
+// lexically present in the text (as in the real source), not only in the
+// structured payload. Composition is unaffected: the REMOVAL version is still
+// derived from the policy + calendar, never stated here.
+func depEpisodeText(version, prose string) string {
+	prose = strings.TrimSpace(prose)
+	if version == "" {
+		return prose
+	}
+	return fmt.Sprintf("Django %s release notes — features deprecated in %s. %s", version, version, prose)
 }
 
 func removalEpisodeText(real string) string {

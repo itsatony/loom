@@ -1,6 +1,8 @@
 package harness
 
 import (
+	"sync"
+
 	"github.com/vaudience/synthworld/gen"
 	"github.com/vaudience/synthworld/oracle"
 	"github.com/vaudience/synthworld/world"
@@ -43,6 +45,7 @@ func (c *ConstCondition) AnswerFind(SanitizedQuery) ([]string, error) { return n
 type OracleCondition struct {
 	W     *world.World
 	Stale bool // ignore supersessions: the revision-blind variant
+	mu    sync.Mutex
 	cl    map[int]*oracle.Closure
 }
 
@@ -59,6 +62,11 @@ func (o *OracleCondition) Ingest([]gen.Episode) error {
 }
 
 func (o *OracleCondition) closureAt(t int) (*oracle.Closure, error) {
+	// Query workers run concurrently (HARNESS_CONCURRENCY); the closure memo
+	// is shared, so guard it. Eval is pure, so holding the lock across it only
+	// serializes the (idempotent) first computation per day.
+	o.mu.Lock()
+	defer o.mu.Unlock()
 	if c, ok := o.cl[t]; ok {
 		return c, nil
 	}

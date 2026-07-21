@@ -98,6 +98,14 @@ func main() {
 		}
 		vocab.Relations = append(vocab.Relations, rv)
 	}
+	// Symbol catalog (entity grounding) — mirror cmd/harness so fidelity
+	// reflects the same normalization the measured conditions use.
+	for _, e := range w.Entities {
+		if e.Name != "" && e.Name != e.ID {
+			vocab.Entities = append(vocab.Entities, loom.EntityVocab{
+				ID: e.ID, Surface: e.Name, Type: string(e.Type)})
+		}
+	}
 
 	var ex loom.Extractor
 	switch *extractor {
