@@ -1987,3 +1987,67 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
     the number is the single measured comparison with per-slice detail.
   * STATUS: registered. Steps 1 (entity grounding) + 2 (this pre-registration)
     DONE. Next and final: the measured C2b-vs-strongest-C1 run.
+
+- 2026-07-21 (RUNG 1 MEASURED RUN — PRELIMINARY; NO VERDICT; the run TRIPPED
+  the pre-registered HARNESS-INVALID clause — a systematic instrument
+  under-rendering gap discovered mid-run. Model gpt-5-mini, reasoning_effort
+  low, temperature omitted; retriever family bm25 + c1c-longcontext;
+  HARNESS_RAG_K 8; cassettes local under cassettes/rung1-django-gpt5mini{,-v2};
+  results/rung1-django/gpt5mini{,-v2}.{json,stdout.txt}). Two runs:
+  * RUN 1 (pre-fix corpus): every text-consuming condition floored on
+    repetition positives — INCLUDING c1c-longcontext (0/6), the strongest
+    possible answerer (whole episode stream in-context). A full-context LLM
+    unable to answer STATED facts is the textbook HARNESS-INVALID signature.
+    ROOT CAUSE: the per-symbol deprecation episodes carried real Django prose
+    ("X is deprecated") but NOT the version — the deprecated_in fact's version
+    argument lived only in the structured payload. oracle/C2a scored rep 6/6
+    (they read structure); every text condition was blind to which release a
+    deprecation belonged to. FIX (faithful, not a retrofit — real Django docs
+    publish deprecations under a versioned heading): restore "Django 6.1
+    release notes — features deprecated in 6.1. …" to the episode text.
+    Handicaps no condition; committed e94db07fa.
+  * RUN 2 (version-fixed corpus): repetition CURED — loom-c2b rep+ 0/6→6/6
+    (the substrate DOES compile base facts from real prose, entity grounding
+    working). But the SAME class of gap remains on the other two slices:
+    - COMPOSITION: loom-c2b comp+ 0/6 vs rag-bm25 6/6, c1c 5/6. The query
+      removal_target(sym, 7.0) needs the release SCHEDULE — deprecation_target
+      (6.1→7.0), is_major, even the string "7.0" — NONE of which is in any
+      episode text (structured scaffolding only). RAG/c1c answer by REASONING
+      over the policy prose ("removed in the next major") + "deprecated in
+      6.1", computing 7.0 arithmetically. C2b cannot: version arithmetic
+      ("next major = +1") is not expressible as a Horn rule, and the schedule
+      facts that WOULD let it derive removal are not in text to extract. Trace
+      confirms: from 24 episodes the LLM extracted 2 rule candidates (one
+      committed, one quarantined "unsafe: conclusion var not bound") and the
+      removal supersession was NEVER extracted.
+    - REVISION: loom-c2b flip 0/7 (pure stale signature) vs c1c 6/7. The
+      removal episode states "X is removed" (so c1c reasons the flip) but never
+      states the availability-policy SUPERSESSION, so C2b has no supersession/
+      rule-revision to compile.
+  * DIAGNOSIS (systematic, not three coincidences): cmd/apiimport
+    under-renders structured content into episode TEXT. It passed LLM-free
+    validation because C2a/oracle read the structured payload; but a fair C2b
+    test requires that every structured item the oracle uses — facts (incl.
+    version + schedule), the stated policy rule, and the supersession — be
+    faithfully present in prose, as a real corpus would have. Fidelity by-ID
+    P/R is uninformative here (real prose has no fact IDs, so the LLM invents
+    them → 0 exact by construction; exactly the red-team Q3 reason fidelity is
+    coarse-diagnostic-only). The atom-level slice scores are the truth.
+  * NO VERDICT RECORDED. Per §11 the falsifying experiment is not rushed and
+    the instrument must be fair before a number counts. TWO decisions for Toni
+    before the fair re-run:
+    (D1) FAITHFULNESS PASS: render the release schedule (deprecation_target,
+    is_major — Django's public version sequence) into the calendar episode,
+    and the removal-day policy supersession into the removal episode, so C2b
+    can extract the composition + revision machinery. Faithful and objective;
+    keeps removal_target a genuine 2-episode JOIN (composition), not a stated
+    answer. Recommended.
+    (D2) THESIS-SCOPING (genuine, not mechanical): real deprecation policy
+    ("removed in the next major") is VERSION ARITHMETIC. The v0 substrate can
+    represent it ONLY if the schedule is pre-enumerated as facts; a free-form
+    reasoner (RAG/c1c) does the arithmetic on the fly. Is pre-enumerating the
+    schedule in text a FAIR corpus (testing "does the substrate compose stated
+    items?"), or is the substrate's inability to do arithmetic itself part of
+    the finding (a real limit of compile-to-Horn-rules vs keep-text-and-reason
+    on this domain)? This bears on whether Rung 1's composition should be
+    schedule-fact JOINs (substrate-fair) or left as arithmetic (RAG-favoring).

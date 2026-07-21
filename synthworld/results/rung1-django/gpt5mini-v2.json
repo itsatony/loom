@@ -1,0 +1,503 @@
+[
+  {
+    "condition": "always-true",
+    "repetition": {
+      "pos_correct": 6,
+      "pos_total": 6,
+      "neg_correct": 0,
+      "neg_total": 6
+    },
+    "composition": {
+      "pos_correct": 6,
+      "pos_total": 6,
+      "neg_correct": 0,
+      "neg_total": 6
+    },
+    "find": {
+      "exact_matches": 0,
+      "total": 1,
+      "micro_p": 0,
+      "micro_r": 0,
+      "micro_f1": 0
+    },
+    "revision": {
+      "flip_correct": 0,
+      "flip_total": 7,
+      "retain_correct": 8,
+      "retain_total": 8,
+      "stale_agreements": 7
+    },
+    "errors": 0,
+    "per_depth": {
+      "1": {
+        "pos_correct": 6,
+        "pos_total": 6,
+        "neg_correct": 0,
+        "neg_total": 6
+      }
+    }
+  },
+  {
+    "condition": "always-false",
+    "repetition": {
+      "pos_correct": 0,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "composition": {
+      "pos_correct": 0,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "find": {
+      "exact_matches": 0,
+      "total": 1,
+      "micro_p": 0,
+      "micro_r": 0,
+      "micro_f1": 0
+    },
+    "revision": {
+      "flip_correct": 7,
+      "flip_total": 7,
+      "retain_correct": 0,
+      "retain_total": 8,
+      "stale_agreements": 0
+    },
+    "errors": 0,
+    "per_depth": {
+      "1": {
+        "pos_correct": 0,
+        "pos_total": 6,
+        "neg_correct": 6,
+        "neg_total": 6
+      }
+    }
+  },
+  {
+    "condition": "episode-grep",
+    "repetition": {
+      "pos_correct": 6,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "composition": {
+      "pos_correct": 0,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "find": {
+      "exact_matches": 0,
+      "total": 1,
+      "micro_p": 0,
+      "micro_r": 0,
+      "micro_f1": 0
+    },
+    "revision": {
+      "flip_correct": 7,
+      "flip_total": 7,
+      "retain_correct": 0,
+      "retain_total": 8,
+      "stale_agreements": 0
+    },
+    "errors": 0,
+    "per_depth": {
+      "1": {
+        "pos_correct": 0,
+        "pos_total": 6,
+        "neg_correct": 6,
+        "neg_total": 6
+      }
+    }
+  },
+  {
+    "condition": "stale-oracle",
+    "repetition": {
+      "pos_correct": 6,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "composition": {
+      "pos_correct": 6,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "find": {
+      "exact_matches": 1,
+      "total": 1,
+      "micro_p": 1,
+      "micro_r": 1,
+      "micro_f1": 1
+    },
+    "revision": {
+      "flip_correct": 0,
+      "flip_total": 7,
+      "retain_correct": 8,
+      "retain_total": 8,
+      "stale_agreements": 7
+    },
+    "errors": 0,
+    "per_depth": {
+      "1": {
+        "pos_correct": 6,
+        "pos_total": 6,
+        "neg_correct": 6,
+        "neg_total": 6
+      }
+    }
+  },
+  {
+    "condition": "oracle",
+    "repetition": {
+      "pos_correct": 6,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "composition": {
+      "pos_correct": 6,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "find": {
+      "exact_matches": 1,
+      "total": 1,
+      "micro_p": 1,
+      "micro_r": 1,
+      "micro_f1": 1
+    },
+    "revision": {
+      "flip_correct": 7,
+      "flip_total": 7,
+      "retain_correct": 8,
+      "retain_total": 8,
+      "stale_agreements": 0
+    },
+    "errors": 0,
+    "per_depth": {
+      "1": {
+        "pos_correct": 6,
+        "pos_total": 6,
+        "neg_correct": 6,
+        "neg_total": 6
+      }
+    }
+  },
+  {
+    "condition": "loom-C2a",
+    "repetition": {
+      "pos_correct": 6,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "composition": {
+      "pos_correct": 6,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "find": {
+      "exact_matches": 1,
+      "total": 1,
+      "micro_p": 1,
+      "micro_r": 1,
+      "micro_f1": 1
+    },
+    "revision": {
+      "flip_correct": 7,
+      "flip_total": 7,
+      "retain_correct": 8,
+      "retain_total": 8,
+      "stale_agreements": 0
+    },
+    "errors": 0,
+    "per_depth": {
+      "1": {
+        "pos_correct": 6,
+        "pos_total": 6,
+        "neg_correct": 6,
+        "neg_total": 6
+      }
+    }
+  },
+  {
+    "condition": "loom-c2b-det",
+    "repetition": {
+      "pos_correct": 0,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "composition": {
+      "pos_correct": 0,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "find": {
+      "exact_matches": 0,
+      "total": 1,
+      "micro_p": 0,
+      "micro_r": 0,
+      "micro_f1": 0
+    },
+    "revision": {
+      "flip_correct": 7,
+      "flip_total": 7,
+      "retain_correct": 0,
+      "retain_total": 8,
+      "stale_agreements": 0
+    },
+    "errors": 0,
+    "per_depth": {
+      "1": {
+        "pos_correct": 0,
+        "pos_total": 6,
+        "neg_correct": 6,
+        "neg_total": 6
+      }
+    }
+  },
+  {
+    "condition": "c0-no-memory",
+    "repetition": {
+      "pos_correct": 1,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "composition": {
+      "pos_correct": 0,
+      "pos_total": 6,
+      "neg_correct": 3,
+      "neg_total": 6
+    },
+    "find": {
+      "exact_matches": 0,
+      "total": 1,
+      "micro_p": 0,
+      "micro_r": 0,
+      "micro_f1": 0
+    },
+    "revision": {
+      "flip_correct": 7,
+      "flip_total": 7,
+      "retain_correct": 2,
+      "retain_total": 8,
+      "stale_agreements": 0
+    },
+    "errors": 0,
+    "per_depth": {
+      "1": {
+        "pos_correct": 0,
+        "pos_total": 6,
+        "neg_correct": 3,
+        "neg_total": 6
+      }
+    },
+    "usage": {
+      "calls": 40,
+      "errors": 0,
+      "cache_hits": 8,
+      "spent_prompt_tokens": 5380,
+      "spent_completion_tokens": 1216,
+      "replayed_prompt_tokens": 1420,
+      "replayed_completion_tokens": 592
+    }
+  },
+  {
+    "condition": "rag-bm25",
+    "repetition": {
+      "pos_correct": 6,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "composition": {
+      "pos_correct": 6,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "find": {
+      "exact_matches": 0,
+      "total": 1,
+      "micro_p": 0,
+      "micro_r": 0,
+      "micro_f1": 0
+    },
+    "revision": {
+      "flip_correct": 7,
+      "flip_total": 7,
+      "retain_correct": 4,
+      "retain_total": 8,
+      "stale_agreements": 0
+    },
+    "errors": 0,
+    "per_depth": {
+      "1": {
+        "pos_correct": 6,
+        "pos_total": 6,
+        "neg_correct": 6,
+        "neg_total": 6
+      }
+    },
+    "usage": {
+      "calls": 40,
+      "errors": 0,
+      "cache_hits": 8,
+      "spent_prompt_tokens": 30532,
+      "spent_completion_tokens": 10624,
+      "replayed_prompt_tokens": 7630,
+      "replayed_completion_tokens": 2384
+    }
+  },
+  {
+    "condition": "c1c-longcontext",
+    "repetition": {
+      "pos_correct": 6,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "composition": {
+      "pos_correct": 5,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "find": {
+      "exact_matches": 0,
+      "total": 1,
+      "micro_p": 0,
+      "micro_r": 0,
+      "micro_f1": 0
+    },
+    "revision": {
+      "flip_correct": 6,
+      "flip_total": 7,
+      "retain_correct": 7,
+      "retain_total": 8,
+      "stale_agreements": 1
+    },
+    "errors": 0,
+    "per_depth": {
+      "1": {
+        "pos_correct": 5,
+        "pos_total": 6,
+        "neg_correct": 6,
+        "neg_total": 6
+      }
+    },
+    "usage": {
+      "calls": 40,
+      "errors": 0,
+      "cache_hits": 8,
+      "spent_prompt_tokens": 73156,
+      "spent_completion_tokens": 7424,
+      "replayed_prompt_tokens": 18364,
+      "replayed_completion_tokens": 1616
+    }
+  },
+  {
+    "condition": "d6-perfect-retrieval",
+    "repetition": {
+      "pos_correct": 5,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "composition": {
+      "pos_correct": 6,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "find": {
+      "exact_matches": 0,
+      "total": 1,
+      "micro_p": 0,
+      "micro_r": 0,
+      "micro_f1": 0
+    },
+    "revision": {
+      "flip_correct": 7,
+      "flip_total": 7,
+      "retain_correct": 3,
+      "retain_total": 8,
+      "stale_agreements": 0
+    },
+    "errors": 0,
+    "per_depth": {
+      "1": {
+        "pos_correct": 6,
+        "pos_total": 6,
+        "neg_correct": 6,
+        "neg_total": 6
+      }
+    },
+    "usage": {
+      "calls": 40,
+      "errors": 0,
+      "cache_hits": 8,
+      "spent_prompt_tokens": 18471,
+      "spent_completion_tokens": 8137,
+      "replayed_prompt_tokens": 3292,
+      "replayed_completion_tokens": 80
+    }
+  },
+  {
+    "condition": "loom-c2b",
+    "repetition": {
+      "pos_correct": 6,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "composition": {
+      "pos_correct": 0,
+      "pos_total": 6,
+      "neg_correct": 6,
+      "neg_total": 6
+    },
+    "find": {
+      "exact_matches": 0,
+      "total": 1,
+      "micro_p": 0,
+      "micro_r": 0,
+      "micro_f1": 0
+    },
+    "revision": {
+      "flip_correct": 0,
+      "flip_total": 7,
+      "retain_correct": 7,
+      "retain_total": 8,
+      "stale_agreements": 7
+    },
+    "errors": 0,
+    "per_depth": {
+      "1": {
+        "pos_correct": 0,
+        "pos_total": 6,
+        "neg_correct": 6,
+        "neg_total": 6
+      }
+    },
+    "usage": {
+      "calls": 24,
+      "errors": 0,
+      "cache_hits": 3,
+      "spent_prompt_tokens": 42619,
+      "spent_completion_tokens": 17139,
+      "replayed_prompt_tokens": 6108,
+      "replayed_completion_tokens": 3826
+    }
+  }
+]
