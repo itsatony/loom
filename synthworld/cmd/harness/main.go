@@ -88,6 +88,18 @@ func main() {
 		}
 		vocab.Relations = append(vocab.Relations, rv)
 	}
+	// Symbol catalog (spec §5 entity grounding): seeded ONLY when the world's
+	// entities carry surface names distinct from their IDs (real-domain
+	// datasets). Synthetic v0/frames worlds surface raw IDs (name empty) ⇒
+	// catalog stays empty ⇒ extraction prompts and normalization are
+	// byte-identical to the pre-catalog behavior, keeping frozen campaigns
+	// reproducible.
+	for _, e := range w.Entities {
+		if e.Name != "" && e.Name != e.ID {
+			vocab.Entities = append(vocab.Entities, loom.EntityVocab{
+				ID: e.ID, Surface: e.Name, Type: string(e.Type)})
+		}
+	}
 	pipelineWorkers := 1
 	if v := os.Getenv("HARNESS_CONCURRENCY"); v != "" {
 		fmt.Sscanf(v, "%d", &pipelineWorkers)

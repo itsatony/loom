@@ -1867,3 +1867,123 @@ arithmetic after 2026-07-06 gets a dated entry with rationale here.)*
     built and validated on real text; the one pipeline gap for real corpora
     (entity grounding) is localized and actionable. Rung 1 is execution-ready
     pending domain ratification.
+
+- 2026-07-21 (RUNG 1 INSTRUMENT — LOCKED; corpus + domain RATIFIED by Toni;
+  new code `cmd/apiimport`, no existing package touched; commit 75ed87738).
+  DOMAIN: real API version-history / deprecations. CORPUS: Django, pinned at
+  6.1b1 (2026-06-24). Two Toni decisions gated the lock and both strengthen
+  the experiment: (a) all deprecation content is post-March-2026 → post the
+  Jan-2026 model cutoff → red-team P0.2 (C1 parametric leakage) is
+  STRUCTURALLY scrubbed, not just argued: no model under test can recall
+  these version boundaries from pretraining. (b) domain = "any highly-active
+  OSS with a formal deprecation policy"; a URL-verified feasibility gate
+  (Django / SQLAlchemy / NumPy / Kubernetes, every post-March-2026 claim
+  checked against live release notes by a research agent, not memory)
+  selected DJANGO UNIQUELY: it is the only candidate with an ARITHMETIC
+  deprecation policy — "deprecated in A.x → removed in the next major .0, or
+  .1 if A.x is the last release of the series." That is a genuine STATED Horn
+  rule, so "in which version is X removed?" composes across DISJOINT passages
+  (deprecation note + release calendar + policy), which is exactly the answer
+  to red-team Q2 (a multi-hop fact JOIN ≠ rule-derivation): Rung 1 keeps
+  stated-rule composition in scope, so it does NOT quietly narrow the
+  falsification.
+  * MAPPING (real Django 6.1 + 5.2 release-note prose → the standard 4-file
+    dataset): version = effective date; deprecated_in = base fact; removal =
+    supersession (the derived `available()` atom flips OFF); removal_target
+    (depth-1) + blocked_upgrade (depth-2) = the policy composition; deprecated-
+    not-removed symbols + stable symbols = paired RETAINED controls (punish
+    over-revision). Composition ANSWERS are varied (5.2-dep→6.1, 6.1-dep→7.0)
+    so no guessable constant. Size: 51 entities / 24 episodes / 40 queries
+    (12 rep, 12 comp + 1 find, 15 rev = 7 flip + 8 retained); 34 tracked
+    symbols (13 dep-in-6.1→removed-7.0; 7 removed-in-6.1 [dep 5.2]→6.1; 14
+    stable). Sources URL-cited in `cmd/apiimport/snapshot.json`; build path is
+    network-free → byte-identical.
+  * GATES (independently re-run): gofmt/vet clean; `cmd/validate` OK;
+    determinism byte-identical; §5 DIAGNOSTIC PATTERN reproduces EXACTLY on
+    real prose (loom-C2a == oracle every cell; stale-oracle fails EXACTLY the
+    7 flips [0/7] and holds retained [8/8]; episode-grep right-for-wrong-reason
+    on flips [7/7] caught by retained controls [0/8]); find 1/1 for
+    oracle/C2a. RED-TEAM P0.1 RESOLVED empirically: prov probe BM25 revision
+    full-coverage 0/15 at BOTH k=4 and k=8 (15/15 only at k=16) — Django
+    changelog-vs-usage vocabulary is genuinely DISJOINT, the OPPOSITE of
+    Rung-0's co-located office-holders. A real RAG battleground, correctly a
+    falsifying rung.
+
+- 2026-07-21 (ENTITY GROUNDING — additive symbol catalog; the Rung-0 finding
+  closed; loom + world + cmd/apiimport + cmd/harness; VERIFIED LLM-FREE before
+  any measured token). Rung 0 surfaced the one real-corpus pipeline gap: the
+  LLM extractor emits surface-form entity mentions from prose
+  (`django.utils.functional.lazy_property`) while the world keys atoms by
+  opaque IDs (`sym_django_utils_functional_lazy_property`), so extracted atoms
+  miss ground truth. FIX (spec §5 normalization, "exact alias first"):
+  * `world.Entity` gains `Name string json:"name,omitempty"` — the surface
+    form. Synthetic v0/frames worlds never set it (their text carries raw IDs)
+    → omitempty keeps their world.json BYTE-IDENTICAL (verified: sample-dataset
+    git-clean, 0 entity names; seed-42 double-generate diff empty).
+  * `loom.Vocabulary` gains `Entities []EntityVocab{ID,Surface,Type}` — the
+    seeded SYMBOL CATALOG (schema, never facts/rules; says which names EXIST,
+    not what is true). Empty for v0/frames.
+  * Grounding is applied at NORMALIZATION (fact args + rule/find pattern
+    constants) via `Pipeline.groundEntity`: exact match on surface OR canonical
+    ID (idempotent for ID-emitting extractors), then a single-hit word-alias
+    fallback. Empty catalog ⇒ identity ⇒ v0/frames behavior unchanged. An
+    ungrounded value is committed AS-IS (never silently dropped) and noted in
+    the item trace → it surfaces as a fidelity miss, not a silent wrong answer.
+  * The LLM extractor prompt renders the catalog block ONLY when non-empty
+    (`entityCatalogBlock`) so v0/frames user messages stay byte-identical →
+    frozen cassettes reproduce. The harness seeds `vocab.Entities` from
+    `w.Entities` ONLY for entities whose Name ≠ "" and ≠ ID.
+  * VERIFIED: gofmt/vet/build clean; all loom/world/harness unit tests pass;
+    v0 determinism byte-identical; sample-dataset unchanged; Django §5
+    diagnostic pattern reproduces EXACTLY with the catalog wired in (C2a still
+    == oracle every cell — C2a is structured ingest, already canonical). The
+    change is strictly additive; NO frozen v0/frames campaign is perturbed.
+
+- 2026-07-21 (RUNG 1 MEASURED RUN — PRE-REGISTERED OPERATIONAL DEFINITIONS;
+  registered BEFORE any LLM token touches the Django corpus, per §11). This
+  entry FIXES every degree of freedom of the falsifying run so the result
+  cannot be reverse-fit.
+  * KILL CRITERION (§7 VERBATIM, Rung-1 instance — UNCHANGED, UNSOFTENED):
+    "If C2b does not beat the strongest C1 on the composition slice by ≥15pp
+    at equal-or-better repetition performance, the compiled-substrate bet in
+    its v0 form is falsified." Composition = the `composition` slice positives
+    accuracy (holds+ ∪ find exact-set); repetition = `repetition` slice
+    accuracy. "Equal-or-better repetition" = C2b repetition ≥ strongest-C1
+    repetition (no tolerance band — a repetition regression voids the comp win).
+  * CONDITIONS RUN (Django is v0-shaped, no frames): LLM-free anchors
+    (always-true/false, episode-grep, oracle, stale-oracle, loom-C2a) + LLM
+    conditions c0-no-memory (C0 floor), rag-<retriever> (C1 RAG), c1c-
+    longcontext (C1c), d6 (perfect-retrieval DIAGNOSTIC), loom-c2b (THE
+    condition under test). All conditions see SanitizedQuery only.
+  * "STRONGEST C1" (the kill-criterion denominator) = the MAXIMUM composition+
+    accuracy over the C1 FAMILY actually run = {rag-bm25, and rag-embed /
+    rag-hybrid / rag-tmr IF embedding infra is reachable, and c1c-longcontext}.
+    c1c-longcontext (full episode stream in-context, zero retrieval loss) is
+    the a-priori strongest and is MANDATORY in the family (§10 scenario E7:
+    the strongest-C1 definition MUST include C1c). D6 (perfect retrieval over
+    the query's OWN provenance episodes) is a DIAGNOSTIC CEILING, NOT a C1
+    baseline — it consumes ground-truth retrieval a real system cannot have —
+    so D6 is EXCLUDED from the kill arithmetic and reported only to attribute
+    any C1 deficit to retrieval (D6≈oracle) vs reasoning (D6≪oracle).
+  * MODEL: a SINGLE model powers every LLM role (C2b extraction AND C0/C1/C1c
+    answering) so the comparison is model-fair — the substrate's only
+    advantage must be compilation, not a better answerer. Primary =
+    `gpt-5-mini` (matches the accepted frames C2b leg + the Rung-0 smoke test;
+    frontier-class, post-cutoff-safe on this corpus). Retriever = the C1 family
+    above; HARNESS_RAG_K default 8.
+  * FIDELITY is COARSE DIAGNOSTIC ONLY (red-team Q3: span-grounded fidelity is
+    circular). Compilation-fidelity P/R vs world.json is reported to EXPLAIN a
+    C2b result (what the extractor got right/wrong per item type), NEVER as a
+    pass/fail endpoint and NEVER in the kill arithmetic. The LLM-free slice
+    scores carry the falsification.
+  * CASSETTE PROTOCOL: all LLM calls cached; the measured verdict is computed
+    from the recorded cassettes and re-runnable offline (mode=replay). No
+    retry-until-pass: the first complete run at the pinned model is the result.
+  * DECISION: verdict ∈ {PASS (comp lift ≥15pp at ≥ rep — bet NOT falsified on
+    real text), FAIL (bet falsified in v0 form — written up with equal care,
+    §11), or HARNESS-INVALID (if the §5 diagnostic pattern does not reproduce
+    on the run's own stream — fix the harness, no number trusted)}. Reported
+    per-seed is N/A: Rung 1 is a single pinned real corpus (not a seed batch);
+    the number is the single measured comparison with per-slice detail.
+  * STATUS: registered. Steps 1 (entity grounding) + 2 (this pre-registration)
+    DONE. Next and final: the measured C2b-vs-strongest-C1 run.

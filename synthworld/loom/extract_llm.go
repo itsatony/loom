@@ -80,8 +80,8 @@ type llmCandidateEnvelope struct {
 }
 
 func (e *LLMExtractor) Extract(ep gen.Episode) ([]Candidate, []string, error) {
-	user := fmt.Sprintf("Relation vocabulary (name: slots):\n%s\nEpisode text:\n%s\n\nExtract all items as JSON.",
-		e.vocabLines(), ep.Text)
+	user := fmt.Sprintf("Relation vocabulary (name: slots):\n%s\n%sEpisode text:\n%s\n\nExtract all items as JSON.",
+		e.vocabLines(), entityCatalogBlock(e.vocabRef), ep.Text)
 	out, err := e.LLM.Complete(context.Background(), extractSystemPrompt, user)
 	if err != nil {
 		return nil, nil, fmt.Errorf("episode %s: %w", ep.ID, err)
@@ -139,6 +139,31 @@ func vocabPromptLines(v Vocabulary) string {
 	for _, r := range rels {
 		fmt.Fprintf(&b, "- %s: %s\n", r.Name, strings.Join(r.Slots, ", "))
 	}
+	return b.String()
+}
+
+// entityCatalogBlock renders the seeded symbol catalog for the prompt so the
+// extractor emits CANONICAL entity IDs, not surface forms. Returns "" when the
+// vocabulary carries no catalog (v0/frames): the user message is then
+// byte-identical to the pre-catalog prompt, so those datasets' cassettes stay
+// reproducible. Entries are sorted for a deterministic (cacheable) prompt.
+func entityCatalogBlock(v Vocabulary) string {
+	if len(v.Entities) == 0 {
+		return ""
+	}
+	ents := append([]EntityVocab(nil), v.Entities...)
+	sort.Slice(ents, func(i, j int) bool {
+		if ents[i].Surface != ents[j].Surface {
+			return ents[i].Surface < ents[j].Surface
+		}
+		return ents[i].ID < ents[j].ID
+	})
+	var b strings.Builder
+	b.WriteString("Entity catalog — every entity mention in the text maps to exactly one id below. In args values, output the id (right side), never the surface form (left side):\n")
+	for _, e := range ents {
+		fmt.Fprintf(&b, "- %s => %s\n", e.Surface, e.ID)
+	}
+	b.WriteString("\n")
 	return b.String()
 }
 

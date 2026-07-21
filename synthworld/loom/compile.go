@@ -34,8 +34,29 @@ type RelationVocab struct {
 	Slots []string `json:"slots"`
 }
 
+// EntityVocab is one entry in the seeded SYMBOL CATALOG (spec §5
+// normalization, "exact alias first"): the canonical world entity ID paired
+// with the surface form used in episode text. In production a domain schema
+// ships with such a catalog (a symbol table, a term glossary); in the
+// experiment the harness seeds it from the dataset's entity table. Like the
+// relation vocabulary it is schema, never facts/rules — it says which names
+// EXIST, not what is true of them.
+type EntityVocab struct {
+	ID      string `json:"id"`
+	Surface string `json:"surface"`
+	Type    string `json:"type"`
+}
+
 type Vocabulary struct {
 	Relations []RelationVocab `json:"relations"`
+	// Entities is the optional symbol catalog. Empty for synthetic v0/frames
+	// datasets (their episode text carries raw entity IDs, so no grounding is
+	// needed) — when empty, extraction prompts and normalization are
+	// byte-identical to the pre-catalog behavior, keeping the frozen v0/frames
+	// campaigns reproducible. A real-domain dataset populates it so the
+	// extractor can map surface mentions ("django.utils.functional") back to
+	// canonical IDs ("sym_django_utils_functional").
+	Entities []EntityVocab `json:"entities,omitempty"`
 }
 
 // byName resolves a surface relation name to its vocabulary entry.
@@ -257,6 +278,11 @@ type Pipeline struct {
 
 	// surfaceToID is the inverted FrameNames map, built lazily.
 	surfaceToID map[string]string
+	// entityAlias maps a surface entity mention (and each canonical ID to
+	// itself, so an extractor that already emits IDs is idempotent) to the
+	// canonical world entity ID. Built lazily from Vocab.Entities; nil/empty
+	// when the dataset ships no symbol catalog ⇒ grounding is identity.
+	entityAlias map[string]string
 	// provisionalFrames tracks frames auto-registered from a reference
 	// without a declaration; only these may be upgraded by a later
 	// declaration (a DECLARED frame is immutable — basis/kind are set at
@@ -508,6 +534,50 @@ func (p *Pipeline) resolveFrame(surface string) string {
 	return s
 }
 
+// groundEntity maps a surface entity mention to its canonical world ID via
+// the seeded symbol catalog (spec §5 normalization). Resolution order: exact
+// match on surface OR canonical ID (idempotent for ID-emitting extractors),
+// then a single-hit word-alias fallback for decorated mentions ("the
+// lazy_property helper"). Returns (canonical, true) on a hit; (input, false)
+// when unresolved. When the vocabulary carries NO catalog the map is empty
+// and grounding is identity (input, true) — v0/frames behavior unchanged.
+func (p *Pipeline) groundEntity(v string) (string, bool) {
+	if v == "" || strings.HasPrefix(v, "?") { // empty or variable: nothing to ground
+		return v, true
+	}
+	if p.entityAlias == nil {
+		p.entityAlias = map[string]string{}
+		for _, e := range p.Vocab.Entities {
+			p.entityAlias[e.ID] = e.ID
+			if e.Surface != "" {
+				p.entityAlias[e.Surface] = e.ID
+			}
+		}
+	}
+	if len(p.entityAlias) == 0 {
+		return v, true // no catalog: identity, prompts/behavior unchanged
+	}
+	if id, ok := p.entityAlias[v]; ok {
+		return id, true
+	}
+	// Word-alias fallback: exactly one catalog surface appears as a word in
+	// the mention ⇒ resolve to it; ambiguity or none falls through.
+	var hit string
+	n := 0
+	for surface, id := range p.entityAlias {
+		if surface != "" && surface != id && containsWord(v, surface) {
+			if n == 0 || id != hit {
+				hit = id
+				n++
+			}
+		}
+	}
+	if n == 1 {
+		return hit, true
+	}
+	return v, false
+}
+
 // containsWord reports whether sub occurs in s on word boundaries.
 func containsWord(s, sub string) bool {
 	for i := 0; i+len(sub) <= len(s); i++ {
@@ -657,6 +727,18 @@ func (p *Pipeline) commitFactCand(cand Candidate, prov Provenance, rep *CompileR
 		it.Verdict, it.Detail = VDropped, err.Error()
 		return it
 	}
+	// Entity grounding (spec §5 normalization): map surface mentions to
+	// canonical IDs via the seeded catalog. Identity when no catalog. An
+	// ungrounded value is committed as-is (never silently dropped) but noted
+	// — it will not match a canonical-ID query, surfacing as a fidelity miss.
+	var ungrounded []string
+	for slot, val := range args {
+		if g, ok := p.groundEntity(val); ok {
+			args[slot] = g
+		} else {
+			ungrounded = append(ungrounded, slot+"="+val)
+		}
+	}
 	frameID := p.resolveFrame(fc.Frame)
 	// Block facts are frame-delta mechanics; a block homed in actual is a
 	// schema violation the evaluator would reject — quarantineable content
@@ -706,6 +788,9 @@ func (p *Pipeline) commitFactCand(cand Candidate, prov Provenance, rep *CompileR
 	}
 	rep.Facts++
 	it.Verdict = verdict
+	if len(ungrounded) > 0 {
+		it.Detail = "ungrounded entities: " + strings.Join(ungrounded, ", ")
+	}
 	return it
 }
 
@@ -826,7 +911,10 @@ func (p *Pipeline) normalizePatterns(cands []PatternCand) ([]world.PatternAtom, 
 			if strings.HasPrefix(val, "?") {
 				args[slot] = world.V(strings.TrimPrefix(val, "?"))
 			} else {
-				args[slot] = world.C(val)
+				// Ground constant entity mentions to canonical IDs (identity
+				// when no catalog); unresolved values pass through unchanged.
+				g, _ := p.groundEntity(val)
+				args[slot] = world.C(g)
 			}
 		}
 		if len(args) != len(rv.Slots) {

@@ -164,7 +164,9 @@ func (b *builder) defineRelations() {
 
 func (b *builder) addEntity(id string, t world.EntityType, name string) {
 	if _, ok := b.entities[id]; !ok {
-		b.entities[id] = world.Entity{ID: id, Type: t}
+		// Name carries the surface form into world.json so the harness can
+		// seed the S2 extractor's symbol catalog (entity grounding).
+		b.entities[id] = world.Entity{ID: id, Type: t, Name: name}
 	}
 	if name != "" {
 		b.nameOf[id] = name

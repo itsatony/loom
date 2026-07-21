@@ -16,6 +16,14 @@ type EntityType string
 type Entity struct {
 	ID   string     `json:"id"`
 	Type EntityType `json:"type"`
+	// Name is the human-readable surface form as it appears in episode text
+	// (e.g. the dotted symbol path "django.utils.functional.lazy_property"
+	// for entity id "sym_django_utils_functional_lazy_property"). Empty when
+	// the ID is itself the surface form — every synthetic v0/frames world,
+	// where episode text carries the raw entity ID (person_02). omitempty
+	// keeps those worlds' JSON byte-identical. Real-domain importers set it
+	// so the S2 extractor can be given a symbol catalog for entity grounding.
+	Name string `json:"name,omitempty"`
 }
 
 type SlotDef struct {
