@@ -1,0 +1,225 @@
+{
+  "note": "Rung 1 corpus: REAL Django API version-history / deprecations, pinned at 6.1 (6.1b1 tagged 2026-06-24 — post model knowledge-cutoff, so parametric leakage is scrubbed). Structured fields = machine-readable ground truth (what is deprecated/removed/replaced; removal version follows from Django's arithmetic deprecation policy). Prose fields = VERBATIM Django release-note text (the natural language the C2b extractor must read). Every symbol traces to a Django docs URL. Deprecated-in-5.2 symbols were removed in 6.1 (policy: last feature release of a series -> removed in (major+1).1); deprecated-in-6.1 symbols are scheduled for removal in 7.0 (policy: removed in the next major .0). Assembled 2026-07-21 from https://docs.djangoproject.com/en/dev/releases/6.1/ , https://docs.djangoproject.com/en/5.2/releases/5.2/ , and internals/release-process (deprecation policy).",
+  "package": "django",
+  "pinned_version": "6.1b1",
+  "pin_date": "2026-06-24",
+  "policy_rule_text": "A feature release may deprecate certain features from previous releases. If a feature is deprecated in feature release A.x, it will continue to work in all A.x versions (for all versions of x) but raise warnings. Deprecated features will be removed in the B.0 release, or B.1 for features deprecated in the last A.x feature release to ensure deprecations are done over at least 2 feature releases. So, for example, if we decided to start the deprecation of a function in Django 4.2: Django 4.2 will contain a backwards-compatible replica of the function which will raise a RemovedInDjango51Warning. Django 5.0 (the version that follows 4.2) will still contain the backwards-compatible replica. Django 5.1 will remove the feature outright.",
+  "policy_url": "https://docs.djangoproject.com/en/dev/internals/release-process/#internal-release-deprecation-policy",
+  "feature_releases": [
+    {"version": "5.2", "date": "2025-04-02", "url": "https://www.djangoproject.com/weblog/2025/apr/02/django-52-released/"},
+    {"version": "6.0", "date": "2025-12-03", "url": "https://www.djangoproject.com/weblog/2025/dec/03/django-60-released/"},
+    {"version": "6.1", "date": "2026-06-24", "url": "https://www.djangoproject.com/download/"},
+    {"version": "6.2", "date": "2027-04 (planned, LTS)", "url": "https://www.djangoproject.com/download/"},
+    {"version": "7.0", "date": "2027-12 (planned)", "url": "https://www.djangoproject.com/download/"}
+  ],
+  "symbols": [
+    {
+      "id": "django.db.models.query.QuerySet.select_related(no-args)",
+      "kind": "method",
+      "deprecated_in": "6.1",
+      "replaced_by": "django.db.models.FETCH_PEERS",
+      "status_at_pin": "deprecated",
+      "deprecation_prose": "Calling select_related() with no arguments to select all non-nullable related fields is deprecated. Specify the related fields to fetch instead, or use the FETCH_PEERS fetch mode.",
+      "deprecation_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.db.models.query.QuerySet.values_list(flat=)",
+      "kind": "kwarg",
+      "deprecated_in": "6.1",
+      "status_at_pin": "deprecated",
+      "deprecation_prose": "Calling QuerySet.values_list() with flat=True and no field name is deprecated. Pass an explicit field name, like values_list(\"pk\", flat=True).",
+      "deprecation_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.db.models.fields.BLANK_CHOICE_DASH",
+      "kind": "constant",
+      "deprecated_in": "6.1",
+      "status_at_pin": "deprecated",
+      "deprecation_prose": "The undocumented django.db.models.fields.BLANK_CHOICE_DASH constant is deprecated. See the USE_BLANK_CHOICE_DASH transitional setting for migration advice.",
+      "deprecation_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.db.models.sql.compiler.SQLCompiler.quote_name_unless_alias",
+      "kind": "method",
+      "deprecated_in": "6.1",
+      "replaced_by": "django.db.models.sql.compiler.SQLCompiler.quote_name",
+      "status_at_pin": "deprecated",
+      "deprecation_prose": "The quote_name_unless_alias() method of SQLCompiler, the type of object passed as the compiler argument to the as_sql() method of expressions, is deprecated in favor of the newly introduced quote_name() method.",
+      "deprecation_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.db.transaction.savepoint",
+      "kind": "function",
+      "deprecated_in": "6.1",
+      "replaced_by": "django.db.transaction.savepoint_create",
+      "status_at_pin": "deprecated",
+      "deprecation_prose": "django.db.transaction.savepoint() is deprecated in favor of savepoint_create().",
+      "deprecation_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.db.models.Field.get_placeholder",
+      "kind": "method",
+      "deprecated_in": "6.1",
+      "replaced_by": "django.db.models.Field.get_placeholder_sql",
+      "status_at_pin": "deprecated",
+      "deprecation_prose": "The undocumented get_placeholder method of Field is deprecated in favor of the newly introduced get_placeholder_sql method, which has the same input signature but is expected to return a two-elements tuple composed of an SQL format string and a tuple of associated parameters.",
+      "deprecation_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.contrib.postgres.aggregates.BitAnd",
+      "kind": "class",
+      "deprecated_in": "6.1",
+      "replaced_by": "django.db.models.BitAnd",
+      "status_at_pin": "deprecated",
+      "deprecation_prose": "The BitAnd, BitOr, and BitXor classes in django.contrib.postgres.aggregates are deprecated in favor of the generally available BitAnd, BitOr, and BitXor classes.",
+      "deprecation_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.utils.log.AdminEmailHandler(email_backend=)",
+      "kind": "kwarg",
+      "deprecated_in": "6.1",
+      "replaced_by": "django.utils.log.AdminEmailHandler(using=)",
+      "status_at_pin": "deprecated",
+      "deprecation_prose": "The email_backend argument of log.AdminEmailHandler is deprecated in favor of the newly introduced using argument.",
+      "deprecation_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.core.mail.get_connection",
+      "kind": "function",
+      "deprecated_in": "6.1",
+      "replaced_by": "django.core.mail.mailers",
+      "status_at_pin": "deprecated",
+      "deprecation_prose": "mail.get_connection() is deprecated. See Replacing get_connection() and connection arguments for replacement options.",
+      "deprecation_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.contrib.admin.ModelAdmin.list_select_related",
+      "kind": "attribute",
+      "deprecated_in": "6.1",
+      "status_at_pin": "deprecated",
+      "deprecation_prose": "Setting ModelAdmin.list_select_related to True and returning True from ModelAdmin.get_list_select_related() are deprecated. Specify the related fields to fetch instead.",
+      "deprecation_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.conf.settings.USE_BLANK_CHOICE_DASH",
+      "kind": "constant",
+      "deprecated_in": "6.1",
+      "status_at_pin": "deprecated",
+      "deprecation_prose": "The USE_BLANK_CHOICE_DASH transitional setting is deprecated.",
+      "deprecation_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.conf.settings.SIGNED_COOKIE_LEGACY_SALT_FALLBACK",
+      "kind": "constant",
+      "deprecated_in": "6.1",
+      "status_at_pin": "deprecated",
+      "deprecation_prose": "The SIGNED_COOKIE_LEGACY_SALT_FALLBACK transitional setting is deprecated.",
+      "deprecation_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.db.models.JSONField(None-scalar-null-query)",
+      "kind": "method",
+      "deprecated_in": "6.1",
+      "replaced_by": "django.db.models.JSONNull",
+      "status_at_pin": "deprecated",
+      "deprecation_prose": "The use of None to represent a top-level JSON scalar null when querying JSONField is now deprecated in favor of the new JSONNull expression. Key and index lookups are unaffected by this deprecation.",
+      "deprecation_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.contrib.staticfiles.finders.find(all=)",
+      "kind": "kwarg",
+      "deprecated_in": "5.2",
+      "removed_in": "6.1",
+      "replaced_by": "django.contrib.staticfiles.finders.find(find_all=)",
+      "status_at_pin": "removed",
+      "deprecation_prose": "The all argument for the django.contrib.staticfiles.finders.find() function is deprecated in favor of the find_all argument.",
+      "deprecation_url": "https://docs.djangoproject.com/en/5.2/releases/5.2/#features-deprecated-in-5-2",
+      "removal_prose": "The all parameter for the django.contrib.staticfiles.finders.find() function is removed in favor of the find_all parameter.",
+      "removal_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.contrib.postgres.aggregates.ArrayAgg(ordering=)",
+      "kind": "kwarg",
+      "deprecated_in": "5.2",
+      "removed_in": "6.1",
+      "replaced_by": "django.contrib.postgres.aggregates.ArrayAgg(order_by=)",
+      "status_at_pin": "removed",
+      "deprecation_prose": "The ordering keyword argument of the PostgreSQL specific aggregation functions django.contrib.postgres.aggregates.ArrayAgg, django.contrib.postgres.aggregates.JSONBAgg, and django.contrib.postgres.aggregates.StringAgg is deprecated in favor of the order_by argument.",
+      "deprecation_url": "https://docs.djangoproject.com/en/5.2/releases/5.2/#features-deprecated-in-5-2",
+      "removal_prose": "The ordering keyword parameter of the PostgreSQL specific aggregation functions django.contrib.postgres.aggregates.ArrayAgg, django.contrib.postgres.aggregates.JSONBAgg, and django.contrib.postgres.aggregates.StringAgg are removed in favor of the order_by parameter.",
+      "removal_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.contrib.postgres.aggregates.JSONBAgg(ordering=)",
+      "kind": "kwarg",
+      "deprecated_in": "5.2",
+      "removed_in": "6.1",
+      "replaced_by": "django.contrib.postgres.aggregates.JSONBAgg(order_by=)",
+      "status_at_pin": "removed",
+      "deprecation_prose": "The ordering keyword argument of the PostgreSQL specific aggregation functions django.contrib.postgres.aggregates.ArrayAgg, django.contrib.postgres.aggregates.JSONBAgg, and django.contrib.postgres.aggregates.StringAgg is deprecated in favor of the order_by argument.",
+      "deprecation_url": "https://docs.djangoproject.com/en/5.2/releases/5.2/#features-deprecated-in-5-2",
+      "removal_prose": "The ordering keyword parameter of the PostgreSQL specific aggregation functions django.contrib.postgres.aggregates.ArrayAgg, django.contrib.postgres.aggregates.JSONBAgg, and django.contrib.postgres.aggregates.StringAgg are removed in favor of the order_by parameter.",
+      "removal_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.contrib.postgres.aggregates.StringAgg(ordering=)",
+      "kind": "kwarg",
+      "deprecated_in": "5.2",
+      "removed_in": "6.1",
+      "replaced_by": "django.contrib.postgres.aggregates.StringAgg(order_by=)",
+      "status_at_pin": "removed",
+      "deprecation_prose": "The ordering keyword argument of the PostgreSQL specific aggregation functions django.contrib.postgres.aggregates.ArrayAgg, django.contrib.postgres.aggregates.JSONBAgg, and django.contrib.postgres.aggregates.StringAgg is deprecated in favor of the order_by argument.",
+      "deprecation_url": "https://docs.djangoproject.com/en/5.2/releases/5.2/#features-deprecated-in-5-2",
+      "removal_prose": "The ordering keyword parameter of the PostgreSQL specific aggregation functions django.contrib.postgres.aggregates.ArrayAgg, django.contrib.postgres.aggregates.JSONBAgg, and django.contrib.postgres.aggregates.StringAgg are removed in favor of the order_by parameter.",
+      "removal_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.contrib.auth.login(user-fallback)",
+      "kind": "function",
+      "deprecated_in": "5.2",
+      "removed_in": "6.1",
+      "status_at_pin": "removed",
+      "deprecation_prose": "Fallbacks to request.user and request.auser() when user is None in django.contrib.auth.login() and django.contrib.auth.alogin(), respectively, are deprecated.",
+      "deprecation_url": "https://docs.djangoproject.com/en/5.2/releases/5.2/#features-deprecated-in-5-2",
+      "removal_prose": "Fallbacks to request.user and request.auser() when user is None in django.contrib.auth.login() and django.contrib.auth.alogin(), respectively, are removed.",
+      "removal_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.contrib.auth.alogin(user-fallback)",
+      "kind": "function",
+      "deprecated_in": "5.2",
+      "removed_in": "6.1",
+      "status_at_pin": "removed",
+      "deprecation_prose": "Fallbacks to request.user and request.auser() when user is None in django.contrib.auth.login() and django.contrib.auth.alogin(), respectively, are deprecated.",
+      "deprecation_url": "https://docs.djangoproject.com/en/5.2/releases/5.2/#features-deprecated-in-5-2",
+      "removal_prose": "Fallbacks to request.user and request.auser() when user is None in django.contrib.auth.login() and django.contrib.auth.alogin(), respectively, are removed.",
+      "removal_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {
+      "id": "django.contrib.auth.middleware.RemoteUserMiddleware.process_request",
+      "kind": "method",
+      "deprecated_in": "5.2",
+      "removed_in": "6.1",
+      "replaced_by": "django.contrib.auth.middleware.RemoteUserMiddleware.aprocess_request",
+      "status_at_pin": "removed",
+      "deprecation_prose": "Support for subclasses of RemoteUserMiddleware that override process_request() without overriding aprocess_request() is deprecated.",
+      "deprecation_url": "https://docs.djangoproject.com/en/5.2/releases/5.2/#features-deprecated-in-5-2",
+      "removal_prose": "Support for subclasses of RemoteUserMiddleware that override process_request() without overriding aprocess_request() is removed.",
+      "removal_url": "https://docs.djangoproject.com/en/dev/releases/6.1/"
+    },
+    {"id": "django.db.transaction.savepoint_create", "kind": "function", "status_at_pin": "stable"},
+    {"id": "django.db.models.query.QuerySet.bulk_create", "kind": "method", "status_at_pin": "stable"},
+    {"id": "django.db.models.query.QuerySet.select_for_update", "kind": "method", "status_at_pin": "stable"},
+    {"id": "django.db.models.Prefetch", "kind": "class", "status_at_pin": "stable"},
+    {"id": "django.db.models.functions.Coalesce", "kind": "class", "status_at_pin": "stable"},
+    {"id": "django.db.models.functions.Greatest", "kind": "class", "status_at_pin": "stable"},
+    {"id": "django.db.models.functions.Concat", "kind": "class", "status_at_pin": "stable"},
+    {"id": "django.db.models.F", "kind": "class", "status_at_pin": "stable"},
+    {"id": "django.db.transaction.atomic", "kind": "function", "status_at_pin": "stable"},
+    {"id": "django.utils.text.slugify", "kind": "function", "status_at_pin": "stable"},
+    {"id": "django.utils.timezone.now", "kind": "function", "status_at_pin": "stable"},
+    {"id": "django.utils.html.format_html", "kind": "function", "status_at_pin": "stable"},
+    {"id": "django.core.validators.EmailValidator", "kind": "class", "status_at_pin": "stable"},
+    {"id": "django.forms.SlugField", "kind": "class", "status_at_pin": "stable"}
+  ]
+}
